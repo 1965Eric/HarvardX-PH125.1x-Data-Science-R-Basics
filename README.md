@@ -864,18 +864,18 @@ library(dplyr)
 # Use select to only show state names and abbreviations from murders
 select(murders,state,abb)
 
-state                   abb\
-<chr>                   <chr>\
-Alabama                 AL\
-Alaska                  AK\
-Arizona                 AZ\
-Arkansas                AR\
-California              CA\
-Colorado                CO\
-Connecticut             CT\
-Delaware                DE\
-District of Columbia    DC\
-Florida                 FL\
+state                   abb
+<chr>                   <chr>
+Alabama                 AL
+Alaska                  AK
+Arizona                 AZ
+Arkansas                AR
+California              CA
+Colorado                CO
+Connecticut             CT
+Delaware                DE
+District of Columbia    DC
+Florida                 FL
 1-10 of 51 rows
 ```
 4. filter
@@ -893,68 +893,57 @@ murders <- mutate(murders, rate = total/population * 100000, rank = rank(-rate))
 # Filter to show the top 5 states with the highest murder rates
 filter(murders,rate,rank<=5)
 
-state
-<chr>
-	
-abb
-<chr>
-	
-region
-<fctr>
-	
-population
-<dbl>
-	
-total
-<dbl>
-	
-rate
-<dbl>
-	
-rank
-<dbl>
-District of Columbia	DC	South	601723	99	16.452753	1
-Louisiana	LA	South	4533372	351	7.742581	2
-Maryland	MD	South	5773552	293	5.074866	4
-Missouri	MO	North Central	5988927	321	5.359892	3
-South Carolina	SC	South	4625364	207	4.475323	5
+state                   abb   region        population total  rate       rank
+<chr>                   <chr> <fctr>        <dbl>      <dbl>  <dbl>      <dbl>
+District of Columbia    DC    South         601723     99     16.452753	 1
+Louisiana               LA    South         4533372    351    7.742581	 2
+Maryland                MD    South         5773552    293    5.074866	 4
+Missouri                MO    North Central 5988927    321    5.359892	 3
+South Carolina          SC    South         4625364    207    4.475323	 5
 5 rows
 ```
-    filter with !=
-    We can remove rows using the != operator. For example to remove Florida we would do this:
+5. filter with !=
 
-    no_florida <- filter(murders, state != “Florida”)
-
+We can remove rows using the != operator. For example to remove Florida we would do this:
+```
+no_florida <- filter(murders, state != “Florida”)
+```
 Create a new data frame called no_south that removes states from the South region. How many states are in this category? You can use the function nrow for this.
-
+```
 # Use filter to create a new data frame no_south
 no_south <- filter(murders, region != 'South')
+
 # Use nrow() to calculate the number of rows
 nrow(no_south)
-
+```
+```
 ## [1] 34
-
-    filter with %in%
-    We can also use the %in% to filter with dplyr. For example you can see the data from New York and Texas like this:
-
-    filter(murders, state %in% c(“New York”, “Texas”))
-
+```
+6. filter with %in%
+    
+We can also use the %in% to filter with dplyr. For example you can see the data from New York and Texas like this:
+```
+filter(murders, state %in% c(“New York”, “Texas”))
+```
 Create a new data frame called murders_nw with only the states from the Northeast and the West. How many states are in this category?
-
+```
 # Create a new data frame called murders_nw with only the states from the northeast and the west
 murders_nw <- filter(murders, region %in% c('Northeast','West'))
+
 # Number of states (rows) in this category 
 nrow(murders_nw)
-
+```
+```
 ## [1] 22
+```
+7. filtering by two conditions
 
-    filtering by two conditions
-    Suppose you want to live in the Northeast or West and want the murder rate to be less than 1. We want to see the data for the states satisfying these options. Note that you can use logical operators with filter:
-
-    filter(murders, population < 5000000 & region == “Northeast”)
-
+Suppose you want to live in the Northeast or West and want the murder rate to be less than 1. We want to see the data for the states satisfying these options. Note that you can use logical operators with filter:
+```
+filter(murders, population < 5000000 & region == “Northeast”)
+```
 Add a murder rate column and a rank column as done before. Create a table, call it my_states, that satisfies both the conditions: it is in the Northeast or West and the murder rate is less than 1. Use select to show only the state name, the rate and the rank.
-
+```
 # add the rate column
 murders <- mutate(murders, rate =  total / population * 100000, rank = rank(-rate))
 
@@ -964,79 +953,70 @@ my_states <- filter(murders, region %in% c('Northeast','West') & rate < 1)
 # Use select to show only the state name, the murder rate and the rank
 select(my_states,state,rate,rank)
 
-state
-<chr>
-	
-rate
-<dbl>
-	
-rank
-<dbl>
-Hawaii	0.5145920	49
-Idaho	0.7655102	46
-Maine	0.8280881	44
-New Hampshire	0.3798036	50
-Oregon	0.9396843	42
-Utah	0.7959810	45
-Vermont	0.3196211	51
-Wyoming	0.8871131	43
+state           rate            rank
+<chr>           <dbl>           <dbl>
+Hawaii          0.5145920	49
+Idaho	        0.7655102	46
+Maine	        0.8280881	44
+New Hampshire   0.3798036	50
+Oregon	        0.9396843	42
+Utah	        0.7959810	45
+Vermont	        0.3196211	51
+Wyoming	        0.8871131	43
 8 rows
+```
+8. Using the pipe %>%
 
-    Using the pipe %>%
-    The pipe %>% can be used to perform operations sequentially without having to define intermediate objects. After redefining murder to include rate and rank.
-
-    library(dplyr)
-    murders <- mutate(murders, rate = total / population * 100000, rank = (-rate))
-
+The pipe %>% can be used to perform operations sequentially without having to define intermediate objects. After redefining murder to include rate and rank.
+```
+library(dplyr)
+murders <- mutate(murders, rate = total / population * 100000, rank = (-rate))
+```
 in the solution to the previous exercise we did the following:
 
 Created a table
-
-    my_states <- filter(murders, region %in% c(“Northeast”, “West”) & rate < 1)
-
+```
+my_states <- filter(murders, region %in% c(“Northeast”, “West”) & rate < 1)
+```
 Used select to show only the state name, the murder rate and the rank
-
-    select(my_states, state, rate, rank)
-
+```
+select(my_states, state, rate, rank)
+```
 The pipe %>% permits us to perform both operation sequentially and without having to define an intermediate variable my_states
 
 For example we could have mutated and selected in the same line like this:
-
-    mutate(murders, rate = total / population * 100000, rank = (-rate)) %>% select(state, rate, rank)
-
+```
+mutate(murders, rate = total / population * 100000, rank = (-rate)) %>% select(state, rate, rank)
+```
 Note that select no longer has a data frame as the first argument. The first argument is assumed to be the result of the operation conducted right before the %>%
 
 Repeat the previous exercise, but now instead of creating a new object, show the result and only include the state, rate, and rank columns. Use a pipe %>% to do this in just one line.
-
+```
 # Load library
 library(dplyr)
-
+```
+```
 ## Define the rate column
 murders <- mutate(murders, rate =  total / population * 100000, rank = rank(-rate))
-
+```
+```
 # show the result and only include the state, rate, and rank columns, all in one line
-filter(murders, region %in% c("Northeast", "West") & rate < 1 )%>% 
-    select(state, rate, rank)
+filter(murders, region %in% c("Northeast", "West") & rate < 1 ) %>% 
+select(state, rate, rank)
 
-state
-<chr>
-	
-rate
-<dbl>
-	
-rank
-<dbl>
-Hawaii	0.5145920	49
-Idaho	0.7655102	46
-Maine	0.8280881	44
+state           rate            rank
+<chr>           <dbl>           <dbl>
+Hawaii	        0.5145920	49
+Idaho	        0.7655102	46
+Maine	        0.8280881	44
 New Hampshire	0.3798036	50
-Oregon	0.9396843	42
-Utah	0.7959810	45
-Vermont	0.3196211	51
-Wyoming	0.8871131	43
+Oregon	        0.9396843	42
+Utah	        0.7959810	45
+Vermont	        0.3196211	51
+Wyoming	        0.8871131	43
 8 rows
-
-    mutate, filter and select
+```
+9. mutate, filter and select
 
 Now we will make murders the original table one gets when loading using data(murders). Use just one line to create a new data frame, called, my_states that has murder rate and rank column, consider only states in the Northeast or West, which have a murder rate lower than 1 and contain only the state, rate, and rank columns. The line should have four components separated by three %>%.
 - The original dataset murders
@@ -1045,27 +1025,26 @@ Now we will make murders the original table one gets when loading using data(mur
 - A call to select that keeps only the columns with the stata name, the murder rate and the rank.
 
 The line should look something like this my_states <- murders %>% mutate something %>% filter something %>% select something. Please, make sure the columns in the final data frame must be in the order: state, rate, rank.
-
+```
 # Loading the libraries
 library(dplyr)
 data(murders)
 
 # Create new data frame called my_states (with specifications in the instructions)
 my_states <- murders %>% mutate(rate=total/murders$population*100000, rank=rank(-rate)) %>% filter(region %in% c('Northeast','West') & rate <1) %>% select(state,rate,rank)
+```
+## Assessment 8
 
-Assessment 8
-
-    We made a plot of total murders versus population and noted a strong relationship. Not surprisingly, states with larger populations had more murders.
-
-    library(dslabs)
-    data(murders)
-    population_in_millions <- murderspopulation/106totalgunmurders<−murders
-
-    total
-    plot(population_in_millions, total_gun_murders)
-
+1. We made a plot of total murders versus population and noted a strong relationship. Not surprisingly, states with larger populations had more murders.
+```
+library(dslabs)
+data(murders)
+population_in_millions <- murders$population/10^6
+total_gun_murders <− murders$total
+plot(population_in_millions, total_gun_murders)
+```
 Keep in mind that many states have populations below 5 million and are bunched up. We may gain further insights from making this plot in the log scale. Transform the variables using the log10 transformation and then plot them.
-
+```
 # Load the datasets and define some variables
 library(dslabs)
 data(murders)
@@ -1074,6 +1053,8 @@ population_in_millions <- murders$population/10^6
 total_gun_murders <- murders$total
 
 plot(population_in_millions, total_gun_murders)
+```
+
 
 # Transform population using the log10 transformation and save to object log10_population
 log10_population <-log10(murders$population)
