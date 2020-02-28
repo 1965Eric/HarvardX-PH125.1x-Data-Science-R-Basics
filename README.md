@@ -629,13 +629,13 @@ mean(na_example[!ind])
 ## Assessment 5
 
 1. Previously we created this data frame:
-
+```
 temp <- c(35, 88, 42, 84, 81, 30)
 city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
 city_temps <- data.frame(name = city, temperature = temp)
-
+```
 Remake the data frame using the code above, but add a line that converts the temperature from Fahrenheit to Celsius. The conversion is C =5/9 ? (F ??? 32).
-
+```
 # Assign city names to `city` 
 city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
 
@@ -647,18 +647,20 @@ temp <- 5/9*(temp-32)
 
 # Create a data frame `city_temps` 
 city_temps <- data.frame(name=city,temperature=temp)
-
-    What is the following sum 1 + 1/2^2 + 1/3^2 + .1/100^2 ? Hint: thanks to Euler, we know it should be close to ??^2/6.
-
+```
+2. What is the following sum 1 + 1/2^2 + 1/3^2 + .1/100^2 ? Hint: thanks to Euler, we know it should be close to ??^2/6.
+```
 # Define an object `x` with the numbers 1 through 100
 x <- c(1:100)
+
 # Compute the sum 
 sum(1/x^2)
-
+```
+```
 ## [1] 1.634984
-
-    Compute the per 100,000 murder rate for each state and store it in the object murder_rate. Then compute the average murder rate for the US using the function mean. What is the average?
-
+```
+3. Compute the per 100,000 murder rate for each state and store it in the object murder_rate. Then compute the average murder rate for the US using the function mean. What is the average?
+```
 # Load the data
 library(dslabs)
 data(murders)
@@ -668,52 +670,51 @@ murder_rate <- murders$total/murders$population *100000
 
 # Calculate the average murder rate in the US 
 mean(murder_rate)
-
+```
+```
 ## [1] 2.779125
-
-Section 3 Overview
+```
+## Section 3 Overview
 
 Section 3 introduces to the R commands and techniques that help you wrangle, analyze, and visualize data.
 
 In Section 3.1, you will:
-
-    Subset a vector based on properties of another vector.
-    Use multiple logical operators to index vectors.
-    Extract the indices of vector elements satisfying one or more logical conditions.
-    Extract the indices of vector elements matching with another vector.
-    Determine which elements in one vector are present in another vector.
+- Subset a vector based on properties of another vector.
+- Use multiple logical operators to index vectors.
+- Extract the indices of vector elements satisfying one or more logical conditions.
+- Extract the indices of vector elements matching with another vector.
+- Determine which elements in one vector are present in another vector.
 
 In Section 3.2, you will:
-
-    Wrangle data tables using the functions in ‘dplyr’ package.
-    Modify a data table by adding or changing columns.
-    Subset rows in a data table.
-    Subset columns in a data table.
-    Perform a series of operations using the pipe operator.
-    Create data frames.
+- Wrangle data tables using the functions in ‘dplyr’ package.
+- Modify a data table by adding or changing columns.
+- Subset rows in a data table.
+- Subset columns in a data table.
+- Perform a series of operations using the pipe operator.
+- Create data frames.
 
 In Section 3.3, you will:
+- Plot data in scatter plots, box plots and histograms.
 
-    Plot data in scatter plots, box plots and histograms.
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#indexing)
 
-The textbook for this section is available here
-Assessment 6
+## Assessment 6
 
 Start by loading the library and data.
-
+```
 library(dslabs)
 data(murders)
-
-    Compute the per 100,000 murder rate for each state and store it in an object called murder_rate. Then use logical operators to create a logical vector named low that tells us which entries of murder_rate are lower than 1.
-
+```
+1. Compute the per 100,000 murder rate for each state and store it in an object called murder_rate. Then use logical operators to create a logical vector named low that tells us which entries of murder_rate are lower than 1.
+```
 # Store the murder rate per 100,000 for each state, in `murder_rate`
 murder_rate <- murders$total / murders$population * 100000
 
 # Store the `murder_rate < 1` in `low` 
 low <- murder_rate < 1
-
-    Now use the results from the previous exercise and the function which to determine the indices of murder_rate associated with values lower than 1.
-
+```
+2. Now use the results from the previous exercise and the function which to determine the indices of murder_rate associated with values lower than 1.
+```
 # Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate <- murders$total/murders$population*100000
 
@@ -722,11 +723,12 @@ low <- murder_rate < 1
 
 # Get the indices of entries that are below 1
 which(low)
-
+```
+```
 ##  [1] 12 13 16 20 24 30 35 38 42 45 46 51
-
-    Use the results from the previous exercise to report the names of the states with murder rates lower than 1.
-
+```
+3. Use the results from the previous exercise to report the names of the states with murder rates lower than 1.
+```
 # Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate <- murders$total/murders$population*100000
 
@@ -735,13 +737,14 @@ low <- murder_rate < 1
 
 # Names of states with murder rates lower than 1
 murders$state[low]
-
+```
+```
 ##  [1] "Hawaii"        "Idaho"         "Iowa"          "Maine"        
 ##  [5] "Minnesota"     "New Hampshire" "North Dakota"  "Oregon"       
 ##  [9] "South Dakota"  "Utah"          "Vermont"       "Wyoming"
-
-    Now extend the code from exercise 2 and 3 to report the states in the Northeast with murder rates lower than 1. Hint: use the previously defined logical vector low and the logical operator &.
-
+```
+4. Now extend the code from exercise 2 and 3 to report the states in the Northeast with murder rates lower than 1. Hint: use the previously defined logical vector low and the logical operator &.
+```
 # Store the murder rate per 100,000 for each state, in `murder_rate`
 murder_rate <- murders$total/murders$population*100000
 
@@ -753,11 +756,12 @@ ind <- low & murders$region=='Northeast'
 
 # Names of states in `ind` 
 murders$state[ind] 
-
+```
+```
 ## [1] "Maine"         "New Hampshire" "Vermont"
-
-    In a previous exercise we computed the murder rate for each state and the average of these numbers. How many states are below the average?
-
+```
+5. In a previous exercise we computed the murder rate for each state and the average of these numbers. How many states are below the average?
+```
 # Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate <- murders$total/murders$population*100000
 
@@ -766,11 +770,12 @@ avg <- mean(murder_rate)
 
 # How many states have murder rates below avg ? Check using sum 
 sum(murder_rate<avg)
-
+```
+```
 ## [1] 27
-
-    Use the match function to identify the states with abbreviations AK, MI, and IA. Hint: start by defining an index of the entries of murders$abb that match the three abbreviations, then use the [ operator to extract the states.
-
+```
+6. Use the match function to identify the states with abbreviations AK, MI, and IA. Hint: start by defining an index of the entries of murders$abb that match the three abbreviations, then use the [ operator to extract the states.
+```
 # Store the 3 abbreviations in abbs in a vector (remember that they are character vectors and need quotes)
 abbs <- c('AK','MI','IA')
 
@@ -779,21 +784,23 @@ ind <- match(abbs , murders$abb)
 
 # Print state names from ind
 murders$state[ind]
-
+```
+```
 ## [1] "Alaska"   "Michigan" "Iowa"
-
-    Use the %in% operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU ?
-
+```
+7. Use the %in% operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU ?
+```
 # Store the 5 abbreviations in `abbs`. (remember that they are character vectors)
 abbs <- c('MA', 'ME', 'MI', 'MO', 'MU')
 
 # Use the %in% command to check if the entries of abbs are abbreviations in the the murders data frame
 abbs%in%murders$abb
-
+```
+```
 ## [1]  TRUE  TRUE  TRUE  TRUE FALSE
-
-    Extend the code you used in exercise 7 to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.
-
+```
+8. Extend the code you used in exercise 7 to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.
+```
 # Store the 5 abbreviations in abbs. (remember that they are character vectors)
 abbs <- c("MA", "ME", "MI", "MO", "MU") 
 
@@ -802,10 +809,11 @@ ind <- which(!abbs%in%murders$abb)
 
 # What are the entries of abbs that are not actual abbreviations
 abbs[ind]
-
+```
+```
 ## [1] "MU"
-
-Assessment 7
+```
+## Assessment 7
 
 Load the dplyr package and the murders dataset.
 
@@ -852,21 +860,18 @@ library(dplyr)
 # Use select to only show state names and abbreviations from murders
 select(murders,state,abb)
 
-state
-<chr>
-	
-abb
-<chr>
-Alabama	AL
-Alaska	AK
-Arizona	AZ
-Arkansas	AR
-California	CA
-Colorado	CO
-Connecticut	CT
-Delaware	DE
-District of Columbia	DC
-Florida	FL
+state			abb\
+<chr>			<chr>\
+Alabama			AL\
+Alaska			AK\
+Arizona			AZ\
+Arkansas		AR\
+California		CA\
+Colorado		CO\
+Connecticut		CT\
+Delaware		DE\
+District of Columbia	DC\
+Florida			FL\
 1-10 of 51 rows
 
     filter
