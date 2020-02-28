@@ -85,7 +85,7 @@ n <- 1000
 x <- seq(1, n)
 sum(x)
 ```
-Based on the result, what do you think the functions seq and sum do?\
+Based on the result, what do you think the functions seq and sum do?
 - [ ] A. sum creates a list of numbers and seq adds them up.
 - [x] B. seq creates a list of numbers and sum adds them up.
 - [ ] C. seq computes the difference between two arguments and sum computes the sum of 1 through 1000.
@@ -113,7 +113,7 @@ log10(sqrt(100))
 ```
 ## [1] 1
 ```
-5. Which of the following will always return the numeric value stored in x? You can try out examples and use the help system if you want.\
+5. Which of the following will always return the numeric value stored in x? You can try out examples and use the help system if you want.
 - [ ] A. log(10^x)
 - [ ] B. log10(x^10)
 - [x] C. log(exp(x))
@@ -126,7 +126,7 @@ log10(sqrt(100))
 library(dslabs)  
 data(murders)
 ```
-Use the function str to examine the structure of the murders object. We can see that this object is a data frame with 51 rows and five columns. Which of the following best describes the variables represented in this data frame?\
+Use the function str to examine the structure of the murders object. We can see that this object is a data frame with 51 rows and five columns. Which of the following best describes the variables represented in this data frame?
 - [ ] A. The 51 states.
 - [ ] B. The murder rates for all 50 states and DC.
 - [x] C. The state name, the abbreviation of the state name, the state's region, and the state's population and total number of murders for 2010.
@@ -145,25 +145,28 @@ names(murders)
 ## [1] "state"      "abb"        "region"     "population" "total"
 ```
 3. Use the accessor $ to extract the state abbreviations and assign them to the object a. What is the class of this object?
-
+```
 # To access the population variable from the murders dataset use this code:
 p <- murders$population 
 
 # To determine the class of object `p` we use this code:
 class(p)
-
+```
+```
 ## [1] "numeric"
-
+```
+```
 # Use the accessor to extract state abbreviations and assign it to a
 a <- murders$abb
 
 # Determine the class of a
 class(a)
-
+```
+```
 ## [1] "character"
-
-    Now use the square brackets to extract the state abbreviations and assign them to the object b. Use the identical function to determine if a and b are the same.
-
+```
+4. Now use the square brackets to extract the state abbreviations and assign them to the object b. Use the identical function to determine if a and b are the same.
+```
 # We extract the population like this:
 p <- murders$population
 
@@ -172,74 +175,81 @@ o <- murders[["population"]]
 
 # We can confirm these two are the same
 identical(o, p)
-
+```
+```
 ## [1] TRUE
-
+```
+```
 # Use square brackets to extract `abb` from `murders` and assign it to b
 b<-murders[["abb"]]
 
 # Check if `a` and `b` are identical 
 identical(a, b)
-
+```
+```
 ## [1] TRUE
-
-    We saw that the region column stores a factor. You can corroborate this by typing:
-
-    class(murders$region)
-
+```
+5. We saw that the region column stores a factor. You can corroborate this by typing:
+```
+class(murders$region)
+```
 With one line of code, use the function levels and length to determine the number of regions defined by this dataset.
-
+```
 # We can see the class of the region variable using class
 class(murders$region)
-
+```
+```
 ## [1] "factor"
-
+```
+```
 # Determine the number of regions included in this variable 
 length(levels(murders$region))
-
+```
+```
 ## [1] 4
-
-    The function table takes a vector and returns the frequency of each element. You can quickly see how many states are in each region by applying this function. Use this function in one line of code to create a table of states per region.
-
+```
+6. The function table takes a vector and returns the frequency of each element. You can quickly see how many states are in each region by applying this function. Use this function in one line of code to create a table of states per region.
+```
 # Here is an example of what the table function does
 x <- c("a", "a", "b", "b", "b", "c")
 table(x)
-
+```
+```
 ## x
 ## a b c 
 ## 2 3 1
-
+```
+```
 # Write one line of code to show the number of states per region
 table(murders$region)
-
+```
+```
 ## 
 ##     Northeast         South North Central          West 
 ##             9            17            12            13
-
-Section 2 Overview
+```
+## Section 2 Overview
 
 In Section 2.1, you will:
-
-    Create numeric and character vectors.
-    Name the columns of a vector.
-    Generate numeric sequences.
-    Access specific elements or parts of a vector.
-    Coerce data into different data types as needed.
+- Create numeric and character vectors.
+- Name the columns of a vector.
+- Generate numeric sequences.
+- Access specific elements or parts of a vector.
+- Coerce data into different data types as needed.
 
 In Section 2.2, you will:
-
-    Sort vectors in ascending and descending order.
-    Extract the indices of the sorted elements from the original vector.
-    Find the maximum and minimum elements, as well as their indices, in a vector.
-    Rank the elements of a vector in increasing order.
+- Sort vectors in ascending and descending order.
+- Extract the indices of the sorted elements from the original vector.
+- Find the maximum and minimum elements, as well as their indices, in a vector.
+- Rank the elements of a vector in increasing order.
 
 In Section 2.3, you will:
+- Perform arithmetic between a vector and a single number.
+- Perform arithmetic between two vectors of same length.
 
-    Perform arithmetic between a vector and a single number.
-    Perform arithmetic between two vectors of same length.
+The textbook for this section is available [here](
 
-The textbook for this section is available here
-Assessment 3
+## Assessment 3
 
     Use the function c to create a vector with the average high temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San Juan and Toronto, which are 35, 88, 42, 84, 81, and 30 degrees Fahrenheit. Call the object temp.
 
