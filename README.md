@@ -247,30 +247,30 @@ In Section 2.3, you will:
 - Perform arithmetic between a vector and a single number.
 - Perform arithmetic between two vectors of same length.
 
-The textbook for this section is available [here](
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#vectors)
 
 ## Assessment 3
 
-    Use the function c to create a vector with the average high temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San Juan and Toronto, which are 35, 88, 42, 84, 81, and 30 degrees Fahrenheit. Call the object temp.
-
+1. Use the function c to create a vector with the average high temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San Juan and Toronto, which are 35, 88, 42, 84, 81, and 30 degrees Fahrenheit. Call the object temp.
+```
 # Here is an example creating a numeric vector named cost
 cost <- c(50, 75, 90, 100, 150)
 
 # Create a numeric vector to store the temperatures listed in the instructions into a vector named temp
 # Make sure to follow the same order in the instructions
 temp <- c(35, 88, 42, 84, 81,30)
-
-    Now create a vector with the city names and call the object city.
-
+```
+2. Now create a vector with the city names and call the object city.
+```
 # here is an example of how to create a character vector
 food <- c("pizza", "burgers", "salads", "cheese", "pasta")
 
 # Create a character vector called city to store the city names
 # Make sure to follow the same order as in the instructions
 city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
-
-    Use the names function and the objects defined in the previous exercises to associate the temperature data with its corresponding city.
-
+```
+3. Use the names function and the objects defined in the previous exercises to associate the temperature data with its corresponding city.
+```
 # Associate the cost values with its corresponding food item
 cost <- c(50, 75, 90, 100, 150)
 food <- c("pizza", "burgers", "salads", "cheese", "pasta")
@@ -281,30 +281,35 @@ temp <- c(35, 88, 42, 84, 81, 30)
 city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
 
 # Associate the temperature values with its corresponding city
-names(temp)<-city
-
-    Use the [ and : operators to access the temperature of the first three cities on the list.
-
+names(temp) <- city
+```
+4. Use the [ and : operators to access the temperature of the first three cities on the list.
+```
 # cost of the last 3 items in our food list:
 cost[3:5]
-
+```
+```
 ## salads cheese  pasta 
 ##     90    100    150
-
+```
+```
 # temperatures of the first three cities in the list:
 temp[1:3]
-
+```
+```
 ## Beijing   Lagos   Paris 
 ##      35      88      42
-
-    Use the [ operator to access the temperature of Paris and San Juan.
-
+```
+5. Use the [ operator to access the temperature of Paris and San Juan.
+```
 # Access the cost of pizza and pasta from our food list 
 cost[c(1,5)]
-
+```
+```
 ## pizza pasta 
 ##    50   150
-
+```
+```
 # Define temp
 temp <- c(35, 88, 42, 84, 81, 30)
 city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
@@ -312,10 +317,11 @@ names(temp) <- city
 
 # Access the temperatures of Paris and San Juan
 temp[c(3,5)]
-
+```
+```
 ##    Paris San Juan 
 ##       42       81
-
+```
     Use the : operator to create a sequence of numbers 12, 13, 14,.,73.
 
 # Create a vector m of integers that starts at 32 and ends at 99.
