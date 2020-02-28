@@ -816,72 +816,77 @@ abbs[ind]
 ## Assessment 7
 
 Load the dplyr package and the murders dataset.
-
+```
 library(dplyr)
 library(dslabs)
 data(murders)
-
-    You can add columns using the dplyr function mutate. This function is aware of the column names and inside the function you can call them unquoted. Like this:
-
-    murders <- mutate(murders, population_in_millions = population / 10^6)
-
-Note that we can write population rather than murders$population. The function mutate knows we are grabing columns from murders.
+```
+1. You can add columns using the dplyr function mutate. This function is aware of the column names and inside the function you can call them unquoted. Like this:
+```
+murders <- mutate(murders, population_in_millions = population / 10^6)
+```
+Note that we can write population rather than murders$population. The function mutate knows we are grabing columns from murders.\
 Use the function mutate to add a murders column named rate with the per 100,000 murder rate. Make sure you redefine murders as done in the example code above. Remember the murder rate is defined the total divided by the population size times 100,000.
-
+```
 # Redefine murders so that it includes column named rate with the per 100,000 murder rates
 murders <- mutate(murders, rate=total/murders$population*100000)
+```
+2. mutate
 
-    mutate
-    Note that if rank(x) gives you the ranks of x from lowest to highest, rank(-x) gives you the ranks from highest to lowest. Use the function mutate to add a column rank containing the rank, from highest to lowest murder rate. Make sure you redeinfe murders.
-
+Note that if rank(x) gives you the ranks of x from lowest to highest, rank(-x) gives you the ranks from highest to lowest. Use the function mutate to add a column rank containing the rank, from highest to lowest murder rate. Make sure you redeinfe murders.
+```
 # Note that if you want ranks from highest to lowest you can take the negative and then compute the ranks 
 x <- c(88, 100, 83, 92, 94)
 rank(-x)
-
+```
+```
 ## [1] 4 1 5 3 2
-
+```
+```
 # Defining rate
 rate <-  murders$total/ murders$population * 100000
 
 # Redefine murders to include a column named rank
 # with the ranks of rate from highest to lowest
 murders <- mutate(murders,rank=rank(-rate))
+```
+3. select
 
-    select
-    With dplyr we can use select to show only certain columns. For example with this code we would only show the states and population sizes:
-
-    select(murders, state, population)
-
+With dplyr we can use select to show only certain columns. For example with this code we would only show the states and population sizes:
+```
+select(murders, state, population)
+```
 Use select to show the state names and abbreviations in murders. Just show it, do not define a new object.
-
+```
 # Load dplyr
 library(dplyr)
 
 # Use select to only show state names and abbreviations from murders
 select(murders,state,abb)
 
-state			abb\
-<chr>			<chr>\
-Alabama			AL\
-Alaska			AK\
-Arizona			AZ\
-Arkansas		AR\
-California		CA\
-Colorado		CO\
-Connecticut		CT\
-Delaware		DE\
-District of Columbia	DC\
-Florida			FL\
+state                   abb\
+<chr>                   <chr>\
+Alabama                 AL\
+Alaska                  AK\
+Arizona                 AZ\
+Arkansas                AR\
+California              CA\
+Colorado                CO\
+Connecticut             CT\
+Delaware                DE\
+District of Columbia    DC\
+Florida                 FL\
 1-10 of 51 rows
-
-    filter
-    The dplyr function filter is used to choose specific rows of the data frame to keep. Unlke select which is for columns, filter is for rows. For example you can show just New York row like this:
-
-    filter(murders, state == “New York”)
-
+```
+4. filter
+    
+The dplyr function filter is used to choose specific rows of the data frame to keep. Unlke select which is for columns, filter is for rows. For example you can show just New York row like this:
+```
+filter(murders, state == “New York”)
+```
 You can use other logical vector to filter rows.
 Use filter to show the top 5 states with the highest murder rates. After we add murder rate and rank, do not change the murders dataset, just show the result. Note that you can filter based on the rank column.
-
+```
 # Add the necessary columns
 murders <- mutate(murders, rate = total/population * 100000, rank = rank(-rate))
 
@@ -914,7 +919,7 @@ Maryland	MD	South	5773552	293	5.074866	4
 Missouri	MO	North Central	5988927	321	5.359892	3
 South Carolina	SC	South	4625364	207	4.475323	5
 5 rows
-
+```
     filter with !=
     We can remove rows using the != operator. For example to remove Florida we would do this:
 
