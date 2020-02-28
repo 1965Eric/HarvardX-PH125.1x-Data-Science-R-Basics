@@ -322,116 +322,132 @@ temp[c(3,5)]
 ##    Paris San Juan 
 ##       42       81
 ```
-    Use the : operator to create a sequence of numbers 12, 13, 14,.,73.
-
+6. Use the : operator to create a sequence of numbers 12, 13, 14,..,73.
+```
 # Create a vector m of integers that starts at 32 and ends at 99.
 m <- 32:99
 
 # Determine the length of object m.
 length(m)
-
+```
+```
 ## [1] 68
-
+```
+```
 # Create a vector x of integers that starts 12 and ends at 73.
 x <- 12:73
 
 # Determine the length of object x.
 length(x)
-
+```
+```
 ## [1] 62
-
-7.Create a vector containing all the positive odd numbers smaller than 100.
-
+```
+7. Create a vector containing all the positive odd numbers smaller than 100.
+```
 # Create a vector with the multiples of 7, smaller than 50.
 seq(7, 49, 7) 
-
+```
+```
 ## [1]  7 14 21 28 35 42 49
-
+```
+```
 # Create a vector containing all the positive odd numbers smaller than 100.
 # The numbers should be in ascending order
 seq(1,100,2)
-
+```
+```
 ##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45
 ## [24] 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91
 ## [47] 93 95 97 99
-
-    Create a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6+4/7, 6+8/7, etc.. How many numbers does the list have? Hint: use seq and length.
-
+```
+8. Create a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6+4/7, 6+8/7, etc.. How many numbers does the list have? Hint: use seq and length.
+```
 # We can a vector with the multiples of 7, smaller than 50 like this 
 seq(7, 49, 7) 
-
+```
+```
 ## [1]  7 14 21 28 35 42 49
-
+```
+```
 # But note that the second argument does not need to be last number.
 # It simply determines the maximum value permitted.
 # so the following line of code produces the same vector as seq(7, 49, 7)
 seq(7, 50, 7)
-
+```
+```
 ## [1]  7 14 21 28 35 42 49
-
+```
+```
 # Create a sequence of numbers from 6 to 55, with 4/7 increments and determine its length
 length(seq(6,55,4/7))
-
+```
+```
 ## [1] 86
-
-    What is the class of the following object a <- seq(1, 10, length.out = 100)?
-
+```
+9. What is the class of the following object a <- seq(1, 10, length.out = 100)?
+```
 # Store the sequence in the object a
 a <- seq(1, 10, length.out = 100)
 
 # Determine the class of a
 class(a)
-
+```
+```
 ## [1] "numeric"
-
-    What is the class of the following object a <- seq(1, 10)?
-
+```
+10. What is the class of the following object a <- seq(1, 10)?
+```
 # Store the sequence in the object a
 a <- seq(1, 10)
 
 # Determine the class of a
 class(a)
-
+```
+```
 ## [1] "integer"
-
-    The class of class(a<-1) is numeric, not integer. R defaults to numeric and to force an integer, you need to add the letter L. Confirm that the class of 1L is integer.
-
+```
+11. The class of class(a<-1) is numeric, not integer. R defaults to numeric and to force an integer, you need to add the letter L. Confirm that the class of 1L is integer.
+```
 # Check the class of 1, assigned to the object a
-a<-class(1)
+a <- class(1)
 
 # Confirm the class of 1L is integer
 class(1L)
-
+```
+```
 ## [1] "integer"
-
-    Define the following vector:
-
-    x <- c(“1”, “3”, “5”, “a”)
-
+```
+12. Define the following vector:
+```
+x <- c(“1”, “3”, “5”, “a”)
+```
 and coerce it to get integers.
-
+```
 # Define the vector x
 x <- c(1, 3, 5,"a")
 
 # Note that the x is character vector
 x
-
+```
+```
 ## [1] "1" "3" "5" "a"
-
+```
+```
 # Typecast the vector to get an integer vector
-x<-as.numeric(x)
+x <- as.numeric(x)
 
 # You will get a warning but that is ok
-
-Assessment 4
+```
+## Assessment 4
 
 For these exercises we will use the US murders dataset. Make sure you load it prior to starting.
-
+```
 library(dslabs)
 data("murders")
-
-    Use the $ operator to access the population size data and store it as the object pop. Then use the sort function to redefine pop so that it is sorted. Finally, use the [ operator to report the smallest population size.
-
+```
+1. Use the $ operator to access the population size data and store it as the object pop. Then use the sort function to redefine pop so that it is sorted. Finally, use the [ operator to report the smallest population size.
+```
 # Access the `state` variable and store it in an object 
 states <- murders$state 
 
@@ -440,9 +456,11 @@ states <- sort(states)
 
 # Report the first alphabetical value  
 states[1]
-
+```
+```
 ## [1] "Alabama"
-
+```
+```
 # Access population values from the dataset and store it in pop
 pop <- murders$population
 
@@ -451,11 +469,12 @@ pop<-sort(pop)
 
 # Report the smallest population size 
 pop[1]
-
+```
+```
 ## [1] 563626
-
-    Now instead of the smallest population size, find the index of the entry with the smallest population size. Hint: use order instead of sort.
-
+```
+2. Now instead of the smallest population size, find the index of the entry with the smallest population size. Hint: use order instead of sort.
+```
 # Access population from the dataset and store it in pop
 pop <- murders$population
 
@@ -464,10 +483,11 @@ o <- order(pop)
 
 # Find the index number of the entry with the smallest population size
 which.min(murders$population)
-
+```
+```
 ## [1] 51
-
-    We can actually perform the same operation as in the previous exercise using the function which.min. Write one line of code that does this.
+```
+3. We can actually perform the same operation as in the previous exercise using the function which.min. Write one line of code that does this.
 
 # Find the smallest value for variable total 
 which.min(murders$total)
