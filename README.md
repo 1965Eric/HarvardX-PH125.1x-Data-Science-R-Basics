@@ -5,7 +5,7 @@
 
 This is the first course in the HarvardX Professional Certificate in Data Science, a series of courses that prepare you to do data analysis in R, from simple computations to machine learning.
 
-The textbook for the Data Science course series is [freely available online](https://rpubs.com/faisalcep/dsRBasics).
+The textbook for the Data Science course series is [freely available online](https://rafalab.github.io/dsbook/).
 
 ## Learning Objectives
 - Learn to read, extract, and create datasets in R
@@ -35,7 +35,7 @@ In Section 1, you will learn to:
 - Use pre-defined functions to perform operations on objects
 - Distinguish between various data types
 
-The textbook for this section is available [here](https://rpubs.com/faisalcep/dsRBasics)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html)
 
 ## Assessment 1
 1. What is the sum of the first n positive integers? The formula for the sum of integers 1 through n is n(n+1)/2. Define n = 100 and then use R to compute the sum of 1 through 100 using the formula. What is the sum?
@@ -63,90 +63,88 @@ n*(n+1)/2
 ```
 ```
 # Below, write code to calculate the sum of the first 100 integers
-n<-100
+n <-100
 n*(n+1)/2
 ```
 ```
 ## [1] 5050
 ```
 2. Now use the same formula to compute the sum of the integers from 1 through 1,000.
-
+```
 # Below, write code to calculate the sum of the first 1000 integers 
 n <- 1000
-r<- n*(n+1)/2
+r <- n*(n+1)/2
 r
-
+```
+```
 ## [1] 500500
+```
+3. Look at the result of typing the following code into R:
+```
+n <- 1000
+x <- seq(1, n)
+sum(x)
+```
+Based on the result, what do you think the functions seq and sum do?\
+- [ ] A. sum creates a list of numbers and seq adds them up.
+- [x] B. seq creates a list of numbers and sum adds them up.
+- [ ] C. seq computes the difference between two arguments and sum computes the sum of 1 through 1000.
+- [ ] D. sum always returns the same number.
 
-    Look at the result of typing the following code into R:
-
-    n <- 1000
-    x <- seq(1, n)
-    sum(x)
-
-Based on the result, what do you think the functions seq and sum do?
-A. sum creates a list of numbers and seq adds them up.
-
-B. seq creates a list of numbers and sum adds them up.
-
-C. seq computes the difference between two arguments and sum computes the sum of 1 through 1000.
-
-D. sum always returns the same number.
-
-    In math and programming, we say that we evaluate a function when we replace the argument with a given number. So if we type sqrt(4), we evaluate the sqrt function. In R, you can evaluate a function inside another function. The evaluations happen from the inside out. Use one line of code to compute the log, in base 10, of the square root of 100.
-
+4. In math and programming, we say that we evaluate a function when we replace the argument with a given number. So if we type sqrt(4), we evaluate the sqrt function. In R, you can evaluate a function inside another function. The evaluations happen from the inside out. Use one line of code to compute the log, in base 10, of the square root of 100.
+```
 # log to the base 2 
 log2(16)
-
+```
+```
 ## [1] 4
-
+```
+```
 # sqrt of the log to the base 2 of 16:
 sqrt(log2(16))
-
+```
+```
 ## [1] 2
-
+```
+```
 # Compute log to the base 10 (log10) of the sqrt of 100. Do not use variables.
 log10(sqrt(100))
-
+```
+```
 ## [1] 1
+```
+5. Which of the following will always return the numeric value stored in x? You can try out examples and use the help system if you want.\
+- [ ] A. log(10^x)
+- [ ] B. log10(x^10)
+- [x] C. log(exp(x))
+- [ ] D. exp(log(x, base = 2))
 
-    Which of the following will always return the numeric value stored in x? You can try out examples and use the help system if you want.
+## Assessment 2
 
-A. log(10^x)
-
-B. log10(x^10)
-
-C. log(exp(x))
-
-D. exp(log(x, base = 2))
-Assessment 2
-
-    Load the US murders dataset.
-
+1. Load the US murders dataset.
+```
 library(dslabs)  
 data(murders)
+```
+Use the function str to examine the structure of the murders object. We can see that this object is a data frame with 51 rows and five columns. Which of the following best describes the variables represented in this data frame?\
+- [ ] A. The 51 states.
+- [ ] B. The murder rates for all 50 states and DC.
+- [x] C. The state name, the abbreviation of the state name, the state's region, and the state's population and total number of murders for 2010.
+- [ ] D. str shows no relevant information.
 
-Use the function str to examine the structure of the murders object. We can see that this object is a data frame with 51 rows and five columns. Which of the following best describes the variables represented in this data frame?
-A. The 51 states.
-
-B. The murder rates for all 50 states and DC.
-
-C. The state name, the abbreviation of the state name, the state's region, and the state's population and total number of murders for 2010.
-
-D. str shows no relevant information.
-
-    What are the column names used by the data frame for these five variables?
-
+2. What are the column names used by the data frame for these five variables?
+```
 # Load package and data
 library(dslabs)
 data(murders)
 
 # Use the function names to extract the variable names 
 names(murders)
-
+```
+```
 ## [1] "state"      "abb"        "region"     "population" "total"
-
-    Use the accessor $ to extract the state abbreviations and assign them to the object a. What is the class of this object?
+```
+3. Use the accessor $ to extract the state abbreviations and assign them to the object a. What is the class of this object?
 
 # To access the population variable from the murders dataset use this code:
 p <- murders$population 
