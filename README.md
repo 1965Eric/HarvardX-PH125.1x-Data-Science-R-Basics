@@ -488,19 +488,22 @@ which.min(murders$population)
 ## [1] 51
 ```
 3. We can actually perform the same operation as in the previous exercise using the function which.min. Write one line of code that does this.
-
+```
 # Find the smallest value for variable total 
 which.min(murders$total)
-
+```
+```
 ## [1] 46
-
+```
+```
 # Find the smallest value for population
 which.min(murders$population)
-
+```
+```
 ## [1] 51
-
-    Now we know how small the smallest state is and we know which row represents it. Which state is it? Define a variable states to be the state names from the murders data frame. Report the name of the state with the smallest population.
-
+```
+4. Now we know how small the smallest state is and we know which row represents it. Which state is it? Define a variable states to be the state names from the murders data frame. Report the name of the state with the smallest population.
+```
 # Define the variable i to be the index of the smallest state
 i <- which.min(murders$population)
 
@@ -509,17 +512,18 @@ states <- murders$state
 
 # Use the index you just defined to find the state with the smallest population
 states[i]
-
+```
+```
 ## [1] "Wyoming"
-
-    You can create a data frame using the data.frame function. Here is a quick example:
-
-    temp <- c(35, 88, 42, 84, 81, 30)
-    city <- c(“Beijing”, “Lagos”, “Paris”, “Rio de Janeiro”, “San Juan”, “Toronto”)
-    city_temps <- data.frame(name = city, temperature = temp)
-
+```
+5. You can create a data frame using the data.frame function. Here is a quick example:
+```
+temp <- c(35, 88, 42, 84, 81, 30)
+city <- c(“Beijing”, “Lagos”, “Paris”, “Rio de Janeiro”, “San Juan”, “Toronto”)
+city_temps <- data.frame(name = city, temperature = temp)
+```
 Use the rank function to determine the population rank of each state from smallest population size to biggest. Save these ranks in an object called ranks, then create a data frame with the state name and its rank. Call the data frame my_df.
-
+```
 # Store temperatures in an object 
 temp <- c(35, 88, 42, 84, 81, 30)
 
@@ -537,9 +541,9 @@ ranks <- rank(murders$population)
 
 # Create a data frame my_df with the state name and its rank
 my_df <- data.frame(name=states, ranks)
-
-    Repeat the previous exercise, but this time order my_df so that the states are ordered from least populous to most populous. Hint: create an object ind that stores the indexes needed to order the population values. Then use the bracket operator [ to re-order each column in the data frame.
-
+```
+6. Repeat the previous exercise, but this time order my_df so that the states are ordered from least populous to most populous. Hint: create an object ind that stores the indexes needed to order the population values. Then use the bracket operator [ to re-order each column in the data frame.
+```
 # Define a variable states to be the state names from the murders data frame
 states <- murders$state
 
@@ -551,51 +555,58 @@ ind <- order(murders$population)
 
 # Create a data frame my_df with the state name and its rank and ordered from least populous to most 
 my_df<-data.frame(states = states[ind], ranks = ranks[ind])
-
-    The na_example vector represents a series of counts. You can quickly examine the object using:
-
-    data(“na_example”)
-    str(na_example)
-    nt [1:1000] 2 1 3 2 1 3 1 4 3 2 …
-
+```
+7. The na_example vector represents a series of counts. You can quickly examine the object using:
+```
+data(“na_example”)
+str(na_example)
+nt [1:1000] 2 1 3 2 1 3 1 4 3 2 …
+```
 However, when we compute the average with the function mean, we obtain an NA:
-
-    mean(na_example)
-    [1] NA
-
+```
+mean(na_example)
+[1] NA
+```
 The is.na function returns a logical vector that tells us which entries are NA. Assign this logical vector to an object called ind and determine how many NAs does na_example have.
-
+```
 # Using new dataset 
 library(dslabs)
 data(na_example)
 
 # Checking the structure 
 str(na_example)
-
+```
+```
 ##  int [1:1000] 2 1 3 2 1 3 1 4 3 2 ...
-
+```
+```
 # Find out the mean of the entire dataset 
 mean(na_example)
-
+```
+```
 ## [1] NA
-
+```
+```
 # Use is.na to create a logical index ind that tells which entries are NA
 ind <- is.na(na_example)
 
 # Determine how many NA ind has using the sum function
 sum(ind)
-
+```
+```
 ## [1] 145
-
-    Now compute the average again, but only for the entries that are not NA. Hint: remember the ! operator.
-
+```
+8. Now compute the average again, but only for the entries that are not NA. Hint: remember the ! operator.
+```
 # Note what we can do with the ! operator
 x <- c(1, 2, 3)
 ind <- c(FALSE, TRUE, FALSE)
 x[!ind]
-
+```
+```
 ## [1] 1 3
-
+```
+```
 # Create the ind vector
 library(dslabs)
 
@@ -604,17 +615,20 @@ ind <- is.na(na_example)
 
 # We saw that this gives an NA
 mean(na_example)
-
+```
+```
 ## [1] NA
-
+```
+```
 # Compute the average, for entries of na_example that are not NA 
 mean(na_example[!ind])
-
+```
+```
 ## [1] 2.301754
+```
+## Assessment 5
 
-Assessment 5
-
-    Previously we created this data frame:
+1. Previously we created this data frame:
 
 temp <- c(35, 88, 42, 84, 81, 30)
 city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
