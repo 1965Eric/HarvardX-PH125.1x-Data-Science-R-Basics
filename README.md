@@ -1236,9 +1236,10 @@ for(i in n){
 #  Create the plot 
 plot(n,s_n)
 ```
+![index](https://user-images.githubusercontent.com/17474099/75670998-24210580-5c7e-11ea-95fe-e6f8857049f4.png)
 
-    Confirm that s_n and n(n+1)(2n+1)/6 are the same using the identical command.
-
+10. Confirm that s_n and n(n+1)(2n+1)/6 are the same using the identical command.
+```
 # Define the function
 compute_s_n <- function(n){
   x <- 1:n
@@ -1256,6 +1257,7 @@ for(i in n){
 
 # Check that s_n is identical to the formula given in the instructions.
 identical(s_n,n*(n+1)*(2*n+1)/6)
-
+```
+```
 ## [1] TRUE
-
+```
