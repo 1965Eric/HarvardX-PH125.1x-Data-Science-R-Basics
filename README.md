@@ -1054,7 +1054,7 @@ total_gun_murders <- murders$total
 
 plot(population_in_millions, total_gun_murders)
 ```
-
+![index](https://user-images.githubusercontent.com/17474099/75668573-cdb1c800-5c79-11ea-98c3-222b70b1eb88.png)
 
 # Transform population using the log10 transformation and save to object log10_population
 log10_population <-log10(murders$population)
