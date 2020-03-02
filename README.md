@@ -1073,11 +1073,13 @@ population_in_millions <- murders$population/10^6
 # Create a histogram of this variable
 hist(population_in_millions)
 ```
+![index](https://user-images.githubusercontent.com/17474099/75668993-7bbd7200-5c7a-11ea-98d7-bc5e28e69d07.png)
 
 3. Generate boxplots of the state populations by region.
-
+```
 # Create a boxplot of state populations by region for the murders dataset
 boxplot(population~region, data=murders)
+```
 
 Section 4 Overview
 
