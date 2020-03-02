@@ -1080,94 +1080,87 @@ hist(population_in_millions)
 # Create a boxplot of state populations by region for the murders dataset
 boxplot(population~region, data=murders)
 ```
-
-Section 4 Overview
+![index](https://user-images.githubusercontent.com/17474099/75669696-bc69bb00-5c7b-11ea-9cd1-bc5218b21b40.png)
+## Section 4 Overview
 
 Section 4 introduces you to general programming features like ‘if-else’, and ‘for loop’ commands so that you can write your own functions to perform various operations on datasets.
 
 In Section 4.1, you will:
-
-    Understand some of the programming capabilities of R.
+- Understand some of the programming capabilities of R.
 
 In Section 4.2, you will:
-
-    Use basic conditional expressions to perform different operations.
-    Check if any or all elements of a logical vector are TRUE.
+- Use basic conditional expressions to perform different operations.
+- Check if any or all elements of a logical vector are TRUE.
 
 In Section 4.3, you will:
-
-    Define and call functions to perform various operations.
-    Pass arguments to functions, and return variables/objects from functions.
+- Define and call functions to perform various operations.
+- Pass arguments to functions, and return variables/objects from functions.
 
 In Section 4.4, you will:
+- Use ‘for’ loop to perform repeated operations.
+- Articulate in-built functions of R that you could try for yourself.
 
-    Use ‘for’ loop to perform repeated operations.
-    Articulate in-built functions of R that you could try for yourself.
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html)
 
-The textbook for this section is available here
-Assessment 9
+## Assessment 9
 
-    What will this conditional expression return?
+1. What will this conditional expression return?
+```
+x <- c(1,2,-3,4)
 
-    x <- c(1,2,-3,4)
+if(all(x>0)){
+print(“All Postives”)
+} else{
+print(“Not all positives”)
+}
+```
+- [ ] A. All Positives
+- [X] B. Not All Positives
+- [ ] C. N/A
+- [ ] D. None of the above
 
-    if(all(x>0)){
-    print(“All Postives”)
-    } else{
-    print(“Not all positives”)
-    }
+2. Which of the following expressions is always FALSE when at least one entry of a logical vector x is TRUE?
 
-A. All Positives
+- [ ] A. all(x)
+- [ ] B. any(x)
+- [ ] C. any(!x)
+- [X] D. all(!x)
 
-B. Not All Positives
-
-C. N/A
-
-D. None of the above
-
-    Which of the following expressions is always FALSE when at least one entry of a logical vector x is TRUE?
-
-A. all(x)
-
-B. any(x)
-
-C. any(!x)
-
-D. all(!x)
-
-    The function nchar tells you how many characters long a character vector is.
+3. The function nchar tells you how many characters long a character vector is.
 
 Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.
-
+```
 # Assign the state abbreviation when the state name is longer than 8 characters 
 new_names <- ifelse(nchar(murders$state)>8, murders$abb, murders$state)
-
-    Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.
-
+```
+4. Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.
+```
 # Create function called `sum_n`
 sum_n <- function(n){
   sum(1:n)
 }
 # Use the function to determine the sum of integers from 1 to 5000
 sum_n(5000)
-
+```
+```
 ## [1] 12502500
-
-    Create a function altman_plot that takes two arguments, x and y, and plots the difference against the sum.
-
+```
+5. Create a function altman_plot that takes two arguments, x and y, and plots the difference against the sum.
+```
 # Create `altman_plot` 
 altman_plot <- function(x,y) {
   plot(x+y,y-x)
 }
-
-    After running the code below, what is the value of x?
-
-    x <- 3
-    my_func <- function(y){
-    x <- 5
-    y+5
-    }
-
+```
+6. After running the code below, what is the value of x?
+```
+x <- 3
+my_func <- function(y){
+x <- 5
+y+5
+}
+```
+```
 # Run this code 
 x <- 3
     my_func <- function(y){
@@ -1177,11 +1170,12 @@ x <- 3
 
 # Print value of x 
 print(x)
-
+```
+```
 ## [1] 3
-
-    Write a function compute_s_n that for any given n computes the sum S_n = 1^2 + 2^2 + 3^2 + . n^2. Report the value of the sum when n = 10.
-
+```
+7. Write a function compute_s_n that for any given n computes the sum S_n = 1^2 + 2^2 + 3^2 + . n^2. Report the value of the sum when n = 10.
+```
 # Here is an example of function that adds numbers from 1 to n
 example_func <- function(n){
     x <- 1:n
@@ -1190,9 +1184,11 @@ example_func <- function(n){
 
 # Here is the sum of the first 100 numbers
 example_func(100)
-
+```
+```
 ## [1] 5050
-
+```
+```
 # Write a function compute_s_n that with argument n and returns of 1 + 2^2 + ...+ n^2
 compute_s_n <- function(n){
   x <- 1:n
@@ -1200,11 +1196,12 @@ compute_s_n <- function(n){
 }
 # Report the value of the sum when n=10
 compute_s_n(10)
-
+```
+```
 ## [1] 385
-
-    Define an empty numerical vector s_n of size 25 using s_n <- vector(“numeric”, 25) and store in the results of S_1, S_2, . S_25 using a for-loop.
-
+```
+8. Define an empty numerical vector s_n of size 25 using s_n <- vector(“numeric”, 25) and store in the results of S_1, S_2, . S_25 using a for-loop.
+```
 # Define a function and store it in `compute_s_n`
 compute_s_n <- function(n){
   x <- 1:n
@@ -1218,9 +1215,9 @@ s_n <- vector("numeric", 25)
 for(i in 1:25){
   s_n[i] <- compute_s_n(i)
 }
-
-    If we do the math, we can show that S_n=12+22+32+???+n2=n(n+1)(2n+1)/6. We have already computed the values of Sn from 1 to 25 using a for loop. If the formula is correct then a plot of Sn versus n should look cubic.
-
+```
+9. If we do the math, we can show that S_n=12+22+32+???+n2=n(n+1)(2n+1)/6. We have already computed the values of Sn from 1 to 25 using a for loop. If the formula is correct then a plot of Sn versus n should look cubic.
+```
 # Define the function
 compute_s_n <- function(n){
   x <- 1:n
@@ -1238,6 +1235,7 @@ for(i in n){
 
 #  Create the plot 
 plot(n,s_n)
+```
 
     Confirm that s_n and n(n+1)(2n+1)/6 are the same using the identical command.
 
