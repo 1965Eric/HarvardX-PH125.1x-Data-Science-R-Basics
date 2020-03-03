@@ -1065,6 +1065,9 @@ log10_total_gun_murders <- log10(total_gun_murders)
 # Create a scatterplot with the log scale transformed population and murders 
 plot(log10_population,log10_total_gun_murders)
 ```
+
+![index](https://user-images.githubusercontent.com/17474099/75766283-32842580-5d41-11ea-9099-f43738a46b86.png)
+
 2. Create a histogram of the state populations.
 ```
 # Store the population in millions and save to population_in_millions 
