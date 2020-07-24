@@ -29,13 +29,92 @@ You will learn to use general programming features like ‘if-else’, and ‘fo
 ## Section 1 Overview
 
 Section 1 introduces you to R Basics, Functions and Datatypes.
+
 In Section 1, you will learn to:
-- Appreciate the rationale for data analysis using R
-- Define objects and perform basic arithmetic and logical operations
-- Use pre-defined functions to perform operations on objects
-- Distinguish between various data types
+
+* Appreciate the rationale for data analysis using R
+* Define objects and perform basic arithmetic and logical operations
+* Use pre-defined functions to perform operations on objects
+* Distinguish between various data types
 
 The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html)
+
+## Motivation
+
+Here is a link to the [textbook section on the motivation for this course](https://rafalab.github.io/dsbook/r-basics.html#case-study-us-gun-murders).
+
+### Getting started
+
+Here is a link to the textbook section on [Getting Started](https://rafalab.github.io/dsbook/getting-started.html) with R.
+
+**Key Points**
+
+* R was developed by statisticians and data analysts as an interactive environment for data analysis.
+* Some of the advantages of R are that (1) it is free and open source, (2) it has the capability to save scripts, (3) there are numerous resources for learning, and (4) it is easy for developers to share software implementation.
+* Expressions are evaluated in the R console when you type the expression into the console and hit Return.
+* A great advantage of R over point and click analysis software is that you can save your work as scripts.
+* “Base R” is what you get after you first install R. Additional components are available via packages.
+
+```{r}
+# installing the dslabs package
+install.packages("dslabs")
+
+# loading the dslabs package into the R session
+library(dslabs)
+```
+
+### Installing R and R Studio
+
+#### Installing R
+
+To install R to work on your own computer, you can download it freely from the [Comprehensive R Archive Network](https://cran.r-project.org) (CRAN). Note that CRAN makes several versions of R available: versions for multiple operating systems and releases older than the current one. You want to read the CRAN instructions to assure you download the correct version. If you need further help, you read the walkthrough in this [Chapter of the textbook](https://rafalab.github.io/dsbook/installing-r-rstudio.html#installing-r).
+
+#### Installing RStudio
+
+RStudio is an integrated development environment (IDE). We highly recommend installing and using RStudio to edit and test your code. You can install RStudio through the [RStudio website](https://rstudio.com/products/rstudio/download/). Their [cheatsheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) is a great resource.  You must install R before installing RStudio.
+
+#### Textbook Link
+
+Here is a link to the textbook section on [Installing R and RStudio](https://rafalab.github.io/dsbook/installing-r-rstudio.html).
+
+## R Basics
+
+### Objects
+
+Here is a link to the textbook section on [objects in R](https://rafalab.github.io/dsbook/r-basics.html#objects).
+
+**Key Points**
+
+* To define a variable, we may use the assignment symbol “<-“.
+* There are two ways to see the value stored in a variable: (1) type the variable into the console and hit Return, or (2) type print(“variable name”) and hit Return.
+* Objects are stuff that is stored in R.  They can be variables, functions, etc.
+* The ls() function shows the names of the objects saved in your workspace.
+
+*Solving the equation x2+x−1=0*
+
+```{r}
+# assigning values to variables
+a <- 1
+b <- 1
+c <- -1
+
+# solving the quadratic equation
+(-b + sqrt(b^2 - 4*a*c) ) / ( 2*a )
+(-b - sqrt(b^2 - 4*a*c) ) / ( 2*a )
+```
+
+### Functions
+
+Here is a link to the textbook section on [functions](https://rafalab.github.io/dsbook/r-basics.html#functions).
+
+**Key points**
+
+* In general, to evaluate a function we need to use parentheses. If we type a function without parenthesis, R shows us the code for the function. Most functions also require an argument, that is, something to be written inside the parenthesis.
+* To access help files, we may use the help function help(“function name”), or write the question mark followed by the function name.
+* The help file shows you the arguments the function is expecting, some of which are required and some are optional. If an argument is optional, a default value is assigned with the equal sign. The args() function also shows the arguments a function needs.
+* To specify arguments, we use the equals sign. If no argument name is used, R assumes you’re entering arguments in the order shown in the help file.
+* Creating and saving a script makes code much easier to execute.
+* To make your code more readable, use intuitive variable names and include comments (using the “#” symbol) to remind yourself why you wrote a particular line of code.
 
 ## Assessment 1
 1. What is the sum of the first n positive integers? The formula for the sum of integers 1 through n is n(n+1)/2. Define n = 100 and then use R to compute the sum of 1 through 100 using the formula. What is the sum?
