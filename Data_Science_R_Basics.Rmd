@@ -289,7 +289,7 @@ There are also multiple ways to access variables in a data frame. For example we
 
 If you instead try to access a column with just one bracket,
 
-```
+```{r, eval=FALSE, echo=TRUE}
 murders["population"]
 ```
 
@@ -353,24 +353,71 @@ c <- -4
 (-b-sqrt(b^2-4*a*c))/(2*a)
 ```
 
+2. Use R to compute log base 4 of 1024. You can use the ```help``` function to learn how to use arguments to change the base of the ```log``` function.
+
+```{r}
+log(1024, base = 4)
+```
+
+3. Load the ```movielens``` dataset
+
+```{r}
+data(movielens)
+str(movielens)
+```
+How many rows are in the dataset? ```100004```
+
+How many different variables are in the dataset? ```7```
+
+What is the variable type of title ?
+
+- [ ] A. It is a text (txt) variable
+- [ ] B. It is a chronological (chr) variable
+- [ ] C. It is a string (str) variable
+- [ ] D. It is a numeric (num) variable
+- [ ] E. It is an integer (int) variable
+- [ ] F. It is a factor (Factor) variable
+- [X] G. It is a character (chr) variable
+
+What is the variable type of genres ?
+
+- [ ] A. It is a text (txt) variable
+- [ ] B. It is a chronological (chr) variable
+- [ ] C. It is a string (str) variable
+- [ ] D. It is a numeric (num) variable
+- [ ] E. It is an integer (int) variable
+- [X] F. It is a factor (Factor) variable
+- [ ] G. It is a character (chr) variable
+
+4. We already know we can use the ```levels()``` function to determine the levels of a factor. A different function, ```nlevels()```, may be used to determine the number of levels of a factor.
+
+Use this function to determine how many levels are in the factor ```genres``` in the ```movielens``` data frame.
+
+```{r}
+nlevels(movielens$genres)
+```
+
 ## Section 2 Overview
 
 In Section 2.1, you will:
-- Create numeric and character vectors.
-- Name the columns of a vector.
-- Generate numeric sequences.
-- Access specific elements or parts of a vector.
-- Coerce data into different data types as needed.
+
+* Create numeric and character vectors.
+* Name the columns of a vector.
+* Generate numeric sequences.
+* Access specific elements or parts of a vector.
+* Coerce data into different data types as needed.
 
 In Section 2.2, you will:
-- Sort vectors in ascending and descending order.
-- Extract the indices of the sorted elements from the original vector.
-- Find the maximum and minimum elements, as well as their indices, in a vector.
-- Rank the elements of a vector in increasing order.
+
+* Sort vectors in ascending and descending order.
+* Extract the indices of the sorted elements from the original vector.
+* Find the maximum and minimum elements, as well as their indices, in a vector.
+* Rank the elements of a vector in increasing order.
 
 In Section 2.3, you will:
-- Perform arithmetic between a vector and a single number.
-- Perform arithmetic between two vectors of same length.
+
+* Perform arithmetic between a vector and a single number.
+* Perform arithmetic between two vectors of same length.
 
 The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#vectors)
 
