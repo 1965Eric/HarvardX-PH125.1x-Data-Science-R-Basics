@@ -57,7 +57,7 @@ Here is a link to the textbook section on [Getting Started](https://rafalab.gith
 
 ```{r}
 # installing the dslabs package
-install.packages("dslabs")
+if(!require(dslabs)) install.packages("dslabs")
 
 # loading the dslabs package into the R session
 library(dslabs)
