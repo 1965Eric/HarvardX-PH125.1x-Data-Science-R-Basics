@@ -1071,18 +1071,15 @@ x &lt;- as.numeric(x)</code></pre>
 <li>The function <code>sort()</code> sorts a vector in increasing order.</li>
 <li>The function <code>order()</code> produces the indices needed to obtain the sorted vector, e.g. a result of 2 3 1 5 4 means the sorted vector will be produced by listing the 2nd, 3rd, 1st, 5th, and then 4th item of the original vector.</li>
 <li>The function <code>rank()</code> gives us the ranks of the items in the original vector.</li>
-<li>The function <code>max()</code> returns the largest value while which.max() returns the index of the largest value. The functions min() and which.min() work similarly for minimum values.</li>
+<li>The function <code>max()</code> returns the largest value while <code>which.max()</code> returns the index of the largest value. The functions <code>min()</code> and <code>which.min()</code> work similarly for minimum values.</li>
 </ul>
 </div>
-<div id="assessment-4" class="section level2">
-<h2>Assessment 4</h2>
-<p>For these exercises we will use the US murders dataset. Make sure you load it prior to starting.</p>
-<pre><code>library(dslabs)
-data(&quot;murders&quot;)</code></pre>
+<div id="assessment---sorting" class="section level2">
+<h2>Assessment - Sorting</h2>
 <ol style="list-style-type: decimal">
-<li>Use the $ operator to access the population size data and store it as the object pop. Then use the sort function to redefine pop so that it is sorted. Finally, use the [ operator to report the smallest population size.</li>
+<li>When looking at a dataset, we may want to sort the data in an order that makes more sense for analysis. Let’s learn to do this using the <code>murders</code> dataset as an example</li>
 </ol>
-<pre><code># Access the `state` variable and store it in an object 
+<pre class="r"><code># Access the `state` variable and store it in an object 
 states &lt;- murders$state 
 
 # Sort the object alphabetically and redefine the object 
@@ -1091,40 +1088,41 @@ states &lt;- sort(states)
 # Report the first alphabetical value  
 states[1]</code></pre>
 <pre><code>## [1] &quot;Alabama&quot;</code></pre>
-<pre><code># Access population values from the dataset and store it in pop
+<pre class="r"><code># Access population values from the dataset and store it in pop
 pop &lt;- murders$population
 
-# Sort the object and save it in the same object 
-pop&lt;-sort(pop)
+# Sort the object and save it in the same object
+pop &lt;- sort(pop)
 
 # Report the smallest population size 
 pop[1]</code></pre>
 <pre><code>## [1] 563626</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Now instead of the smallest population size, find the index of the entry with the smallest population size. Hint: use order instead of sort.</li>
+<li>The function <code>order()</code> returns the index vector needed to sort the vector. This implies that <code>sort(x)</code> and <code>x[order(x)]</code> give the same result.</li>
 </ol>
-<pre><code># Access population from the dataset and store it in pop
+<p>This can be useful for finding row numbers with certain properties such as “the row for the state with the smallest population”. Remember that when we extract a variable from a data frame the order of the resulting vector is the same as the order of the rows of the data frame. So for example, the entries of the vector <code>murders$state</code> are ordered in the same way as the states if you go down the rows of <code>murders</code>.</p>
+<pre class="r"><code># Access population from the dataset and store it in pop
 pop &lt;- murders$population
 
-# Use the command order, to order pop and store in object o
-o &lt;- order(pop)
+# Use the command order to find the vector of indexes that order pop and store in object ord
+ord &lt;- order(pop)
 
 # Find the index number of the entry with the smallest population size
-which.min(murders$population)</code></pre>
+ord[1]</code></pre>
 <pre><code>## [1] 51</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>We can actually perform the same operation as in the previous exercise using the function which.min. Write one line of code that does this.</li>
+<li>We can actually perform the same operation as in the previous exercise using the function <code>which.min</code>. It basically tells us which is the minimum value.</li>
 </ol>
-<pre><code># Find the smallest value for variable total 
+<pre class="r"><code># Find the index of the smallest value for variable total 
 which.min(murders$total)</code></pre>
 <pre><code>## [1] 46</code></pre>
-<pre><code># Find the smallest value for population
+<pre class="r"><code># Find the index of the smallest value for population
 which.min(murders$population)</code></pre>
 <pre><code>## [1] 51</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Now we know how small the smallest state is and we know which row represents it. Which state is it? Define a variable states to be the state names from the murders data frame. Report the name of the state with the smallest population.</li>
+<li>Now we know how small the smallest state is and we know which row represents it. However, which state is it?</li>
 </ol>
-<pre><code># Define the variable i to be the index of the smallest state
+<pre class="r"><code># Define the variable i to be the index of the smallest state
 i &lt;- which.min(murders$population)
 
 # Define variable states to hold the states
@@ -1134,13 +1132,13 @@ states &lt;- murders$state
 states[i]</code></pre>
 <pre><code>## [1] &quot;Wyoming&quot;</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>You can create a data frame using the data.frame function. Here is a quick example:</li>
+<li>You can create a data frame using the data.frame function.</li>
 </ol>
-<pre><code>temp &lt;- c(35, 88, 42, 84, 81, 30)
-city &lt;- c(“Beijing”, “Lagos”, “Paris”, “Rio de Janeiro”, “San Juan”, “Toronto”)
+<p>Here is a quick example:</p>
+<pre class="r"><code>temp &lt;- c(35, 88, 42, 84, 81, 30)
+city &lt;- c(&quot;Beijing&quot;, &quot;Lagos&quot;, &quot;Paris&quot;, &quot;Rio de Janeiro&quot;, &quot;San Juan&quot;, &quot;Toronto&quot;)
 city_temps &lt;- data.frame(name = city, temperature = temp)</code></pre>
-<p>Use the rank function to determine the population rank of each state from smallest population size to biggest. Save these ranks in an object called ranks, then create a data frame with the state name and its rank. Call the data frame my_df.</p>
-<pre><code># Store temperatures in an object 
+<pre class="r"><code># Store temperatures in an object 
 temp &lt;- c(35, 88, 42, 84, 81, 30)
 
 # Store city names in an object 
@@ -1156,11 +1154,11 @@ states &lt;- murders$state
 ranks &lt;- rank(murders$population)
 
 # Create a data frame my_df with the state name and its rank
-my_df &lt;- data.frame(name=states, ranks)</code></pre>
+my_df &lt;- data.frame(name = states, rank = ranks)</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Repeat the previous exercise, but this time order my_df so that the states are ordered from least populous to most populous. Hint: create an object ind that stores the indexes needed to order the population values. Then use the bracket operator [ to re-order each column in the data frame.</li>
+<li>This exercise is somewhat more challenging. We are going to repeat the previous exercise but this time order `<code>my_df</code> so that the states are ordered from least populous to most.</li>
 </ol>
-<pre><code># Define a variable states to be the state names from the murders data frame
+<pre class="r"><code># Define a variable states to be the state names from the murders data frame
 states &lt;- murders$state
 
 # Define a variable ranks to determine the population size ranks 
@@ -1170,53 +1168,85 @@ ranks &lt;- rank(murders$population)
 ind &lt;- order(murders$population)
 
 # Create a data frame my_df with the state name and its rank and ordered from least populous to most 
-my_df&lt;-data.frame(states = states[ind], ranks = ranks[ind])</code></pre>
+my_df &lt;- data.frame(states = states[ind], ranks = ranks[ind])</code></pre>
 <ol start="7" style="list-style-type: decimal">
-<li>The na_example vector represents a series of counts. You can quickly examine the object using:</li>
+<li>The <code>na_example</code> dataset represents a series of counts. It is included in the <em>dslabs</em> package.</li>
 </ol>
-<pre><code>data(“na_example”)
-str(na_example)
-nt [1:1000] 2 1 3 2 1 3 1 4 3 2 …</code></pre>
-<p>However, when we compute the average with the function mean, we obtain an NA:</p>
-<pre><code>mean(na_example)
-[1] NA</code></pre>
-<p>The is.na function returns a logical vector that tells us which entries are NA. Assign this logical vector to an object called ind and determine how many NAs does na_example have.</p>
-<pre><code># Using new dataset 
+<p>You can quickly examine the object using</p>
+<pre class="r"><code>library(dslabs)
+data(na_example)
+str(na_example)</code></pre>
+<p>However, when we compute the average we obtain an <code>NA</code>. You can see this by typing</p>
+<pre class="r"><code>mean(na_example)</code></pre>
+<pre class="r"><code># Using new dataset 
 library(dslabs)
 data(na_example)
 
 # Checking the structure 
 str(na_example)</code></pre>
 <pre><code>##  int [1:1000] 2 1 3 2 1 3 1 4 3 2 ...</code></pre>
-<pre><code># Find out the mean of the entire dataset 
+<pre class="r"><code># Find out the mean of the entire dataset 
 mean(na_example)</code></pre>
 <pre><code>## [1] NA</code></pre>
-<pre><code># Use is.na to create a logical index ind that tells which entries are NA
+<pre class="r"><code># Use is.na to create a logical index ind that tells which entries are NA
 ind &lt;- is.na(na_example)
 
 # Determine how many NA ind has using the sum function
 sum(ind)</code></pre>
 <pre><code>## [1] 145</code></pre>
 <ol start="8" style="list-style-type: decimal">
-<li>Now compute the average again, but only for the entries that are not NA. Hint: remember the ! operator.</li>
+<li>We previously computed the average of <code>na_example</code> using <code>mean(na_example)</code> and obtain <code>NA</code>. This is because the function <code>mean</code> returns <code>NA</code> if it encounters at least one <code>NA</code>. A common operation is therefore removing the entries that are NA and after that perform operations on the rest.</li>
 </ol>
-<pre><code># Note what we can do with the ! operator
+<pre class="r"><code># Note what we can do with the ! operator
 x &lt;- c(1, 2, 3)
 ind &lt;- c(FALSE, TRUE, FALSE)
 x[!ind]</code></pre>
 <pre><code>## [1] 1 3</code></pre>
-<pre><code># Create the ind vector
+<pre class="r"><code># Create the ind vector
 library(dslabs)
-
 data(na_example)
 ind &lt;- is.na(na_example)
 
 # We saw that this gives an NA
 mean(na_example)</code></pre>
 <pre><code>## [1] NA</code></pre>
-<pre><code># Compute the average, for entries of na_example that are not NA 
+<pre class="r"><code># Compute the average, for entries of na_example that are not NA
 mean(na_example[!ind])</code></pre>
-<pre><code>## [1] 2.301754</code></pre>
+<pre><code>## [1] 2.3</code></pre>
+</div>
+<div id="vector-arithmetic" class="section level2">
+<h2>Vector arithmetic</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#vector-arithmetics">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>In R, arithmetic operations on vectors occur element-wise.</li>
+</ul>
+<p><em>Code</em></p>
+<pre class="r"><code># The name of the state with the maximum population is found by doing the following
+murders$state[which.max(murders$population)]</code></pre>
+<pre><code>## [1] &quot;California&quot;</code></pre>
+<pre class="r"><code># how to obtain the murder rate
+murder_rate &lt;- murders$total / murders$population * 100000
+
+# ordering the states by murder rate, in decreasing order
+murders$state[order(murder_rate, decreasing=TRUE)]</code></pre>
+<pre><code>##  [1] &quot;District of Columbia&quot; &quot;Louisiana&quot;            &quot;Missouri&quot;            
+##  [4] &quot;Maryland&quot;             &quot;South Carolina&quot;       &quot;Delaware&quot;            
+##  [7] &quot;Michigan&quot;             &quot;Mississippi&quot;          &quot;Georgia&quot;             
+## [10] &quot;Arizona&quot;              &quot;Pennsylvania&quot;         &quot;Tennessee&quot;           
+## [13] &quot;Florida&quot;              &quot;California&quot;           &quot;New Mexico&quot;          
+## [16] &quot;Texas&quot;                &quot;Arkansas&quot;             &quot;Virginia&quot;            
+## [19] &quot;Nevada&quot;               &quot;North Carolina&quot;       &quot;Oklahoma&quot;            
+## [22] &quot;Illinois&quot;             &quot;Alabama&quot;              &quot;New Jersey&quot;          
+## [25] &quot;Connecticut&quot;          &quot;Ohio&quot;                 &quot;Alaska&quot;              
+## [28] &quot;Kentucky&quot;             &quot;New York&quot;             &quot;Kansas&quot;              
+## [31] &quot;Indiana&quot;              &quot;Massachusetts&quot;        &quot;Nebraska&quot;            
+## [34] &quot;Wisconsin&quot;            &quot;Rhode Island&quot;         &quot;West Virginia&quot;       
+## [37] &quot;Washington&quot;           &quot;Colorado&quot;             &quot;Montana&quot;             
+## [40] &quot;Minnesota&quot;            &quot;South Dakota&quot;         &quot;Oregon&quot;              
+## [43] &quot;Wyoming&quot;              &quot;Maine&quot;                &quot;Utah&quot;                
+## [46] &quot;Idaho&quot;                &quot;Iowa&quot;                 &quot;North Dakota&quot;        
+## [49] &quot;Hawaii&quot;               &quot;New Hampshire&quot;        &quot;Vermont&quot;</code></pre>
 </div>
 <div id="assessment-5" class="section level2">
 <h2>Assessment 5</h2>

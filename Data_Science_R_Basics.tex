@@ -1879,56 +1879,52 @@ The textbook for this section is available
   original vector.
 \item
   The function \texttt{max()} returns the largest value while
-  which.max() returns the index of the largest value. The functions
-  min() and which.min() work similarly for minimum values.
+  \texttt{which.max()} returns the index of the largest value. The
+  functions \texttt{min()} and \texttt{which.min()} work similarly for
+  minimum values.
 \end{itemize}
 
-\hypertarget{assessment-4}{%
-\subsection{Assessment 4}\label{assessment-4}}
-
-For these exercises we will use the US murders dataset. Make sure you
-load it prior to starting.
-
-\begin{verbatim}
-library(dslabs)
-data("murders")
-\end{verbatim}
+\hypertarget{assessment---sorting}{%
+\subsection{Assessment - Sorting}\label{assessment---sorting}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Use the \$ operator to access the population size data and store it as
-  the object pop. Then use the sort function to redefine pop so that it
-  is sorted. Finally, use the {[} operator to report the smallest
-  population size.
+  When looking at a dataset, we may want to sort the data in an order
+  that makes more sense for analysis. Let's learn to do this using the
+  \texttt{murders} dataset as an example
 \end{enumerate}
 
-\begin{verbatim}
-# Access the `state` variable and store it in an object 
-states <- murders$state 
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Access the `state` variable and store it in an object }
+\NormalTok{states <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{state }
 
-# Sort the object alphabetically and redefine the object 
-states <- sort(states) 
+\CommentTok{# Sort the object alphabetically and redefine the object }
+\NormalTok{states <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(states) }
 
-# Report the first alphabetical value  
-states[1]
-\end{verbatim}
+\CommentTok{# Report the first alphabetical value  }
+\NormalTok{states[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Alabama"
 \end{verbatim}
 
-\begin{verbatim}
-# Access population values from the dataset and store it in pop
-pop <- murders$population
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Access population values from the dataset and store it in pop}
+\NormalTok{pop <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}
 
-# Sort the object and save it in the same object 
-pop<-sort(pop)
+\CommentTok{# Sort the object and save it in the same object}
+\NormalTok{pop <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(pop)}
 
-# Report the smallest population size 
-pop[1]
-\end{verbatim}
+\CommentTok{# Report the smallest population size }
+\NormalTok{pop[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 563626
@@ -1939,21 +1935,31 @@ pop[1]
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Now instead of the smallest population size, find the index of the
-  entry with the smallest population size. Hint: use order instead of
-  sort.
+  The function \texttt{order()} returns the index vector needed to sort
+  the vector. This implies that \texttt{sort(x)} and
+  \texttt{x{[}order(x){]}} give the same result.
 \end{enumerate}
 
-\begin{verbatim}
-# Access population from the dataset and store it in pop
-pop <- murders$population
+This can be useful for finding row numbers with certain properties such
+as ``the row for the state with the smallest population''. Remember that
+when we extract a variable from a data frame the order of the resulting
+vector is the same as the order of the rows of the data frame. So for
+example, the entries of the vector \texttt{murders\$state} are ordered
+in the same way as the states if you go down the rows of
+\texttt{murders}.
 
-# Use the command order, to order pop and store in object o
-o <- order(pop)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Access population from the dataset and store it in pop}
+\NormalTok{pop <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}
 
-# Find the index number of the entry with the smallest population size
-which.min(murders$population)
-\end{verbatim}
+\CommentTok{# Use the command order to find the vector of indexes that order pop and store in object ord}
+\NormalTok{ord <-}\StringTok{ }\KeywordTok{order}\NormalTok{(pop)}
+
+\CommentTok{# Find the index number of the entry with the smallest population size}
+\NormalTok{ord[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 51
@@ -1965,22 +1971,27 @@ which.min(murders$population)
 \tightlist
 \item
   We can actually perform the same operation as in the previous exercise
-  using the function which.min. Write one line of code that does this.
+  using the function \texttt{which.min}. It basically tells us which is
+  the minimum value.
 \end{enumerate}
 
-\begin{verbatim}
-# Find the smallest value for variable total 
-which.min(murders$total)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Find the index of the smallest value for variable total }
+\KeywordTok{which.min}\NormalTok{(murders}\OperatorTok{$}\NormalTok{total)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 46
 \end{verbatim}
 
-\begin{verbatim}
-# Find the smallest value for population
-which.min(murders$population)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Find the index of the smallest value for population}
+\KeywordTok{which.min}\NormalTok{(murders}\OperatorTok{$}\NormalTok{population)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 51
@@ -1992,21 +2003,21 @@ which.min(murders$population)
 \tightlist
 \item
   Now we know how small the smallest state is and we know which row
-  represents it. Which state is it? Define a variable states to be the
-  state names from the murders data frame. Report the name of the state
-  with the smallest population.
+  represents it. However, which state is it?
 \end{enumerate}
 
-\begin{verbatim}
-# Define the variable i to be the index of the smallest state
-i <- which.min(murders$population)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Define the variable i to be the index of the smallest state}
+\NormalTok{i <-}\StringTok{ }\KeywordTok{which.min}\NormalTok{(murders}\OperatorTok{$}\NormalTok{population)}
 
-# Define variable states to hold the states
-states <- murders$state
+\CommentTok{# Define variable states to hold the states}
+\NormalTok{states <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{state}
 
-# Use the index you just defined to find the state with the smallest population
-states[i]
-\end{verbatim}
+\CommentTok{# Use the index you just defined to find the state with the smallest population}
+\NormalTok{states[i]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Wyoming"
@@ -2017,123 +2028,130 @@ states[i]
 \setcounter{enumi}{4}
 \tightlist
 \item
-  You can create a data frame using the data.frame function. Here is a
-  quick example:
+  You can create a data frame using the data.frame function.
 \end{enumerate}
 
-\begin{verbatim}
-temp <- c(35, 88, 42, 84, 81, 30)
-city <- c(“Beijing”, “Lagos”, “Paris”, “Rio de Janeiro”, “San Juan”, “Toronto”)
-city_temps <- data.frame(name = city, temperature = temp)
-\end{verbatim}
+Here is a quick example:
 
-Use the rank function to determine the population rank of each state
-from smallest population size to biggest. Save these ranks in an object
-called ranks, then create a data frame with the state name and its rank.
-Call the data frame my\_df.
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{30}\NormalTok{)}
+\NormalTok{city <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Beijing"}\NormalTok{, }\StringTok{"Lagos"}\NormalTok{, }\StringTok{"Paris"}\NormalTok{, }\StringTok{"Rio de Janeiro"}\NormalTok{, }\StringTok{"San Juan"}\NormalTok{, }\StringTok{"Toronto"}\NormalTok{)}
+\NormalTok{city_temps <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{name =}\NormalTok{ city, }\DataTypeTok{temperature =}\NormalTok{ temp)}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{verbatim}
-# Store temperatures in an object 
-temp <- c(35, 88, 42, 84, 81, 30)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store temperatures in an object }
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{30}\NormalTok{)}
 
-# Store city names in an object 
-city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+\CommentTok{# Store city names in an object }
+\NormalTok{city <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Beijing"}\NormalTok{, }\StringTok{"Lagos"}\NormalTok{, }\StringTok{"Paris"}\NormalTok{, }\StringTok{"Rio de Janeiro"}\NormalTok{, }\StringTok{"San Juan"}\NormalTok{, }\StringTok{"Toronto"}\NormalTok{)}
 
-# Create data frame with city names and temperature 
-city_temps <- data.frame(name = city, temperature = temp)
+\CommentTok{# Create data frame with city names and temperature }
+\NormalTok{city_temps <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{name =}\NormalTok{ city, }\DataTypeTok{temperature =}\NormalTok{ temp)}
 
-# Define a variable states to be the state names 
-states <- murders$state
+\CommentTok{# Define a variable states to be the state names }
+\NormalTok{states <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{state}
 
-# Define a variable ranks to determine the population size ranks 
-ranks <- rank(murders$population)
+\CommentTok{# Define a variable ranks to determine the population size ranks }
+\NormalTok{ranks <-}\StringTok{ }\KeywordTok{rank}\NormalTok{(murders}\OperatorTok{$}\NormalTok{population)}
 
-# Create a data frame my_df with the state name and its rank
-my_df <- data.frame(name=states, ranks)
-\end{verbatim}
+\CommentTok{# Create a data frame my_df with the state name and its rank}
+\NormalTok{my_df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{name =}\NormalTok{ states, }\DataTypeTok{rank =}\NormalTok{ ranks)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{5}
 \tightlist
 \item
-  Repeat the previous exercise, but this time order my\_df so that the
-  states are ordered from least populous to most populous. Hint: create
-  an object ind that stores the indexes needed to order the population
-  values. Then use the bracket operator {[} to re-order each column in
-  the data frame.
+  This exercise is somewhat more challenging. We are going to repeat the
+  previous exercise but this time order `\texttt{my\_df} so that the
+  states are ordered from least populous to most.
 \end{enumerate}
 
-\begin{verbatim}
-# Define a variable states to be the state names from the murders data frame
-states <- murders$state
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Define a variable states to be the state names from the murders data frame}
+\NormalTok{states <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{state}
 
-# Define a variable ranks to determine the population size ranks 
-ranks <- rank(murders$population)
+\CommentTok{# Define a variable ranks to determine the population size ranks }
+\NormalTok{ranks <-}\StringTok{ }\KeywordTok{rank}\NormalTok{(murders}\OperatorTok{$}\NormalTok{population)}
 
-# Define a variable ind to store the indexes needed to order the population values
-ind <- order(murders$population)
+\CommentTok{# Define a variable ind to store the indexes needed to order the population values}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{order}\NormalTok{(murders}\OperatorTok{$}\NormalTok{population)}
 
-# Create a data frame my_df with the state name and its rank and ordered from least populous to most 
-my_df<-data.frame(states = states[ind], ranks = ranks[ind])
-\end{verbatim}
+\CommentTok{# Create a data frame my_df with the state name and its rank and ordered from least populous to most }
+\NormalTok{my_df <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{states =}\NormalTok{ states[ind], }\DataTypeTok{ranks =}\NormalTok{ ranks[ind])}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{6}
 \tightlist
 \item
-  The na\_example vector represents a series of counts. You can quickly
-  examine the object using:
+  The \texttt{na\_example} dataset represents a series of counts. It is
+  included in the \emph{dslabs} package.
 \end{enumerate}
 
-\begin{verbatim}
-data(“na_example”)
-str(na_example)
-nt [1:1000] 2 1 3 2 1 3 1 4 3 2 …
-\end{verbatim}
+You can quickly examine the object using
 
-However, when we compute the average with the function mean, we obtain
-an NA:
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dslabs)}
+\KeywordTok{data}\NormalTok{(na_example)}
+\KeywordTok{str}\NormalTok{(na_example)}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{verbatim}
-mean(na_example)
-[1] NA
-\end{verbatim}
+However, when we compute the average we obtain an \texttt{NA}. You can
+see this by typing
 
-The is.na function returns a logical vector that tells us which entries
-are NA. Assign this logical vector to an object called ind and determine
-how many NAs does na\_example have.
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(na_example)}
+\end{Highlighting}
+\end{Shaded}
 
-\begin{verbatim}
-# Using new dataset 
-library(dslabs)
-data(na_example)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Using new dataset }
+\KeywordTok{library}\NormalTok{(dslabs)}
+\KeywordTok{data}\NormalTok{(na_example)}
 
-# Checking the structure 
-str(na_example)
-\end{verbatim}
+\CommentTok{# Checking the structure }
+\KeywordTok{str}\NormalTok{(na_example)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ##  int [1:1000] 2 1 3 2 1 3 1 4 3 2 ...
 \end{verbatim}
 
-\begin{verbatim}
-# Find out the mean of the entire dataset 
-mean(na_example)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Find out the mean of the entire dataset }
+\KeywordTok{mean}\NormalTok{(na_example)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] NA
 \end{verbatim}
 
-\begin{verbatim}
-# Use is.na to create a logical index ind that tells which entries are NA
-ind <- is.na(na_example)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use is.na to create a logical index ind that tells which entries are NA}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{is.na}\NormalTok{(na_example)}
 
-# Determine how many NA ind has using the sum function
-sum(ind)
-\end{verbatim}
+\CommentTok{# Determine how many NA ind has using the sum function}
+\KeywordTok{sum}\NormalTok{(ind)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 145
@@ -2144,43 +2162,108 @@ sum(ind)
 \setcounter{enumi}{7}
 \tightlist
 \item
-  Now compute the average again, but only for the entries that are not
-  NA. Hint: remember the ! operator.
+  We previously computed the average of \texttt{na\_example} using
+  \texttt{mean(na\_example)} and obtain \texttt{NA}. This is because the
+  function \texttt{mean} returns \texttt{NA} if it encounters at least
+  one \texttt{NA}. A common operation is therefore removing the entries
+  that are NA and after that perform operations on the rest.
 \end{enumerate}
 
-\begin{verbatim}
-# Note what we can do with the ! operator
-x <- c(1, 2, 3)
-ind <- c(FALSE, TRUE, FALSE)
-x[!ind]
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Note what we can do with the ! operator}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{x[}\OperatorTok{!}\NormalTok{ind]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 1 3
 \end{verbatim}
 
-\begin{verbatim}
-# Create the ind vector
-library(dslabs)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create the ind vector}
+\KeywordTok{library}\NormalTok{(dslabs)}
+\KeywordTok{data}\NormalTok{(na_example)}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{is.na}\NormalTok{(na_example)}
 
-data(na_example)
-ind <- is.na(na_example)
-
-# We saw that this gives an NA
-mean(na_example)
-\end{verbatim}
+\CommentTok{# We saw that this gives an NA}
+\KeywordTok{mean}\NormalTok{(na_example)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] NA
 \end{verbatim}
 
-\begin{verbatim}
-# Compute the average, for entries of na_example that are not NA 
-mean(na_example[!ind])
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Compute the average, for entries of na_example that are not NA}
+\KeywordTok{mean}\NormalTok{(na_example[}\OperatorTok{!}\NormalTok{ind])}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-## [1] 2.301754
+## [1] 2.3
+\end{verbatim}
+
+\hypertarget{vector-arithmetic}{%
+\subsection{Vector arithmetic}\label{vector-arithmetic}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html\#vector-arithmetics}{here}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  In R, arithmetic operations on vectors occur element-wise.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The name of the state with the maximum population is found by doing the following}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[}\KeywordTok{which.max}\NormalTok{(murders}\OperatorTok{$}\NormalTok{population)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "California"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# how to obtain the murder rate}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total }\OperatorTok{/}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}
+
+\CommentTok{# ordering the states by murder rate, in decreasing order}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[}\KeywordTok{order}\NormalTok{(murder_rate, }\DataTypeTok{decreasing=}\OtherTok{TRUE}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "District of Columbia" "Louisiana"            "Missouri"            
+##  [4] "Maryland"             "South Carolina"       "Delaware"            
+##  [7] "Michigan"             "Mississippi"          "Georgia"             
+## [10] "Arizona"              "Pennsylvania"         "Tennessee"           
+## [13] "Florida"              "California"           "New Mexico"          
+## [16] "Texas"                "Arkansas"             "Virginia"            
+## [19] "Nevada"               "North Carolina"       "Oklahoma"            
+## [22] "Illinois"             "Alabama"              "New Jersey"          
+## [25] "Connecticut"          "Ohio"                 "Alaska"              
+## [28] "Kentucky"             "New York"             "Kansas"              
+## [31] "Indiana"              "Massachusetts"        "Nebraska"            
+## [34] "Wisconsin"            "Rhode Island"         "West Virginia"       
+## [37] "Washington"           "Colorado"             "Montana"             
+## [40] "Minnesota"            "South Dakota"         "Oregon"              
+## [43] "Wyoming"              "Maine"                "Utah"                
+## [46] "Idaho"                "Iowa"                 "North Dakota"        
+## [49] "Hawaii"               "New Hampshire"        "Vermont"
 \end{verbatim}
 
 \hypertarget{assessment-5}{%
