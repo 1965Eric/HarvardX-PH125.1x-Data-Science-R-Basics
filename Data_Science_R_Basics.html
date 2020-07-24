@@ -751,7 +751,7 @@ str(movielens)</code></pre>
 ##  $ timestamp: int  1260759144 1260759179 1260759182 1260759185 1260759205 1260759151 1260759187 1260759148 1260759125 1260759131 ...</code></pre>
 <p>How many rows are in the dataset? <code>100004</code></p>
 <p>How many different variables are in the dataset? <code>7</code></p>
-<p>What is the variable type of title ?</p>
+<p>What is the variable type of <code>title</code>?</p>
 <ul>
 <li><input type="checkbox" disabled></input>
 A. It is a text (txt) variable</li>
@@ -768,7 +768,7 @@ F. It is a factor (Factor) variable</li>
 <li><input type="checkbox" disabled checked></input>
 G. It is a character (chr) variable</li>
 </ul>
-<p>What is the variable type of genres ?</p>
+<p>What is the variable type of <code>genres</code>?</p>
 <ul>
 <li><input type="checkbox" disabled></input>
 A. It is a text (txt) variable</li>
@@ -814,32 +814,105 @@ G. It is a character (chr) variable</li>
 <li>Perform arithmetic between a vector and a single number.</li>
 <li>Perform arithmetic between two vectors of same length.</li>
 </ul>
-<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#vectors">here</a></p>
 </div>
-<div id="assessment-3" class="section level2">
-<h2>Assessment 3</h2>
+<div id="vectors" class="section level2">
+<h2>Vectors</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#vectors">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>The function c(), which stands for concatenate, is useful for creating vectors.</li>
+<li>Another useful function for creating vectors is the seq() function, which generates sequences.</li>
+<li>Subsetting lets us access specific parts of a vector by using square brackets to access elements of a vector.</li>
+</ul>
+<p><em>Code</em></p>
+<pre class="r"><code># We may create vectors of class numeric or character with the concatenate function
+codes &lt;- c(380, 124, 818)
+country &lt;- c(&quot;italy&quot;, &quot;canada&quot;, &quot;egypt&quot;)
+
+# We can also name the elements of a numeric vector
+# Note that the two lines of code below have the same result
+codes &lt;- c(italy = 380, canada = 124, egypt = 818)
+codes &lt;- c(&quot;italy&quot; = 380, &quot;canada&quot; = 124, &quot;egypt&quot; = 818)
+
+# We can also name the elements of a numeric vector using the names() function
+codes &lt;- c(380, 124, 818)
+country &lt;- c(&quot;italy&quot;,&quot;canada&quot;,&quot;egypt&quot;)
+names(codes) &lt;- country
+
+# Using square brackets is useful for subsetting to access specific elements of a vector
+codes[2]</code></pre>
+<pre><code>## canada 
+##    124</code></pre>
+<pre class="r"><code>codes[c(1,3)]</code></pre>
+<pre><code>## italy egypt 
+##   380   818</code></pre>
+<pre class="r"><code>codes[1:2]</code></pre>
+<pre><code>##  italy canada 
+##    380    124</code></pre>
+<pre class="r"><code># If the entries of a vector are named, they may be accessed by referring to their name
+codes[&quot;canada&quot;]</code></pre>
+<pre><code>## canada 
+##    124</code></pre>
+<pre class="r"><code>codes[c(&quot;egypt&quot;,&quot;italy&quot;)]</code></pre>
+<pre><code>## egypt italy 
+##   818   380</code></pre>
+</div>
+<div id="vectors---vector-coercion" class="section level2">
+<h2>Vectors - Vector Coercion</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#coercion">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>In general, <em>coercion</em> is an attempt by R to be flexible with data types by guessing what was meant when an entry does not match the expected. For example, when defining x as</li>
+</ul>
+<p>x &lt;- c(1, “canada”, 3)</p>
+<p>R <em>coerced</em> the data into characters. It guessed that because you put a character string in the vector, you meant the 1 and 3 to actually be character strings “1” and “3”.</p>
+<ul>
+<li>The function <code>as.character()</code> turns numbers into characters.</li>
+<li>The function <code>as.numeric()</code> turns characters into numbers.</li>
+<li>In R, missing data is assigned the value NA.</li>
+</ul>
+</div>
+<div id="assessment---vectors" class="section level2">
+<h2>Assessment - Vectors</h2>
 <ol style="list-style-type: decimal">
-<li>Use the function c to create a vector with the average high temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San Juan and Toronto, which are 35, 88, 42, 84, 81, and 30 degrees Fahrenheit. Call the object temp.</li>
+<li>A vector is a series of values, all of the same type. They are the most basic data type in R and can hold numeric data, character data, or logical data. In R, you can create a vector with the concatenate (or combine) function <code>c()</code></li>
 </ol>
-<pre><code># Here is an example creating a numeric vector named cost
+<p>You place the vector elements separated by a comma between the parentheses. For example a numeric vector would look something like this:</p>
+<pre class="r"><code>cost &lt;- c(50, 75, 90, 100, 150)</code></pre>
+<pre class="r"><code># Here is an example creating a numeric vector named cost
 cost &lt;- c(50, 75, 90, 100, 150)
 
 # Create a numeric vector to store the temperatures listed in the instructions into a vector named temp
 # Make sure to follow the same order in the instructions
-temp &lt;- c(35, 88, 42, 84, 81,30)</code></pre>
+temp &lt;- c(&quot;Beijing&quot;=35, &quot;Lagos&quot;=88, &quot;Paris&quot;=42, &quot;Rio de Janeiro&quot;=84, &quot;San Juan&quot;=81, &quot;Toronto&quot;=30)
+cost</code></pre>
+<pre><code>## [1]  50  75  90 100 150</code></pre>
+<pre class="r"><code>temp</code></pre>
+<pre><code>##        Beijing          Lagos          Paris Rio de Janeiro       San Juan 
+##             35             88             42             84             81 
+##        Toronto 
+##             30</code></pre>
+<pre class="r"><code>class(temp)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Now create a vector with the city names and call the object city.</li>
+<li>As in the previous question, we are going to create a vector. Only this time, we learn to create <em>character</em> vectors. The main difference is that these have to be written as strings and so the names are enclosed within double quotes.</li>
 </ol>
-<pre><code># here is an example of how to create a character vector
+<p>A <em>character</em> vector would look something like this:</p>
+<pre class="r"><code>food &lt;- c(&quot;pizza&quot;, &quot;burgers&quot;, &quot;salads&quot;, &quot;cheese&quot;, &quot;pasta&quot;)</code></pre>
+<pre class="r"><code># here is an example of how to create a character vector
 food &lt;- c(&quot;pizza&quot;, &quot;burgers&quot;, &quot;salads&quot;, &quot;cheese&quot;, &quot;pasta&quot;)
 
 # Create a character vector called city to store the city names
 # Make sure to follow the same order as in the instructions
 city &lt;- c(&quot;Beijing&quot;, &quot;Lagos&quot;, &quot;Paris&quot;, &quot;Rio de Janeiro&quot;, &quot;San Juan&quot;, &quot;Toronto&quot;)</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Use the names function and the objects defined in the previous exercises to associate the temperature data with its corresponding city.</li>
+<li>We have successfully assigned the temperatures as <em>numeric</em> values to <code>temp</code> and the <code>city</code> names as character values to city. But can we associate the temperature to its related city? Yes! We can do so using a code we already know - <code>names</code>. We assign names to the <em>numeric</em> values.</li>
 </ol>
-<pre><code># Associate the cost values with its corresponding food item
+<p>It would look like this:</p>
+<pre class="r"><code>cost &lt;- c(50, 75, 90, 100, 150)
+food &lt;- c(&quot;pizza&quot;, &quot;burgers&quot;, &quot;salads&quot;, &quot;cheese&quot;, &quot;pasta&quot;)
+names(cost) &lt;- food</code></pre>
+<pre class="r"><code># Associate the cost values with its corresponding food item
 cost &lt;- c(50, 75, 90, 100, 150)
 food &lt;- c(&quot;pizza&quot;, &quot;burgers&quot;, &quot;salads&quot;, &quot;cheese&quot;, &quot;pasta&quot;)
 names(cost) &lt;- food
@@ -849,26 +922,36 @@ temp &lt;- c(35, 88, 42, 84, 81, 30)
 city &lt;- c(&quot;Beijing&quot;, &quot;Lagos&quot;, &quot;Paris&quot;, &quot;Rio de Janeiro&quot;, &quot;San Juan&quot;, &quot;Toronto&quot;)
 
 # Associate the temperature values with its corresponding city
-names(temp) &lt;- city</code></pre>
+names(temp) &lt;- city
+temp</code></pre>
+<pre><code>##        Beijing          Lagos          Paris Rio de Janeiro       San Juan 
+##             35             88             42             84             81 
+##        Toronto 
+##             30</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Use the [ and : operators to access the temperature of the first three cities on the list.</li>
+<li>If we want to display only selected values from the object, R can help us do that easily.</li>
 </ol>
-<pre><code># cost of the last 3 items in our food list:
+<p>For example, if we want to see the cost of the last 3 items in our food list, we would type:</p>
+<pre class="r"><code>cost[3:5]</code></pre>
+<p>Note here, that we could also type <code>cost[c(3,4,5)]</code> and get the same result. The <code>:</code> operator helps us condense the code and get consecutive values.</p>
+<pre class="r"><code># cost of the last 3 items in our food list:
 cost[3:5]</code></pre>
 <pre><code>## salads cheese  pasta 
 ##     90    100    150</code></pre>
-<pre><code># temperatures of the first three cities in the list:
+<pre class="r"><code># temperatures of the first three cities in the list:
 temp[1:3]</code></pre>
 <pre><code>## Beijing   Lagos   Paris 
 ##      35      88      42</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>Use the [ operator to access the temperature of Paris and San Juan.</li>
+<li>In the previous question, we accessed the temperature for consecutive cities (1st three). But what if we want to access the temperatures for any 2 specific cities?</li>
 </ol>
-<pre><code># Access the cost of pizza and pasta from our food list 
+<p>An example: To access the cost of <code>pizza</code> (1st) and <code>pasta</code> (5th food item) in our list, the code would be:</p>
+<pre class="r"><code>cost[c(1,5)]</code></pre>
+<pre class="r"><code># Access the cost of pizza and pasta from our food list 
 cost[c(1,5)]</code></pre>
 <pre><code>## pizza pasta 
 ##    50   150</code></pre>
-<pre><code># Define temp
+<pre class="r"><code># Define temp
 temp &lt;- c(35, 88, 42, 84, 81, 30)
 city &lt;- c(&quot;Beijing&quot;, &quot;Lagos&quot;, &quot;Paris&quot;, &quot;Rio de Janeiro&quot;, &quot;San Juan&quot;, &quot;Toronto&quot;)
 names(temp) &lt;- city
@@ -878,88 +961,118 @@ temp[c(3,5)]</code></pre>
 <pre><code>##    Paris San Juan 
 ##       42       81</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Use the : operator to create a sequence of numbers 12, 13, 14,..,73.</li>
+<li>The <code>:</code> operator helps us create sequences of numbers. For example, <code>32:99</code> would create a list of numbers from 32 to 99.</li>
 </ol>
-<pre><code># Create a vector m of integers that starts at 32 and ends at 99.
+<p>Then, if we want to know the length of this sequence, all we need to do is use the <code>length</code> command.</p>
+<pre class="r"><code># Create a vector m of integers that starts at 32 and ends at 99.
 m &lt;- 32:99
 
 # Determine the length of object m.
 length(m)</code></pre>
 <pre><code>## [1] 68</code></pre>
-<pre><code># Create a vector x of integers that starts 12 and ends at 73.
+<pre class="r"><code># Create a vector x of integers that starts at 12 and ends at 73.
 x &lt;- 12:73
 
 # Determine the length of object x.
 length(x)</code></pre>
 <pre><code>## [1] 62</code></pre>
 <ol start="7" style="list-style-type: decimal">
-<li>Create a vector containing all the positive odd numbers smaller than 100.</li>
+<li>We can also create different types of sequences in R. For example, in <code>seq(7, 49, 7)</code>, the first argument defines the start, and the second the end. The default is to go up in increments of 1, but a third argument lets us tell it by what interval.</li>
 </ol>
-<pre><code># Create a vector with the multiples of 7, smaller than 50.
+<pre class="r"><code># Create a vector with the multiples of 7, smaller than 50.
 seq(7, 49, 7) </code></pre>
 <pre><code>## [1]  7 14 21 28 35 42 49</code></pre>
-<pre><code># Create a vector containing all the positive odd numbers smaller than 100.
+<pre class="r"><code># Create a vector containing all the positive odd numbers smaller than 100.
 # The numbers should be in ascending order
-seq(1,100,2)</code></pre>
-<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45
-## [24] 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91
-## [47] 93 95 97 99</code></pre>
+seq(1,99,2)</code></pre>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49
+## [26] 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91 93 95 97 99</code></pre>
 <ol start="8" style="list-style-type: decimal">
-<li>Create a vector of numbers that starts at 6, does not pass 55, and adds numbers in increments of 4/7: 6, 6+4/7, 6+8/7, etc.. How many numbers does the list have? Hint: use seq and length.</li>
+<li>The second argument of the function <code>seq</code> is actually a maximum, not necessarily the end.</li>
 </ol>
-<pre><code># We can a vector with the multiples of 7, smaller than 50 like this 
+<p>So if we type</p>
+<pre class="r"><code>seq(7, 50, 7)</code></pre>
+<p>we actually get the same vector of integers as if we type</p>
+<pre class="r"><code>seq(7, 49, 7)</code></pre>
+<p>This can be useful because sometimes all we want are sequential numbers that are smaller than some value.</p>
+<pre class="r"><code># We can create a vector with the multiples of 7, smaller than 50 like this 
 seq(7, 49, 7) </code></pre>
 <pre><code>## [1]  7 14 21 28 35 42 49</code></pre>
-<pre><code># But note that the second argument does not need to be last number.
-# It simply determines the maximum value permitted.
+<pre class="r"><code># But note that the second argument does not need to be the last number
+# It simply determines the maximum value permitted
 # so the following line of code produces the same vector as seq(7, 49, 7)
 seq(7, 50, 7)</code></pre>
 <pre><code>## [1]  7 14 21 28 35 42 49</code></pre>
-<pre><code># Create a sequence of numbers from 6 to 55, with 4/7 increments and determine its length
+<pre class="r"><code># Create a sequence of numbers from 6 to 55, with 4/7 increments and determine its length
 length(seq(6,55,4/7))</code></pre>
 <pre><code>## [1] 86</code></pre>
 <ol start="9" style="list-style-type: decimal">
-<li>What is the class of the following object a &lt;- seq(1, 10, length.out = 100)?</li>
+<li>The <code>seq()</code> function has another useful argument. The argument <em>length.out</em>. This argument lets us generate sequences that are increasing by the same amount but are of the prespecified length.</li>
 </ol>
-<pre><code># Store the sequence in the object a
+<p>For example, this line of code</p>
+<pre class="r"><code>x &lt;- seq(0, 100, length.out = 5)
+produces the numbers 0, 25, 50, 75, 100.</code></pre>
+<p>Let’s create a vector and see what is the class of the object produced.</p>
+<pre class="r"><code># Store the sequence in the object a
 a &lt;- seq(1, 10, length.out = 100)
 
 # Determine the class of a
 class(a)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <ol start="10" style="list-style-type: decimal">
-<li>What is the class of the following object a &lt;- seq(1, 10)?</li>
+<li>We have discussed the numeric class. We just saw that the <code>seq</code> function can generate objects of this class.</li>
 </ol>
-<pre><code># Store the sequence in the object a
-a &lt;- seq(1, 10)
+<p>For another example, type</p>
+<pre class="r"><code>class(seq(1, 10, 0.5))</code></pre>
+<p>into the console and note that the <code>class</code> is <em>numeric</em>. R has another type of vector we have not described, the <em>integer</em> class. You can create an <em>integer</em> by adding the letter <code>L</code> after a whole number. If you type</p>
+<pre class="r"><code>class(3L)</code></pre>
+<p>in the console, you see this is an <em>integer</em> and not a <em>numeric</em>. For most practical purposes, integers and numerics are indistinguishable. For example 3, the integer, minus 3 the numeric is 0. To see this type this in the console</p>
+<pre class="r"><code>3L - 3</code></pre>
+<p>The main difference is that integers occupy less space in the computer memory, so for big computations using integers can have a substantial impact.</p>
+<pre class="r"><code># Store the sequence in the object a
+a &lt;- seq(1,10)
 
 # Determine the class of a
 class(a)</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <ol start="11" style="list-style-type: decimal">
-<li>The class of class(a&lt;-1) is numeric, not integer. R defaults to numeric and to force an integer, you need to add the letter L. Confirm that the class of 1L is integer.</li>
+<li>Let’s confirm that <code>1L</code> is an <em>integer</em> not a <em>numeric</em>.</li>
 </ol>
-<pre><code># Check the class of 1, assigned to the object a
-a &lt;- class(1)
-
-# Confirm the class of 1L is integer
+<pre class="r"><code># Check the class of 1, assigned to the object a
+class(1)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code># Confirm the class of 1L is integer
 class(1L)</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <ol start="12" style="list-style-type: decimal">
-<li>Define the following vector:</li>
+<li>The concept of coercion is a very important one. Watching the video, we learned that when an entry does not match what an R function is expecting, R tries to guess what we meant before throwing an error. This might get confusing at times.</li>
 </ol>
-<pre><code>x &lt;- c(“1”, “3”, “5”, “a”)</code></pre>
-<p>and coerce it to get integers.</p>
-<pre><code># Define the vector x
+<p>As we’ve discussed in earlier questions, there are numeric and character vectors. The character vectors are placed in quotes and the numerics are not.</p>
+<p>We can avoid issues with coercion in R by changing characters to numerics and vice-versa. This is known as typecasting. The code, <code>as.numeric(x)</code> helps us convert character strings to numbers. There is an equivalent function that converts its argument to a string, <code>as.character(x)</code>.</p>
+<p>Let’s practice doing this!</p>
+<pre class="r"><code># Define the vector x
 x &lt;- c(1, 3, 5,&quot;a&quot;)
 
 # Note that the x is character vector
 x</code></pre>
 <pre><code>## [1] &quot;1&quot; &quot;3&quot; &quot;5&quot; &quot;a&quot;</code></pre>
-<pre><code># Typecast the vector to get an integer vector
-x &lt;- as.numeric(x)
-
-# You will get a warning but that is ok</code></pre>
+<pre class="r"><code># Typecast the vector to get an integer vector
+# You will get a warning but that is ok
+x &lt;- as.numeric(x)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>x</code></pre>
+<pre><code>## [1]  1  3  5 NA</code></pre>
+</div>
+<div id="sorting" class="section level2">
+<h2>Sorting</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#sorting">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>The function <code>sort()</code> sorts a vector in increasing order.</li>
+<li>The function <code>order()</code> produces the indices needed to obtain the sorted vector, e.g. a result of 2 3 1 5 4 means the sorted vector will be produced by listing the 2nd, 3rd, 1st, 5th, and then 4th item of the original vector.</li>
+<li>The function <code>rank()</code> gives us the ranks of the items in the original vector.</li>
+<li>The function <code>max()</code> returns the largest value while which.max() returns the index of the largest value. The functions min() and which.min() work similarly for minimum values.</li>
+</ul>
 </div>
 <div id="assessment-4" class="section level2">
 <h2>Assessment 4</h2>
