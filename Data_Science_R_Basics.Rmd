@@ -978,7 +978,7 @@ x <- c(2, 43, 27, 96, 18)
 min(x)
 which.min(x)
 max(x)
-which.max
+which.max(x)
 ```
 
 3. Mandi, Amy, Nicole, and Olivia all ran different distances in different time intervals. Their distances (in
