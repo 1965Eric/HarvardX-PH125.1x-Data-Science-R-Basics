@@ -425,8 +425,8 @@ The textbook for this section is available [here](https://rafalab.github.io/dsbo
 
 **Key Points**
 
-* The function c(), which stands for concatenate, is useful for creating vectors.
-* Another useful function for creating vectors is the seq() function, which generates sequences.
+* The function ```c()```, which stands for concatenate, is useful for creating vectors.
+* Another useful function for creating vectors is the ```seq()``` function, which generates sequences.
 * Subsetting lets us access specific parts of a vector by using square brackets to access elements of a vector.
 
 *Code*
@@ -514,6 +514,7 @@ city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
 3. We have successfully assigned the temperatures as *numeric* values to ```temp``` and the ```city``` names as character values to city. But can we associate the temperature to its related city? Yes! We can do so using a code we already know - ```names```. We assign names to the *numeric* values.
 
 It would look like this:
+
 ```{r, eval=FALSE, echo=TRUE}
 cost <- c(50, 75, 90, 100, 150)
 food <- c("pizza", "burgers", "salads", "cheese", "pasta")
@@ -616,7 +617,7 @@ we actually get the same vector of integers as if we type
 seq(7, 49, 7)
 ```
 
-This can be useful because sometimes all we want are sequential numbers that are smaller than some value.
+This can be useful because sometimes all we want are sequential numbers that are smaller than some value. Let's look at an example.
 
 ```{r}
 # We can create a vector with the multiples of 7, smaller than 50 like this 
