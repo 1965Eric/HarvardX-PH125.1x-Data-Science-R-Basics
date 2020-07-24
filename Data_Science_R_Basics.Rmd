@@ -984,31 +984,22 @@ which.max
 3. Mandi, Amy, Nicole, and Olivia all ran different distances in different time intervals. Their distances (in
 miles) and times (in minutes) are as follows:
 
-```{r}
-name <- c("Mandi", "Amy", "Nicole", "Olivia")
-distance <- c(0.8, 3.1, 2.8, 4.0)
-time <- c(10, 30, 40, 50)
-```
-
 Write a line of code to convert time to hours. Remember there are 60 minutes in an hour. Then write a line of code to calculate the speed of each runner in miles per hour. Speed is distance divided by time.
 
 How many hours did Olivia run?
 
-```{r}
-hours <- time/60
-hours[4]
-```
-
 What was Mandi's speed in miles per hour?
-
-```{r}
-speed < distance/hours
-speed[1]
-```
 
 Which runner had the fastest speed?
 
 ```{r}
+name <- c("Mandi", "Amy", "Nicole", "Olivia")
+distance <- c(0.8, 3.1, 2.8, 4.0)
+time <- c(10, 30, 40, 50)
+hours <- time/60
+hours[4]
+speed < distance/hours
+speed[1]
 name[which.max(speed)]
 ```
 
