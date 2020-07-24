@@ -862,9 +862,11 @@ accessor \texttt{\$}.
 
 If you instead try to access a column with just one bracket,
 
-\begin{verbatim}
-murders["population"]
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{murders[}\StringTok{"population"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
 
 R returns a subset of the original data frame containing just this
 column. This new object will be of class \texttt{data.frame} rather than
@@ -1020,63 +1022,24 @@ significant digits for both solutions)
 ## [1] -1.19
 \end{verbatim}
 
-\hypertarget{section-2-overview}{%
-\subsection{Section 2 Overview}\label{section-2-overview}}
-
-In Section 2.1, you will: - Create numeric and character vectors. - Name
-the columns of a vector. - Generate numeric sequences. - Access specific
-elements or parts of a vector. - Coerce data into different data types
-as needed.
-
-In Section 2.2, you will: - Sort vectors in ascending and descending
-order. - Extract the indices of the sorted elements from the original
-vector. - Find the maximum and minimum elements, as well as their
-indices, in a vector. - Rank the elements of a vector in increasing
-order.
-
-In Section 2.3, you will: - Perform arithmetic between a vector and a
-single number. - Perform arithmetic between two vectors of same length.
-
-The textbook for this section is available
-\href{https://rafalab.github.io/dsbook/r-basics.html\#vectors}{here}
-
-\hypertarget{assessment-3}{%
-\subsection{Assessment 3}\label{assessment-3}}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Use the function c to create a vector with the average high
-  temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San
-  Juan and Toronto, which are 35, 88, 42, 84, 81, and 30 degrees
-  Fahrenheit. Call the object temp.
-\end{enumerate}
-
-\begin{verbatim}
-# Here is an example creating a numeric vector named cost
-cost <- c(50, 75, 90, 100, 150)
-
-# Create a numeric vector to store the temperatures listed in the instructions into a vector named temp
-# Make sure to follow the same order in the instructions
-temp <- c(35, 88, 42, 84, 81,30)
-\end{verbatim}
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Now create a vector with the city names and call the object city.
+  Use R to compute log base 4 of 1024. You can use the \texttt{help}
+  function to learn how to use arguments to change the base of the
+  \texttt{log} function.
 \end{enumerate}
 
-\begin{verbatim}
-# here is an example of how to create a character vector
-food <- c("pizza", "burgers", "salads", "cheese", "pasta")
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{log}\NormalTok{(}\DecValTok{1024}\NormalTok{, }\DataTypeTok{base =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-# Create a character vector called city to store the city names
-# Make sure to follow the same order as in the instructions
-city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+\begin{verbatim}
+## [1] 5
 \end{verbatim}
 
 \begin{enumerate}
@@ -1084,23 +1047,400 @@ city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
 \setcounter{enumi}{2}
 \tightlist
 \item
-  Use the names function and the objects defined in the previous
-  exercises to associate the temperature data with its corresponding
-  city.
+  Load the \texttt{movielens} dataset
 \end{enumerate}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(movielens)}
+\KeywordTok{str}\NormalTok{(movielens)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-# Associate the cost values with its corresponding food item
-cost <- c(50, 75, 90, 100, 150)
-food <- c("pizza", "burgers", "salads", "cheese", "pasta")
-names(cost) <- food
+## 'data.frame':    100004 obs. of  7 variables:
+##  $ movieId  : int  31 1029 1061 1129 1172 1263 1287 1293 1339 1343 ...
+##  $ title    : chr  "Dangerous Minds" "Dumbo" "Sleepers" "Escape from New York" ...
+##  $ year     : int  1995 1941 1996 1981 1989 1978 1959 1982 1992 1991 ...
+##  $ genres   : Factor w/ 901 levels "(no genres listed)",..: 762 510 899 120 762 836 81 762 844 899 ...
+##  $ userId   : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ rating   : num  2.5 3 3 2 4 2 2 2 3.5 2 ...
+##  $ timestamp: int  1260759144 1260759179 1260759182 1260759185 1260759205 1260759151 1260759187 1260759148 1260759125 1260759131 ...
+\end{verbatim}
 
-# You already wrote this code
-temp <- c(35, 88, 42, 84, 81, 30)
-city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+How many rows are in the dataset? \texttt{100004}
 
-# Associate the temperature values with its corresponding city
-names(temp) <- city
+How many different variables are in the dataset? \texttt{7}
+
+What is the variable type of \texttt{title}?
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  A. It is a text (txt) variable
+\item[$\square$]
+  B. It is a chronological (chr) variable
+\item[$\square$]
+  C. It is a string (str) variable
+\item[$\square$]
+  D. It is a numeric (num) variable
+\item[$\square$]
+  E. It is an integer (int) variable
+\item[$\square$]
+  F. It is a factor (Factor) variable
+\item[$\boxtimes$]
+  G. It is a character (chr) variable
+\end{itemize}
+
+What is the variable type of \texttt{genres}?
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  A. It is a text (txt) variable
+\item[$\square$]
+  B. It is a chronological (chr) variable
+\item[$\square$]
+  C. It is a string (str) variable
+\item[$\square$]
+  D. It is a numeric (num) variable
+\item[$\square$]
+  E. It is an integer (int) variable
+\item[$\boxtimes$]
+  F. It is a factor (Factor) variable
+\item[$\square$]
+  G. It is a character (chr) variable
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  We already know we can use the \texttt{levels()} function to determine
+  the levels of a factor. A different function, \texttt{nlevels()}, may
+  be used to determine the number of levels of a factor.
+\end{enumerate}
+
+Use this function to determine how many levels are in the factor
+\texttt{genres} in the \texttt{movielens} data frame.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nlevels}\NormalTok{(movielens}\OperatorTok{$}\NormalTok{genres)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 901
+\end{verbatim}
+
+\hypertarget{section-2-overview}{%
+\subsection{Section 2 Overview}\label{section-2-overview}}
+
+In Section 2.1, you will:
+
+\begin{itemize}
+\tightlist
+\item
+  Create numeric and character vectors.
+\item
+  Name the columns of a vector.
+\item
+  Generate numeric sequences.
+\item
+  Access specific elements or parts of a vector.
+\item
+  Coerce data into different data types as needed.
+\end{itemize}
+
+In Section 2.2, you will:
+
+\begin{itemize}
+\tightlist
+\item
+  Sort vectors in ascending and descending order.
+\item
+  Extract the indices of the sorted elements from the original vector.
+\item
+  Find the maximum and minimum elements, as well as their indices, in a
+  vector.
+\item
+  Rank the elements of a vector in increasing order.
+\end{itemize}
+
+In Section 2.3, you will:
+
+\begin{itemize}
+\tightlist
+\item
+  Perform arithmetic between a vector and a single number.
+\item
+  Perform arithmetic between two vectors of same length.
+\end{itemize}
+
+\hypertarget{vectors}{%
+\subsection{Vectors}\label{vectors}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html\#vectors}{here}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  The function \texttt{c()}, which stands for concatenate, is useful for
+  creating vectors.
+\item
+  Another useful function for creating vectors is the \texttt{seq()}
+  function, which generates sequences.
+\item
+  Subsetting lets us access specific parts of a vector by using square
+  brackets to access elements of a vector.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We may create vectors of class numeric or character with the concatenate function}
+\NormalTok{codes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{380}\NormalTok{, }\DecValTok{124}\NormalTok{, }\DecValTok{818}\NormalTok{)}
+\NormalTok{country <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"italy"}\NormalTok{, }\StringTok{"canada"}\NormalTok{, }\StringTok{"egypt"}\NormalTok{)}
+
+\CommentTok{# We can also name the elements of a numeric vector}
+\CommentTok{# Note that the two lines of code below have the same result}
+\NormalTok{codes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DataTypeTok{italy =} \DecValTok{380}\NormalTok{, }\DataTypeTok{canada =} \DecValTok{124}\NormalTok{, }\DataTypeTok{egypt =} \DecValTok{818}\NormalTok{)}
+\NormalTok{codes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"italy"}\NormalTok{ =}\StringTok{ }\DecValTok{380}\NormalTok{, }\StringTok{"canada"}\NormalTok{ =}\StringTok{ }\DecValTok{124}\NormalTok{, }\StringTok{"egypt"}\NormalTok{ =}\StringTok{ }\DecValTok{818}\NormalTok{)}
+
+\CommentTok{# We can also name the elements of a numeric vector using the names() function}
+\NormalTok{codes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{380}\NormalTok{, }\DecValTok{124}\NormalTok{, }\DecValTok{818}\NormalTok{)}
+\NormalTok{country <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"italy"}\NormalTok{,}\StringTok{"canada"}\NormalTok{,}\StringTok{"egypt"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(codes) <-}\StringTok{ }\NormalTok{country}
+
+\CommentTok{# Using square brackets is useful for subsetting to access specific elements of a vector}
+\NormalTok{codes[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## canada 
+##    124
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{codes[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## italy egypt 
+##   380   818
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{codes[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  italy canada 
+##    380    124
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# If the entries of a vector are named, they may be accessed by referring to their name}
+\NormalTok{codes[}\StringTok{"canada"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## canada 
+##    124
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{codes[}\KeywordTok{c}\NormalTok{(}\StringTok{"egypt"}\NormalTok{,}\StringTok{"italy"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## egypt italy 
+##   818   380
+\end{verbatim}
+
+\hypertarget{vectors---vector-coercion}{%
+\subsection{Vectors - Vector Coercion}\label{vectors---vector-coercion}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html\#coercion}{here}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  In general, \emph{coercion} is an attempt by R to be flexible with
+  data types by guessing what was meant when an entry does not match the
+  expected. For example, when defining x as
+\end{itemize}
+
+x \textless- c(1, ``canada'', 3)
+
+R \emph{coerced} the data into characters. It guessed that because you
+put a character string in the vector, you meant the 1 and 3 to actually
+be character strings ``1'' and ``3''.
+
+\begin{itemize}
+\tightlist
+\item
+  The function \texttt{as.character()} turns numbers into characters.
+\item
+  The function \texttt{as.numeric()} turns characters into numbers.
+\item
+  In R, missing data is assigned the value NA.
+\end{itemize}
+
+\hypertarget{assessment---vectors}{%
+\subsection{Assessment - Vectors}\label{assessment---vectors}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A vector is a series of values, all of the same type. They are the
+  most basic data type in R and can hold numeric data, character data,
+  or logical data. In R, you can create a vector with the concatenate
+  (or combine) function \texttt{c()}
+\end{enumerate}
+
+You place the vector elements separated by a comma between the
+parentheses. For example a numeric vector would look something like
+this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cost <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{150}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Here is an example creating a numeric vector named cost}
+\NormalTok{cost <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{150}\NormalTok{)}
+
+\CommentTok{# Create a numeric vector to store the temperatures listed in the instructions into a vector named temp}
+\CommentTok{# Make sure to follow the same order in the instructions}
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Beijing"}\NormalTok{=}\DecValTok{35}\NormalTok{, }\StringTok{"Lagos"}\NormalTok{=}\DecValTok{88}\NormalTok{, }\StringTok{"Paris"}\NormalTok{=}\DecValTok{42}\NormalTok{, }\StringTok{"Rio de Janeiro"}\NormalTok{=}\DecValTok{84}\NormalTok{, }\StringTok{"San Juan"}\NormalTok{=}\DecValTok{81}\NormalTok{, }\StringTok{"Toronto"}\NormalTok{=}\DecValTok{30}\NormalTok{)}
+\NormalTok{cost}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  50  75  90 100 150
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{temp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        Beijing          Lagos          Paris Rio de Janeiro       San Juan 
+##             35             88             42             84             81 
+##        Toronto 
+##             30
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(temp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  As in the previous question, we are going to create a vector. Only
+  this time, we learn to create \emph{character} vectors. The main
+  difference is that these have to be written as strings and so the
+  names are enclosed within double quotes.
+\end{enumerate}
+
+A \emph{character} vector would look something like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{food <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"pizza"}\NormalTok{, }\StringTok{"burgers"}\NormalTok{, }\StringTok{"salads"}\NormalTok{, }\StringTok{"cheese"}\NormalTok{, }\StringTok{"pasta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# here is an example of how to create a character vector}
+\NormalTok{food <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"pizza"}\NormalTok{, }\StringTok{"burgers"}\NormalTok{, }\StringTok{"salads"}\NormalTok{, }\StringTok{"cheese"}\NormalTok{, }\StringTok{"pasta"}\NormalTok{)}
+
+\CommentTok{# Create a character vector called city to store the city names}
+\CommentTok{# Make sure to follow the same order as in the instructions}
+\NormalTok{city <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Beijing"}\NormalTok{, }\StringTok{"Lagos"}\NormalTok{, }\StringTok{"Paris"}\NormalTok{, }\StringTok{"Rio de Janeiro"}\NormalTok{, }\StringTok{"San Juan"}\NormalTok{, }\StringTok{"Toronto"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  We have successfully assigned the temperatures as \emph{numeric}
+  values to \texttt{temp} and the \texttt{city} names as character
+  values to city. But can we associate the temperature to its related
+  city? Yes! We can do so using a code we already know - \texttt{names}.
+  We assign names to the \emph{numeric} values.
+\end{enumerate}
+
+It would look like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cost <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{150}\NormalTok{)}
+\NormalTok{food <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"pizza"}\NormalTok{, }\StringTok{"burgers"}\NormalTok{, }\StringTok{"salads"}\NormalTok{, }\StringTok{"cheese"}\NormalTok{, }\StringTok{"pasta"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(cost) <-}\StringTok{ }\NormalTok{food}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Associate the cost values with its corresponding food item}
+\NormalTok{cost <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{50}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{150}\NormalTok{)}
+\NormalTok{food <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"pizza"}\NormalTok{, }\StringTok{"burgers"}\NormalTok{, }\StringTok{"salads"}\NormalTok{, }\StringTok{"cheese"}\NormalTok{, }\StringTok{"pasta"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(cost) <-}\StringTok{ }\NormalTok{food}
+
+\CommentTok{# You already wrote this code}
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{30}\NormalTok{)}
+\NormalTok{city <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Beijing"}\NormalTok{, }\StringTok{"Lagos"}\NormalTok{, }\StringTok{"Paris"}\NormalTok{, }\StringTok{"Rio de Janeiro"}\NormalTok{, }\StringTok{"San Juan"}\NormalTok{, }\StringTok{"Toronto"}\NormalTok{)}
+
+\CommentTok{# Associate the temperature values with its corresponding city}
+\KeywordTok{names}\NormalTok{(temp) <-}\StringTok{ }\NormalTok{city}
+\NormalTok{temp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        Beijing          Lagos          Paris Rio de Janeiro       San Juan 
+##             35             88             42             84             81 
+##        Toronto 
+##             30
 \end{verbatim}
 
 \begin{enumerate}
@@ -1108,24 +1448,41 @@ names(temp) <- city
 \setcounter{enumi}{3}
 \tightlist
 \item
-  Use the {[} and : operators to access the temperature of the first
-  three cities on the list.
+  If we want to display only selected values from the object, R can help
+  us do that easily.
 \end{enumerate}
 
-\begin{verbatim}
-# cost of the last 3 items in our food list:
-cost[3:5]
-\end{verbatim}
+For example, if we want to see the cost of the last 3 items in our food
+list, we would type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cost[}\DecValTok{3}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Note here, that we could also type \texttt{cost{[}c(3,4,5){]}} and get
+the same result. The \texttt{:} operator helps us condense the code and
+get consecutive values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# cost of the last 3 items in our food list:}
+\NormalTok{cost[}\DecValTok{3}\OperatorTok{:}\DecValTok{5}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## salads cheese  pasta 
 ##     90    100    150
 \end{verbatim}
 
-\begin{verbatim}
-# temperatures of the first three cities in the list:
-temp[1:3]
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# temperatures of the first three cities in the list:}
+\NormalTok{temp[}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## Beijing   Lagos   Paris 
@@ -1137,28 +1494,43 @@ temp[1:3]
 \setcounter{enumi}{4}
 \tightlist
 \item
-  Use the {[} operator to access the temperature of Paris and San Juan.
+  In the previous question, we accessed the temperature for consecutive
+  cities (1st three). But what if we want to access the temperatures for
+  any 2 specific cities?
 \end{enumerate}
 
-\begin{verbatim}
-# Access the cost of pizza and pasta from our food list 
-cost[c(1,5)]
-\end{verbatim}
+An example: To access the cost of \texttt{pizza} (1st) and
+\texttt{pasta} (5th food item) in our list, the code would be:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cost[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Access the cost of pizza and pasta from our food list }
+\NormalTok{cost[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{5}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## pizza pasta 
 ##    50   150
 \end{verbatim}
 
-\begin{verbatim}
-# Define temp
-temp <- c(35, 88, 42, 84, 81, 30)
-city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
-names(temp) <- city
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Define temp}
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{30}\NormalTok{)}
+\NormalTok{city <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Beijing"}\NormalTok{, }\StringTok{"Lagos"}\NormalTok{, }\StringTok{"Paris"}\NormalTok{, }\StringTok{"Rio de Janeiro"}\NormalTok{, }\StringTok{"San Juan"}\NormalTok{, }\StringTok{"Toronto"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(temp) <-}\StringTok{ }\NormalTok{city}
 
-# Access the temperatures of Paris and San Juan
-temp[c(3,5)]
-\end{verbatim}
+\CommentTok{# Access the temperatures of Paris and San Juan}
+\NormalTok{temp[}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ##    Paris San Juan 
@@ -1170,28 +1542,36 @@ temp[c(3,5)]
 \setcounter{enumi}{5}
 \tightlist
 \item
-  Use the : operator to create a sequence of numbers 12, 13, 14,..,73.
+  The \texttt{:} operator helps us create sequences of numbers. For
+  example, \texttt{32:99} would create a list of numbers from 32 to 99.
 \end{enumerate}
 
-\begin{verbatim}
-# Create a vector m of integers that starts at 32 and ends at 99.
-m <- 32:99
+Then, if we want to know the length of this sequence, all we need to do
+is use the \texttt{length} command.
 
-# Determine the length of object m.
-length(m)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a vector m of integers that starts at 32 and ends at 99.}
+\NormalTok{m <-}\StringTok{ }\DecValTok{32}\OperatorTok{:}\DecValTok{99}
+
+\CommentTok{# Determine the length of object m.}
+\KeywordTok{length}\NormalTok{(m)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 68
 \end{verbatim}
 
-\begin{verbatim}
-# Create a vector x of integers that starts 12 and ends at 73.
-x <- 12:73
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a vector x of integers that starts at 12 and ends at 73.}
+\NormalTok{x <-}\StringTok{ }\DecValTok{12}\OperatorTok{:}\DecValTok{73}
 
-# Determine the length of object x.
-length(x)
-\end{verbatim}
+\CommentTok{# Determine the length of object x.}
+\KeywordTok{length}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 62
@@ -1202,29 +1582,34 @@ length(x)
 \setcounter{enumi}{6}
 \tightlist
 \item
-  Create a vector containing all the positive odd numbers smaller than
-  100.
+  We can also create different types of sequences in R. For example, in
+  \texttt{seq(7,\ 49,\ 7)}, the first argument defines the start, and
+  the second the end. The default is to go up in increments of 1, but a
+  third argument lets us tell it by what interval.
 \end{enumerate}
 
-\begin{verbatim}
-# Create a vector with the multiples of 7, smaller than 50.
-seq(7, 49, 7) 
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a vector with the multiples of 7, smaller than 50.}
+\KeywordTok{seq}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{49}\NormalTok{, }\DecValTok{7}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1]  7 14 21 28 35 42 49
 \end{verbatim}
 
-\begin{verbatim}
-# Create a vector containing all the positive odd numbers smaller than 100.
-# The numbers should be in ascending order
-seq(1,100,2)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a vector containing all the positive odd numbers smaller than 100.}
+\CommentTok{# The numbers should be in ascending order}
+\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{99}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45
-## [24] 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91
-## [47] 93 95 97 99
+##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49
+## [26] 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91 93 95 97 99
 \end{verbatim}
 
 \begin{enumerate}
@@ -1232,35 +1617,59 @@ seq(1,100,2)
 \setcounter{enumi}{7}
 \tightlist
 \item
-  Create a vector of numbers that starts at 6, does not pass 55, and
-  adds numbers in increments of 4/7: 6, 6+4/7, 6+8/7, etc.. How many
-  numbers does the list have? Hint: use seq and length.
+  The second argument of the function \texttt{seq} is actually a
+  maximum, not necessarily the end.
 \end{enumerate}
 
-\begin{verbatim}
-# We can a vector with the multiples of 7, smaller than 50 like this 
-seq(7, 49, 7) 
-\end{verbatim}
+So if we type
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+we actually get the same vector of integers as if we type
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{seq}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{49}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This can be useful because sometimes all we want are sequential numbers
+that are smaller than some value. Let's look at an example.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We can create a vector with the multiples of 7, smaller than 50 like this }
+\KeywordTok{seq}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{49}\NormalTok{, }\DecValTok{7}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1]  7 14 21 28 35 42 49
 \end{verbatim}
 
-\begin{verbatim}
-# But note that the second argument does not need to be last number.
-# It simply determines the maximum value permitted.
-# so the following line of code produces the same vector as seq(7, 49, 7)
-seq(7, 50, 7)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# But note that the second argument does not need to be the last number}
+\CommentTok{# It simply determines the maximum value permitted}
+\CommentTok{# so the following line of code produces the same vector as seq(7, 49, 7)}
+\KeywordTok{seq}\NormalTok{(}\DecValTok{7}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1]  7 14 21 28 35 42 49
 \end{verbatim}
 
-\begin{verbatim}
-# Create a sequence of numbers from 6 to 55, with 4/7 increments and determine its length
-length(seq(6,55,4/7))
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a sequence of numbers from 6 to 55, with 4/7 increments and determine its length}
+\KeywordTok{length}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{55}\NormalTok{,}\DecValTok{4}\OperatorTok{/}\DecValTok{7}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 86
@@ -1271,17 +1680,31 @@ length(seq(6,55,4/7))
 \setcounter{enumi}{8}
 \tightlist
 \item
-  What is the class of the following object a \textless- seq(1, 10,
-  length.out = 100)?
+  The \texttt{seq()} function has another useful argument. The argument
+  \emph{length.out}. This argument lets us generate sequences that are
+  increasing by the same amount but are of the prespecified length.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the sequence in the object a
-a <- seq(1, 10, length.out = 100)
+For example, this line of code
 
-# Determine the class of a
-class(a)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{5}\NormalTok{)}
+\NormalTok{produces the numbers }\DecValTok{0}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{75}\NormalTok{, }\FloatTok{100.}
+\end{Highlighting}
+\end{Shaded}
+
+Let's create a vector and see what is the class of the object produced.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the sequence in the object a}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{100}\NormalTok{)}
+
+\CommentTok{# Determine the class of a}
+\KeywordTok{class}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "numeric"
@@ -1292,16 +1715,53 @@ class(a)
 \setcounter{enumi}{9}
 \tightlist
 \item
-  What is the class of the following object a \textless- seq(1, 10)?
+  We have discussed the numeric class. We just saw that the \texttt{seq}
+  function can generate objects of this class.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the sequence in the object a
-a <- seq(1, 10)
+For another example, type
 
-# Determine the class of a
-class(a)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+into the console and note that the \texttt{class} is \emph{numeric}. R
+has another type of vector we have not described, the \emph{integer}
+class. You can create an \emph{integer} by adding the letter \texttt{L}
+after a whole number. If you type
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(3L)}
+\end{Highlighting}
+\end{Shaded}
+
+in the console, you see this is an \emph{integer} and not a
+\emph{numeric}. For most practical purposes, integers and numerics are
+indistinguishable. For example 3, the integer, minus 3 the numeric is 0.
+To see this type this in the console
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{3L }\OperatorTok{-}\StringTok{ }\DecValTok{3}
+\end{Highlighting}
+\end{Shaded}
+
+The main difference is that integers occupy less space in the computer
+memory, so for big computations using integers can have a substantial
+impact.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the sequence in the object a}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{10}\NormalTok{)}
+
+\CommentTok{# Determine the class of a}
+\KeywordTok{class}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "integer"
@@ -1312,18 +1772,27 @@ class(a)
 \setcounter{enumi}{10}
 \tightlist
 \item
-  The class of class(a\textless-1) is numeric, not integer. R defaults
-  to numeric and to force an integer, you need to add the letter L.
-  Confirm that the class of 1L is integer.
+  Let's confirm that \texttt{1L} is an \emph{integer} not a
+  \emph{numeric}.
 \end{enumerate}
 
-\begin{verbatim}
-# Check the class of 1, assigned to the object a
-a <- class(1)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Check the class of 1, assigned to the object a}
+\KeywordTok{class}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-# Confirm the class of 1L is integer
-class(1L)
+\begin{verbatim}
+## [1] "numeric"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Confirm the class of 1L is integer}
+\KeywordTok{class}\NormalTok{(1L)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "integer"
@@ -1334,33 +1803,85 @@ class(1L)
 \setcounter{enumi}{11}
 \tightlist
 \item
-  Define the following vector:
+  The concept of coercion is a very important one. Watching the video,
+  we learned that when an entry does not match what an R function is
+  expecting, R tries to guess what we meant before throwing an error.
+  This might get confusing at times.
 \end{enumerate}
 
-\begin{verbatim}
-x <- c(“1”, “3”, “5”, “a”)
-\end{verbatim}
+As we've discussed in earlier questions, there are numeric and character
+vectors. The character vectors are placed in quotes and the numerics are
+not.
 
-and coerce it to get integers.
+We can avoid issues with coercion in R by changing characters to
+numerics and vice-versa. This is known as typecasting. The code,
+\texttt{as.numeric(x)} helps us convert character strings to numbers.
+There is an equivalent function that converts its argument to a string,
+\texttt{as.character(x)}.
 
-\begin{verbatim}
-# Define the vector x
-x <- c(1, 3, 5,"a")
+Let's practice doing this!
 
-# Note that the x is character vector
-x
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Define the vector x}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{,}\StringTok{"a"}\NormalTok{)}
+
+\CommentTok{# Note that the x is character vector}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "1" "3" "5" "a"
 \end{verbatim}
 
-\begin{verbatim}
-# Typecast the vector to get an integer vector
-x <- as.numeric(x)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Typecast the vector to get an integer vector}
+\CommentTok{# You will get a warning but that is ok}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
 
-# You will get a warning but that is ok
+\begin{verbatim}
+## Warning: NAs introduced by coercion
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1  3  5 NA
+\end{verbatim}
+
+\hypertarget{sorting}{%
+\subsection{Sorting}\label{sorting}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html\#sorting}{here}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  The function \texttt{sort()} sorts a vector in increasing order.
+\item
+  The function \texttt{order()} produces the indices needed to obtain
+  the sorted vector, e.g.~a result of 2 3 1 5 4 means the sorted vector
+  will be produced by listing the 2nd, 3rd, 1st, 5th, and then 4th item
+  of the original vector.
+\item
+  The function \texttt{rank()} gives us the ranks of the items in the
+  original vector.
+\item
+  The function \texttt{max()} returns the largest value while
+  which.max() returns the index of the largest value. The functions
+  min() and which.min() work similarly for minimum values.
+\end{itemize}
 
 \hypertarget{assessment-4}{%
 \subsection{Assessment 4}\label{assessment-4}}
