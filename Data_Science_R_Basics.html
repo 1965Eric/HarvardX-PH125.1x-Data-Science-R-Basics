@@ -408,8 +408,9 @@ summary {
 <div id="motivation" class="section level2">
 <h2>Motivation</h2>
 <p>Here is a link to the <a href="https://rafalab.github.io/dsbook/r-basics.html#case-study-us-gun-murders">textbook section on the motivation for this course</a>.</p>
-<div id="getting-started" class="section level3">
-<h3>Getting started</h3>
+</div>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
 <p>Here is a link to the textbook section on <a href="https://rafalab.github.io/dsbook/getting-started.html">Getting Started</a> with R.</p>
 <p><strong>Key Points</strong></p>
 <ul>
@@ -425,26 +426,23 @@ if(!require(dslabs)) install.packages(&quot;dslabs&quot;)</code></pre>
 <pre class="r"><code># loading the dslabs package into the R session
 library(dslabs)</code></pre>
 </div>
-<div id="installing-r-and-r-studio" class="section level3">
-<h3>Installing R and R Studio</h3>
-<div id="installing-r" class="section level4">
-<h4>Installing R</h4>
+<div id="installing-r-and-r-studio" class="section level2">
+<h2>Installing R and R Studio</h2>
+<div id="installing-r" class="section level3">
+<h3>Installing R</h3>
 <p>To install R to work on your own computer, you can download it freely from the <a href="https://cran.r-project.org">Comprehensive R Archive Network</a> (CRAN). Note that CRAN makes several versions of R available: versions for multiple operating systems and releases older than the current one. You want to read the CRAN instructions to assure you download the correct version. If you need further help, you read the walkthrough in this <a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html#installing-r">Chapter of the textbook</a>.</p>
 </div>
-<div id="installing-rstudio" class="section level4">
-<h4>Installing RStudio</h4>
+<div id="installing-rstudio" class="section level3">
+<h3>Installing RStudio</h3>
 <p>RStudio is an integrated development environment (IDE). We highly recommend installing and using RStudio to edit and test your code. You can install RStudio through the <a href="https://rstudio.com/products/rstudio/download/">RStudio website</a>. Their <a href="https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf">cheatsheet</a> is a great resource. You must install R before installing RStudio.</p>
 </div>
-<div id="textbook-link" class="section level4">
-<h4>Textbook Link</h4>
+<div id="textbook-link" class="section level3">
+<h3>Textbook Link</h3>
 <p>Here is a link to the textbook section on <a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">Installing R and RStudio</a>.</p>
 </div>
 </div>
-</div>
-<div id="r-basics" class="section level2">
-<h2>R Basics</h2>
-<div id="objects" class="section level3">
-<h3>Objects</h3>
+<div id="r-basics---objects" class="section level2">
+<h2>R Basics - Objects</h2>
 <p>Here is a link to the textbook section on <a href="https://rafalab.github.io/dsbook/r-basics.html#objects">objects in R</a>.</p>
 <p><strong>Key Points</strong></p>
 <ul>
@@ -465,8 +463,8 @@ c &lt;- -1
 <pre class="r"><code>(-b - sqrt(b^2 - 4*a*c) ) / ( 2*a )</code></pre>
 <pre><code>## [1] -1.618034</code></pre>
 </div>
-<div id="functions" class="section level3">
-<h3>Functions</h3>
+<div id="r-basics---functions" class="section level2">
+<h2>R Basics - Functions</h2>
 <p>Here is a link to the textbook section on <a href="https://rafalab.github.io/dsbook/r-basics.html#functions">functions</a>.</p>
 <p><strong>Key points</strong></p>
 <ul>
@@ -477,7 +475,6 @@ c &lt;- -1
 <li>Creating and saving a script makes code much easier to execute.</li>
 <li>To make your code more readable, use intuitive variable names and include comments (using the “#” symbol) to remind yourself why you wrote a particular line of code.</li>
 </ul>
-</div>
 </div>
 <div id="assessment---r-basics" class="section level2">
 <h2>Assessment - R Basics</h2>
@@ -550,8 +547,78 @@ C. log(exp(x))</li>
 D. exp(log(x, base = 2))</li>
 </ul>
 </div>
-<div id="assessment-2" class="section level2">
-<h2>Assessment 2</h2>
+<div id="data-types" class="section level2">
+<h2>Data Types</h2>
+<p>You can find the <a href="https://rafalab.github.io/dsbook/r-basics.html#data-types">section of the textbook on data types here</a>.</p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>The function “class” helps us determine the type of an object.</li>
+<li>Data frames can be thought of as tables with rows representing observations and columns representing different variables.</li>
+<li>To access data from columns of a data frame, we use the dollar sign symbol, which is called the accessor.</li>
+<li>A vector is an object consisting of several entries and can be a numeric vector, a character vector, or a logical vector.</li>
+<li>We use quotes to distinguish between variable names and character strings.</li>
+<li>Factors are useful for storing categorical data, and are more memory efficient than storing characters.</li>
+</ul>
+<p><em>Code</em></p>
+<pre class="r"><code># loading the dslabs package and the murders dataset
+data(murders)
+
+# determining that the murders dataset is of the &quot;data frame&quot; class
+class(murders)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code># finding out more about the structure of the object
+str(murders)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    51 obs. of  5 variables:
+##  $ state     : chr  &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; ...
+##  $ abb       : chr  &quot;AL&quot; &quot;AK&quot; &quot;AZ&quot; &quot;AR&quot; ...
+##  $ region    : Factor w/ 4 levels &quot;Northeast&quot;,&quot;South&quot;,..: 2 4 4 2 4 4 1 2 2 2 ...
+##  $ population: num  4779736 710231 6392017 2915918 37253956 ...
+##  $ total     : num  135 19 232 93 1257 ...</code></pre>
+<pre class="r"><code># showing the first 6 lines of the dataset
+head(murders)</code></pre>
+<pre><code>##        state abb region population total
+## 1    Alabama  AL  South    4779736   135
+## 2     Alaska  AK   West     710231    19
+## 3    Arizona  AZ   West    6392017   232
+## 4   Arkansas  AR  South    2915918    93
+## 5 California  CA   West   37253956  1257
+## 6   Colorado  CO   West    5029196    65</code></pre>
+<pre class="r"><code># using the accessor operator to obtain the population column
+murders$population</code></pre>
+<pre><code>##  [1]  4779736   710231  6392017  2915918 37253956  5029196  3574097   897934
+##  [9]   601723 19687653  9920000  1360301  1567582 12830632  6483802  3046355
+## [17]  2853118  4339367  4533372  1328361  5773552  6547629  9883640  5303925
+## [25]  2967297  5988927   989415  1826341  2700551  1316470  8791894  2059179
+## [33] 19378102  9535483   672591 11536504  3751351  3831074 12702379  1052567
+## [41]  4625364   814180  6346105 25145561  2763885   625741  8001024  6724540
+## [49]  1852994  5686986   563626</code></pre>
+<pre class="r"><code># displaying the variable names in the murders dataset
+names(murders)</code></pre>
+<pre><code>## [1] &quot;state&quot;      &quot;abb&quot;        &quot;region&quot;     &quot;population&quot; &quot;total&quot;</code></pre>
+<pre class="r"><code># determining how many entries are in a vector
+pop &lt;- murders$population
+length(pop)</code></pre>
+<pre><code>## [1] 51</code></pre>
+<pre class="r"><code># vectors can be of class numeric and character
+class(pop)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>class(murders$state)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code># logical vectors are either TRUE or FALSE
+z &lt;- 3 == 2
+z</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>class(z)</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code># factors are another type of class
+class(murders$region)</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code># obtaining the levels of a factor
+levels(murders$region)</code></pre>
+<pre><code>## [1] &quot;Northeast&quot;     &quot;South&quot;         &quot;North Central&quot; &quot;West&quot;</code></pre>
+</div>
+<div id="assessment---data-types" class="section level2">
+<h2>Assessment - Data Types</h2>
 <ol style="list-style-type: decimal">
 <li>Load the US murders dataset.</li>
 </ol>
