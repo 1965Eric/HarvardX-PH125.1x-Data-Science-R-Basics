@@ -673,7 +673,7 @@ class(a)</code></pre>
 </ol>
 <p>There are also multiple ways to access variables in a data frame. For example we can use the square brackets <code>[[</code> instead of the accessor <code>$</code>.</p>
 <p>If you instead try to access a column with just one bracket,</p>
-<pre><code>murders[&quot;population&quot;]</code></pre>
+<pre class="r"><code>murders[&quot;population&quot;]</code></pre>
 <p>R returns a subset of the original data frame containing just this column. This new object will be of class <code>data.frame</code> rather than a vector. To access the column itself you need to use either the <code>$</code> accessor or the double square brackets <code>[[</code>.</p>
 <p>Parentheses, in contrast, are mainly used alongside functions to indicate what argument the function should be doing something to. For example, when we did <code>class(p)</code> in the last question, we wanted the function <code>class</code> to do something related to the argument <code>p</code>.</p>
 <p>This is an example of how R can be a bit idiosyncratic sometimes. It is very common to find it confusing at first.</p>
@@ -731,12 +731,89 @@ c &lt;- -4
 <pre><code>## [1] 1.69</code></pre>
 <pre class="r"><code>(-b-sqrt(b^2-4*a*c))/(2*a)</code></pre>
 <pre><code>## [1] -1.19</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Use R to compute log base 4 of 1024. You can use the <code>help</code> function to learn how to use arguments to change the base of the <code>log</code> function.</li>
+</ol>
+<pre class="r"><code>log(1024, base = 4)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Load the <code>movielens</code> dataset</li>
+</ol>
+<pre class="r"><code>data(movielens)
+str(movielens)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    100004 obs. of  7 variables:
+##  $ movieId  : int  31 1029 1061 1129 1172 1263 1287 1293 1339 1343 ...
+##  $ title    : chr  &quot;Dangerous Minds&quot; &quot;Dumbo&quot; &quot;Sleepers&quot; &quot;Escape from New York&quot; ...
+##  $ year     : int  1995 1941 1996 1981 1989 1978 1959 1982 1992 1991 ...
+##  $ genres   : Factor w/ 901 levels &quot;(no genres listed)&quot;,..: 762 510 899 120 762 836 81 762 844 899 ...
+##  $ userId   : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ rating   : num  2.5 3 3 2 4 2 2 2 3.5 2 ...
+##  $ timestamp: int  1260759144 1260759179 1260759182 1260759185 1260759205 1260759151 1260759187 1260759148 1260759125 1260759131 ...</code></pre>
+<p>How many rows are in the dataset? <code>100004</code></p>
+<p>How many different variables are in the dataset? <code>7</code></p>
+<p>What is the variable type of title ?</p>
+<ul>
+<li><input type="checkbox" disabled></input>
+A. It is a text (txt) variable</li>
+<li><input type="checkbox" disabled></input>
+B. It is a chronological (chr) variable</li>
+<li><input type="checkbox" disabled></input>
+C. It is a string (str) variable</li>
+<li><input type="checkbox" disabled></input>
+D. It is a numeric (num) variable</li>
+<li><input type="checkbox" disabled></input>
+E. It is an integer (int) variable</li>
+<li><input type="checkbox" disabled></input>
+F. It is a factor (Factor) variable</li>
+<li><input type="checkbox" disabled checked></input>
+G. It is a character (chr) variable</li>
+</ul>
+<p>What is the variable type of genres ?</p>
+<ul>
+<li><input type="checkbox" disabled></input>
+A. It is a text (txt) variable</li>
+<li><input type="checkbox" disabled></input>
+B. It is a chronological (chr) variable</li>
+<li><input type="checkbox" disabled></input>
+C. It is a string (str) variable</li>
+<li><input type="checkbox" disabled></input>
+D. It is a numeric (num) variable</li>
+<li><input type="checkbox" disabled></input>
+E. It is an integer (int) variable</li>
+<li><input type="checkbox" disabled checked></input>
+F. It is a factor (Factor) variable</li>
+<li><input type="checkbox" disabled></input>
+G. It is a character (chr) variable</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>We already know we can use the <code>levels()</code> function to determine the levels of a factor. A different function, <code>nlevels()</code>, may be used to determine the number of levels of a factor.</li>
+</ol>
+<p>Use this function to determine how many levels are in the factor <code>genres</code> in the <code>movielens</code> data frame.</p>
+<pre class="r"><code>nlevels(movielens$genres)</code></pre>
+<pre><code>## [1] 901</code></pre>
 </div>
 <div id="section-2-overview" class="section level2">
 <h2>Section 2 Overview</h2>
-<p>In Section 2.1, you will: - Create numeric and character vectors. - Name the columns of a vector. - Generate numeric sequences. - Access specific elements or parts of a vector. - Coerce data into different data types as needed.</p>
-<p>In Section 2.2, you will: - Sort vectors in ascending and descending order. - Extract the indices of the sorted elements from the original vector. - Find the maximum and minimum elements, as well as their indices, in a vector. - Rank the elements of a vector in increasing order.</p>
-<p>In Section 2.3, you will: - Perform arithmetic between a vector and a single number. - Perform arithmetic between two vectors of same length.</p>
+<p>In Section 2.1, you will:</p>
+<ul>
+<li>Create numeric and character vectors.</li>
+<li>Name the columns of a vector.</li>
+<li>Generate numeric sequences.</li>
+<li>Access specific elements or parts of a vector.</li>
+<li>Coerce data into different data types as needed.</li>
+</ul>
+<p>In Section 2.2, you will:</p>
+<ul>
+<li>Sort vectors in ascending and descending order.</li>
+<li>Extract the indices of the sorted elements from the original vector.</li>
+<li>Find the maximum and minimum elements, as well as their indices, in a vector.</li>
+<li>Rank the elements of a vector in increasing order.</li>
+</ul>
+<p>In Section 2.3, you will:</p>
+<ul>
+<li>Perform arithmetic between a vector and a single number.</li>
+<li>Perform arithmetic between two vectors of same length.</li>
+</ul>
 <p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#vectors">here</a></p>
 </div>
 <div id="assessment-3" class="section level2">
