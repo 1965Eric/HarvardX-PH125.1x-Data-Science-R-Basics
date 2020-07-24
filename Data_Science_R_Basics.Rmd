@@ -1,6 +1,9 @@
 ---
 title: "Data Science R Basics"
-output: html_document
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}

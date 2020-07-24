@@ -1,0 +1,2308 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Data Science R Basics},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Data Science R Basics}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{learning-objectives}{%
+\subsection{Learning Objectives}\label{learning-objectives}}
+
+\begin{itemize}
+\tightlist
+\item
+  Learn to read, extract, and create datasets in R
+\item
+  Learn to perform a variety of operations on datasets using R
+\item
+  Learn to write your own functions/sub-routines in R
+\end{itemize}
+
+\hypertarget{course-overview}{%
+\subsection{Course Overview}\label{course-overview}}
+
+\hypertarget{section-1-r-basics-functions-data-types}{%
+\subsubsection{Section 1: R Basics, Functions, Data
+types}\label{section-1-r-basics-functions-data-types}}
+
+You will get started with R, learn about its functions and data types.
+
+\hypertarget{section-2-vectors-sorting}{%
+\subsubsection{Section 2: Vectors,
+Sorting}\label{section-2-vectors-sorting}}
+
+You will learn to operate on vectors and advanced functions such as
+sorting.
+
+\hypertarget{section-3-indexing-data-manipulation-plots}{%
+\subsubsection{Section 3: Indexing, Data Manipulation,
+Plots}\label{section-3-indexing-data-manipulation-plots}}
+
+You will learn to wrangle and visualize data.
+
+\hypertarget{section-4-programming-basics}{%
+\subsubsection{Section 4: Programming
+Basics}\label{section-4-programming-basics}}
+
+You will learn to use general programming features like `if-else', and
+`for loop' commands, and write your own functions to perform various
+operations on datasets.
+
+\hypertarget{section-1-overview}{%
+\subsection{Section 1 Overview}\label{section-1-overview}}
+
+Section 1 introduces you to R Basics, Functions and Datatypes.
+
+In Section 1, you will learn to:
+
+\begin{itemize}
+\tightlist
+\item
+  Appreciate the rationale for data analysis using R
+\item
+  Define objects and perform basic arithmetic and logical operations
+\item
+  Use pre-defined functions to perform operations on objects
+\item
+  Distinguish between various data types
+\end{itemize}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html}{here}
+
+\hypertarget{motivation}{%
+\subsection{Motivation}\label{motivation}}
+
+Here is a link to the
+\href{https://rafalab.github.io/dsbook/r-basics.html\#case-study-us-gun-murders}{textbook
+section on the motivation for this course}.
+
+\hypertarget{getting-started}{%
+\subsubsection{Getting started}\label{getting-started}}
+
+Here is a link to the textbook section on
+\href{https://rafalab.github.io/dsbook/getting-started.html}{Getting
+Started} with R.
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  R was developed by statisticians and data analysts as an interactive
+  environment for data analysis.
+\item
+  Some of the advantages of R are that (1) it is free and open source,
+  (2) it has the capability to save scripts, (3) there are numerous
+  resources for learning, and (4) it is easy for developers to share
+  software implementation.
+\item
+  Expressions are evaluated in the R console when you type the
+  expression into the console and hit Return.
+\item
+  A great advantage of R over point and click analysis software is that
+  you can save your work as scripts.
+\item
+  ``Base R'' is what you get after you first install R. Additional
+  components are available via packages.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# installing the dslabs package}
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(dslabs)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"dslabs"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: dslabs
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# loading the dslabs package into the R session}
+\KeywordTok{library}\NormalTok{(dslabs)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{installing-r-and-r-studio}{%
+\subsubsection{Installing R and R
+Studio}\label{installing-r-and-r-studio}}
+
+\hypertarget{installing-r}{%
+\paragraph{Installing R}\label{installing-r}}
+
+To install R to work on your own computer, you can download it freely
+from the \href{https://cran.r-project.org}{Comprehensive R Archive
+Network} (CRAN). Note that CRAN makes several versions of R available:
+versions for multiple operating systems and releases older than the
+current one. You want to read the CRAN instructions to assure you
+download the correct version. If you need further help, you read the
+walkthrough in this
+\href{https://rafalab.github.io/dsbook/installing-r-rstudio.html\#installing-r}{Chapter
+of the textbook}.
+
+\hypertarget{installing-rstudio}{%
+\paragraph{Installing RStudio}\label{installing-rstudio}}
+
+RStudio is an integrated development environment (IDE). We highly
+recommend installing and using RStudio to edit and test your code. You
+can install RStudio through the
+\href{https://rstudio.com/products/rstudio/download/}{RStudio website}.
+Their
+\href{https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf}{cheatsheet}
+is a great resource. You must install R before installing RStudio.
+
+\hypertarget{textbook-link}{%
+\paragraph{Textbook Link}\label{textbook-link}}
+
+Here is a link to the textbook section on
+\href{https://rafalab.github.io/dsbook/installing-r-rstudio.html}{Installing
+R and RStudio}.
+
+\hypertarget{r-basics}{%
+\subsection{R Basics}\label{r-basics}}
+
+\hypertarget{objects}{%
+\subsubsection{Objects}\label{objects}}
+
+Here is a link to the textbook section on
+\href{https://rafalab.github.io/dsbook/r-basics.html\#objects}{objects
+in R}.
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  To define a variable, we may use the assignment symbol ``\textless-``.
+\item
+  There are two ways to see the value stored in a variable: (1) type the
+  variable into the console and hit Return, or (2) type print(``variable
+  name'') and hit Return.
+\item
+  Objects are stuff that is stored in R. They can be variables,
+  functions, etc.
+\item
+  The ls() function shows the names of the objects saved in your
+  workspace.
+\end{itemize}
+
+\emph{Solving the equation x2+x−1=0}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# assigning values to variables}
+\NormalTok{a <-}\StringTok{ }\DecValTok{1}
+\NormalTok{b <-}\StringTok{ }\DecValTok{1}
+\NormalTok{c <-}\StringTok{ }\DecValTok{-1}
+
+\CommentTok{# solving the quadratic equation}
+\NormalTok{(}\OperatorTok{-}\NormalTok{b }\OperatorTok{+}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(b}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\DecValTok{4}\OperatorTok{*}\NormalTok{a}\OperatorTok{*}\NormalTok{c) ) }\OperatorTok{/}\StringTok{ }\NormalTok{( }\DecValTok{2}\OperatorTok{*}\NormalTok{a )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.618034
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\OperatorTok{-}\NormalTok{b }\OperatorTok{-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(b}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\DecValTok{4}\OperatorTok{*}\NormalTok{a}\OperatorTok{*}\NormalTok{c) ) }\OperatorTok{/}\StringTok{ }\NormalTok{( }\DecValTok{2}\OperatorTok{*}\NormalTok{a )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -1.618034
+\end{verbatim}
+
+\hypertarget{functions}{%
+\subsubsection{Functions}\label{functions}}
+
+Here is a link to the textbook section on
+\href{https://rafalab.github.io/dsbook/r-basics.html\#functions}{functions}.
+
+\textbf{Key points}
+
+\begin{itemize}
+\tightlist
+\item
+  In general, to evaluate a function we need to use parentheses. If we
+  type a function without parenthesis, R shows us the code for the
+  function. Most functions also require an argument, that is, something
+  to be written inside the parenthesis.
+\item
+  To access help files, we may use the help function help(``function
+  name''), or write the question mark followed by the function name.
+\item
+  The help file shows you the arguments the function is expecting, some
+  of which are required and some are optional. If an argument is
+  optional, a default value is assigned with the equal sign. The args()
+  function also shows the arguments a function needs.
+\item
+  To specify arguments, we use the equals sign. If no argument name is
+  used, R assumes you're entering arguments in the order shown in the
+  help file.
+\item
+  Creating and saving a script makes code much easier to execute.
+\item
+  To make your code more readable, use intuitive variable names and
+  include comments (using the ``\#'' symbol) to remind yourself why you
+  wrote a particular line of code.
+\end{itemize}
+
+\hypertarget{assessment---r-basics}{%
+\subsection{Assessment - R Basics}\label{assessment---r-basics}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What is the sum of the first n positive integers? We can use the
+  formula \(n(n+1)/2\) to quickly compute this quantity.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Here is how you compute the sum for the first 20 integers}
+\DecValTok{20}\OperatorTok{*}\NormalTok{(}\DecValTok{20}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 210
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# However, we can define a variable to use the formula for other values of n}
+\NormalTok{n <-}\StringTok{ }\DecValTok{20}
+\NormalTok{n}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 210
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{25}
+\NormalTok{n}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 325
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Below, write code to calculate the sum of the first 100 integers}
+\NormalTok{n<-}\DecValTok{100}
+\NormalTok{n}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5050
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What is the sum of the first 1000 positive integers? We can use the
+  formula \(n(n+1)/2\) to quickly compute this quantity.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Below, write code to calculate the sum of the first 1000 integers }
+\NormalTok{n<-}\DecValTok{1000}
+\NormalTok{n}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 500500
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Run the following code in the R console.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{1000}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, n)}
+\KeywordTok{sum}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 500500
+\end{verbatim}
+
+Based on the result, what do you think the functions \texttt{seq} and
+\texttt{sum} do?
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  A. sum creates a list of numbers and seq adds them up.
+\item[$\boxtimes$]
+  B. seq creates a list of numbers and sum adds them up.
+\item[$\square$]
+  C. seq computes the difference between two arguments and sum computes
+  the sum of 1 through 1000.
+\item[$\square$]
+  D. sum always returns the same number.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  In math and programming we say we evaluate a function when we replace
+  arguments with specific values. So if we type \texttt{log2(16)} we
+  evaluate the \texttt{log2} function to get the log base 2 of
+  \texttt{16} which is \texttt{4}.
+\end{enumerate}
+
+In R it is often useful to evaluate a function inside another function.
+For example, \texttt{sqrt(log2(16))} will calculate the log to the base
+2 of 16 and then compute the square root of that value. So the first
+evaluation gives a 4 and this gets evaluated by \texttt{sqrt} to give
+the final answer of 2.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# log to the base 2 }
+\KeywordTok{log2}\NormalTok{(}\DecValTok{16}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# sqrt of the log to the base 2 of 16:}
+\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{log2}\NormalTok{(}\DecValTok{16}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Compute log to the base 10 (log10) of the sqrt of 100. Do not use variables.}
+\KeywordTok{log10}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Which of the following will always return the numeric value stored in
+  \texttt{x}? You can try out examples and use the help system in the R
+  console.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  A. log(10\^{}x)
+\item[$\square$]
+  B. log10(x\^{}10)
+\item[$\boxtimes$]
+  C. log(exp(x))
+\item[$\square$]
+  D. exp(log(x, base = 2))
+\end{itemize}
+
+\hypertarget{assessment-2}{%
+\subsection{Assessment 2}\label{assessment-2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the US murders dataset.
+\end{enumerate}
+
+\begin{verbatim}
+library(dslabs)  
+data(murders)
+\end{verbatim}
+
+Use the function str to examine the structure of the murders object. We
+can see that this object is a data frame with 51 rows and five columns.
+Which of the following best describes the variables represented in this
+data frame? - {[} {]} A. The 51 states. - {[} {]} B. The murder rates
+for all 50 states and DC. - {[}x{]} C. The state name, the abbreviation
+of the state name, the state's region, and the state's population and
+total number of murders for 2010. - {[} {]} D. str shows no relevant
+information.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What are the column names used by the data frame for these five
+  variables?
+\end{enumerate}
+
+\begin{verbatim}
+# Load package and data
+library(dslabs)
+data(murders)
+
+# Use the function names to extract the variable names 
+names(murders)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "state"      "abb"        "region"     "population" "total"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Use the accessor \$ to extract the state abbreviations and assign them
+  to the object a. What is the class of this object?
+\end{enumerate}
+
+\begin{verbatim}
+# To access the population variable from the murders dataset use this code:
+p <- murders$population 
+
+# To determine the class of object `p` we use this code:
+class(p)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{verbatim}
+# Use the accessor to extract state abbreviations and assign it to a
+a <- murders$abb
+
+# Determine the class of a
+class(a)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Now use the square brackets to extract the state abbreviations and
+  assign them to the object b. Use the identical function to determine
+  if a and b are the same.
+\end{enumerate}
+
+\begin{verbatim}
+# We extract the population like this:
+p <- murders$population
+
+# This is how we do the same with the square brackets:
+o <- murders[["population"]] 
+
+# We can confirm these two are the same
+identical(o, p)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{verbatim}
+# Use square brackets to extract `abb` from `murders` and assign it to b
+b<-murders[["abb"]]
+
+# Check if `a` and `b` are identical 
+identical(a, b)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  We saw that the region column stores a factor. You can corroborate
+  this by typing:
+\end{enumerate}
+
+\begin{verbatim}
+class(murders$region)
+\end{verbatim}
+
+With one line of code, use the function levels and length to determine
+the number of regions defined by this dataset.
+
+\begin{verbatim}
+# We can see the class of the region variable using class
+class(murders$region)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "factor"
+\end{verbatim}
+
+\begin{verbatim}
+# Determine the number of regions included in this variable 
+length(levels(murders$region))
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  The function table takes a vector and returns the frequency of each
+  element. You can quickly see how many states are in each region by
+  applying this function. Use this function in one line of code to
+  create a table of states per region.
+\end{enumerate}
+
+\begin{verbatim}
+# Here is an example of what the table function does
+x <- c("a", "a", "b", "b", "b", "c")
+table(x)
+\end{verbatim}
+
+\begin{verbatim}
+## x
+## a b c 
+## 2 3 1
+\end{verbatim}
+
+\begin{verbatim}
+# Write one line of code to show the number of states per region
+table(murders$region)
+\end{verbatim}
+
+\begin{verbatim}
+## 
+##     Northeast         South North Central          West 
+##             9            17            12            13
+\end{verbatim}
+
+\hypertarget{section-2-overview}{%
+\subsection{Section 2 Overview}\label{section-2-overview}}
+
+In Section 2.1, you will: - Create numeric and character vectors. - Name
+the columns of a vector. - Generate numeric sequences. - Access specific
+elements or parts of a vector. - Coerce data into different data types
+as needed.
+
+In Section 2.2, you will: - Sort vectors in ascending and descending
+order. - Extract the indices of the sorted elements from the original
+vector. - Find the maximum and minimum elements, as well as their
+indices, in a vector. - Rank the elements of a vector in increasing
+order.
+
+In Section 2.3, you will: - Perform arithmetic between a vector and a
+single number. - Perform arithmetic between two vectors of same length.
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html\#vectors}{here}
+
+\hypertarget{assessment-3}{%
+\subsection{Assessment 3}\label{assessment-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the function c to create a vector with the average high
+  temperatures in January for Beijing, Lagos, Paris, Rio de Janeiro, San
+  Juan and Toronto, which are 35, 88, 42, 84, 81, and 30 degrees
+  Fahrenheit. Call the object temp.
+\end{enumerate}
+
+\begin{verbatim}
+# Here is an example creating a numeric vector named cost
+cost <- c(50, 75, 90, 100, 150)
+
+# Create a numeric vector to store the temperatures listed in the instructions into a vector named temp
+# Make sure to follow the same order in the instructions
+temp <- c(35, 88, 42, 84, 81,30)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Now create a vector with the city names and call the object city.
+\end{enumerate}
+
+\begin{verbatim}
+# here is an example of how to create a character vector
+food <- c("pizza", "burgers", "salads", "cheese", "pasta")
+
+# Create a character vector called city to store the city names
+# Make sure to follow the same order as in the instructions
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Use the names function and the objects defined in the previous
+  exercises to associate the temperature data with its corresponding
+  city.
+\end{enumerate}
+
+\begin{verbatim}
+# Associate the cost values with its corresponding food item
+cost <- c(50, 75, 90, 100, 150)
+food <- c("pizza", "burgers", "salads", "cheese", "pasta")
+names(cost) <- food
+
+# You already wrote this code
+temp <- c(35, 88, 42, 84, 81, 30)
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+
+# Associate the temperature values with its corresponding city
+names(temp) <- city
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Use the {[} and : operators to access the temperature of the first
+  three cities on the list.
+\end{enumerate}
+
+\begin{verbatim}
+# cost of the last 3 items in our food list:
+cost[3:5]
+\end{verbatim}
+
+\begin{verbatim}
+## salads cheese  pasta 
+##     90    100    150
+\end{verbatim}
+
+\begin{verbatim}
+# temperatures of the first three cities in the list:
+temp[1:3]
+\end{verbatim}
+
+\begin{verbatim}
+## Beijing   Lagos   Paris 
+##      35      88      42
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Use the {[} operator to access the temperature of Paris and San Juan.
+\end{enumerate}
+
+\begin{verbatim}
+# Access the cost of pizza and pasta from our food list 
+cost[c(1,5)]
+\end{verbatim}
+
+\begin{verbatim}
+## pizza pasta 
+##    50   150
+\end{verbatim}
+
+\begin{verbatim}
+# Define temp
+temp <- c(35, 88, 42, 84, 81, 30)
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+names(temp) <- city
+
+# Access the temperatures of Paris and San Juan
+temp[c(3,5)]
+\end{verbatim}
+
+\begin{verbatim}
+##    Paris San Juan 
+##       42       81
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Use the : operator to create a sequence of numbers 12, 13, 14,..,73.
+\end{enumerate}
+
+\begin{verbatim}
+# Create a vector m of integers that starts at 32 and ends at 99.
+m <- 32:99
+
+# Determine the length of object m.
+length(m)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 68
+\end{verbatim}
+
+\begin{verbatim}
+# Create a vector x of integers that starts 12 and ends at 73.
+x <- 12:73
+
+# Determine the length of object x.
+length(x)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 62
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Create a vector containing all the positive odd numbers smaller than
+  100.
+\end{enumerate}
+
+\begin{verbatim}
+# Create a vector with the multiples of 7, smaller than 50.
+seq(7, 49, 7) 
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  7 14 21 28 35 42 49
+\end{verbatim}
+
+\begin{verbatim}
+# Create a vector containing all the positive odd numbers smaller than 100.
+# The numbers should be in ascending order
+seq(1,100,2)
+\end{verbatim}
+
+\begin{verbatim}
+##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45
+## [24] 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91
+## [47] 93 95 97 99
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Create a vector of numbers that starts at 6, does not pass 55, and
+  adds numbers in increments of 4/7: 6, 6+4/7, 6+8/7, etc.. How many
+  numbers does the list have? Hint: use seq and length.
+\end{enumerate}
+
+\begin{verbatim}
+# We can a vector with the multiples of 7, smaller than 50 like this 
+seq(7, 49, 7) 
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  7 14 21 28 35 42 49
+\end{verbatim}
+
+\begin{verbatim}
+# But note that the second argument does not need to be last number.
+# It simply determines the maximum value permitted.
+# so the following line of code produces the same vector as seq(7, 49, 7)
+seq(7, 50, 7)
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  7 14 21 28 35 42 49
+\end{verbatim}
+
+\begin{verbatim}
+# Create a sequence of numbers from 6 to 55, with 4/7 increments and determine its length
+length(seq(6,55,4/7))
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 86
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  What is the class of the following object a \textless- seq(1, 10,
+  length.out = 100)?
+\end{enumerate}
+
+\begin{verbatim}
+# Store the sequence in the object a
+a <- seq(1, 10, length.out = 100)
+
+# Determine the class of a
+class(a)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  What is the class of the following object a \textless- seq(1, 10)?
+\end{enumerate}
+
+\begin{verbatim}
+# Store the sequence in the object a
+a <- seq(1, 10)
+
+# Determine the class of a
+class(a)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  The class of class(a\textless-1) is numeric, not integer. R defaults
+  to numeric and to force an integer, you need to add the letter L.
+  Confirm that the class of 1L is integer.
+\end{enumerate}
+
+\begin{verbatim}
+# Check the class of 1, assigned to the object a
+a <- class(1)
+
+# Confirm the class of 1L is integer
+class(1L)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "integer"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\tightlist
+\item
+  Define the following vector:
+\end{enumerate}
+
+\begin{verbatim}
+x <- c(“1”, “3”, “5”, “a”)
+\end{verbatim}
+
+and coerce it to get integers.
+
+\begin{verbatim}
+# Define the vector x
+x <- c(1, 3, 5,"a")
+
+# Note that the x is character vector
+x
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "1" "3" "5" "a"
+\end{verbatim}
+
+\begin{verbatim}
+# Typecast the vector to get an integer vector
+x <- as.numeric(x)
+
+# You will get a warning but that is ok
+\end{verbatim}
+
+\hypertarget{assessment-4}{%
+\subsection{Assessment 4}\label{assessment-4}}
+
+For these exercises we will use the US murders dataset. Make sure you
+load it prior to starting.
+
+\begin{verbatim}
+library(dslabs)
+data("murders")
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the \$ operator to access the population size data and store it as
+  the object pop. Then use the sort function to redefine pop so that it
+  is sorted. Finally, use the {[} operator to report the smallest
+  population size.
+\end{enumerate}
+
+\begin{verbatim}
+# Access the `state` variable and store it in an object 
+states <- murders$state 
+
+# Sort the object alphabetically and redefine the object 
+states <- sort(states) 
+
+# Report the first alphabetical value  
+states[1]
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Alabama"
+\end{verbatim}
+
+\begin{verbatim}
+# Access population values from the dataset and store it in pop
+pop <- murders$population
+
+# Sort the object and save it in the same object 
+pop<-sort(pop)
+
+# Report the smallest population size 
+pop[1]
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 563626
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Now instead of the smallest population size, find the index of the
+  entry with the smallest population size. Hint: use order instead of
+  sort.
+\end{enumerate}
+
+\begin{verbatim}
+# Access population from the dataset and store it in pop
+pop <- murders$population
+
+# Use the command order, to order pop and store in object o
+o <- order(pop)
+
+# Find the index number of the entry with the smallest population size
+which.min(murders$population)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 51
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  We can actually perform the same operation as in the previous exercise
+  using the function which.min. Write one line of code that does this.
+\end{enumerate}
+
+\begin{verbatim}
+# Find the smallest value for variable total 
+which.min(murders$total)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 46
+\end{verbatim}
+
+\begin{verbatim}
+# Find the smallest value for population
+which.min(murders$population)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 51
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Now we know how small the smallest state is and we know which row
+  represents it. Which state is it? Define a variable states to be the
+  state names from the murders data frame. Report the name of the state
+  with the smallest population.
+\end{enumerate}
+
+\begin{verbatim}
+# Define the variable i to be the index of the smallest state
+i <- which.min(murders$population)
+
+# Define variable states to hold the states
+states <- murders$state
+
+# Use the index you just defined to find the state with the smallest population
+states[i]
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Wyoming"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  You can create a data frame using the data.frame function. Here is a
+  quick example:
+\end{enumerate}
+
+\begin{verbatim}
+temp <- c(35, 88, 42, 84, 81, 30)
+city <- c(“Beijing”, “Lagos”, “Paris”, “Rio de Janeiro”, “San Juan”, “Toronto”)
+city_temps <- data.frame(name = city, temperature = temp)
+\end{verbatim}
+
+Use the rank function to determine the population rank of each state
+from smallest population size to biggest. Save these ranks in an object
+called ranks, then create a data frame with the state name and its rank.
+Call the data frame my\_df.
+
+\begin{verbatim}
+# Store temperatures in an object 
+temp <- c(35, 88, 42, 84, 81, 30)
+
+# Store city names in an object 
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+
+# Create data frame with city names and temperature 
+city_temps <- data.frame(name = city, temperature = temp)
+
+# Define a variable states to be the state names 
+states <- murders$state
+
+# Define a variable ranks to determine the population size ranks 
+ranks <- rank(murders$population)
+
+# Create a data frame my_df with the state name and its rank
+my_df <- data.frame(name=states, ranks)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Repeat the previous exercise, but this time order my\_df so that the
+  states are ordered from least populous to most populous. Hint: create
+  an object ind that stores the indexes needed to order the population
+  values. Then use the bracket operator {[} to re-order each column in
+  the data frame.
+\end{enumerate}
+
+\begin{verbatim}
+# Define a variable states to be the state names from the murders data frame
+states <- murders$state
+
+# Define a variable ranks to determine the population size ranks 
+ranks <- rank(murders$population)
+
+# Define a variable ind to store the indexes needed to order the population values
+ind <- order(murders$population)
+
+# Create a data frame my_df with the state name and its rank and ordered from least populous to most 
+my_df<-data.frame(states = states[ind], ranks = ranks[ind])
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  The na\_example vector represents a series of counts. You can quickly
+  examine the object using:
+\end{enumerate}
+
+\begin{verbatim}
+data(“na_example”)
+str(na_example)
+nt [1:1000] 2 1 3 2 1 3 1 4 3 2 …
+\end{verbatim}
+
+However, when we compute the average with the function mean, we obtain
+an NA:
+
+\begin{verbatim}
+mean(na_example)
+[1] NA
+\end{verbatim}
+
+The is.na function returns a logical vector that tells us which entries
+are NA. Assign this logical vector to an object called ind and determine
+how many NAs does na\_example have.
+
+\begin{verbatim}
+# Using new dataset 
+library(dslabs)
+data(na_example)
+
+# Checking the structure 
+str(na_example)
+\end{verbatim}
+
+\begin{verbatim}
+##  int [1:1000] 2 1 3 2 1 3 1 4 3 2 ...
+\end{verbatim}
+
+\begin{verbatim}
+# Find out the mean of the entire dataset 
+mean(na_example)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{verbatim}
+# Use is.na to create a logical index ind that tells which entries are NA
+ind <- is.na(na_example)
+
+# Determine how many NA ind has using the sum function
+sum(ind)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 145
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Now compute the average again, but only for the entries that are not
+  NA. Hint: remember the ! operator.
+\end{enumerate}
+
+\begin{verbatim}
+# Note what we can do with the ! operator
+x <- c(1, 2, 3)
+ind <- c(FALSE, TRUE, FALSE)
+x[!ind]
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 1 3
+\end{verbatim}
+
+\begin{verbatim}
+# Create the ind vector
+library(dslabs)
+
+data(na_example)
+ind <- is.na(na_example)
+
+# We saw that this gives an NA
+mean(na_example)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{verbatim}
+# Compute the average, for entries of na_example that are not NA 
+mean(na_example[!ind])
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 2.301754
+\end{verbatim}
+
+\hypertarget{assessment-5}{%
+\subsection{Assessment 5}\label{assessment-5}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Previously we created this data frame:
+\end{enumerate}
+
+\begin{verbatim}
+temp <- c(35, 88, 42, 84, 81, 30)
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+city_temps <- data.frame(name = city, temperature = temp)
+\end{verbatim}
+
+Remake the data frame using the code above, but add a line that converts
+the temperature from Fahrenheit to Celsius. The conversion is C =5/9 ?
+(F ??? 32).
+
+\begin{verbatim}
+# Assign city names to `city` 
+city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+
+# Store temperature values in `temp`
+temp <- c(35, 88, 42, 84, 81, 30)
+
+# Convert temperature into Celsius and overwrite the original values of 'temp' with these Celsius values
+temp <- 5/9*(temp-32)
+
+# Create a data frame `city_temps` 
+city_temps <- data.frame(name=city,temperature=temp)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  What is the following sum 1 + 1/2\^{}2 + 1/3\^{}2 + .1/100\^{}2 ?
+  Hint: thanks to Euler, we know it should be close to ??\^{}2/6.
+\end{enumerate}
+
+\begin{verbatim}
+# Define an object `x` with the numbers 1 through 100
+x <- c(1:100)
+
+# Compute the sum 
+sum(1/x^2)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 1.634984
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Compute the per 100,000 murder rate for each state and store it in the
+  object murder\_rate. Then compute the average murder rate for the US
+  using the function mean. What is the average?
+\end{enumerate}
+
+\begin{verbatim}
+# Load the data
+library(dslabs)
+data(murders)
+
+# Store the per 100,000 murder rate for each state in murder_rate
+murder_rate <- murders$total/murders$population *100000
+
+# Calculate the average murder rate in the US 
+mean(murder_rate)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 2.779125
+\end{verbatim}
+
+\hypertarget{section-3-overview}{%
+\subsection{Section 3 Overview}\label{section-3-overview}}
+
+Section 3 introduces to the R commands and techniques that help you
+wrangle, analyze, and visualize data.
+
+In Section 3.1, you will: - Subset a vector based on properties of
+another vector. - Use multiple logical operators to index vectors. -
+Extract the indices of vector elements satisfying one or more logical
+conditions. - Extract the indices of vector elements matching with
+another vector. - Determine which elements in one vector are present in
+another vector.
+
+In Section 3.2, you will: - Wrangle data tables using the functions in
+`dplyr' package. - Modify a data table by adding or changing columns. -
+Subset rows in a data table. - Subset columns in a data table. - Perform
+a series of operations using the pipe operator. - Create data frames.
+
+In Section 3.3, you will: - Plot data in scatter plots, box plots and
+histograms.
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html\#indexing}{here}
+
+\hypertarget{assessment-6}{%
+\subsection{Assessment 6}\label{assessment-6}}
+
+Start by loading the library and data.
+
+\begin{verbatim}
+library(dslabs)
+data(murders)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Compute the per 100,000 murder rate for each state and store it in an
+  object called murder\_rate. Then use logical operators to create a
+  logical vector named low that tells us which entries of murder\_rate
+  are lower than 1.
+\end{enumerate}
+
+\begin{verbatim}
+# Store the murder rate per 100,000 for each state, in `murder_rate`
+murder_rate <- murders$total / murders$population * 100000
+
+# Store the `murder_rate < 1` in `low` 
+low <- murder_rate < 1
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Now use the results from the previous exercise and the function which
+  to determine the indices of murder\_rate associated with values lower
+  than 1.
+\end{enumerate}
+
+\begin{verbatim}
+# Store the murder rate per 100,000 for each state, in murder_rate
+murder_rate <- murders$total/murders$population*100000
+
+# Store the murder_rate < 1 in low 
+low <- murder_rate < 1
+
+# Get the indices of entries that are below 1
+which(low)
+\end{verbatim}
+
+\begin{verbatim}
+##  [1] 12 13 16 20 24 30 35 38 42 45 46 51
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Use the results from the previous exercise to report the names of the
+  states with murder rates lower than 1.
+\end{enumerate}
+
+\begin{verbatim}
+# Store the murder rate per 100,000 for each state, in murder_rate
+murder_rate <- murders$total/murders$population*100000
+
+# Store the murder_rate < 1 in low 
+low <- murder_rate < 1
+
+# Names of states with murder rates lower than 1
+murders$state[low]
+\end{verbatim}
+
+\begin{verbatim}
+##  [1] "Hawaii"        "Idaho"         "Iowa"          "Maine"        
+##  [5] "Minnesota"     "New Hampshire" "North Dakota"  "Oregon"       
+##  [9] "South Dakota"  "Utah"          "Vermont"       "Wyoming"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Now extend the code from exercise 2 and 3 to report the states in the
+  Northeast with murder rates lower than 1. Hint: use the previously
+  defined logical vector low and the logical operator \&.
+\end{enumerate}
+
+\begin{verbatim}
+# Store the murder rate per 100,000 for each state, in `murder_rate`
+murder_rate <- murders$total/murders$population*100000
+
+# Store the `murder_rate < 1` in `low` 
+low <- murder_rate < 1
+
+# Create a vector ind for states in the Northeast and with murder rates lower than
+ind <- low & murders$region=='Northeast'
+
+# Names of states in `ind` 
+murders$state[ind] 
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Maine"         "New Hampshire" "Vermont"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  In a previous exercise we computed the murder rate for each state and
+  the average of these numbers. How many states are below the average?
+\end{enumerate}
+
+\begin{verbatim}
+# Store the murder rate per 100,000 for each state, in murder_rate
+murder_rate <- murders$total/murders$population*100000
+
+# Compute average murder rate and store in avg using `mean` 
+avg <- mean(murder_rate)
+
+# How many states have murder rates below avg ? Check using sum 
+sum(murder_rate<avg)
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 27
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Use the match function to identify the states with abbreviations AK,
+  MI, and IA. Hint: start by defining an index of the entries of
+  murders\$abb that match the three abbreviations, then use the {[}
+  operator to extract the states.
+\end{enumerate}
+
+\begin{verbatim}
+# Store the 3 abbreviations in abbs in a vector (remember that they are character vectors and need quotes)
+abbs <- c('AK','MI','IA')
+
+# Match the abbs to the murders$abb and store in ind
+ind <- match(abbs , murders$abb)
+
+# Print state names from ind
+murders$state[ind]
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Alaska"   "Michigan" "Iowa"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Use the \%in\% operator to create a logical vector that answers the
+  question: which of the following are actual abbreviations: MA, ME, MI,
+  MO, MU ?
+\end{enumerate}
+
+\begin{verbatim}
+# Store the 5 abbreviations in `abbs`. (remember that they are character vectors)
+abbs <- c('MA', 'ME', 'MI', 'MO', 'MU')
+
+# Use the %in% command to check if the entries of abbs are abbreviations in the the murders data frame
+abbs%in%murders$abb
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  TRUE  TRUE  TRUE  TRUE FALSE
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Extend the code you used in exercise 7 to report the one entry that is
+  not an actual abbreviation. Hint: use the ! operator, which turns
+  FALSE into TRUE and vice versa, then which to obtain an index.
+\end{enumerate}
+
+\begin{verbatim}
+# Store the 5 abbreviations in abbs. (remember that they are character vectors)
+abbs <- c("MA", "ME", "MI", "MO", "MU") 
+
+# Use the `which` command and `!` operator to find out which abbreviation are not actually part of the dataset and store in ind
+ind <- which(!abbs%in%murders$abb)
+
+# What are the entries of abbs that are not actual abbreviations
+abbs[ind]
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "MU"
+\end{verbatim}
+
+\hypertarget{assessment-7}{%
+\subsection{Assessment 7}\label{assessment-7}}
+
+Load the dplyr package and the murders dataset.
+
+\begin{verbatim}
+library(dplyr)
+library(dslabs)
+data(murders)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  You can add columns using the dplyr function mutate. This function is
+  aware of the column names and inside the function you can call them
+  unquoted. Like this:
+\end{enumerate}
+
+\begin{verbatim}
+murders <- mutate(murders, population_in_millions = population / 10^6)
+\end{verbatim}
+
+Note that we can write population rather than
+murders\(population. The function mutate knows we are grabing columns from murders.\
+Use the function mutate to add a murders column named rate with the per 100,000 murder rate. Make sure you redefine murders as done in the example code above. Remember the murder rate is defined the total divided by the population size times 100,000. ``` # Redefine murders so that it includes column named rate with the per 100,000 murder rates murders <- mutate(murders, rate=total/murders\)population*100000)
+
+\begin{verbatim}
+2. mutate
+
+Note that if rank(x) gives you the ranks of x from lowest to highest, rank(-x) gives you the ranks from highest to lowest. Use the function mutate to add a column rank containing the rank, from highest to lowest murder rate. Make sure you redeinfe murders.
+\end{verbatim}
+
+\hypertarget{note-that-if-you-want-ranks-from-highest-to-lowest-you-can-take-the-negative-and-then-compute-the-ranks}{%
+\section{Note that if you want ranks from highest to lowest you can take
+the negative and then compute the
+ranks}\label{note-that-if-you-want-ranks-from-highest-to-lowest-you-can-take-the-negative-and-then-compute-the-ranks}}
+
+x \textless- c(88, 100, 83, 92, 94) rank(-x)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{section}{%
+\subsection{{[}1{]} 4 1 5 3 2}\label{section}}
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{defining-rate}{%
+\section{Defining rate}\label{defining-rate}}
+
+rate \textless- murders\(total/ murders\)population * 100000
+
+\hypertarget{redefine-murders-to-include-a-column-named-rank}{%
+\section{Redefine murders to include a column named
+rank}\label{redefine-murders-to-include-a-column-named-rank}}
+
+\hypertarget{with-the-ranks-of-rate-from-highest-to-lowest}{%
+\section{with the ranks of rate from highest to
+lowest}\label{with-the-ranks-of-rate-from-highest-to-lowest}}
+
+murders \textless- mutate(murders,rank=rank(-rate))
+
+\begin{verbatim}
+3. select
+
+With dplyr we can use select to show only certain columns. For example with this code we would only show the states and population sizes:
+\end{verbatim}
+
+select(murders, state, population)
+
+\begin{verbatim}
+Use select to show the state names and abbreviations in murders. Just show it, do not define a new object.
+\end{verbatim}
+
+\hypertarget{load-dplyr}{%
+\section{Load dplyr}\label{load-dplyr}}
+
+library(dplyr)
+
+\hypertarget{use-select-to-only-show-state-names-and-abbreviations-from-murders}{%
+\section{Use select to only show state names and abbreviations from
+murders}\label{use-select-to-only-show-state-names-and-abbreviations-from-murders}}
+
+select(murders,state,abb)
+
+state abb Alabama AL Alaska AK Arizona AZ Arkansas AR California CA
+Colorado CO Connecticut CT Delaware DE District of Columbia DC Florida
+FL 1-10 of 51 rows
+
+\begin{verbatim}
+4. filter
+    
+The dplyr function filter is used to choose specific rows of the data frame to keep. Unlke select which is for columns, filter is for rows. For example you can show just New York row like this:
+\end{verbatim}
+
+filter(murders, state == ``New York'')
+
+\begin{verbatim}
+You can use other logical vector to filter rows.
+Use filter to show the top 5 states with the highest murder rates. After we add murder rate and rank, do not change the murders dataset, just show the result. Note that you can filter based on the rank column.
+\end{verbatim}
+
+\hypertarget{add-the-necessary-columns}{%
+\section{Add the necessary columns}\label{add-the-necessary-columns}}
+
+murders \textless- mutate(murders, rate = total/population * 100000,
+rank = rank(-rate))
+
+\hypertarget{filter-to-show-the-top-5-states-with-the-highest-murder-rates}{%
+\section{Filter to show the top 5 states with the highest murder
+rates}\label{filter-to-show-the-top-5-states-with-the-highest-murder-rates}}
+
+filter(murders,rate,rank\textless=5)
+
+state abb region population total rate rank District of Columbia DC
+South 601723 99 16.452753 1 Louisiana LA South 4533372 351 7.742581 2
+Maryland MD South 5773552 293 5.074866 4 Missouri MO North Central
+5988927 321 5.359892 3 South Carolina SC South 4625364 207 4.475323 5 5
+rows
+
+\begin{verbatim}
+5. filter with !=
+
+We can remove rows using the != operator. For example to remove Florida we would do this:
+\end{verbatim}
+
+no\_florida \textless- filter(murders, state != ``Florida'')
+
+\begin{verbatim}
+Create a new data frame called no_south that removes states from the South region. How many states are in this category? You can use the function nrow for this.
+\end{verbatim}
+
+\hypertarget{use-filter-to-create-a-new-data-frame-no_south}{%
+\section{Use filter to create a new data frame
+no\_south}\label{use-filter-to-create-a-new-data-frame-no_south}}
+
+no\_south \textless- filter(murders, region != `South')
+
+\hypertarget{use-nrow-to-calculate-the-number-of-rows}{%
+\section{Use nrow() to calculate the number of
+rows}\label{use-nrow-to-calculate-the-number-of-rows}}
+
+nrow(no\_south)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{section-1}{%
+\subsection{{[}1{]} 34}\label{section-1}}
+
+\begin{verbatim}
+6. filter with %in%
+    
+We can also use the %in% to filter with dplyr. For example you can see the data from New York and Texas like this:
+\end{verbatim}
+
+filter(murders, state \%in\% c(``New York'', ``Texas''))
+
+\begin{verbatim}
+Create a new data frame called murders_nw with only the states from the Northeast and the West. How many states are in this category?
+\end{verbatim}
+
+\hypertarget{create-a-new-data-frame-called-murders_nw-with-only-the-states-from-the-northeast-and-the-west}{%
+\section{Create a new data frame called murders\_nw with only the states
+from the northeast and the
+west}\label{create-a-new-data-frame-called-murders_nw-with-only-the-states-from-the-northeast-and-the-west}}
+
+murders\_nw \textless- filter(murders, region \%in\%
+c(`Northeast',`West'))
+
+\hypertarget{number-of-states-rows-in-this-category}{%
+\section{Number of states (rows) in this
+category}\label{number-of-states-rows-in-this-category}}
+
+nrow(murders\_nw)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{section-2}{%
+\subsection{{[}1{]} 22}\label{section-2}}
+
+\begin{verbatim}
+7. filtering by two conditions
+
+Suppose you want to live in the Northeast or West and want the murder rate to be less than 1. We want to see the data for the states satisfying these options. Note that you can use logical operators with filter:
+\end{verbatim}
+
+filter(murders, population \textless{} 5000000 \& region ==
+``Northeast'')
+
+\begin{verbatim}
+Add a murder rate column and a rank column as done before. Create a table, call it my_states, that satisfies both the conditions: it is in the Northeast or West and the murder rate is less than 1. Use select to show only the state name, the rate and the rank.
+\end{verbatim}
+
+\hypertarget{add-the-rate-column}{%
+\section{add the rate column}\label{add-the-rate-column}}
+
+murders \textless- mutate(murders, rate = total / population * 100000,
+rank = rank(-rate))
+
+\hypertarget{create-a-table-call-it-my_states-that-satisfies-both-the-conditions}{%
+\section{Create a table, call it my\_states, that satisfies both the
+conditions}\label{create-a-table-call-it-my_states-that-satisfies-both-the-conditions}}
+
+my\_states \textless- filter(murders, region \%in\%
+c(`Northeast',`West') \& rate \textless{} 1)
+
+\hypertarget{use-select-to-show-only-the-state-name-the-murder-rate-and-the-rank}{%
+\section{Use select to show only the state name, the murder rate and the
+rank}\label{use-select-to-show-only-the-state-name-the-murder-rate-and-the-rank}}
+
+select(my\_states,state,rate,rank)
+
+state rate rank Hawaii 0.5145920 49 Idaho 0.7655102 46 Maine 0.8280881
+44 New Hampshire 0.3798036 50 Oregon 0.9396843 42 Utah 0.7959810 45
+Vermont 0.3196211 51 Wyoming 0.8871131 43 8 rows
+
+\begin{verbatim}
+8. Using the pipe %>%
+
+The pipe %>% can be used to perform operations sequentially without having to define intermediate objects. After redefining murder to include rate and rank.
+\end{verbatim}
+
+library(dplyr) murders \textless- mutate(murders, rate = total /
+population * 100000, rank = (-rate))
+
+\begin{verbatim}
+in the solution to the previous exercise we did the following:
+
+Created a table
+\end{verbatim}
+
+my\_states \textless- filter(murders, region \%in\% c(``Northeast'',
+``West'') \& rate \textless{} 1)
+
+\begin{verbatim}
+Used select to show only the state name, the murder rate and the rank
+\end{verbatim}
+
+select(my\_states, state, rate, rank)
+
+\begin{verbatim}
+The pipe %>% permits us to perform both operation sequentially and without having to define an intermediate variable my_states
+
+For example we could have mutated and selected in the same line like this:
+\end{verbatim}
+
+mutate(murders, rate = total / population * 100000, rank = (-rate))
+\%\textgreater\% select(state, rate, rank)
+
+\begin{verbatim}
+Note that select no longer has a data frame as the first argument. The first argument is assumed to be the result of the operation conducted right before the %>%
+
+Repeat the previous exercise, but now instead of creating a new object, show the result and only include the state, rate, and rank columns. Use a pipe %>% to do this in just one line.
+\end{verbatim}
+
+\hypertarget{load-library}{%
+\section{Load library}\label{load-library}}
+
+library(dplyr)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{define-the-rate-column}{%
+\subsection{Define the rate column}\label{define-the-rate-column}}
+
+murders \textless- mutate(murders, rate = total / population * 100000,
+rank = rank(-rate))
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{show-the-result-and-only-include-the-state-rate-and-rank-columns-all-in-one-line}{%
+\section{show the result and only include the state, rate, and rank
+columns, all in one
+line}\label{show-the-result-and-only-include-the-state-rate-and-rank-columns-all-in-one-line}}
+
+filter(murders, region \%in\% c(``Northeast'', ``West'') \& rate
+\textless{} 1 ) \%\textgreater\% select(state, rate, rank)
+
+state rate rank Hawaii 0.5145920 49 Idaho 0.7655102 46 Maine 0.8280881
+44 New Hampshire 0.3798036 50 Oregon 0.9396843 42 Utah 0.7959810 45
+Vermont 0.3196211 51 Wyoming 0.8871131 43 8 rows
+
+\begin{verbatim}
+9. mutate, filter and select
+
+Now we will make murders the original table one gets when loading using data(murders). Use just one line to create a new data frame, called, my_states that has murder rate and rank column, consider only states in the Northeast or West, which have a murder rate lower than 1 and contain only the state, rate, and rank columns. The line should have four components separated by three %>%.
+- The original dataset murders
+- A call to mutate to add the murder rate and the rank.
+- A call to filter to keep only the states from the Northeast or West and that have a murder rate below 1
+- A call to select that keeps only the columns with the stata name, the murder rate and the rank.
+
+The line should look something like this my_states <- murders %>% mutate something %>% filter something %>% select something. Please, make sure the columns in the final data frame must be in the order: state, rate, rank.
+\end{verbatim}
+
+\hypertarget{loading-the-libraries}{%
+\section{Loading the libraries}\label{loading-the-libraries}}
+
+library(dplyr) data(murders)
+
+\hypertarget{create-new-data-frame-called-my_states-with-specifications-in-the-instructions}{%
+\section{Create new data frame called my\_states (with specifications in
+the
+instructions)}\label{create-new-data-frame-called-my_states-with-specifications-in-the-instructions}}
+
+my\_states \textless- murders \%\textgreater\%
+mutate(rate=total/murders\$population*100000, rank=rank(-rate))
+\%\textgreater\% filter(region \%in\% c(`Northeast',`West') \& rate
+\textless1) \%\textgreater\% select(state,rate,rank)
+
+\begin{verbatim}
+## Assessment 8
+
+1. We made a plot of total murders versus population and noted a strong relationship. Not surprisingly, states with larger populations had more murders.
+\end{verbatim}
+
+library(dslabs) data(murders) population\_in\_millions \textless-
+murders\(population/10^6 total_gun_murders <− murders\)total
+plot(population\_in\_millions, total\_gun\_murders)
+
+\begin{verbatim}
+Keep in mind that many states have populations below 5 million and are bunched up. We may gain further insights from making this plot in the log scale. Transform the variables using the log10 transformation and then plot them.
+\end{verbatim}
+
+\hypertarget{load-the-datasets-and-define-some-variables}{%
+\section{Load the datasets and define some
+variables}\label{load-the-datasets-and-define-some-variables}}
+
+library(dslabs) data(murders)
+
+population\_in\_millions \textless-
+murders\(population/10^6 total_gun_murders <- murders\)total
+
+plot(population\_in\_millions, total\_gun\_murders)
+
+\begin{verbatim}
+![index](https://user-images.githubusercontent.com/17474099/75668573-cdb1c800-5c79-11ea-98c3-222b70b1eb88.png)
+\end{verbatim}
+
+\hypertarget{transform-population-using-the-log10-transformation-and-save-to-object-log10_population}{%
+\section{Transform population using the log10 transformation and save to
+object
+log10\_population}\label{transform-population-using-the-log10-transformation-and-save-to-object-log10_population}}
+
+log10\_population \textless-log10(murders\$population)
+
+\hypertarget{transform-total-gun-murders-using-log10-transformation-and-save-to-object-log10_total_gun_murders}{%
+\section{Transform total gun murders using log10 transformation and save
+to object
+log10\_total\_gun\_murders}\label{transform-total-gun-murders-using-log10-transformation-and-save-to-object-log10_total_gun_murders}}
+
+log10\_total\_gun\_murders \textless- log10(total\_gun\_murders)
+
+\hypertarget{create-a-scatterplot-with-the-log-scale-transformed-population-and-murders}{%
+\section{Create a scatterplot with the log scale transformed population
+and
+murders}\label{create-a-scatterplot-with-the-log-scale-transformed-population-and-murders}}
+
+plot(log10\_population,log10\_total\_gun\_murders)
+
+\begin{verbatim}
+
+![index](https://user-images.githubusercontent.com/17474099/75766283-32842580-5d41-11ea-9099-f43738a46b86.png)
+
+2. Create a histogram of the state populations.
+\end{verbatim}
+
+\hypertarget{store-the-population-in-millions-and-save-to-population_in_millions}{%
+\section{Store the population in millions and save to
+population\_in\_millions}\label{store-the-population-in-millions-and-save-to-population_in_millions}}
+
+population\_in\_millions \textless- murders\$population/10\^{}6
+
+\hypertarget{create-a-histogram-of-this-variable}{%
+\section{Create a histogram of this
+variable}\label{create-a-histogram-of-this-variable}}
+
+hist(population\_in\_millions)
+
+\begin{verbatim}
+![index](https://user-images.githubusercontent.com/17474099/75668993-7bbd7200-5c7a-11ea-98d7-bc5e28e69d07.png)
+
+3. Generate boxplots of the state populations by region.
+\end{verbatim}
+
+\hypertarget{create-a-boxplot-of-state-populations-by-region-for-the-murders-dataset}{%
+\section{Create a boxplot of state populations by region for the murders
+dataset}\label{create-a-boxplot-of-state-populations-by-region-for-the-murders-dataset}}
+
+boxplot(population\textasciitilde region, data=murders)
+
+\begin{verbatim}
+![index](https://user-images.githubusercontent.com/17474099/75669696-bc69bb00-5c7b-11ea-9cd1-bc5218b21b40.png)
+## Section 4 Overview
+
+Section 4 introduces you to general programming features like ‘if-else’, and ‘for loop’ commands so that you can write your own functions to perform various operations on datasets.
+
+In Section 4.1, you will:
+- Understand some of the programming capabilities of R.
+
+In Section 4.2, you will:
+- Use basic conditional expressions to perform different operations.
+- Check if any or all elements of a logical vector are TRUE.
+
+In Section 4.3, you will:
+- Define and call functions to perform various operations.
+- Pass arguments to functions, and return variables/objects from functions.
+
+In Section 4.4, you will:
+- Use ‘for’ loop to perform repeated operations.
+- Articulate in-built functions of R that you could try for yourself.
+
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html)
+
+## Assessment 9
+
+1. What will this conditional expression return?
+\end{verbatim}
+
+x \textless- c(1,2,-3,4)
+
+if(all(x\textgreater0))\{ print(``All Postives'') \} else\{ print(``Not
+all positives'') \}
+
+\begin{verbatim}
+- [ ] A. All Positives
+- [X] B. Not All Positives
+- [ ] C. N/A
+- [ ] D. None of the above
+
+2. Which of the following expressions is always FALSE when at least one entry of a logical vector x is TRUE?
+
+- [ ] A. all(x)
+- [ ] B. any(x)
+- [ ] C. any(!x)
+- [X] D. all(!x)
+
+3. The function nchar tells you how many characters long a character vector is.
+
+Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.
+\end{verbatim}
+
+\hypertarget{assign-the-state-abbreviation-when-the-state-name-is-longer-than-8-characters}{%
+\section{Assign the state abbreviation when the state name is longer
+than 8
+characters}\label{assign-the-state-abbreviation-when-the-state-name-is-longer-than-8-characters}}
+
+new\_names \textless- ifelse(nchar(murders\(state)>8, murders\)abb,
+murders\$state)
+
+\begin{verbatim}
+4. Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.
+\end{verbatim}
+
+\hypertarget{create-function-called-sum_n}{%
+\section{\texorpdfstring{Create function called
+\texttt{sum\_n}}{Create function called sum\_n}}\label{create-function-called-sum_n}}
+
+sum\_n \textless- function(n)\{ sum(1:n) \} \# Use the function to
+determine the sum of integers from 1 to 5000 sum\_n(5000)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{section-3}{%
+\subsection{{[}1{]} 12502500}\label{section-3}}
+
+\begin{verbatim}
+5. Create a function altman_plot that takes two arguments, x and y, and plots the difference against the sum.
+\end{verbatim}
+
+\hypertarget{create-altman_plot}{%
+\section{\texorpdfstring{Create
+\texttt{altman\_plot}}{Create altman\_plot}}\label{create-altman_plot}}
+
+altman\_plot \textless- function(x,y) \{ plot(x+y,y-x) \}
+
+\begin{verbatim}
+6. After running the code below, what is the value of x?
+\end{verbatim}
+
+x \textless- 3 my\_func \textless- function(y)\{ x \textless- 5 y+5 \}
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{run-this-code}{%
+\section{Run this code}\label{run-this-code}}
+
+x \textless- 3 my\_func \textless- function(y)\{ x \textless- 5 y+5 \}
+
+\hypertarget{print-value-of-x}{%
+\section{Print value of x}\label{print-value-of-x}}
+
+print(x)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{section-4}{%
+\subsection{{[}1{]} 3}\label{section-4}}
+
+\begin{verbatim}
+7. Write a function compute_s_n that for any given n computes the sum S_n = 1^2 + 2^2 + 3^2 + . n^2. Report the value of the sum when n = 10.
+\end{verbatim}
+
+\hypertarget{here-is-an-example-of-function-that-adds-numbers-from-1-to-n}{%
+\section{Here is an example of function that adds numbers from 1 to
+n}\label{here-is-an-example-of-function-that-adds-numbers-from-1-to-n}}
+
+example\_func \textless- function(n)\{ x \textless- 1:n sum(x) \}
+
+\hypertarget{here-is-the-sum-of-the-first-100-numbers}{%
+\section{Here is the sum of the first 100
+numbers}\label{here-is-the-sum-of-the-first-100-numbers}}
+
+example\_func(100)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{section-5}{%
+\subsection{{[}1{]} 5050}\label{section-5}}
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{write-a-function-compute_s_n-that-with-argument-n-and-returns-of-1-22-n2}{%
+\section{Write a function compute\_s\_n that with argument n and returns
+of 1 + 2\^{}2 + \ldots+
+n\^{}2}\label{write-a-function-compute_s_n-that-with-argument-n-and-returns-of-1-22-n2}}
+
+compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
+\# Report the value of the sum when n=10 compute\_s\_n(10)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{section-6}{%
+\subsection{{[}1{]} 385}\label{section-6}}
+
+\begin{verbatim}
+8. Define an empty numerical vector s_n of size 25 using s_n <- vector(“numeric”, 25) and store in the results of S_1, S_2, . S_25 using a for-loop.
+\end{verbatim}
+
+\hypertarget{define-a-function-and-store-it-in-compute_s_n}{%
+\section{\texorpdfstring{Define a function and store it in
+\texttt{compute\_s\_n}}{Define a function and store it in compute\_s\_n}}\label{define-a-function-and-store-it-in-compute_s_n}}
+
+compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
+
+\hypertarget{create-a-vector-for-storing-results}{%
+\section{Create a vector for storing
+results}\label{create-a-vector-for-storing-results}}
+
+s\_n \textless- vector(``numeric'', 25)
+
+\hypertarget{write-a-for-loop-to-store-the-results-in-s_n}{%
+\section{write a for-loop to store the results in
+s\_n}\label{write-a-for-loop-to-store-the-results-in-s_n}}
+
+for(i in 1:25)\{ s\_n{[}i{]} \textless- compute\_s\_n(i) \}
+
+\begin{verbatim}
+9. If we do the math, we can show that S_n=12+22+32+???+n2=n(n+1)(2n+1)/6. We have already computed the values of Sn from 1 to 25 using a for loop. If the formula is correct then a plot of Sn versus n should look cubic.
+\end{verbatim}
+
+\hypertarget{define-the-function}{%
+\section{Define the function}\label{define-the-function}}
+
+compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
+
+\hypertarget{define-the-vector-of-n}{%
+\section{Define the vector of n}\label{define-the-vector-of-n}}
+
+n \textless- 1:25
+
+\hypertarget{define-the-vector-to-store-data}{%
+\section{Define the vector to store
+data}\label{define-the-vector-to-store-data}}
+
+s\_n \textless- vector(``numeric'', 25) for(i in n)\{ s\_n{[}i{]}
+\textless- compute\_s\_n(i) \}
+
+\hypertarget{create-the-plot}{%
+\section{Create the plot}\label{create-the-plot}}
+
+plot(n,s\_n)
+
+\begin{verbatim}
+![index](https://user-images.githubusercontent.com/17474099/75670998-24210580-5c7e-11ea-95fe-e6f8857049f4.png)
+
+10. Confirm that s_n and n(n+1)(2n+1)/6 are the same using the identical command.
+\end{verbatim}
+
+\hypertarget{define-the-function-1}{%
+\section{Define the function}\label{define-the-function-1}}
+
+compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
+
+\hypertarget{define-the-vector-of-n-1}{%
+\section{Define the vector of n}\label{define-the-vector-of-n-1}}
+
+n \textless- 1:25
+
+\hypertarget{define-the-vector-to-store-data-1}{%
+\section{Define the vector to store
+data}\label{define-the-vector-to-store-data-1}}
+
+s\_n \textless- vector(``numeric'', 25) for(i in n)\{ s\_n{[}i{]}
+\textless- compute\_s\_n(i) \}
+
+\hypertarget{check-that-s_n-is-identical-to-the-formula-given-in-the-instructions.}{%
+\section{Check that s\_n is identical to the formula given in the
+instructions.}\label{check-that-s_n-is-identical-to-the-formula-given-in-the-instructions.}}
+
+identical(s\_n,n\emph{(n+1)}(2*n+1)/6)
+
+\begin{verbatim}
+\end{verbatim}
+
+\hypertarget{true}{%
+\subsection{{[}1{]} TRUE}\label{true}}
+
+```
+
+\end{document}
