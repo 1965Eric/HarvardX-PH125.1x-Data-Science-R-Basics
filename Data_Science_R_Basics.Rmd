@@ -46,7 +46,7 @@ The textbook for this section is available [here](https://rafalab.github.io/dsbo
 
 Here is a link to the [textbook section on the motivation for this course](https://rafalab.github.io/dsbook/r-basics.html#case-study-us-gun-murders).
 
-### Getting started
+## Getting started
 
 Here is a link to the textbook section on [Getting Started](https://rafalab.github.io/dsbook/getting-started.html) with R.
 
@@ -66,23 +66,21 @@ if(!require(dslabs)) install.packages("dslabs")
 library(dslabs)
 ```
 
-### Installing R and R Studio
+## Installing R and R Studio
 
-#### Installing R
+### Installing R
 
 To install R to work on your own computer, you can download it freely from the [Comprehensive R Archive Network](https://cran.r-project.org) (CRAN). Note that CRAN makes several versions of R available: versions for multiple operating systems and releases older than the current one. You want to read the CRAN instructions to assure you download the correct version. If you need further help, you read the walkthrough in this [Chapter of the textbook](https://rafalab.github.io/dsbook/installing-r-rstudio.html#installing-r).
 
-#### Installing RStudio
+### Installing RStudio
 
 RStudio is an integrated development environment (IDE). We highly recommend installing and using RStudio to edit and test your code. You can install RStudio through the [RStudio website](https://rstudio.com/products/rstudio/download/). Their [cheatsheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) is a great resource.  You must install R before installing RStudio.
 
-#### Textbook Link
+### Textbook Link
 
 Here is a link to the textbook section on [Installing R and RStudio](https://rafalab.github.io/dsbook/installing-r-rstudio.html).
 
-## R Basics
-
-### Objects
+## R Basics - Objects
 
 Here is a link to the textbook section on [objects in R](https://rafalab.github.io/dsbook/r-basics.html#objects).
 
@@ -106,7 +104,7 @@ c <- -1
 (-b - sqrt(b^2 - 4*a*c) ) / ( 2*a )
 ```
 
-### Functions
+## R Basics - Functions
 
 Here is a link to the textbook section on [functions](https://rafalab.github.io/dsbook/r-basics.html#functions).
 
@@ -184,7 +182,55 @@ log10(sqrt(100))
 - [X] C. log(exp(x))
 - [ ] D. exp(log(x, base = 2))
 
-## Assessment 2
+## Data Types
+
+You can find the [section of the textbook on data types here](https://rafalab.github.io/dsbook/r-basics.html#data-types).
+
+**Key Points**
+
+* The function “class” helps us determine the type of an object.
+* Data frames can be thought of as tables with rows representing observations and columns representing different variables.
+* To access data from columns of a data frame, we use the dollar sign symbol, which is called the accessor.
+* A vector is an object consisting of several entries and can be a numeric vector, a character vector, or a logical vector.
+* We use quotes to distinguish between variable names and character strings.
+* Factors are useful for storing categorical data, and are more memory efficient than storing characters.
+
+*Code*
+
+```{r}
+# loading the dslabs package and the murders dataset
+data(murders)
+
+# determining that the murders dataset is of the "data frame" class
+class(murders)
+# finding out more about the structure of the object
+str(murders)
+# showing the first 6 lines of the dataset
+head(murders)
+
+# using the accessor operator to obtain the population column
+murders$population
+# displaying the variable names in the murders dataset
+names(murders)
+# determining how many entries are in a vector
+pop <- murders$population
+length(pop)
+# vectors can be of class numeric and character
+class(pop)
+class(murders$state)
+
+# logical vectors are either TRUE or FALSE
+z <- 3 == 2
+z
+class(z)
+
+# factors are another type of class
+class(murders$region)
+# obtaining the levels of a factor
+levels(murders$region)
+```
+
+## Assessment - Data Types
 
 1. Load the US murders dataset.
 ```
