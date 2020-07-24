@@ -198,7 +198,7 @@ You can find the [section of the textbook on data types here](https://rafalab.gi
 *Code*
 
 ```{r}
-# loading the dslabs package and the murders dataset
+# loading the the murders dataset
 data(murders)
 
 # determining that the murders dataset is of the "data frame" class
@@ -232,113 +232,128 @@ levels(murders$region)
 
 ## Assessment - Data Types
 
-1. Load the US murders dataset.
-```
+1. We're going to be using the following dataset for this module. Run this code in the console.
+
+```{r, eval=FALSE, echo=TRUE}
 library(dslabs)  
 data(murders)
 ```
-Use the function str to examine the structure of the murders object. We can see that this object is a data frame with 51 rows and five columns. Which of the following best describes the variables represented in this data frame?
+
+Next, use the function ```str``` to examine the structure of the ```murders``` object. We can see that this object is a data frame with 51 rows and five columns.
+
+```{r}
+str(murders)
+```
+
+Which of the following best describes the variables represented in this data frame?
+
 - [ ] A. The 51 states.
 - [ ] B. The murder rates for all 50 states and DC.
-- [x] C. The state name, the abbreviation of the state name, the state's region, and the state's population and total number of murders for 2010.
+- [X] C. The state name, the abbreviation of the state name, the state's region, and the state's population and total number of murders for 2010.
 - [ ] D. str shows no relevant information.
 
-2. What are the column names used by the data frame for these five variables?
-```
+2. In the previous question, we saw the different variables that are a part of this dataset from the output of the ```str()``` function. The function ```names()``` is specifically designed to extract the column names from a data frame.
+
+```{r, eval=FALSE, echo=TRUE}
 # Load package and data
 library(dslabs)
 data(murders)
-
+```
+```{r}
 # Use the function names to extract the variable names 
 names(murders)
 ```
-```
-## [1] "state"      "abb"        "region"     "population" "total"
-```
-3. Use the accessor $ to extract the state abbreviations and assign them to the object a. What is the class of this object?
-```
+
+3. In this module we have learned that every variable has a class. For example, the class can be a *character*, *numeric* or *logical*. The function ```class()``` can be used to determine the class of an object.
+
+Here we are going to determine the class of one of the variables in the ```murders``` data frame. To extract variables from a data frame we use ```$```, referred to as the accessor.
+
+In the editor we show an example of how to do this. Let`s try it out for ourselves.
+
+```{r}
 # To access the population variable from the murders dataset use this code:
 p <- murders$population 
 
 # To determine the class of object `p` we use this code:
 class(p)
-```
-```
-## [1] "numeric"
-```
-```
+
 # Use the accessor to extract state abbreviations and assign it to a
 a <- murders$abb
 
 # Determine the class of a
 class(a)
 ```
+
+4. An important lesson you should learn early on is that there are multiple ways to do things in R. For example, to generate the first five integers we note that ```1:5``` and ```seq(1,5)``` return the same result.
+
+There are also multiple ways to access variables in a data frame. For example we can use the square brackets ```[[``` instead of the accessor ```$```. Example code is included in the editor.
+
+If you instead try to access a column with just one bracket,
+
 ```
-## [1] "character"
+murders["population"]
 ```
-4. Now use the square brackets to extract the state abbreviations and assign them to the object b. Use the identical function to determine if a and b are the same.
-```
+
+R returns a subset of the original data frame containing just this column. This new object will be of class ```data.frame``` rather than a vector. To access the column itself you need to use either the ```$``` accessor or the double square brackets ```[[```.
+
+Parentheses, in contrast, are mainly used alongside functions to indicate what argument the function should be doing something to. For example, when we did ```class(p)``` in the last question, we wanted the function ```class``` to do something related to the argument ```p```.
+
+This is an example of how R can be a bit idiosyncratic sometimes. It is very common to find it confusing at first.
+
+```{r}
 # We extract the population like this:
 p <- murders$population
 
 # This is how we do the same with the square brackets:
-o <- murders[["population"]] 
+o <- murders[["population"]]
 
 # We can confirm these two are the same
 identical(o, p)
-```
-```
-## [1] TRUE
-```
-```
+
 # Use square brackets to extract `abb` from `murders` and assign it to b
-b<-murders[["abb"]]
+b <- murders[["abb"]]
 
 # Check if `a` and `b` are identical 
 identical(a, b)
 ```
-```
-## [1] TRUE
-```
-5. We saw that the region column stores a factor. You can corroborate this by typing:
-```
-class(murders$region)
-```
-With one line of code, use the function levels and length to determine the number of regions defined by this dataset.
-```
+
+5. Using the ```str()``` command, we saw that the *region* column stores a factor. You can corroborate this by using the ```class``` command on the *region* column.
+
+The function ```levels``` shows us the categories for the factor.
+
+```{r}
 # We can see the class of the region variable using class
 class(murders$region)
-```
-```
-## [1] "factor"
-```
-```
+
 # Determine the number of regions included in this variable 
 length(levels(murders$region))
 ```
-```
-## [1] 4
-```
-6. The function table takes a vector and returns the frequency of each element. You can quickly see how many states are in each region by applying this function. Use this function in one line of code to create a table of states per region.
-```
+
+6. The function ```table``` takes a vector as input and returns the frequency of each unique element in the vector.
+
+```{r}
 # Here is an example of what the table function does
 x <- c("a", "a", "b", "b", "b", "c")
 table(x)
-```
-```
-## x
-## a b c 
-## 2 3 1
-```
-```
+
 # Write one line of code to show the number of states per region
 table(murders$region)
 ```
+## Section 1 Assessment
+
+1. To find the solutions to an equation of the format $𝑎𝑥ˆ2+𝑏𝑥+𝑐$, use the quadratic equation: $𝑥=−𝑏±sqrt(𝑏ˆ2−4𝑎𝑐) / 2𝑎$.
+
+What are the two solutions to $2𝑥ˆ2−𝑥−4=0 ? Use the quadratic equation. (Report the greater of the two solutions first, using 3 significant digits for both solutions)
+
+```{r}
+options(digits = 3)
+a <- 2
+b <- -1
+c <- -4
+(-b+sqrt(b^2-4*a*c))/(2*a)
+(-b-sqrt(b^2-4*a*c))/(2*a)
 ```
-## 
-##     Northeast         South North Central          West 
-##             9            17            12            13
-```
+
 ## Section 2 Overview
 
 In Section 2.1, you will:
