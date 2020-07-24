@@ -179,7 +179,7 @@ Here is a link to the
 section on the motivation for this course}.
 
 \hypertarget{getting-started}{%
-\subsubsection{Getting started}\label{getting-started}}
+\subsection{Getting started}\label{getting-started}}
 
 Here is a link to the textbook section on
 \href{https://rafalab.github.io/dsbook/getting-started.html}{Getting
@@ -227,11 +227,10 @@ Started} with R.
 \end{Shaded}
 
 \hypertarget{installing-r-and-r-studio}{%
-\subsubsection{Installing R and R
-Studio}\label{installing-r-and-r-studio}}
+\subsection{Installing R and R Studio}\label{installing-r-and-r-studio}}
 
 \hypertarget{installing-r}{%
-\paragraph{Installing R}\label{installing-r}}
+\subsubsection{Installing R}\label{installing-r}}
 
 To install R to work on your own computer, you can download it freely
 from the \href{https://cran.r-project.org}{Comprehensive R Archive
@@ -244,7 +243,7 @@ walkthrough in this
 of the textbook}.
 
 \hypertarget{installing-rstudio}{%
-\paragraph{Installing RStudio}\label{installing-rstudio}}
+\subsubsection{Installing RStudio}\label{installing-rstudio}}
 
 RStudio is an integrated development environment (IDE). We highly
 recommend installing and using RStudio to edit and test your code. You
@@ -255,17 +254,14 @@ Their
 is a great resource. You must install R before installing RStudio.
 
 \hypertarget{textbook-link}{%
-\paragraph{Textbook Link}\label{textbook-link}}
+\subsubsection{Textbook Link}\label{textbook-link}}
 
 Here is a link to the textbook section on
 \href{https://rafalab.github.io/dsbook/installing-r-rstudio.html}{Installing
 R and RStudio}.
 
-\hypertarget{r-basics}{%
-\subsection{R Basics}\label{r-basics}}
-
-\hypertarget{objects}{%
-\subsubsection{Objects}\label{objects}}
+\hypertarget{r-basics---objects}{%
+\subsection{R Basics - Objects}\label{r-basics---objects}}
 
 Here is a link to the textbook section on
 \href{https://rafalab.github.io/dsbook/r-basics.html\#objects}{objects
@@ -317,8 +313,8 @@ in R}.
 ## [1] -1.618034
 \end{verbatim}
 
-\hypertarget{functions}{%
-\subsubsection{Functions}\label{functions}}
+\hypertarget{r-basics---functions}{%
+\subsection{R Basics - Functions}\label{r-basics---functions}}
 
 Here is a link to the textbook section on
 \href{https://rafalab.github.io/dsbook/r-basics.html\#functions}{functions}.
@@ -538,47 +534,269 @@ the final answer of 2.
   D. exp(log(x, base = 2))
 \end{itemize}
 
-\hypertarget{assessment-2}{%
-\subsection{Assessment 2}\label{assessment-2}}
+\hypertarget{data-types}{%
+\subsection{Data Types}\label{data-types}}
+
+You can find the
+\href{https://rafalab.github.io/dsbook/r-basics.html\#data-types}{section
+of the textbook on data types here}.
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  The function ``class'' helps us determine the type of an object.
+\item
+  Data frames can be thought of as tables with rows representing
+  observations and columns representing different variables.
+\item
+  To access data from columns of a data frame, we use the dollar sign
+  symbol, which is called the accessor.
+\item
+  A vector is an object consisting of several entries and can be a
+  numeric vector, a character vector, or a logical vector.
+\item
+  We use quotes to distinguish between variable names and character
+  strings.
+\item
+  Factors are useful for storing categorical data, and are more memory
+  efficient than storing characters.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# loading the the murders dataset}
+\KeywordTok{data}\NormalTok{(murders)}
+
+\CommentTok{# determining that the murders dataset is of the "data frame" class}
+\KeywordTok{class}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# finding out more about the structure of the object}
+\KeywordTok{str}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    51 obs. of  5 variables:
+##  $ state     : chr  "Alabama" "Alaska" "Arizona" "Arkansas" ...
+##  $ abb       : chr  "AL" "AK" "AZ" "AR" ...
+##  $ region    : Factor w/ 4 levels "Northeast","South",..: 2 4 4 2 4 4 1 2 2 2 ...
+##  $ population: num  4779736 710231 6392017 2915918 37253956 ...
+##  $ total     : num  135 19 232 93 1257 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# showing the first 6 lines of the dataset}
+\KeywordTok{head}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        state abb region population total
+## 1    Alabama  AL  South    4779736   135
+## 2     Alaska  AK   West     710231    19
+## 3    Arizona  AZ   West    6392017   232
+## 4   Arkansas  AR  South    2915918    93
+## 5 California  CA   West   37253956  1257
+## 6   Colorado  CO   West    5029196    65
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# using the accessor operator to obtain the population column}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{population}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  4779736   710231  6392017  2915918 37253956  5029196  3574097   897934
+##  [9]   601723 19687653  9920000  1360301  1567582 12830632  6483802  3046355
+## [17]  2853118  4339367  4533372  1328361  5773552  6547629  9883640  5303925
+## [25]  2967297  5988927   989415  1826341  2700551  1316470  8791894  2059179
+## [33] 19378102  9535483   672591 11536504  3751351  3831074 12702379  1052567
+## [41]  4625364   814180  6346105 25145561  2763885   625741  8001024  6724540
+## [49]  1852994  5686986   563626
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# displaying the variable names in the murders dataset}
+\KeywordTok{names}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "state"      "abb"        "region"     "population" "total"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# determining how many entries are in a vector}
+\NormalTok{pop <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}
+\KeywordTok{length}\NormalTok{(pop)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 51
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# vectors can be of class numeric and character}
+\KeywordTok{class}\NormalTok{(pop)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(murders}\OperatorTok{$}\NormalTok{state)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# logical vectors are either TRUE or FALSE}
+\NormalTok{z <-}\StringTok{ }\DecValTok{3} \OperatorTok{==}\StringTok{ }\DecValTok{2}
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "logical"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# factors are another type of class}
+\KeywordTok{class}\NormalTok{(murders}\OperatorTok{$}\NormalTok{region)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "factor"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# obtaining the levels of a factor}
+\KeywordTok{levels}\NormalTok{(murders}\OperatorTok{$}\NormalTok{region)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Northeast"     "South"         "North Central" "West"
+\end{verbatim}
+
+\hypertarget{assessment---data-types}{%
+\subsection{Assessment - Data Types}\label{assessment---data-types}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Load the US murders dataset.
+  We're going to be using the following dataset for this module. Run
+  this code in the console.
 \end{enumerate}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dslabs)  }
+\KeywordTok{data}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
+
+Next, use the function \texttt{str} to examine the structure of the
+\texttt{murders} object. We can see that this object is a data frame
+with 51 rows and five columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-library(dslabs)  
-data(murders)
+## 'data.frame':    51 obs. of  5 variables:
+##  $ state     : chr  "Alabama" "Alaska" "Arizona" "Arkansas" ...
+##  $ abb       : chr  "AL" "AK" "AZ" "AR" ...
+##  $ region    : Factor w/ 4 levels "Northeast","South",..: 2 4 4 2 4 4 1 2 2 2 ...
+##  $ population: num  4779736 710231 6392017 2915918 37253956 ...
+##  $ total     : num  135 19 232 93 1257 ...
 \end{verbatim}
 
-Use the function str to examine the structure of the murders object. We
-can see that this object is a data frame with 51 rows and five columns.
 Which of the following best describes the variables represented in this
-data frame? - {[} {]} A. The 51 states. - {[} {]} B. The murder rates
-for all 50 states and DC. - {[}x{]} C. The state name, the abbreviation
-of the state name, the state's region, and the state's population and
-total number of murders for 2010. - {[} {]} D. str shows no relevant
-information.
+data frame?
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  A. The 51 states.
+\item[$\square$]
+  B. The murder rates for all 50 states and DC.
+\item[$\boxtimes$]
+  C. The state name, the abbreviation of the state name, the state's
+  region, and the state's population and total number of murders for
+  2010.
+\item[$\square$]
+  D. str shows no relevant information.
+\end{itemize}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  What are the column names used by the data frame for these five
-  variables?
+  In the previous question, we saw the different variables that are a
+  part of this dataset from the output of the \texttt{str()} function.
+  The function \texttt{names()} is specifically designed to extract the
+  column names from a data frame.
 \end{enumerate}
 
-\begin{verbatim}
-# Load package and data
-library(dslabs)
-data(murders)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Load package and data}
+\KeywordTok{library}\NormalTok{(dslabs)}
+\KeywordTok{data}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
 
-# Use the function names to extract the variable names 
-names(murders)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use the function names to extract the variable names }
+\KeywordTok{names}\NormalTok{(murders)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "state"      "abb"        "region"     "population" "total"
@@ -589,29 +807,39 @@ names(murders)
 \setcounter{enumi}{2}
 \tightlist
 \item
-  Use the accessor \$ to extract the state abbreviations and assign them
-  to the object a. What is the class of this object?
+  In this module we have learned that every variable has a class. For
+  example, the class can be a \emph{character}, \emph{numeric} or
+  \emph{logical}. The function \texttt{class()} can be used to determine
+  the class of an object.
 \end{enumerate}
 
-\begin{verbatim}
-# To access the population variable from the murders dataset use this code:
-p <- murders$population 
+Here we are going to determine the class of one of the variables in the
+\texttt{murders} data frame. To extract variables from a data frame we
+use \texttt{\$}, referred to as the accessor.
 
-# To determine the class of object `p` we use this code:
-class(p)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# To access the population variable from the murders dataset use this code:}
+\NormalTok{p <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }
+
+\CommentTok{# To determine the class of object `p` we use this code:}
+\KeywordTok{class}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "numeric"
 \end{verbatim}
 
-\begin{verbatim}
-# Use the accessor to extract state abbreviations and assign it to a
-a <- murders$abb
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use the accessor to extract state abbreviations and assign it to a}
+\NormalTok{a <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{abb}
 
-# Determine the class of a
-class(a)
-\end{verbatim}
+\CommentTok{# Determine the class of a}
+\KeywordTok{class}\NormalTok{(a)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "character"
@@ -622,33 +850,62 @@ class(a)
 \setcounter{enumi}{3}
 \tightlist
 \item
-  Now use the square brackets to extract the state abbreviations and
-  assign them to the object b. Use the identical function to determine
-  if a and b are the same.
+  An important lesson you should learn early on is that there are
+  multiple ways to do things in R. For example, to generate the first
+  five integers we note that \texttt{1:5} and \texttt{seq(1,5)} return
+  the same result.
 \end{enumerate}
 
+There are also multiple ways to access variables in a data frame. For
+example we can use the square brackets \texttt{{[}{[}} instead of the
+accessor \texttt{\$}.
+
+If you instead try to access a column with just one bracket,
+
 \begin{verbatim}
-# We extract the population like this:
-p <- murders$population
-
-# This is how we do the same with the square brackets:
-o <- murders[["population"]] 
-
-# We can confirm these two are the same
-identical(o, p)
+murders["population"]
 \end{verbatim}
+
+R returns a subset of the original data frame containing just this
+column. This new object will be of class \texttt{data.frame} rather than
+a vector. To access the column itself you need to use either the
+\texttt{\$} accessor or the double square brackets \texttt{{[}{[}}.
+
+Parentheses, in contrast, are mainly used alongside functions to
+indicate what argument the function should be doing something to. For
+example, when we did \texttt{class(p)} in the last question, we wanted
+the function \texttt{class} to do something related to the argument
+\texttt{p}.
+
+This is an example of how R can be a bit idiosyncratic sometimes. It is
+very common to find it confusing at first.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We extract the population like this:}
+\NormalTok{p <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}
+
+\CommentTok{# This is how we do the same with the square brackets:}
+\NormalTok{o <-}\StringTok{ }\NormalTok{murders[[}\StringTok{"population"}\NormalTok{]]}
+
+\CommentTok{# We can confirm these two are the same}
+\KeywordTok{identical}\NormalTok{(o, p)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] TRUE
 \end{verbatim}
 
-\begin{verbatim}
-# Use square brackets to extract `abb` from `murders` and assign it to b
-b<-murders[["abb"]]
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use square brackets to extract `abb` from `murders` and assign it to b}
+\NormalTok{b <-}\StringTok{ }\NormalTok{murders[[}\StringTok{"abb"}\NormalTok{]]}
 
-# Check if `a` and `b` are identical 
-identical(a, b)
-\end{verbatim}
+\CommentTok{# Check if `a` and `b` are identical }
+\KeywordTok{identical}\NormalTok{(a, b)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] TRUE
@@ -659,30 +916,30 @@ identical(a, b)
 \setcounter{enumi}{4}
 \tightlist
 \item
-  We saw that the region column stores a factor. You can corroborate
-  this by typing:
+  Using the \texttt{str()} command, we saw that the \emph{region} column
+  stores a factor. You can corroborate this by using the \texttt{class}
+  command on the \emph{region} column.
 \end{enumerate}
 
-\begin{verbatim}
-class(murders$region)
-\end{verbatim}
+The function \texttt{levels} shows us the categories for the factor.
 
-With one line of code, use the function levels and length to determine
-the number of regions defined by this dataset.
-
-\begin{verbatim}
-# We can see the class of the region variable using class
-class(murders$region)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# We can see the class of the region variable using class}
+\KeywordTok{class}\NormalTok{(murders}\OperatorTok{$}\NormalTok{region)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "factor"
 \end{verbatim}
 
-\begin{verbatim}
-# Determine the number of regions included in this variable 
-length(levels(murders$region))
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Determine the number of regions included in this variable }
+\KeywordTok{length}\NormalTok{(}\KeywordTok{levels}\NormalTok{(murders}\OperatorTok{$}\NormalTok{region))}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 4
@@ -693,17 +950,17 @@ length(levels(murders$region))
 \setcounter{enumi}{5}
 \tightlist
 \item
-  The function table takes a vector and returns the frequency of each
-  element. You can quickly see how many states are in each region by
-  applying this function. Use this function in one line of code to
-  create a table of states per region.
+  The function \texttt{table} takes a vector as input and returns the
+  frequency of each unique element in the vector.
 \end{enumerate}
 
-\begin{verbatim}
-# Here is an example of what the table function does
-x <- c("a", "a", "b", "b", "b", "c")
-table(x)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Here is an example of what the table function does}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"a"}\NormalTok{, }\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{, }\StringTok{"b"}\NormalTok{, }\StringTok{"b"}\NormalTok{, }\StringTok{"c"}\NormalTok{)}
+\KeywordTok{table}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## x
@@ -711,15 +968,56 @@ table(x)
 ## 2 3 1
 \end{verbatim}
 
-\begin{verbatim}
-# Write one line of code to show the number of states per region
-table(murders$region)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Write one line of code to show the number of states per region}
+\KeywordTok{table}\NormalTok{(murders}\OperatorTok{$}\NormalTok{region)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## 
 ##     Northeast         South North Central          West 
 ##             9            17            12            13
+\end{verbatim}
+
+\hypertarget{section-1-assessment}{%
+\subsection{Section 1 Assessment}\label{section-1-assessment}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  To find the solutions to an equation of the format \(ax^2+bx+c\), use
+  the quadratic equation: \(x=\frac{-b±\sqrt(b^2−4ac)}{2a}\).
+\end{enumerate}
+
+What are the two solutions to \(2x^2-x-4=0\)? Use the quadratic
+equation. (Report the greater of the two solutions first, using 3
+significant digits for both solutions)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{digits =} \DecValTok{3}\NormalTok{)}
+\NormalTok{a <-}\StringTok{ }\DecValTok{2}
+\NormalTok{b <-}\StringTok{ }\DecValTok{-1}
+\NormalTok{c <-}\StringTok{ }\DecValTok{-4}
+\NormalTok{(}\OperatorTok{-}\NormalTok{b}\OperatorTok{+}\KeywordTok{sqrt}\NormalTok{(b}\OperatorTok{^}\DecValTok{2-4}\OperatorTok{*}\NormalTok{a}\OperatorTok{*}\NormalTok{c))}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.69
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\OperatorTok{-}\NormalTok{b}\OperatorTok{-}\KeywordTok{sqrt}\NormalTok{(b}\OperatorTok{^}\DecValTok{2-4}\OperatorTok{*}\NormalTok{a}\OperatorTok{*}\NormalTok{c))}\OperatorTok{/}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{a)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -1.19
 \end{verbatim}
 
 \hypertarget{section-2-overview}{%

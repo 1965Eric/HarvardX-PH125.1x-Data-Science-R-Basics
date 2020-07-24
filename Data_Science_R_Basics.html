@@ -560,7 +560,7 @@ D. exp(log(x, base = 2))</li>
 <li>Factors are useful for storing categorical data, and are more memory efficient than storing characters.</li>
 </ul>
 <p><em>Code</em></p>
-<pre class="r"><code># loading the dslabs package and the murders dataset
+<pre class="r"><code># loading the the murders dataset
 data(murders)
 
 # determining that the murders dataset is of the &quot;data frame&quot; class
@@ -620,79 +620,117 @@ levels(murders$region)</code></pre>
 <div id="assessment---data-types" class="section level2">
 <h2>Assessment - Data Types</h2>
 <ol style="list-style-type: decimal">
-<li>Load the US murders dataset.</li>
+<li>We’re going to be using the following dataset for this module. Run this code in the console.</li>
 </ol>
-<pre><code>library(dslabs)  
+<pre class="r"><code>library(dslabs)  
 data(murders)</code></pre>
-<p>Use the function str to examine the structure of the murders object. We can see that this object is a data frame with 51 rows and five columns. Which of the following best describes the variables represented in this data frame? - [ ] A. The 51 states. - [ ] B. The murder rates for all 50 states and DC. - [x] C. The state name, the abbreviation of the state name, the state’s region, and the state’s population and total number of murders for 2010. - [ ] D. str shows no relevant information.</p>
+<p>Next, use the function <code>str</code> to examine the structure of the <code>murders</code> object. We can see that this object is a data frame with 51 rows and five columns.</p>
+<pre class="r"><code>str(murders)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    51 obs. of  5 variables:
+##  $ state     : chr  &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; ...
+##  $ abb       : chr  &quot;AL&quot; &quot;AK&quot; &quot;AZ&quot; &quot;AR&quot; ...
+##  $ region    : Factor w/ 4 levels &quot;Northeast&quot;,&quot;South&quot;,..: 2 4 4 2 4 4 1 2 2 2 ...
+##  $ population: num  4779736 710231 6392017 2915918 37253956 ...
+##  $ total     : num  135 19 232 93 1257 ...</code></pre>
+<p>Which of the following best describes the variables represented in this data frame?</p>
+<ul>
+<li><input type="checkbox" disabled></input>
+A. The 51 states.</li>
+<li><input type="checkbox" disabled></input>
+B. The murder rates for all 50 states and DC.</li>
+<li><input type="checkbox" disabled checked></input>
+C. The state name, the abbreviation of the state name, the state’s region, and the state’s population and total number of murders for 2010.</li>
+<li><input type="checkbox" disabled></input>
+D. str shows no relevant information.</li>
+</ul>
 <ol start="2" style="list-style-type: decimal">
-<li>What are the column names used by the data frame for these five variables?</li>
+<li>In the previous question, we saw the different variables that are a part of this dataset from the output of the <code>str()</code> function. The function <code>names()</code> is specifically designed to extract the column names from a data frame.</li>
 </ol>
-<pre><code># Load package and data
+<pre class="r"><code># Load package and data
 library(dslabs)
-data(murders)
-
-# Use the function names to extract the variable names 
+data(murders)</code></pre>
+<pre class="r"><code># Use the function names to extract the variable names 
 names(murders)</code></pre>
 <pre><code>## [1] &quot;state&quot;      &quot;abb&quot;        &quot;region&quot;     &quot;population&quot; &quot;total&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Use the accessor $ to extract the state abbreviations and assign them to the object a. What is the class of this object?</li>
+<li>In this module we have learned that every variable has a class. For example, the class can be a <em>character</em>, <em>numeric</em> or <em>logical</em>. The function <code>class()</code> can be used to determine the class of an object.</li>
 </ol>
-<pre><code># To access the population variable from the murders dataset use this code:
+<p>Here we are going to determine the class of one of the variables in the <code>murders</code> data frame. To extract variables from a data frame we use <code>$</code>, referred to as the accessor.</p>
+<pre class="r"><code># To access the population variable from the murders dataset use this code:
 p &lt;- murders$population 
 
 # To determine the class of object `p` we use this code:
 class(p)</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre><code># Use the accessor to extract state abbreviations and assign it to a
+<pre class="r"><code># Use the accessor to extract state abbreviations and assign it to a
 a &lt;- murders$abb
 
 # Determine the class of a
 class(a)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Now use the square brackets to extract the state abbreviations and assign them to the object b. Use the identical function to determine if a and b are the same.</li>
+<li>An important lesson you should learn early on is that there are multiple ways to do things in R. For example, to generate the first five integers we note that <code>1:5</code> and <code>seq(1,5)</code> return the same result.</li>
 </ol>
-<pre><code># We extract the population like this:
+<p>There are also multiple ways to access variables in a data frame. For example we can use the square brackets <code>[[</code> instead of the accessor <code>$</code>.</p>
+<p>If you instead try to access a column with just one bracket,</p>
+<pre><code>murders[&quot;population&quot;]</code></pre>
+<p>R returns a subset of the original data frame containing just this column. This new object will be of class <code>data.frame</code> rather than a vector. To access the column itself you need to use either the <code>$</code> accessor or the double square brackets <code>[[</code>.</p>
+<p>Parentheses, in contrast, are mainly used alongside functions to indicate what argument the function should be doing something to. For example, when we did <code>class(p)</code> in the last question, we wanted the function <code>class</code> to do something related to the argument <code>p</code>.</p>
+<p>This is an example of how R can be a bit idiosyncratic sometimes. It is very common to find it confusing at first.</p>
+<pre class="r"><code># We extract the population like this:
 p &lt;- murders$population
 
 # This is how we do the same with the square brackets:
-o &lt;- murders[[&quot;population&quot;]] 
+o &lt;- murders[[&quot;population&quot;]]
 
 # We can confirm these two are the same
 identical(o, p)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<pre><code># Use square brackets to extract `abb` from `murders` and assign it to b
-b&lt;-murders[[&quot;abb&quot;]]
+<pre class="r"><code># Use square brackets to extract `abb` from `murders` and assign it to b
+b &lt;- murders[[&quot;abb&quot;]]
 
 # Check if `a` and `b` are identical 
 identical(a, b)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>We saw that the region column stores a factor. You can corroborate this by typing:</li>
+<li>Using the <code>str()</code> command, we saw that the <em>region</em> column stores a factor. You can corroborate this by using the <code>class</code> command on the <em>region</em> column.</li>
 </ol>
-<pre><code>class(murders$region)</code></pre>
-<p>With one line of code, use the function levels and length to determine the number of regions defined by this dataset.</p>
-<pre><code># We can see the class of the region variable using class
+<p>The function <code>levels</code> shows us the categories for the factor.</p>
+<pre class="r"><code># We can see the class of the region variable using class
 class(murders$region)</code></pre>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<pre><code># Determine the number of regions included in this variable 
+<pre class="r"><code># Determine the number of regions included in this variable 
 length(levels(murders$region))</code></pre>
 <pre><code>## [1] 4</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>The function table takes a vector and returns the frequency of each element. You can quickly see how many states are in each region by applying this function. Use this function in one line of code to create a table of states per region.</li>
+<li>The function <code>table</code> takes a vector as input and returns the frequency of each unique element in the vector.</li>
 </ol>
-<pre><code># Here is an example of what the table function does
+<pre class="r"><code># Here is an example of what the table function does
 x &lt;- c(&quot;a&quot;, &quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;)
 table(x)</code></pre>
 <pre><code>## x
 ## a b c 
 ## 2 3 1</code></pre>
-<pre><code># Write one line of code to show the number of states per region
+<pre class="r"><code># Write one line of code to show the number of states per region
 table(murders$region)</code></pre>
 <pre><code>## 
 ##     Northeast         South North Central          West 
 ##             9            17            12            13</code></pre>
+</div>
+<div id="section-1-assessment" class="section level2">
+<h2>Section 1 Assessment</h2>
+<ol style="list-style-type: decimal">
+<li>To find the solutions to an equation of the format <span class="math inline">\(ax^2+bx+c\)</span>, use the quadratic equation: <span class="math inline">\(x=\frac{-b±\sqrt(b^2−4ac)}{2a}\)</span>.</li>
+</ol>
+<p>What are the two solutions to <span class="math inline">\(2x^2-x-4=0\)</span>? Use the quadratic equation. (Report the greater of the two solutions first, using 3 significant digits for both solutions)</p>
+<pre class="r"><code>options(digits = 3)
+a &lt;- 2
+b &lt;- -1
+c &lt;- -4
+(-b+sqrt(b^2-4*a*c))/(2*a)</code></pre>
+<pre><code>## [1] 1.69</code></pre>
+<pre class="r"><code>(-b-sqrt(b^2-4*a*c))/(2*a)</code></pre>
+<pre><code>## [1] -1.19</code></pre>
 </div>
 <div id="section-2-overview" class="section level2">
 <h2>Section 2 Overview</h2>

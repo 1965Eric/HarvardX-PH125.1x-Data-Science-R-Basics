@@ -268,7 +268,6 @@ names(murders)
 
 Here we are going to determine the class of one of the variables in the ```murders``` data frame. To extract variables from a data frame we use ```$```, referred to as the accessor.
 
-In the editor we show an example of how to do this. Let`s try it out for ourselves.
 
 ```{r}
 # To access the population variable from the murders dataset use this code:
@@ -286,7 +285,7 @@ class(a)
 
 4. An important lesson you should learn early on is that there are multiple ways to do things in R. For example, to generate the first five integers we note that ```1:5``` and ```seq(1,5)``` return the same result.
 
-There are also multiple ways to access variables in a data frame. For example we can use the square brackets ```[[``` instead of the accessor ```$```. Example code is included in the editor.
+There are also multiple ways to access variables in a data frame. For example we can use the square brackets ```[[``` instead of the accessor ```$```.
 
 If you instead try to access a column with just one bracket,
 
@@ -341,9 +340,9 @@ table(murders$region)
 ```
 ## Section 1 Assessment
 
-1. To find the solutions to an equation of the format $𝑎𝑥ˆ2+𝑏𝑥+𝑐$, use the quadratic equation: $𝑥=−𝑏±sqrt(𝑏ˆ2−4𝑎𝑐) / 2𝑎$.
+1. To find the solutions to an equation of the format $ax^2+bx+c$, use the quadratic equation: $x=\frac{-b±\sqrt(b^2−4ac)}{2a}$.
 
-What are the two solutions to $2𝑥ˆ2−𝑥−4=0 ? Use the quadratic equation. (Report the greater of the two solutions first, using 3 significant digits for both solutions)
+What are the two solutions to $2x^2-x-4=0$? Use the quadratic equation. (Report the greater of the two solutions first, using 3 significant digits for both solutions)
 
 ```{r}
 options(digits = 3)
