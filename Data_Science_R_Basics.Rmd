@@ -1455,13 +1455,13 @@ y <- murders$total
 plot(x, y)
 
 # a histogram of murder rates
-hist(murders$rate)
+hist(rate)
 
 # boxplots of murder rates by region
 boxplot(rate~region, data = murders)
 ```
 
-## Assessment 8
+## Assessment - Basic Plots
 
 1. We made a plot of total murders versus population and noted a strong relationship: not surprisingly, states with larger populations had more murders.
 

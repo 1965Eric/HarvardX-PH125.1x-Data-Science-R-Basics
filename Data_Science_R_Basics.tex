@@ -1,45 +1,38 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[
-]{article}
+\documentclass[]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
-% Use upquote if available, for straight quotes in verbatim environments
+% use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
 \hypersetup{
-  pdftitle={Data Science R Basics},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
+            pdftitle={Data Science R Basics},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
 \usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
@@ -90,14 +83,25 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
 
 \title{Data Science R Basics}
 \author{}
@@ -272,7 +276,8 @@ in R}.
 \begin{itemize}
 \tightlist
 \item
-  To define a variable, we may use the assignment symbol ``\textless-``.
+  To define a variable, we may use the assignment symbol
+  ``\textless{}-``.
 \item
   There are two ways to see the value stored in a variable: (1) type the
   variable into the console and hit Return, or (2) type print(``variable
@@ -451,15 +456,15 @@ Based on the result, what do you think the functions \texttt{seq} and
 
 \begin{itemize}
 \tightlist
-\item[$\square$]
-  A. sum creates a list of numbers and seq adds them up.
-\item[$\boxtimes$]
-  B. seq creates a list of numbers and sum adds them up.
-\item[$\square$]
-  C. seq computes the difference between two arguments and sum computes
-  the sum of 1 through 1000.
-\item[$\square$]
-  D. sum always returns the same number.
+\item
+  {[} {]} A. sum creates a list of numbers and seq adds them up.
+\item
+  {[}X{]} B. seq creates a list of numbers and sum adds them up.
+\item
+  {[} {]} C. seq computes the difference between two arguments and sum
+  computes the sum of 1 through 1000.
+\item
+  {[} {]} D. sum always returns the same number.
 \end{itemize}
 
 \begin{enumerate}
@@ -524,14 +529,14 @@ the final answer of 2.
 
 \begin{itemize}
 \tightlist
-\item[$\square$]
-  A. log(10\^{}x)
-\item[$\square$]
-  B. log10(x\^{}10)
-\item[$\boxtimes$]
-  C. log(exp(x))
-\item[$\square$]
-  D. exp(log(x, base = 2))
+\item
+  {[} {]} A. log(10\^{}x)
+\item
+  {[} {]} B. log10(x\^{}10)
+\item
+  {[}X{]} C. log(exp(x))
+\item
+  {[} {]} D. exp(log(x, base = 2))
 \end{itemize}
 
 \hypertarget{data-types}{%
@@ -760,16 +765,16 @@ data frame?
 
 \begin{itemize}
 \tightlist
-\item[$\square$]
-  A. The 51 states.
-\item[$\square$]
-  B. The murder rates for all 50 states and DC.
-\item[$\boxtimes$]
-  C. The state name, the abbreviation of the state name, the state's
-  region, and the state's population and total number of murders for
-  2010.
-\item[$\square$]
-  D. str shows no relevant information.
+\item
+  {[} {]} A. The 51 states.
+\item
+  {[} {]} B. The murder rates for all 50 states and DC.
+\item
+  {[}X{]} C. The state name, the abbreviation of the state name, the
+  state's region, and the state's population and total number of murders
+  for 2010.
+\item
+  {[} {]} D. str shows no relevant information.
 \end{itemize}
 
 \begin{enumerate}
@@ -1076,40 +1081,40 @@ What is the variable type of \texttt{title}?
 
 \begin{itemize}
 \tightlist
-\item[$\square$]
-  A. It is a text (txt) variable
-\item[$\square$]
-  B. It is a chronological (chr) variable
-\item[$\square$]
-  C. It is a string (str) variable
-\item[$\square$]
-  D. It is a numeric (num) variable
-\item[$\square$]
-  E. It is an integer (int) variable
-\item[$\square$]
-  F. It is a factor (Factor) variable
-\item[$\boxtimes$]
-  G. It is a character (chr) variable
+\item
+  {[} {]} A. It is a text (txt) variable
+\item
+  {[} {]} B. It is a chronological (chr) variable
+\item
+  {[} {]} C. It is a string (str) variable
+\item
+  {[} {]} D. It is a numeric (num) variable
+\item
+  {[} {]} E. It is an integer (int) variable
+\item
+  {[} {]} F. It is a factor (Factor) variable
+\item
+  {[}X{]} G. It is a character (chr) variable
 \end{itemize}
 
 What is the variable type of \texttt{genres}?
 
 \begin{itemize}
 \tightlist
-\item[$\square$]
-  A. It is a text (txt) variable
-\item[$\square$]
-  B. It is a chronological (chr) variable
-\item[$\square$]
-  C. It is a string (str) variable
-\item[$\square$]
-  D. It is a numeric (num) variable
-\item[$\square$]
-  E. It is an integer (int) variable
-\item[$\boxtimes$]
-  F. It is a factor (Factor) variable
-\item[$\square$]
-  G. It is a character (chr) variable
+\item
+  {[} {]} A. It is a text (txt) variable
+\item
+  {[} {]} B. It is a chronological (chr) variable
+\item
+  {[} {]} C. It is a string (str) variable
+\item
+  {[} {]} D. It is a numeric (num) variable
+\item
+  {[} {]} E. It is an integer (int) variable
+\item
+  {[}X{]} F. It is a factor (Factor) variable
+\item
+  {[} {]} G. It is a character (chr) variable
 \end{itemize}
 
 \begin{enumerate}
@@ -1289,7 +1294,7 @@ The textbook for this section is available
   expected. For example, when defining x as
 \end{itemize}
 
-x \textless- c(1, ``canada'', 3)
+x \textless{}- c(1, ``canada'', 3)
 
 R \emph{coerced} the data into characters. It guessed that because you
 put a character string in the vector, you meant the 1 and 3 to actually
@@ -2576,7 +2581,7 @@ The textbook for this section is available
 \item
   We can use logicals to index vectors.
 \item
-  Using the function \textgreater sum()on a logical vector returns the
+  Using the function \textgreater{}sum()on a logical vector returns the
   number of entries that are true.
 \item
   The logical operator ``\&'' makes two logicals true only when they are
@@ -3064,636 +3069,826 @@ Frames}\label{basic-data-wrangling---creating-data-frames}}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{assessment-7}{%
-\subsection{Assessment 7}\label{assessment-7}}
-
-Load the dplyr package and the murders dataset.
-
-\begin{verbatim}
-library(dplyr)
-library(dslabs)
-data(murders)
-\end{verbatim}
+\hypertarget{assessment---basic-data-wrangling}{%
+\subsection{Assessment - Basic Data
+Wrangling}\label{assessment---basic-data-wrangling}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  You can add columns using the dplyr function mutate. This function is
-  aware of the column names and inside the function you can call them
-  unquoted. Like this:
+  You can add columns using the \texttt{dplyr} function \texttt{mutate}.
+\end{enumerate}
+
+This function is aware of the column names and inside the function you
+can call them unquoted. Like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{population_in_millions =}\NormalTok{ population }\OperatorTok{/}\StringTok{ }\DecValTok{10}\OperatorTok{^}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Note that we can write \texttt{population} rather than
+\texttt{murders\$population}. The function \texttt{mutate} knows we are
+grabing columns from \texttt{murders}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Redefine murders so that it includes a column named rate with the per 100,000 murder rates}
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rate =}\NormalTok{ total }\OperatorTok{/}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Note that if \texttt{rank(x)} gives you the ranks of \texttt{x} from
+  lowest to highest, \texttt{rank(-x)} gives you the ranks from highest
+  to lowest.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Note that if you want ranks from highest to lowest you can take the negative and then compute the ranks }
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{88}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{83}\NormalTok{, }\DecValTok{92}\NormalTok{, }\DecValTok{94}\NormalTok{)}
+\KeywordTok{rank}\NormalTok{(}\OperatorTok{-}\NormalTok{x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4 1 5 3 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Defining rate}
+\NormalTok{rate <-}\StringTok{  }\NormalTok{murders}\OperatorTok{$}\NormalTok{total}\OperatorTok{/}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}
+
+\CommentTok{# Redefine murders to include a column named rank}
+\CommentTok{# with the ranks of rate from highest to lowest}
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rank =} \KeywordTok{rank}\NormalTok{(}\OperatorTok{-}\NormalTok{rate))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  With \texttt{dplyr} we can use \texttt{select} to show only certain
+  columns. For example with this code we would only show the states and
+  population sizes:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{select}\NormalTok{(murders, state, population)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use select to only show state names and abbreviations from murders}
+\KeywordTok{select}\NormalTok{(murders, state, abb)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   state abb
+## 1               Alabama  AL
+## 2                Alaska  AK
+## 3               Arizona  AZ
+## 4              Arkansas  AR
+## 5            California  CA
+## 6              Colorado  CO
+## 7           Connecticut  CT
+## 8              Delaware  DE
+## 9  District of Columbia  DC
+## 10              Florida  FL
+## 11              Georgia  GA
+## 12               Hawaii  HI
+## 13                Idaho  ID
+## 14             Illinois  IL
+## 15              Indiana  IN
+## 16                 Iowa  IA
+## 17               Kansas  KS
+## 18             Kentucky  KY
+## 19            Louisiana  LA
+## 20                Maine  ME
+## 21             Maryland  MD
+## 22        Massachusetts  MA
+## 23             Michigan  MI
+## 24            Minnesota  MN
+## 25          Mississippi  MS
+## 26             Missouri  MO
+## 27              Montana  MT
+## 28             Nebraska  NE
+## 29               Nevada  NV
+## 30        New Hampshire  NH
+## 31           New Jersey  NJ
+## 32           New Mexico  NM
+## 33             New York  NY
+## 34       North Carolina  NC
+## 35         North Dakota  ND
+## 36                 Ohio  OH
+## 37             Oklahoma  OK
+## 38               Oregon  OR
+## 39         Pennsylvania  PA
+## 40         Rhode Island  RI
+## 41       South Carolina  SC
+## 42         South Dakota  SD
+## 43            Tennessee  TN
+## 44                Texas  TX
+## 45                 Utah  UT
+## 46              Vermont  VT
+## 47             Virginia  VA
+## 48           Washington  WA
+## 49        West Virginia  WV
+## 50            Wisconsin  WI
+## 51              Wyoming  WY
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  The \texttt{dplyr} function \texttt{filter} is used to choose specific
+  rows of the data frame to keep. Unlike \texttt{select} which is for
+  columns, \texttt{filter} is for rows.
+\end{enumerate}
+
+For example you can show just the New York row like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(murders, state }\OperatorTok{==}\StringTok{ "New York"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can use other logical vectors to filter rows.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Add the necessary columns}
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rate =}\NormalTok{ total}\OperatorTok{/}\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{, }\DataTypeTok{rank =} \KeywordTok{rank}\NormalTok{(}\OperatorTok{-}\NormalTok{rate))}
+
+\CommentTok{# Filter to show the top 5 states with the highest murder rates}
+\KeywordTok{filter}\NormalTok{(murders, rank }\OperatorTok{<=}\StringTok{ }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                  state abb        region population total  rate rank
+## 1 District of Columbia  DC         South     601723    99 16.45    1
+## 2            Louisiana  LA         South    4533372   351  7.74    2
+## 3             Maryland  MD         South    5773552   293  5.07    4
+## 4             Missouri  MO North Central    5988927   321  5.36    3
+## 5       South Carolina  SC         South    4625364   207  4.48    5
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  We can remove rows using the \texttt{!=} operator.
+\end{enumerate}
+
+For example to remove Florida we would do this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{no_florida <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(murders, state }\OperatorTok{!=}\StringTok{ }\NormalTok{“Florida”)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use filter to create a new data frame no_south}
+\NormalTok{no_south <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(murders, region }\OperatorTok{!=}\StringTok{ "South"}\NormalTok{)}
+
+\CommentTok{# Use nrow() to calculate the number of rows}
+\KeywordTok{nrow}\NormalTok{(no_south)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 34
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  We can also use the \texttt{\%in\%} to filter with \texttt{dplyr}.
+\end{enumerate}
+
+For example you can see the data from New York and Texas like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(murders, state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(“New York”, “Texas”))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a new data frame called murders_nw with only the states from the northeast and the west}
+\NormalTok{murders_nw <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(murders, region }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Northeast"}\NormalTok{, }\StringTok{"West"}\NormalTok{))}
+
+\CommentTok{# Number of states (rows) in this category }
+\KeywordTok{nrow}\NormalTok{(murders_nw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 22
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Suppose you want to live in the Northeast or West \textbf{and} want
+  the murder rate to be less than 1.
+\end{enumerate}
+
+We want to see the data for the states satisfying these options. Note
+that you can use logical operators with \texttt{filter}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(murders, population }\OperatorTok{<}\StringTok{ }\DecValTok{5000000} \OperatorTok{&}\StringTok{ }\NormalTok{region }\OperatorTok{==}\StringTok{ }\NormalTok{“Northeast”)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# add the rate column}
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rate =}\NormalTok{  total }\OperatorTok{/}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{, }\DataTypeTok{rank =} \KeywordTok{rank}\NormalTok{(}\OperatorTok{-}\NormalTok{rate))}
+
+\CommentTok{# Create a table, call it my_states, that satisfies both the conditions}
+\NormalTok{my_states <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(murders, rate }\OperatorTok{<}\StringTok{ }\DecValTok{1} \OperatorTok{&}\StringTok{ }\NormalTok{region }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Northeast"}\NormalTok{, }\StringTok{"West"}\NormalTok{))}
+
+\CommentTok{# Use select to show only the state name, the murder rate and the rank}
+\KeywordTok{select}\NormalTok{(my_states, state, rate, rank)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           state  rate rank
+## 1        Hawaii 0.515   49
+## 2         Idaho 0.766   46
+## 3         Maine 0.828   44
+## 4 New Hampshire 0.380   50
+## 5        Oregon 0.940   42
+## 6          Utah 0.796   45
+## 7       Vermont 0.320   51
+## 8       Wyoming 0.887   43
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  The pipe \texttt{\%\textgreater{}\%} can be used to perform operations
+  sequentially without having to define intermediate objects.
+\end{enumerate}
+
+After redefining murder to include rate and rank.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rate =}\NormalTok{ total }\OperatorTok{/}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{, }\DataTypeTok{rank =}\NormalTok{ (}\OperatorTok{-}\NormalTok{rate))}
+\end{Highlighting}
+\end{Shaded}
+
+in the solution to the previous exercise we did the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Created a table}
+\NormalTok{my_states <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(murders, region }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(“Northeast”, “West”) }\OperatorTok{&}\StringTok{ }\NormalTok{rate }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{)}
+
+\CommentTok{# Used select to show only the state name, the murder rate and the rank}
+\KeywordTok{select}\NormalTok{(my_states, state, rate, rank)}
+\end{Highlighting}
+\end{Shaded}
+
+The pipe \texttt{\%\textgreater{}\%} permits us to perform both
+operation sequentially and without having to define an intermediate
+variable \texttt{my\_states}
+
+For example we could have mutated and selected in the same line like
+this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rate =}\NormalTok{ total }\OperatorTok{/}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{, }\DataTypeTok{rank =}\NormalTok{ (}\OperatorTok{-}\NormalTok{rate)) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(state, rate, rank)}
+\end{Highlighting}
+\end{Shaded}
+
+Note that \texttt{select} no longer has a data frame as the first
+argument. The first argument is assumed to be the result of the
+operation conducted right before the \texttt{\%\textgreater{}\%}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Define the rate column}
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rate =}\NormalTok{  total }\OperatorTok{/}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{, }\DataTypeTok{rank =} \KeywordTok{rank}\NormalTok{(}\OperatorTok{-}\NormalTok{rate))}
+
+\CommentTok{# show the result and only include the state, rate, and rank columns, all in one line}
+\KeywordTok{filter}\NormalTok{(murders, region }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Northeast"}\NormalTok{, }\StringTok{"West"}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{rate }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(state, rate, rank)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           state  rate rank
+## 1        Hawaii 0.515   49
+## 2         Idaho 0.766   46
+## 3         Maine 0.828   44
+## 4 New Hampshire 0.380   50
+## 5        Oregon 0.940   42
+## 6          Utah 0.796   45
+## 7       Vermont 0.320   51
+## 8       Wyoming 0.887   43
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Now we will reset murders to the original table by using
+  \texttt{data(murders)}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Loading the table}
+\KeywordTok{data}\NormalTok{(murders)}
+
+\CommentTok{# Create new data frame called my_states (with specifications in the instructions)}
+\NormalTok{my_states <-}\StringTok{ }\NormalTok{murders }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{rate =}\NormalTok{  total }\OperatorTok{/}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{, }\DataTypeTok{rank =} \KeywordTok{rank}\NormalTok{(}\OperatorTok{-}\NormalTok{rate)) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(region }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Northeast"}\NormalTok{, }\StringTok{"West"}\NormalTok{) }\OperatorTok{&}\StringTok{ }\NormalTok{rate }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(state, rate, rank)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{basic-plots}{%
+\subsection{Basic Plots}\label{basic-plots}}
+
+Here is a link to the textbook section on
+\href{https://rafalab.github.io/dsbook/r-basics.html\#basic-plots}{basic
+plots}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  We can create a simple scatterplot using the function plot().
+\item
+  Histograms are graphical summaries that give you a general overview of
+  the types of values you have. In R, they can be produced using the
+  hist() function.
+\item
+  Boxplots provide a more compact summary of a distribution than a
+  histogram and are more useful for comparing distributions. They can be
+  produced using the boxplot() function.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# a simple scatterplot of total murders versus population}
+\NormalTok{x <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }\OperatorTok{/}\StringTok{ }\DecValTok{10}\OperatorTok{^}\DecValTok{6}
+\NormalTok{y <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total}
+\KeywordTok{plot}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-98-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# a histogram of murder rates}
+\KeywordTok{hist}\NormalTok{(rate)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-98-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# boxplots of murder rates by region}
+\KeywordTok{boxplot}\NormalTok{(rate}\OperatorTok{~}\NormalTok{region, }\DataTypeTok{data =}\NormalTok{ murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-98-3.pdf}
+
+\hypertarget{assessment---basic-plots}{%
+\subsection{Assessment - Basic Plots}\label{assessment---basic-plots}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  We made a plot of total murders versus population and noted a strong
+  relationship: not surprisingly, states with larger populations had
+  more murders.
+\end{enumerate}
+
+You can run the code in the console to get the plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dslabs)}
+\KeywordTok{data}\NormalTok{(murders)}
+
+\NormalTok{population_in_millions <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{/}\DecValTok{10}\OperatorTok{^}\DecValTok{6}
+\NormalTok{total_gun_murders }\OperatorTok{<}\NormalTok{− murders}\OperatorTok{$}\NormalTok{total}
+
+\KeywordTok{plot}\NormalTok{(population_in_millions, total_gun_murders)}
+\end{Highlighting}
+\end{Shaded}
+
+Note that many states have populations below 5 million and are bunched
+up in the plot. We may gain further insights from making this plot in
+the log scale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{population_in_millions <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{/}\DecValTok{10}\OperatorTok{^}\DecValTok{6}
+\NormalTok{total_gun_murders <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total}
+
+\KeywordTok{plot}\NormalTok{(population_in_millions, total_gun_murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-100-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Transform population using the log10 transformation and save to object log10_population}
+\NormalTok{log10_population <-}\StringTok{ }\KeywordTok{log10}\NormalTok{(murders}\OperatorTok{$}\NormalTok{population)}
+
+\CommentTok{# Transform total gun murders using log10 transformation and save to object log10_total_gun_murders}
+\NormalTok{log10_total_gun_murders <-}\StringTok{ }\KeywordTok{log10}\NormalTok{(total_gun_murders)}
+
+\CommentTok{# Create a scatterplot with the log scale transformed population and murders }
+\KeywordTok{plot}\NormalTok{(log10_population, log10_total_gun_murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-100-2.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Now we are going to make a histogram.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the population in millions and save to population_in_millions }
+\NormalTok{population_in_millions <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{/}\DecValTok{10}\OperatorTok{^}\DecValTok{6}
+
+\CommentTok{# Create a histogram of this variable}
+\KeywordTok{hist}\NormalTok{(population_in_millions)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-101-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Now we are going to make boxplots. Boxplots are useful when we want a
+  summary of several variables or several strata of the same variables.
+  Making too many histograms can become too cumbersome.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a boxplot of state populations by region for the murders dataset}
+\KeywordTok{boxplot}\NormalTok{(population}\OperatorTok{~}\NormalTok{region, }\DataTypeTok{data =}\NormalTok{ murders)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-102-1.pdf}
+
+\hypertarget{section-4-overview}{%
+\subsection{Section 4 Overview}\label{section-4-overview}}
+
+Section 4 introduces you to general programming features like `if-else',
+and `for loop' commands so that you can write your own functions to
+perform various operations on datasets.
+
+In Section 4.1, you will: - Understand some of the programming
+capabilities of R.
+
+In Section 4.2, you will: - Use basic conditional expressions to perform
+different operations. - Check if any or all elements of a logical vector
+are TRUE.
+
+In Section 4.3, you will: - Define and call functions to perform various
+operations. - Pass arguments to functions, and return variables/objects
+from functions.
+
+In Section 4.4, you will: - Use `for' loop to perform repeated
+operations. - Articulate in-built functions of R that you could try for
+yourself.
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/programming-basics.html}{here}
+
+\hypertarget{assessment-9}{%
+\subsection{Assessment 9}\label{assessment-9}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What will this conditional expression return?
 \end{enumerate}
 
 \begin{verbatim}
-murders <- mutate(murders, population_in_millions = population / 10^6)
+x <- c(1,2,-3,4)
+
+if(all(x>0)){
+print(“All Postives”)
+} else{
+print(“Not all positives”)
+}
 \end{verbatim}
 
-Note that we can write population rather than
-murders\(population. The function mutate knows we are grabing columns from murders.\
-Use the function mutate to add a murders column named rate with the per 100,000 murder rate. Make sure you redefine murders as done in the example code above. Remember the murder rate is defined the total divided by the population size times 100,000. ``` # Redefine murders so that it includes column named rate with the per 100,000 murder rates murders <- mutate(murders, rate=total/murders\)population*100000)
+\begin{itemize}
+\tightlist
+\item
+  {[} {]} A. All Positives
+\item
+  {[}X{]} B. Not All Positives
+\item
+  {[} {]} C. N/A
+\item
+  {[} {]} D. None of the above
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Which of the following expressions is always FALSE when at least one
+  entry of a logical vector x is TRUE?
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  {[} {]} A. all(x)
+\item
+  {[} {]} B. any(x)
+\item
+  {[} {]} C. any(!x)
+\item
+  {[}X{]} D. all(!x)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  The function nchar tells you how many characters long a character
+  vector is.
+\end{enumerate}
+
+Write a line of code that assigns to the object new\_names the state
+abbreviation when the state name is longer than 8 characters.
 
 \begin{verbatim}
-2. mutate
-
-Note that if rank(x) gives you the ranks of x from lowest to highest, rank(-x) gives you the ranks from highest to lowest. Use the function mutate to add a column rank containing the rank, from highest to lowest murder rate. Make sure you redeinfe murders.
+# Assign the state abbreviation when the state name is longer than 8 characters 
+new_names <- ifelse(nchar(murders$state)>8, murders$abb, murders$state)
 \end{verbatim}
 
-\hypertarget{note-that-if-you-want-ranks-from-highest-to-lowest-you-can-take-the-negative-and-then-compute-the-ranks}{%
-\section{Note that if you want ranks from highest to lowest you can take
-the negative and then compute the
-ranks}\label{note-that-if-you-want-ranks-from-highest-to-lowest-you-can-take-the-negative-and-then-compute-the-ranks}}
-
-x \textless- c(88, 100, 83, 92, 94) rank(-x)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Create a function sum\_n that for any given value, say n, computes the
+  sum of the integers from 1 to n (inclusive). Use the function to
+  determine the sum of integers from 1 to 5,000.
+\end{enumerate}
 
 \begin{verbatim}
+# Create function called `sum_n`
+sum_n <- function(n){
+  sum(1:n)
+}
+# Use the function to determine the sum of integers from 1 to 5000
+sum_n(5000)
 \end{verbatim}
-
-\hypertarget{section}{%
-\subsection{{[}1{]} 4 1 5 3 2}\label{section}}
 
 \begin{verbatim}
+## [1] 12502500
 \end{verbatim}
 
-\hypertarget{defining-rate}{%
-\section{Defining rate}\label{defining-rate}}
-
-rate \textless- murders\(total/ murders\)population * 100000
-
-\hypertarget{redefine-murders-to-include-a-column-named-rank}{%
-\section{Redefine murders to include a column named
-rank}\label{redefine-murders-to-include-a-column-named-rank}}
-
-\hypertarget{with-the-ranks-of-rate-from-highest-to-lowest}{%
-\section{with the ranks of rate from highest to
-lowest}\label{with-the-ranks-of-rate-from-highest-to-lowest}}
-
-murders \textless- mutate(murders,rank=rank(-rate))
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Create a function altman\_plot that takes two arguments, x and y, and
+  plots the difference against the sum.
+\end{enumerate}
 
 \begin{verbatim}
-3. select
-
-With dplyr we can use select to show only certain columns. For example with this code we would only show the states and population sizes:
+# Create `altman_plot` 
+altman_plot <- function(x,y) {
+  plot(x+y,y-x)
+}
 \end{verbatim}
 
-select(murders, state, population)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  After running the code below, what is the value of x?
+\end{enumerate}
 
 \begin{verbatim}
-Use select to show the state names and abbreviations in murders. Just show it, do not define a new object.
+x <- 3
+my_func <- function(y){
+x <- 5
+y+5
+}
 \end{verbatim}
-
-\hypertarget{load-dplyr}{%
-\section{Load dplyr}\label{load-dplyr}}
-
-library(dplyr)
-
-\hypertarget{use-select-to-only-show-state-names-and-abbreviations-from-murders}{%
-\section{Use select to only show state names and abbreviations from
-murders}\label{use-select-to-only-show-state-names-and-abbreviations-from-murders}}
-
-select(murders,state,abb)
-
-state abb Alabama AL Alaska AK Arizona AZ Arkansas AR California CA
-Colorado CO Connecticut CT Delaware DE District of Columbia DC Florida
-FL 1-10 of 51 rows
 
 \begin{verbatim}
-4. filter
-    
-The dplyr function filter is used to choose specific rows of the data frame to keep. Unlke select which is for columns, filter is for rows. For example you can show just New York row like this:
-\end{verbatim}
-
-filter(murders, state == ``New York'')
-
-\begin{verbatim}
-You can use other logical vector to filter rows.
-Use filter to show the top 5 states with the highest murder rates. After we add murder rate and rank, do not change the murders dataset, just show the result. Note that you can filter based on the rank column.
-\end{verbatim}
-
-\hypertarget{add-the-necessary-columns}{%
-\section{Add the necessary columns}\label{add-the-necessary-columns}}
-
-murders \textless- mutate(murders, rate = total/population * 100000,
-rank = rank(-rate))
-
-\hypertarget{filter-to-show-the-top-5-states-with-the-highest-murder-rates}{%
-\section{Filter to show the top 5 states with the highest murder
-rates}\label{filter-to-show-the-top-5-states-with-the-highest-murder-rates}}
-
-filter(murders,rate,rank\textless=5)
-
-state abb region population total rate rank District of Columbia DC
-South 601723 99 16.452753 1 Louisiana LA South 4533372 351 7.742581 2
-Maryland MD South 5773552 293 5.074866 4 Missouri MO North Central
-5988927 321 5.359892 3 South Carolina SC South 4625364 207 4.475323 5 5
-rows
-
-\begin{verbatim}
-5. filter with !=
-
-We can remove rows using the != operator. For example to remove Florida we would do this:
-\end{verbatim}
-
-no\_florida \textless- filter(murders, state != ``Florida'')
-
-\begin{verbatim}
-Create a new data frame called no_south that removes states from the South region. How many states are in this category? You can use the function nrow for this.
-\end{verbatim}
-
-\hypertarget{use-filter-to-create-a-new-data-frame-no_south}{%
-\section{Use filter to create a new data frame
-no\_south}\label{use-filter-to-create-a-new-data-frame-no_south}}
-
-no\_south \textless- filter(murders, region != `South')
-
-\hypertarget{use-nrow-to-calculate-the-number-of-rows}{%
-\section{Use nrow() to calculate the number of
-rows}\label{use-nrow-to-calculate-the-number-of-rows}}
-
-nrow(no\_south)
-
-\begin{verbatim}
-\end{verbatim}
-
-\hypertarget{section-1}{%
-\subsection{{[}1{]} 34}\label{section-1}}
-
-\begin{verbatim}
-6. filter with %in%
-    
-We can also use the %in% to filter with dplyr. For example you can see the data from New York and Texas like this:
-\end{verbatim}
-
-filter(murders, state \%in\% c(``New York'', ``Texas''))
-
-\begin{verbatim}
-Create a new data frame called murders_nw with only the states from the Northeast and the West. How many states are in this category?
-\end{verbatim}
-
-\hypertarget{create-a-new-data-frame-called-murders_nw-with-only-the-states-from-the-northeast-and-the-west}{%
-\section{Create a new data frame called murders\_nw with only the states
-from the northeast and the
-west}\label{create-a-new-data-frame-called-murders_nw-with-only-the-states-from-the-northeast-and-the-west}}
-
-murders\_nw \textless- filter(murders, region \%in\%
-c(`Northeast',`West'))
-
-\hypertarget{number-of-states-rows-in-this-category}{%
-\section{Number of states (rows) in this
-category}\label{number-of-states-rows-in-this-category}}
-
-nrow(murders\_nw)
-
-\begin{verbatim}
-\end{verbatim}
-
-\hypertarget{section-2}{%
-\subsection{{[}1{]} 22}\label{section-2}}
-
-\begin{verbatim}
-7. filtering by two conditions
-
-Suppose you want to live in the Northeast or West and want the murder rate to be less than 1. We want to see the data for the states satisfying these options. Note that you can use logical operators with filter:
-\end{verbatim}
-
-filter(murders, population \textless{} 5000000 \& region ==
-``Northeast'')
-
-\begin{verbatim}
-Add a murder rate column and a rank column as done before. Create a table, call it my_states, that satisfies both the conditions: it is in the Northeast or West and the murder rate is less than 1. Use select to show only the state name, the rate and the rank.
-\end{verbatim}
-
-\hypertarget{add-the-rate-column}{%
-\section{add the rate column}\label{add-the-rate-column}}
-
-murders \textless- mutate(murders, rate = total / population * 100000,
-rank = rank(-rate))
-
-\hypertarget{create-a-table-call-it-my_states-that-satisfies-both-the-conditions}{%
-\section{Create a table, call it my\_states, that satisfies both the
-conditions}\label{create-a-table-call-it-my_states-that-satisfies-both-the-conditions}}
-
-my\_states \textless- filter(murders, region \%in\%
-c(`Northeast',`West') \& rate \textless{} 1)
-
-\hypertarget{use-select-to-show-only-the-state-name-the-murder-rate-and-the-rank}{%
-\section{Use select to show only the state name, the murder rate and the
-rank}\label{use-select-to-show-only-the-state-name-the-murder-rate-and-the-rank}}
-
-select(my\_states,state,rate,rank)
-
-state rate rank Hawaii 0.5145920 49 Idaho 0.7655102 46 Maine 0.8280881
-44 New Hampshire 0.3798036 50 Oregon 0.9396843 42 Utah 0.7959810 45
-Vermont 0.3196211 51 Wyoming 0.8871131 43 8 rows
-
-\begin{verbatim}
-8. Using the pipe %>%
-
-The pipe %>% can be used to perform operations sequentially without having to define intermediate objects. After redefining murder to include rate and rank.
-\end{verbatim}
-
-library(dplyr) murders \textless- mutate(murders, rate = total /
-population * 100000, rank = (-rate))
-
-\begin{verbatim}
-in the solution to the previous exercise we did the following:
-
-Created a table
-\end{verbatim}
-
-my\_states \textless- filter(murders, region \%in\% c(``Northeast'',
-``West'') \& rate \textless{} 1)
-
-\begin{verbatim}
-Used select to show only the state name, the murder rate and the rank
-\end{verbatim}
-
-select(my\_states, state, rate, rank)
-
-\begin{verbatim}
-The pipe %>% permits us to perform both operation sequentially and without having to define an intermediate variable my_states
-
-For example we could have mutated and selected in the same line like this:
-\end{verbatim}
-
-mutate(murders, rate = total / population * 100000, rank = (-rate))
-\%\textgreater\% select(state, rate, rank)
-
-\begin{verbatim}
-Note that select no longer has a data frame as the first argument. The first argument is assumed to be the result of the operation conducted right before the %>%
-
-Repeat the previous exercise, but now instead of creating a new object, show the result and only include the state, rate, and rank columns. Use a pipe %>% to do this in just one line.
-\end{verbatim}
-
-\hypertarget{load-library}{%
-\section{Load library}\label{load-library}}
-
-library(dplyr)
-
-\begin{verbatim}
-\end{verbatim}
-
-\hypertarget{define-the-rate-column}{%
-\subsection{Define the rate column}\label{define-the-rate-column}}
-
-murders \textless- mutate(murders, rate = total / population * 100000,
-rank = rank(-rate))
-
-\begin{verbatim}
-\end{verbatim}
-
-\hypertarget{show-the-result-and-only-include-the-state-rate-and-rank-columns-all-in-one-line}{%
-\section{show the result and only include the state, rate, and rank
-columns, all in one
-line}\label{show-the-result-and-only-include-the-state-rate-and-rank-columns-all-in-one-line}}
-
-filter(murders, region \%in\% c(``Northeast'', ``West'') \& rate
-\textless{} 1 ) \%\textgreater\% select(state, rate, rank)
-
-state rate rank Hawaii 0.5145920 49 Idaho 0.7655102 46 Maine 0.8280881
-44 New Hampshire 0.3798036 50 Oregon 0.9396843 42 Utah 0.7959810 45
-Vermont 0.3196211 51 Wyoming 0.8871131 43 8 rows
-
-\begin{verbatim}
-9. mutate, filter and select
-
-Now we will make murders the original table one gets when loading using data(murders). Use just one line to create a new data frame, called, my_states that has murder rate and rank column, consider only states in the Northeast or West, which have a murder rate lower than 1 and contain only the state, rate, and rank columns. The line should have four components separated by three %>%.
-- The original dataset murders
-- A call to mutate to add the murder rate and the rank.
-- A call to filter to keep only the states from the Northeast or West and that have a murder rate below 1
-- A call to select that keeps only the columns with the stata name, the murder rate and the rank.
-
-The line should look something like this my_states <- murders %>% mutate something %>% filter something %>% select something. Please, make sure the columns in the final data frame must be in the order: state, rate, rank.
-\end{verbatim}
-
-\hypertarget{loading-the-libraries}{%
-\section{Loading the libraries}\label{loading-the-libraries}}
-
-library(dplyr) data(murders)
-
-\hypertarget{create-new-data-frame-called-my_states-with-specifications-in-the-instructions}{%
-\section{Create new data frame called my\_states (with specifications in
-the
-instructions)}\label{create-new-data-frame-called-my_states-with-specifications-in-the-instructions}}
-
-my\_states \textless- murders \%\textgreater\%
-mutate(rate=total/murders\$population*100000, rank=rank(-rate))
-\%\textgreater\% filter(region \%in\% c(`Northeast',`West') \& rate
-\textless1) \%\textgreater\% select(state,rate,rank)
-
-\begin{verbatim}
-## Assessment 8
-
-1. We made a plot of total murders versus population and noted a strong relationship. Not surprisingly, states with larger populations had more murders.
-\end{verbatim}
-
-library(dslabs) data(murders) population\_in\_millions \textless-
-murders\(population/10^6 total_gun_murders <− murders\)total
-plot(population\_in\_millions, total\_gun\_murders)
-
-\begin{verbatim}
-Keep in mind that many states have populations below 5 million and are bunched up. We may gain further insights from making this plot in the log scale. Transform the variables using the log10 transformation and then plot them.
-\end{verbatim}
-
-\hypertarget{load-the-datasets-and-define-some-variables}{%
-\section{Load the datasets and define some
-variables}\label{load-the-datasets-and-define-some-variables}}
-
-library(dslabs) data(murders)
-
-population\_in\_millions \textless-
-murders\(population/10^6 total_gun_murders <- murders\)total
-
-plot(population\_in\_millions, total\_gun\_murders)
-
-\begin{verbatim}
-![index](https://user-images.githubusercontent.com/17474099/75668573-cdb1c800-5c79-11ea-98c3-222b70b1eb88.png)
-\end{verbatim}
-
-\hypertarget{transform-population-using-the-log10-transformation-and-save-to-object-log10_population}{%
-\section{Transform population using the log10 transformation and save to
-object
-log10\_population}\label{transform-population-using-the-log10-transformation-and-save-to-object-log10_population}}
-
-log10\_population \textless-log10(murders\$population)
-
-\hypertarget{transform-total-gun-murders-using-log10-transformation-and-save-to-object-log10_total_gun_murders}{%
-\section{Transform total gun murders using log10 transformation and save
-to object
-log10\_total\_gun\_murders}\label{transform-total-gun-murders-using-log10-transformation-and-save-to-object-log10_total_gun_murders}}
-
-log10\_total\_gun\_murders \textless- log10(total\_gun\_murders)
-
-\hypertarget{create-a-scatterplot-with-the-log-scale-transformed-population-and-murders}{%
-\section{Create a scatterplot with the log scale transformed population
-and
-murders}\label{create-a-scatterplot-with-the-log-scale-transformed-population-and-murders}}
-
-plot(log10\_population,log10\_total\_gun\_murders)
-
-\begin{verbatim}
-
-![index](https://user-images.githubusercontent.com/17474099/75766283-32842580-5d41-11ea-9099-f43738a46b86.png)
-
-2. Create a histogram of the state populations.
-\end{verbatim}
-
-\hypertarget{store-the-population-in-millions-and-save-to-population_in_millions}{%
-\section{Store the population in millions and save to
-population\_in\_millions}\label{store-the-population-in-millions-and-save-to-population_in_millions}}
-
-population\_in\_millions \textless- murders\$population/10\^{}6
-
-\hypertarget{create-a-histogram-of-this-variable}{%
-\section{Create a histogram of this
-variable}\label{create-a-histogram-of-this-variable}}
-
-hist(population\_in\_millions)
-
-\begin{verbatim}
-![index](https://user-images.githubusercontent.com/17474099/75668993-7bbd7200-5c7a-11ea-98d7-bc5e28e69d07.png)
-
-3. Generate boxplots of the state populations by region.
-\end{verbatim}
-
-\hypertarget{create-a-boxplot-of-state-populations-by-region-for-the-murders-dataset}{%
-\section{Create a boxplot of state populations by region for the murders
-dataset}\label{create-a-boxplot-of-state-populations-by-region-for-the-murders-dataset}}
-
-boxplot(population\textasciitilde region, data=murders)
-
-\begin{verbatim}
-![index](https://user-images.githubusercontent.com/17474099/75669696-bc69bb00-5c7b-11ea-9cd1-bc5218b21b40.png)
-## Section 4 Overview
-
-Section 4 introduces you to general programming features like ‘if-else’, and ‘for loop’ commands so that you can write your own functions to perform various operations on datasets.
-
-In Section 4.1, you will:
-- Understand some of the programming capabilities of R.
-
-In Section 4.2, you will:
-- Use basic conditional expressions to perform different operations.
-- Check if any or all elements of a logical vector are TRUE.
-
-In Section 4.3, you will:
-- Define and call functions to perform various operations.
-- Pass arguments to functions, and return variables/objects from functions.
-
-In Section 4.4, you will:
-- Use ‘for’ loop to perform repeated operations.
-- Articulate in-built functions of R that you could try for yourself.
-
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html)
-
-## Assessment 9
-
-1. What will this conditional expression return?
-\end{verbatim}
-
-x \textless- c(1,2,-3,4)
-
-if(all(x\textgreater0))\{ print(``All Postives'') \} else\{ print(``Not
-all positives'') \}
-
-\begin{verbatim}
-- [ ] A. All Positives
-- [X] B. Not All Positives
-- [ ] C. N/A
-- [ ] D. None of the above
-
-2. Which of the following expressions is always FALSE when at least one entry of a logical vector x is TRUE?
-
-- [ ] A. all(x)
-- [ ] B. any(x)
-- [ ] C. any(!x)
-- [X] D. all(!x)
-
-3. The function nchar tells you how many characters long a character vector is.
-
-Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.
-\end{verbatim}
-
-\hypertarget{assign-the-state-abbreviation-when-the-state-name-is-longer-than-8-characters}{%
-\section{Assign the state abbreviation when the state name is longer
-than 8
-characters}\label{assign-the-state-abbreviation-when-the-state-name-is-longer-than-8-characters}}
-
-new\_names \textless- ifelse(nchar(murders\(state)>8, murders\)abb,
-murders\$state)
-
-\begin{verbatim}
-4. Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.
-\end{verbatim}
-
-\hypertarget{create-function-called-sum_n}{%
-\section{\texorpdfstring{Create function called
-\texttt{sum\_n}}{Create function called sum\_n}}\label{create-function-called-sum_n}}
-
-sum\_n \textless- function(n)\{ sum(1:n) \} \# Use the function to
-determine the sum of integers from 1 to 5000 sum\_n(5000)
-
-\begin{verbatim}
-\end{verbatim}
-
-\hypertarget{section-3}{%
-\subsection{{[}1{]} 12502500}\label{section-3}}
-
-\begin{verbatim}
-5. Create a function altman_plot that takes two arguments, x and y, and plots the difference against the sum.
-\end{verbatim}
-
-\hypertarget{create-altman_plot}{%
-\section{\texorpdfstring{Create
-\texttt{altman\_plot}}{Create altman\_plot}}\label{create-altman_plot}}
-
-altman\_plot \textless- function(x,y) \{ plot(x+y,y-x) \}
-
-\begin{verbatim}
-6. After running the code below, what is the value of x?
-\end{verbatim}
-
-x \textless- 3 my\_func \textless- function(y)\{ x \textless- 5 y+5 \}
-
-\begin{verbatim}
-\end{verbatim}
-
-\hypertarget{run-this-code}{%
-\section{Run this code}\label{run-this-code}}
-
-x \textless- 3 my\_func \textless- function(y)\{ x \textless- 5 y+5 \}
-
-\hypertarget{print-value-of-x}{%
-\section{Print value of x}\label{print-value-of-x}}
-
+# Run this code 
+x <- 3
+    my_func <- function(y){
+    x <- 5
+    y+5
+}
+
+# Print value of x 
 print(x)
-
-\begin{verbatim}
 \end{verbatim}
 
-\hypertarget{section-4}{%
-\subsection{{[}1{]} 3}\label{section-4}}
-
 \begin{verbatim}
-7. Write a function compute_s_n that for any given n computes the sum S_n = 1^2 + 2^2 + 3^2 + . n^2. Report the value of the sum when n = 10.
+## [1] 3
 \end{verbatim}
 
-\hypertarget{here-is-an-example-of-function-that-adds-numbers-from-1-to-n}{%
-\section{Here is an example of function that adds numbers from 1 to
-n}\label{here-is-an-example-of-function-that-adds-numbers-from-1-to-n}}
-
-example\_func \textless- function(n)\{ x \textless- 1:n sum(x) \}
-
-\hypertarget{here-is-the-sum-of-the-first-100-numbers}{%
-\section{Here is the sum of the first 100
-numbers}\label{here-is-the-sum-of-the-first-100-numbers}}
-
-example\_func(100)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Write a function compute\_s\_n that for any given n computes the sum
+  S\_n = 1\^{}2 + 2\^{}2 + 3\^{}2 + . n\^{}2. Report the value of the
+  sum when n = 10.
+\end{enumerate}
 
 \begin{verbatim}
-\end{verbatim}
+# Here is an example of function that adds numbers from 1 to n
+example_func <- function(n){
+    x <- 1:n
+    sum(x)
+}
 
-\hypertarget{section-5}{%
-\subsection{{[}1{]} 5050}\label{section-5}}
+# Here is the sum of the first 100 numbers
+example_func(100)
+\end{verbatim}
 
 \begin{verbatim}
+## [1] 5050
 \end{verbatim}
-
-\hypertarget{write-a-function-compute_s_n-that-with-argument-n-and-returns-of-1-22-n2}{%
-\section{Write a function compute\_s\_n that with argument n and returns
-of 1 + 2\^{}2 + \ldots+
-n\^{}2}\label{write-a-function-compute_s_n-that-with-argument-n-and-returns-of-1-22-n2}}
-
-compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
-\# Report the value of the sum when n=10 compute\_s\_n(10)
 
 \begin{verbatim}
+# Write a function compute_s_n that with argument n and returns of 1 + 2^2 + ...+ n^2
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x^2)
+}
+# Report the value of the sum when n=10
+compute_s_n(10)
 \end{verbatim}
-
-\hypertarget{section-6}{%
-\subsection{{[}1{]} 385}\label{section-6}}
 
 \begin{verbatim}
-8. Define an empty numerical vector s_n of size 25 using s_n <- vector(“numeric”, 25) and store in the results of S_1, S_2, . S_25 using a for-loop.
+## [1] 385
 \end{verbatim}
 
-\hypertarget{define-a-function-and-store-it-in-compute_s_n}{%
-\section{\texorpdfstring{Define a function and store it in
-\texttt{compute\_s\_n}}{Define a function and store it in compute\_s\_n}}\label{define-a-function-and-store-it-in-compute_s_n}}
-
-compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
-
-\hypertarget{create-a-vector-for-storing-results}{%
-\section{Create a vector for storing
-results}\label{create-a-vector-for-storing-results}}
-
-s\_n \textless- vector(``numeric'', 25)
-
-\hypertarget{write-a-for-loop-to-store-the-results-in-s_n}{%
-\section{write a for-loop to store the results in
-s\_n}\label{write-a-for-loop-to-store-the-results-in-s_n}}
-
-for(i in 1:25)\{ s\_n{[}i{]} \textless- compute\_s\_n(i) \}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Define an empty numerical vector s\_n of size 25 using s\_n
+  \textless{}- vector(``numeric'', 25) and store in the results of S\_1,
+  S\_2, . S\_25 using a for-loop.
+\end{enumerate}
 
 \begin{verbatim}
-9. If we do the math, we can show that S_n=12+22+32+???+n2=n(n+1)(2n+1)/6. We have already computed the values of Sn from 1 to 25 using a for loop. If the formula is correct then a plot of Sn versus n should look cubic.
+# Define a function and store it in `compute_s_n`
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x^2)
+}
+
+# Create a vector for storing results
+s_n <- vector("numeric", 25)
+
+# write a for-loop to store the results in s_n
+for(i in 1:25){
+  s_n[i] <- compute_s_n(i)
+}
 \end{verbatim}
 
-\hypertarget{define-the-function}{%
-\section{Define the function}\label{define-the-function}}
-
-compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
-
-\hypertarget{define-the-vector-of-n}{%
-\section{Define the vector of n}\label{define-the-vector-of-n}}
-
-n \textless- 1:25
-
-\hypertarget{define-the-vector-to-store-data}{%
-\section{Define the vector to store
-data}\label{define-the-vector-to-store-data}}
-
-s\_n \textless- vector(``numeric'', 25) for(i in n)\{ s\_n{[}i{]}
-\textless- compute\_s\_n(i) \}
-
-\hypertarget{create-the-plot}{%
-\section{Create the plot}\label{create-the-plot}}
-
-plot(n,s\_n)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  If we do the math, we can show that
+  S\_n=12+22+32+???+n2=n(n+1)(2n+1)/6. We have already computed the
+  values of Sn from 1 to 25 using a for loop. If the formula is correct
+  then a plot of Sn versus n should look cubic.
+\end{enumerate}
 
 \begin{verbatim}
-![index](https://user-images.githubusercontent.com/17474099/75670998-24210580-5c7e-11ea-95fe-e6f8857049f4.png)
+# Define the function
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x^2)
+}
 
-10. Confirm that s_n and n(n+1)(2n+1)/6 are the same using the identical command.
+# Define the vector of n
+n <- 1:25
+
+# Define the vector to store data
+s_n <- vector("numeric", 25)
+for(i in n){
+  s_n[i] <- compute_s_n(i)
+}
+
+#  Create the plot 
+plot(n,s_n)
 \end{verbatim}
 
-\hypertarget{define-the-function-1}{%
-\section{Define the function}\label{define-the-function-1}}
+\begin{figure}
+\centering
+\includegraphics{https://user-images.githubusercontent.com/17474099/75670998-24210580-5c7e-11ea-95fe-e6f8857049f4.png}
+\caption{index}
+\end{figure}
 
-compute\_s\_n \textless- function(n)\{ x \textless- 1:n sum(x\^{}2) \}
-
-\hypertarget{define-the-vector-of-n-1}{%
-\section{Define the vector of n}\label{define-the-vector-of-n-1}}
-
-n \textless- 1:25
-
-\hypertarget{define-the-vector-to-store-data-1}{%
-\section{Define the vector to store
-data}\label{define-the-vector-to-store-data-1}}
-
-s\_n \textless- vector(``numeric'', 25) for(i in n)\{ s\_n{[}i{]}
-\textless- compute\_s\_n(i) \}
-
-\hypertarget{check-that-s_n-is-identical-to-the-formula-given-in-the-instructions.}{%
-\section{Check that s\_n is identical to the formula given in the
-instructions.}\label{check-that-s_n-is-identical-to-the-formula-given-in-the-instructions.}}
-
-identical(s\_n,n\emph{(n+1)}(2*n+1)/6)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  Confirm that s\_n and n(n+1)(2n+1)/6 are the same using the identical
+  command.
+\end{enumerate}
 
 \begin{verbatim}
+# Define the function
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x^2)
+}
+
+# Define the vector of n
+n <- 1:25
+
+# Define the vector to store data
+s_n <- vector("numeric", 25)
+for(i in n){
+  s_n[i] <- compute_s_n(i)
+}
+
+# Check that s_n is identical to the formula given in the instructions.
+identical(s_n,n*(n+1)*(2*n+1)/6)
 \end{verbatim}
 
-\hypertarget{true}{%
-\subsection{{[}1{]} TRUE}\label{true}}
-
-```
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
 
 \end{document}
