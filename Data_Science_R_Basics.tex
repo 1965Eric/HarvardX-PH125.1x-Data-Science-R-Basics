@@ -2563,57 +2563,185 @@ In Section 3.3, you will:
   Plot data in scatter plots, box plots and histograms.
 \end{itemize}
 
+\hypertarget{indexing}{%
+\subsection{Indexing}\label{indexing}}
+
 The textbook for this section is available
 \href{https://rafalab.github.io/dsbook/r-basics.html\#indexing}{here}
 
-\hypertarget{assessment-6}{%
-\subsection{Assessment 6}\label{assessment-6}}
+\textbf{Key Points}
 
-Start by loading the library and data.
+\begin{itemize}
+\tightlist
+\item
+  We can use logicals to index vectors.
+\item
+  Using the function \textgreater sum()on a logical vector returns the
+  number of entries that are true.
+\item
+  The logical operator ``\&'' makes two logicals true only when they are
+  both true.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# defining murder rate as before}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total }\OperatorTok{/}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}
+\CommentTok{# creating a logical vector that specifies if the murder rate in that state is less than or equal to 0.71}
+\NormalTok{index <-}\StringTok{ }\NormalTok{murder_rate }\OperatorTok{<=}\StringTok{ }\FloatTok{0.71}
+\CommentTok{# determining which states have murder rates less than or equal to 0.71}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[index]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-library(dslabs)
-data(murders)
+## [1] "Hawaii"        "Iowa"          "New Hampshire" "North Dakota" 
+## [5] "Vermont"
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculating how many states have a murder rate less than or equal to 0.71}
+\KeywordTok{sum}\NormalTok{(index)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# creating the two logical vectors representing our conditions}
+\NormalTok{west <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{region }\OperatorTok{==}\StringTok{ "West"}
+\NormalTok{safe <-}\StringTok{ }\NormalTok{murder_rate }\OperatorTok{<=}\StringTok{ }\DecValTok{1}
+\CommentTok{# defining an index and identifying states with both conditions true}
+\NormalTok{index <-}\StringTok{ }\NormalTok{safe }\OperatorTok{&}\StringTok{ }\NormalTok{west}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[index]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Hawaii"  "Idaho"   "Oregon"  "Utah"    "Wyoming"
+\end{verbatim}
+
+\hypertarget{indexing---indexing-functions}{%
+\subsection{Indexing - Indexing
+Functions}\label{indexing---indexing-functions}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/r-basics.html\#which}{here}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  The function which() gives us the entries of a logical vector that are
+  true.
+\item
+  The function match() looks for entries in a vector and returns the
+  index needed to access them.
+\item
+  We use the function \%in\% if we want to know whether or not each
+  element of a first vector is in a second vector.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# to determine the murder rate in Massachusetts we may do the following}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{which}\NormalTok{(murders}\OperatorTok{$}\NormalTok{state }\OperatorTok{==}\StringTok{ "Massachusetts"}\NormalTok{)}
+\NormalTok{murder_rate[ind]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# to obtain the indices and subsequent murder rates of New York, Florida, Texas, we do:}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{match}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"New York"}\NormalTok{, }\StringTok{"Florida"}\NormalTok{, }\StringTok{"Texas"}\NormalTok{), murders}\OperatorTok{$}\NormalTok{state)}
+\NormalTok{ind}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 33 10 44
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{murder_rate[ind]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.67 3.40 3.20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# to see if Boston, Dakota, and Washington are states}
+\KeywordTok{c}\NormalTok{(}\StringTok{"Boston"}\NormalTok{, }\StringTok{"Dakota"}\NormalTok{, }\StringTok{"Washington"}\NormalTok{) }\OperatorTok{%in%}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{state}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE  TRUE
+\end{verbatim}
+
+\hypertarget{assessment---indexing}{%
+\subsection{Assessment - Indexing}\label{assessment---indexing}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
+  Here we will be using logical operators to create a logical vector.
   Compute the per 100,000 murder rate for each state and store it in an
-  object called murder\_rate. Then use logical operators to create a
-  logical vector named low that tells us which entries of murder\_rate
-  are lower than 1.
+  object called \texttt{murder\_rate}. Then use logical operators to
+  create a logical vector named \texttt{low} that tells us which entries
+  of \texttt{murder\_rate} are lower than 1.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the murder rate per 100,000 for each state, in `murder_rate`
-murder_rate <- murders$total / murders$population * 100000
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the murder rate per 100,000 for each state, in `murder_rate`}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total }\OperatorTok{/}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}
 
-# Store the `murder_rate < 1` in `low` 
-low <- murder_rate < 1
-\end{verbatim}
+\CommentTok{# Store the `murder_rate < 1` in `low` }
+\NormalTok{low <-}\StringTok{ }\NormalTok{murder_rate }\OperatorTok{<}\StringTok{ }\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Now use the results from the previous exercise and the function which
-  to determine the indices of murder\_rate associated with values lower
-  than 1.
+  The function `\texttt{which()} helps us know directly, which values
+  are low or high, etc. Let's use it in this question.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the murder rate per 100,000 for each state, in murder_rate
-murder_rate <- murders$total/murders$population*100000
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the murder rate per 100,000 for each state, in murder_rate}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total}\OperatorTok{/}\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{*}\DecValTok{100000}
 
-# Store the murder_rate < 1 in low 
-low <- murder_rate < 1
+\CommentTok{# Store the murder_rate < 1 in low }
+\NormalTok{low <-}\StringTok{ }\NormalTok{murder_rate }\OperatorTok{<}\StringTok{ }\DecValTok{1}
 
-# Get the indices of entries that are below 1
-which(low)
-\end{verbatim}
+\CommentTok{# Get the indices of entries that are below 1}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{which}\NormalTok{(low)}
+\NormalTok{ind}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ##  [1] 12 13 16 20 24 30 35 38 42 45 46 51
@@ -2624,20 +2752,32 @@ which(low)
 \setcounter{enumi}{2}
 \tightlist
 \item
-  Use the results from the previous exercise to report the names of the
-  states with murder rates lower than 1.
+  Note that if we want to know which entries of a vector are lower than
+  a particular value we can use code like this.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the murder rate per 100,000 for each state, in murder_rate
-murder_rate <- murders$total/murders$population*100000
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{small <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }\OperatorTok{<}\StringTok{ }\DecValTok{1000000}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[small]}
+\end{Highlighting}
+\end{Shaded}
 
-# Store the murder_rate < 1 in low 
-low <- murder_rate < 1
+The code above shows us the states with populations smaller than one
+million.
 
-# Names of states with murder rates lower than 1
-murders$state[low]
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the murder rate per 100,000 for each state, in murder_rate}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total}\OperatorTok{/}\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{*}\DecValTok{100000}
+
+\CommentTok{# Store the murder_rate < 1 in low }
+\NormalTok{low <-}\StringTok{ }\NormalTok{murder_rate }\OperatorTok{<}\StringTok{ }\DecValTok{1}
+
+\CommentTok{# Names of states with murder rates lower than 1}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[low]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ##  [1] "Hawaii"        "Idaho"         "Iowa"          "Maine"        
@@ -2650,24 +2790,26 @@ murders$state[low]
 \setcounter{enumi}{3}
 \tightlist
 \item
-  Now extend the code from exercise 2 and 3 to report the states in the
-  Northeast with murder rates lower than 1. Hint: use the previously
-  defined logical vector low and the logical operator \&.
+  Now we will extend the code from the previous exercises to report the
+  states in the Northeast with a murder rate lower than 1.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the murder rate per 100,000 for each state, in `murder_rate`
-murder_rate <- murders$total/murders$population*100000
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the murder rate per 100,000 for each state, in `murder_rate`}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total}\OperatorTok{/}\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{*}\DecValTok{100000}
 
-# Store the `murder_rate < 1` in `low` 
-low <- murder_rate < 1
+\CommentTok{# Store the `murder_rate < 1` in `low` }
+\NormalTok{low <-}\StringTok{ }\NormalTok{murder_rate }\OperatorTok{<}\StringTok{ }\DecValTok{1}
 
-# Create a vector ind for states in the Northeast and with murder rates lower than
-ind <- low & murders$region=='Northeast'
+\CommentTok{# Create a vector ind for states in the Northeast and with murder rates lower than 1. }
+\NormalTok{northeast <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{region }\OperatorTok{==}\StringTok{ "Northeast"}
+\NormalTok{ind <-}\StringTok{ }\NormalTok{low }\OperatorTok{&}\StringTok{ }\NormalTok{northeast}
 
-# Names of states in `ind` 
-murders$state[ind] 
-\end{verbatim}
+\CommentTok{# Names of states in `ind` }
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[ind]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Maine"         "New Hampshire" "Vermont"
@@ -2682,16 +2824,20 @@ murders$state[ind]
   the average of these numbers. How many states are below the average?
 \end{enumerate}
 
-\begin{verbatim}
-# Store the murder rate per 100,000 for each state, in murder_rate
-murder_rate <- murders$total/murders$population*100000
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the murder rate per 100,000 for each state, in murder_rate}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total}\OperatorTok{/}\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{*}\DecValTok{100000}
 
-# Compute average murder rate and store in avg using `mean` 
-avg <- mean(murder_rate)
 
-# How many states have murder rates below avg ? Check using sum 
-sum(murder_rate<avg)
-\end{verbatim}
+\CommentTok{# Compute the average murder rate using `mean` and store it in object named `avg`}
+\NormalTok{avg <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(murder_rate)}
+
+\CommentTok{# How many states have murder rates below avg ? Check using sum }
+\NormalTok{ind <-}\StringTok{ }\NormalTok{murder_rate }\OperatorTok{<}\StringTok{ }\NormalTok{avg}
+\KeywordTok{sum}\NormalTok{(ind)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] 27
@@ -2702,22 +2848,22 @@ sum(murder_rate<avg)
 \setcounter{enumi}{5}
 \tightlist
 \item
-  Use the match function to identify the states with abbreviations AK,
-  MI, and IA. Hint: start by defining an index of the entries of
-  murders\$abb that match the three abbreviations, then use the {[}
-  operator to extract the states.
+  In this exercise we use the \texttt{match} function to identify the
+  states with abbreviations AK, MI, and IA.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the 3 abbreviations in abbs in a vector (remember that they are character vectors and need quotes)
-abbs <- c('AK','MI','IA')
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the 3 abbreviations in a vector called `abbs` (remember that they are character vectors and need quotes)}
+\NormalTok{abbs <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"AK"}\NormalTok{, }\StringTok{"MI"}\NormalTok{, }\StringTok{"IA"}\NormalTok{)}
 
-# Match the abbs to the murders$abb and store in ind
-ind <- match(abbs , murders$abb)
+\CommentTok{# Match the abbs to the murders$abb and store in ind}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{match}\NormalTok{(abbs, murders}\OperatorTok{$}\NormalTok{abb)}
 
-# Print state names from ind
-murders$state[ind]
-\end{verbatim}
+\CommentTok{# Print state names from ind}
+\NormalTok{murders}\OperatorTok{$}\NormalTok{state[ind]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "Alaska"   "Michigan" "Iowa"
@@ -2728,18 +2874,33 @@ murders$state[ind]
 \setcounter{enumi}{6}
 \tightlist
 \item
-  Use the \%in\% operator to create a logical vector that answers the
-  question: which of the following are actual abbreviations: MA, ME, MI,
-  MO, MU ?
+  If rather than an index we want a logical that tells us whether or not
+  each element of a first vector is in a second, we can use the function
+  \texttt{\%in\%}.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the 5 abbreviations in `abbs`. (remember that they are character vectors)
-abbs <- c('MA', 'ME', 'MI', 'MO', 'MU')
+For example:
 
-# Use the %in% command to check if the entries of abbs are abbreviations in the the murders data frame
-abbs%in%murders$abb
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{x}\OperatorTok{%in%}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+Gives us two \texttt{TRUE} followed by a \texttt{FALSE} because 2 and 3
+are in \texttt{y} but 5 is not.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the 5 abbreviations in `abbs`. (remember that they are character vectors)}
+\NormalTok{abbs <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"MA"}\NormalTok{, }\StringTok{"ME"}\NormalTok{, }\StringTok{"MI"}\NormalTok{, }\StringTok{"MO"}\NormalTok{, }\StringTok{"MU"}\NormalTok{)}
+
+\CommentTok{# Use the %in% command to check if the entries of abbs are abbreviations in the the murders data frame}
+\NormalTok{abbs}\OperatorTok{%in%}\NormalTok{murders}\OperatorTok{$}\NormalTok{abb}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1]  TRUE  TRUE  TRUE  TRUE FALSE
@@ -2750,25 +2911,158 @@ abbs%in%murders$abb
 \setcounter{enumi}{7}
 \tightlist
 \item
-  Extend the code you used in exercise 7 to report the one entry that is
-  not an actual abbreviation. Hint: use the ! operator, which turns
-  FALSE into TRUE and vice versa, then which to obtain an index.
+  In a previous exercise we computed the index
+  \texttt{abbs\%in\%murders\$abb}. Based on that, and using the
+  \texttt{which} function and the \texttt{!} operator, get the index of
+  the entries of \texttt{abbs} that are \textbf{not} abbreviations.
 \end{enumerate}
 
-\begin{verbatim}
-# Store the 5 abbreviations in abbs. (remember that they are character vectors)
-abbs <- c("MA", "ME", "MI", "MO", "MU") 
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the 5 abbreviations in abbs. (remember that they are character vectors)}
+\NormalTok{abbs <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"MA"}\NormalTok{, }\StringTok{"ME"}\NormalTok{, }\StringTok{"MI"}\NormalTok{, }\StringTok{"MO"}\NormalTok{, }\StringTok{"MU"}\NormalTok{) }
 
-# Use the `which` command and `!` operator to find out which abbreviation are not actually part of the dataset and store in ind
-ind <- which(!abbs%in%murders$abb)
+\CommentTok{# Use the `which` command and `!` operator to find out which index abbreviations are not actually part of the dataset and store in `ind`}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{which}\NormalTok{(}\OperatorTok{!}\NormalTok{abbs}\OperatorTok{%in%}\NormalTok{murders}\OperatorTok{$}\NormalTok{abb)}
 
-# What are the entries of abbs that are not actual abbreviations
-abbs[ind]
-\end{verbatim}
+\CommentTok{# Names of abbreviations in `ind`}
+\NormalTok{abbs[ind]}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## [1] "MU"
 \end{verbatim}
+
+\hypertarget{basic-data-wrangling}{%
+\subsection{Basic Data Wrangling}\label{basic-data-wrangling}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/tidyverse.html\#manipulating-data-frames}{here}
+and
+\href{https://rafalab.github.io/dsbook/tidyverse.html\#the-pipe}{here}
+
+In the textbook, the dplyr package is introduced in the context of the
+tidyverse, a collection of R packages
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  To change a data table by adding a new column, or changing an existing
+  one, we use the \texttt{mutate} function.
+\item
+  To filter the data by subsetting rows, we use the function
+  \texttt{filter}.
+\item
+  To subset the data by selecting specific columns, we use the
+  \texttt{select} function.
+\item
+  We can perform a series of operations by sending the results of one
+  function to another function using what is called the pipe operator,
+  \texttt{\%\textgreater{}\%}.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# installing and loading the dplyr package}
+\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(dplyr)) }\KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: dplyr
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+
+\CommentTok{# adding a column with mutate}
+\KeywordTok{library}\NormalTok{(dslabs)}
+\KeywordTok{data}\NormalTok{(}\StringTok{"murders"}\NormalTok{)}
+\NormalTok{murders <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(murders, }\DataTypeTok{rate =}\NormalTok{ total }\OperatorTok{/}\StringTok{ }\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}\NormalTok{)}
+
+\CommentTok{# subsetting with filter}
+\KeywordTok{filter}\NormalTok{(murders, rate }\OperatorTok{<=}\StringTok{ }\FloatTok{0.71}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           state abb        region population total  rate
+## 1        Hawaii  HI          West    1360301     7 0.515
+## 2          Iowa  IA North Central    3046355    21 0.689
+## 3 New Hampshire  NH     Northeast    1316470     5 0.380
+## 4  North Dakota  ND North Central     672591     4 0.595
+## 5       Vermont  VT     Northeast     625741     2 0.320
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# selecting columns with select}
+\NormalTok{new_table <-}\StringTok{ }\KeywordTok{select}\NormalTok{(murders, state, region, rate)}
+
+\CommentTok{# using the pipe}
+\NormalTok{murders }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(state, region, rate) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(rate }\OperatorTok{<=}\StringTok{ }\FloatTok{0.71}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           state        region  rate
+## 1        Hawaii          West 0.515
+## 2          Iowa North Central 0.689
+## 3 New Hampshire     Northeast 0.380
+## 4  North Dakota North Central 0.595
+## 5       Vermont     Northeast 0.320
+\end{verbatim}
+
+\hypertarget{basic-data-wrangling---creating-data-frames}{%
+\subsection{Basic Data Wrangling - Creating Data
+Frames}\label{basic-data-wrangling---creating-data-frames}}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  We can use the \texttt{data.frame()} function to create data frames.
+\item
+  By default, the \texttt{data.frame()} function turns characters into
+  factors. To avoid this, we utilize the \texttt{stringsAsFactors}
+  argument and set it equal to false.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# creating a data frame with stringAsFactors = FALSE}
+\NormalTok{grades <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{names =} \KeywordTok{c}\NormalTok{(}\StringTok{"John"}\NormalTok{, }\StringTok{"Juan"}\NormalTok{, }\StringTok{"Jean"}\NormalTok{, }\StringTok{"Yao"}\NormalTok{), }
+                     \DataTypeTok{exam_1 =} \KeywordTok{c}\NormalTok{(}\DecValTok{95}\NormalTok{, }\DecValTok{80}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{85}\NormalTok{), }
+                     \DataTypeTok{exam_2 =} \KeywordTok{c}\NormalTok{(}\DecValTok{90}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{85}\NormalTok{, }\DecValTok{90}\NormalTok{),}
+                     \DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{assessment-7}{%
 \subsection{Assessment 7}\label{assessment-7}}

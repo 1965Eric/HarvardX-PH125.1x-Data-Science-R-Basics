@@ -1242,7 +1242,7 @@ In the textbook, the dplyr package is introduced in the context of the tidyverse
 
 ```{r}
 # installing and loading the dplyr package
-install.packages("dplyr")
+if(!require(dplyr)) install.packages("dplyr")
 library(dplyr)
 
 # adding a column with mutate

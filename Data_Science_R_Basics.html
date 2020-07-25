@@ -1360,37 +1360,90 @@ speed[1]</code></pre>
 <ul>
 <li>Plot data in scatter plots, box plots and histograms.</li>
 </ul>
-<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#indexing">here</a></p>
 </div>
-<div id="assessment-6" class="section level2">
-<h2>Assessment 6</h2>
-<p>Start by loading the library and data.</p>
-<pre><code>library(dslabs)
-data(murders)</code></pre>
+<div id="indexing" class="section level2">
+<h2>Indexing</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#indexing">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>We can use logicals to index vectors.</li>
+<li>Using the function &gt;sum()on a logical vector returns the number of entries that are true.</li>
+<li>The logical operator “&amp;” makes two logicals true only when they are both true.</li>
+</ul>
+<p><em>Code</em></p>
+<pre class="r"><code># defining murder rate as before
+murder_rate &lt;- murders$total / murders$population * 100000
+# creating a logical vector that specifies if the murder rate in that state is less than or equal to 0.71
+index &lt;- murder_rate &lt;= 0.71
+# determining which states have murder rates less than or equal to 0.71
+murders$state[index]</code></pre>
+<pre><code>## [1] &quot;Hawaii&quot;        &quot;Iowa&quot;          &quot;New Hampshire&quot; &quot;North Dakota&quot; 
+## [5] &quot;Vermont&quot;</code></pre>
+<pre class="r"><code># calculating how many states have a murder rate less than or equal to 0.71
+sum(index)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code># creating the two logical vectors representing our conditions
+west &lt;- murders$region == &quot;West&quot;
+safe &lt;- murder_rate &lt;= 1
+# defining an index and identifying states with both conditions true
+index &lt;- safe &amp; west
+murders$state[index]</code></pre>
+<pre><code>## [1] &quot;Hawaii&quot;  &quot;Idaho&quot;   &quot;Oregon&quot;  &quot;Utah&quot;    &quot;Wyoming&quot;</code></pre>
+</div>
+<div id="indexing---indexing-functions" class="section level2">
+<h2>Indexing - Indexing Functions</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#which">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>The function which() gives us the entries of a logical vector that are true.</li>
+<li>The function match() looks for entries in a vector and returns the index needed to access them.</li>
+<li>We use the function %in% if we want to know whether or not each element of a first vector is in a second vector.</li>
+</ul>
+<p><em>Code</em></p>
+<pre class="r"><code># to determine the murder rate in Massachusetts we may do the following
+ind &lt;- which(murders$state == &quot;Massachusetts&quot;)
+murder_rate[ind]</code></pre>
+<pre><code>## [1] 1.8</code></pre>
+<pre class="r"><code># to obtain the indices and subsequent murder rates of New York, Florida, Texas, we do:
+ind &lt;- match(c(&quot;New York&quot;, &quot;Florida&quot;, &quot;Texas&quot;), murders$state)
+ind</code></pre>
+<pre><code>## [1] 33 10 44</code></pre>
+<pre class="r"><code>murder_rate[ind]</code></pre>
+<pre><code>## [1] 2.67 3.40 3.20</code></pre>
+<pre class="r"><code># to see if Boston, Dakota, and Washington are states
+c(&quot;Boston&quot;, &quot;Dakota&quot;, &quot;Washington&quot;) %in% murders$state</code></pre>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
+</div>
+<div id="assessment---indexing" class="section level2">
+<h2>Assessment - Indexing</h2>
 <ol style="list-style-type: decimal">
-<li>Compute the per 100,000 murder rate for each state and store it in an object called murder_rate. Then use logical operators to create a logical vector named low that tells us which entries of murder_rate are lower than 1.</li>
+<li>Here we will be using logical operators to create a logical vector. Compute the per 100,000 murder rate for each state and store it in an object called <code>murder_rate</code>. Then use logical operators to create a logical vector named <code>low</code> that tells us which entries of <code>murder_rate</code> are lower than 1.</li>
 </ol>
-<pre><code># Store the murder rate per 100,000 for each state, in `murder_rate`
+<pre class="r"><code># Store the murder rate per 100,000 for each state, in `murder_rate`
 murder_rate &lt;- murders$total / murders$population * 100000
 
 # Store the `murder_rate &lt; 1` in `low` 
 low &lt;- murder_rate &lt; 1</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Now use the results from the previous exercise and the function which to determine the indices of murder_rate associated with values lower than 1.</li>
+<li>The function `<code>which()</code> helps us know directly, which values are low or high, etc. Let’s use it in this question.</li>
 </ol>
-<pre><code># Store the murder rate per 100,000 for each state, in murder_rate
+<pre class="r"><code># Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate &lt;- murders$total/murders$population*100000
 
 # Store the murder_rate &lt; 1 in low 
 low &lt;- murder_rate &lt; 1
 
 # Get the indices of entries that are below 1
-which(low)</code></pre>
+ind &lt;- which(low)
+ind</code></pre>
 <pre><code>##  [1] 12 13 16 20 24 30 35 38 42 45 46 51</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Use the results from the previous exercise to report the names of the states with murder rates lower than 1.</li>
+<li>Note that if we want to know which entries of a vector are lower than a particular value we can use code like this.</li>
 </ol>
-<pre><code># Store the murder rate per 100,000 for each state, in murder_rate
+<pre class="r"><code>small &lt;- murders$population &lt; 1000000
+murders$state[small]</code></pre>
+<p>The code above shows us the states with populations smaller than one million.</p>
+<pre class="r"><code># Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate &lt;- murders$total/murders$population*100000
 
 # Store the murder_rate &lt; 1 in low 
@@ -1402,65 +1455,137 @@ murders$state[low]</code></pre>
 ##  [5] &quot;Minnesota&quot;     &quot;New Hampshire&quot; &quot;North Dakota&quot;  &quot;Oregon&quot;       
 ##  [9] &quot;South Dakota&quot;  &quot;Utah&quot;          &quot;Vermont&quot;       &quot;Wyoming&quot;</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Now extend the code from exercise 2 and 3 to report the states in the Northeast with murder rates lower than 1. Hint: use the previously defined logical vector low and the logical operator &amp;.</li>
+<li>Now we will extend the code from the previous exercises to report the states in the Northeast with a murder rate lower than 1.</li>
 </ol>
-<pre><code># Store the murder rate per 100,000 for each state, in `murder_rate`
+<pre class="r"><code># Store the murder rate per 100,000 for each state, in `murder_rate`
 murder_rate &lt;- murders$total/murders$population*100000
 
 # Store the `murder_rate &lt; 1` in `low` 
 low &lt;- murder_rate &lt; 1
 
-# Create a vector ind for states in the Northeast and with murder rates lower than
-ind &lt;- low &amp; murders$region==&#39;Northeast&#39;
+# Create a vector ind for states in the Northeast and with murder rates lower than 1. 
+northeast &lt;- murders$region == &quot;Northeast&quot;
+ind &lt;- low &amp; northeast
 
 # Names of states in `ind` 
-murders$state[ind] </code></pre>
+murders$state[ind]</code></pre>
 <pre><code>## [1] &quot;Maine&quot;         &quot;New Hampshire&quot; &quot;Vermont&quot;</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>In a previous exercise we computed the murder rate for each state and the average of these numbers. How many states are below the average?</li>
 </ol>
-<pre><code># Store the murder rate per 100,000 for each state, in murder_rate
+<pre class="r"><code># Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate &lt;- murders$total/murders$population*100000
 
-# Compute average murder rate and store in avg using `mean` 
+
+# Compute the average murder rate using `mean` and store it in object named `avg`
 avg &lt;- mean(murder_rate)
 
 # How many states have murder rates below avg ? Check using sum 
-sum(murder_rate&lt;avg)</code></pre>
+ind &lt;- murder_rate &lt; avg
+sum(ind)</code></pre>
 <pre><code>## [1] 27</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Use the match function to identify the states with abbreviations AK, MI, and IA. Hint: start by defining an index of the entries of murders$abb that match the three abbreviations, then use the [ operator to extract the states.</li>
+<li>In this exercise we use the <code>match</code> function to identify the states with abbreviations AK, MI, and IA.</li>
 </ol>
-<pre><code># Store the 3 abbreviations in abbs in a vector (remember that they are character vectors and need quotes)
-abbs &lt;- c(&#39;AK&#39;,&#39;MI&#39;,&#39;IA&#39;)
+<pre class="r"><code># Store the 3 abbreviations in a vector called `abbs` (remember that they are character vectors and need quotes)
+abbs &lt;- c(&quot;AK&quot;, &quot;MI&quot;, &quot;IA&quot;)
 
 # Match the abbs to the murders$abb and store in ind
-ind &lt;- match(abbs , murders$abb)
+ind &lt;- match(abbs, murders$abb)
 
 # Print state names from ind
 murders$state[ind]</code></pre>
 <pre><code>## [1] &quot;Alaska&quot;   &quot;Michigan&quot; &quot;Iowa&quot;</code></pre>
 <ol start="7" style="list-style-type: decimal">
-<li>Use the %in% operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU ?</li>
+<li>If rather than an index we want a logical that tells us whether or not each element of a first vector is in a second, we can use the function <code>%in%</code>.</li>
 </ol>
-<pre><code># Store the 5 abbreviations in `abbs`. (remember that they are character vectors)
-abbs &lt;- c(&#39;MA&#39;, &#39;ME&#39;, &#39;MI&#39;, &#39;MO&#39;, &#39;MU&#39;)
+<p>For example:</p>
+<pre class="r"><code>x &lt;- c(2, 3, 5)
+y &lt;- c(1, 2, 3, 4)
+x%in%y</code></pre>
+<p>Gives us two <code>TRUE</code> followed by a <code>FALSE</code> because 2 and 3 are in <code>y</code> but 5 is not.</p>
+<pre class="r"><code># Store the 5 abbreviations in `abbs`. (remember that they are character vectors)
+abbs &lt;- c(&quot;MA&quot;, &quot;ME&quot;, &quot;MI&quot;, &quot;MO&quot;, &quot;MU&quot;)
 
 # Use the %in% command to check if the entries of abbs are abbreviations in the the murders data frame
 abbs%in%murders$abb</code></pre>
 <pre><code>## [1]  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
 <ol start="8" style="list-style-type: decimal">
-<li>Extend the code you used in exercise 7 to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.</li>
+<li>In a previous exercise we computed the index <code>abbs%in%murders$abb</code>. Based on that, and using the <code>which</code> function and the <code>!</code> operator, get the index of the entries of <code>abbs</code> that are <strong>not</strong> abbreviations.</li>
 </ol>
-<pre><code># Store the 5 abbreviations in abbs. (remember that they are character vectors)
+<pre class="r"><code># Store the 5 abbreviations in abbs. (remember that they are character vectors)
 abbs &lt;- c(&quot;MA&quot;, &quot;ME&quot;, &quot;MI&quot;, &quot;MO&quot;, &quot;MU&quot;) 
 
-# Use the `which` command and `!` operator to find out which abbreviation are not actually part of the dataset and store in ind
+# Use the `which` command and `!` operator to find out which index abbreviations are not actually part of the dataset and store in `ind`
 ind &lt;- which(!abbs%in%murders$abb)
 
-# What are the entries of abbs that are not actual abbreviations
+# Names of abbreviations in `ind`
 abbs[ind]</code></pre>
 <pre><code>## [1] &quot;MU&quot;</code></pre>
+</div>
+<div id="basic-data-wrangling" class="section level2">
+<h2>Basic Data Wrangling</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/tidyverse.html#manipulating-data-frames">here</a> and <a href="https://rafalab.github.io/dsbook/tidyverse.html#the-pipe">here</a></p>
+<p>In the textbook, the dplyr package is introduced in the context of the tidyverse, a collection of R packages</p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>To change a data table by adding a new column, or changing an existing one, we use the <code>mutate</code> function.</li>
+<li>To filter the data by subsetting rows, we use the function <code>filter</code>.</li>
+<li>To subset the data by selecting specific columns, we use the <code>select</code> function.</li>
+<li>We can perform a series of operations by sending the results of one function to another function using what is called the pipe operator, <code>%&gt;%</code>.</li>
+</ul>
+<p><em>Code</em></p>
+<pre class="r"><code># installing and loading the dplyr package
+if(!require(dplyr)) install.packages(&quot;dplyr&quot;)</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(dplyr)
+
+# adding a column with mutate
+library(dslabs)
+data(&quot;murders&quot;)
+murders &lt;- mutate(murders, rate = total / population * 100000)
+
+# subsetting with filter
+filter(murders, rate &lt;= 0.71)</code></pre>
+<pre><code>##           state abb        region population total  rate
+## 1        Hawaii  HI          West    1360301     7 0.515
+## 2          Iowa  IA North Central    3046355    21 0.689
+## 3 New Hampshire  NH     Northeast    1316470     5 0.380
+## 4  North Dakota  ND North Central     672591     4 0.595
+## 5       Vermont  VT     Northeast     625741     2 0.320</code></pre>
+<pre class="r"><code># selecting columns with select
+new_table &lt;- select(murders, state, region, rate)
+
+# using the pipe
+murders %&gt;% select(state, region, rate) %&gt;% filter(rate &lt;= 0.71)</code></pre>
+<pre><code>##           state        region  rate
+## 1        Hawaii          West 0.515
+## 2          Iowa North Central 0.689
+## 3 New Hampshire     Northeast 0.380
+## 4  North Dakota North Central 0.595
+## 5       Vermont     Northeast 0.320</code></pre>
+</div>
+<div id="basic-data-wrangling---creating-data-frames" class="section level2">
+<h2>Basic Data Wrangling - Creating Data Frames</h2>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>We can use the <code>data.frame()</code> function to create data frames.</li>
+<li>By default, the <code>data.frame()</code> function turns characters into factors. To avoid this, we utilize the <code>stringsAsFactors</code> argument and set it equal to false.</li>
+</ul>
+<p><em>Code</em></p>
+<pre class="r"><code># creating a data frame with stringAsFactors = FALSE
+grades &lt;- data.frame(names = c(&quot;John&quot;, &quot;Juan&quot;, &quot;Jean&quot;, &quot;Yao&quot;), 
+                     exam_1 = c(95, 80, 90, 85), 
+                     exam_2 = c(90, 85, 85, 90),
+                     stringsAsFactors = FALSE)</code></pre>
 </div>
 <div id="assessment-7" class="section level2">
 <h2>Assessment 7</h2>
