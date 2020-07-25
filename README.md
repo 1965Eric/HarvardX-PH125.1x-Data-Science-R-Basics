@@ -1,4 +1,4 @@
-# Data_Science_R_Basics
+# Data Science R Basics
 # HarvardX: PH125.1x | Data Science: R Basics
 
 ## Abstract
