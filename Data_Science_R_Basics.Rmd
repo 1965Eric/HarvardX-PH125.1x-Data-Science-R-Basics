@@ -1852,20 +1852,37 @@ print("Not all positives")
 - [ ] C. N/A
 - [ ] D. None of the above
 
-2. Which of the following expressions is always FALSE when at least one entry of a logical vector x is TRUE?
+2. Which of the following expressions is always ```FALSE``` when at least one entry of a logical vector x is ```TRUE``?
 
 - [ ] A. all(x)
 - [ ] B. any(x)
 - [ ] C. any(!x)
 - [X] D. all(!x)
 
-3. The function nchar tells you how many characters long a character vector is.
+3. The function ```nchar`` tells you how many characters long a character vector is.
 
-Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.
+For example:
+
+```{r, eval=FALSE, echo=TRUE}
+char_len <- nchar(murders$state)
+head(char_len)
 ```
+
+The function ```ifelse``` is useful because you convert a vector of logicals into something else. For example, some datasets use the number -999 to denote NA. A bad practice! You can convert the -999 in a vector to NA using the following ```ifelse``` call:
+
+```{r, eval=FALSE, echo=TRUE}
+x <- c(2, 3, -999, 1, 4, 5, -999, 3, 2, 9)
+ifelse(x == -999, NA, x)
+```
+
+If the entry is -999 it returns NA, otherwise it returns the entry.
+
+```{r}
 # Assign the state abbreviation when the state name is longer than 8 characters 
-new_names <- ifelse(nchar(murders$state)>8, murders$abb, murders$state)
+char_len <- nchar(murders$state)
+new_names <- ifelse(char_len > 8, murders$abb, murders$state)
 ```
+
 4. Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.
 ```
 # Create function called `sum_n`
