@@ -3995,8 +3995,313 @@ R}\label{programming-basics---introduction-to-programming-in-r}}
 The textbook for this section is available
 \href{https://rafalab.github.io/dsbook/programming-basics.html}{here}
 
-\hypertarget{assessment-9}{%
-\subsection{Assessment 9}\label{assessment-9}}
+\hypertarget{basic-conditionals}{%
+\subsection{Basic Conditionals}\label{basic-conditionals}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/programming-basics.html\#conditionals}{here}
+
+\textbf{Key Points}
+
+\begin{itemize}
+\tightlist
+\item
+  The most common conditional expression in programming is an if-else
+  statement, which has the form ``if {[}condition{]}, perform
+  {[}expression{]}, else perform {[}alternative expression{]}''.
+\item
+  The \texttt{ifelse()} function works similarly to an if-else
+  statement, but it is particularly useful since it works on vectors by
+  examining each element of the vector and returning a corresponding
+  answer accordingly.
+\item
+  The \texttt{any()} function takes a vector of logicals and returns
+  true if any of the entries are true.
+\item
+  The \texttt{all()} function takes a vector of logicals and returns
+  true if all of the entries are true.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# an example showing the general structure of an if-else statement}
+\NormalTok{a <-}\StringTok{ }\DecValTok{0}
+\ControlFlowTok{if}\NormalTok{(a}\OperatorTok{!=}\DecValTok{0}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{a)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{\{}
+  \KeywordTok{print}\NormalTok{(}\StringTok{"No reciprocal for 0."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "No reciprocal for 0."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# an example that tells us which states, if any, have a murder rate less than 0.5}
+\KeywordTok{library}\NormalTok{(dslabs)}
+\KeywordTok{data}\NormalTok{(murders)}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total }\OperatorTok{/}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population}\OperatorTok{*}\DecValTok{100000}
+\NormalTok{ind <-}\StringTok{ }\KeywordTok{which.min}\NormalTok{(murder_rate)}
+\ControlFlowTok{if}\NormalTok{(murder_rate[ind] }\OperatorTok{<}\StringTok{ }\FloatTok{0.5}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(murders}\OperatorTok{$}\NormalTok{state[ind]) }
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{\{}
+  \KeywordTok{print}\NormalTok{(}\StringTok{"No state has murder rate that low"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Vermont"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# changing the condition to < 0.25 changes the result}
+\ControlFlowTok{if}\NormalTok{(murder_rate[ind] }\OperatorTok{<}\StringTok{ }\FloatTok{0.25}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(murders}\OperatorTok{$}\NormalTok{state[ind]) }
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{\{}
+  \KeywordTok{print}\NormalTok{(}\StringTok{"No state has a murder rate that low."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "No state has a murder rate that low."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# the ifelse() function works similarly to an if-else conditional}
+\NormalTok{a <-}\StringTok{ }\DecValTok{0}
+\KeywordTok{ifelse}\NormalTok{(a }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{1}\OperatorTok{/}\NormalTok{a, }\OtherTok{NA}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# the ifelse() function is particularly useful on vectors}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\OperatorTok{-}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\NormalTok{result <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(a }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{1}\OperatorTok{/}\NormalTok{a, }\OtherTok{NA}\NormalTok{)}
+
+\CommentTok{# the ifelse() function is also helpful for replacing missing values}
+\KeywordTok{data}\NormalTok{(na_example)}
+\NormalTok{no_nas <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(na_example), }\DecValTok{0}\NormalTok{, na_example) }
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(no_nas))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# the any() and all() functions evaluate logical vectors}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{any}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{all}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\hypertarget{functions}{%
+\subsection{Functions}\label{functions}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/programming-basics.html\#defining-functions}{here}
+
+\textbf{Key points}
+
+\begin{itemize}
+\tightlist
+\item
+  The R function, called \texttt{function()} tells R you are about to
+  define a new function.
+\item
+  Functions are objects, so must be assigned a variable name with the
+  arrow operator.
+\item
+  The general way to define functions is: (1) decide the function name,
+  which will be an object, (2) type \texttt{function()} with your
+  function's arguments in parentheses, (3) write all the operations
+  inside brackets.
+\item
+  Variables defined inside a function are not saved in the workspace.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# example of defining a function to compute the average of a vector x}
+\NormalTok{avg <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  s <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x)}
+\NormalTok{  n <-}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+\NormalTok{  s}\OperatorTok{/}\NormalTok{n}
+\NormalTok{\}}
+
+\CommentTok{# we see that the above function and the pre-built R mean() function are identical}
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{100}
+\KeywordTok{identical}\NormalTok{(}\KeywordTok{mean}\NormalTok{(x), }\KeywordTok{avg}\NormalTok{(x))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# variables inside a function are not defined in the workspace}
+\NormalTok{s <-}\StringTok{ }\DecValTok{3}
+\KeywordTok{avg}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# the general form of a function}
+\NormalTok{my_function <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(VARIABLE_NAME)\{}
+\NormalTok{  perform operations on VARIABLE_NAME and calculate VALUE}
+\NormalTok{  VALUE}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# functions can have multiple arguments as well as default values}
+\NormalTok{avg <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, }\DataTypeTok{arithmetic =} \OtherTok{TRUE}\NormalTok{)\{}
+\NormalTok{  n <-}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+  \KeywordTok{ifelse}\NormalTok{(arithmetic, }\KeywordTok{sum}\NormalTok{(x)}\OperatorTok{/}\NormalTok{n, }\KeywordTok{prod}\NormalTok{(x)}\OperatorTok{^}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{n))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{for-loops}{%
+\subsection{For Loops}\label{for-loops}}
+
+The textbook for this section is available
+\href{https://rafalab.github.io/dsbook/programming-basics.html\#for-loops}{here}
+
+\textbf{Key points}
+
+\begin{itemize}
+\tightlist
+\item
+  For-loops perform the same task over and over while changing the
+  variable. They let us define the range that our variable takes, and
+  then changes the value with each loop and evaluates the expression
+  every time inside the loop.
+\item
+  The general form of a for-loop is: ``For i in {[}some range{]}, do
+  operations''. This i changes across the range of values and the
+  operations assume i is a value you're interested in computing on.
+\item
+  At the end of the loop, the value of i is the last value of the range.
+\end{itemize}
+
+\emph{Code}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# creating a function that computes the sum of integers 1 through n}
+\NormalTok{compute_s_n <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(n)\{}
+\NormalTok{  x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\NormalTok{n}
+  \KeywordTok{sum}\NormalTok{(x)}
+\NormalTok{\}}
+
+\CommentTok{# a very simple for-loop}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)\{}
+  \KeywordTok{print}\NormalTok{(i)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# a for-loop for our summation}
+\NormalTok{m <-}\StringTok{ }\DecValTok{25}
+\NormalTok{s_n <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\DataTypeTok{length =}\NormalTok{ m) }\CommentTok{# create an empty vector}
+\ControlFlowTok{for}\NormalTok{(n }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{m)\{}
+\NormalTok{  s_n[n] <-}\StringTok{ }\KeywordTok{compute_s_n}\NormalTok{(n)}
+\NormalTok{\}}
+
+\CommentTok{# creating a plot for our summation function}
+\NormalTok{n <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\NormalTok{m}
+\KeywordTok{plot}\NormalTok{(n, s_n)}
+
+\CommentTok{# a table of values comparing our function to the summation formula}
+\KeywordTok{head}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{s_n =}\NormalTok{ s_n, }\DataTypeTok{formula =}\NormalTok{ n}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   s_n formula
+## 1   1       1
+## 2   3       3
+## 3   6       6
+## 4  10      10
+## 5  15      15
+## 6  21      21
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# overlaying our function with the summation formula}
+\KeywordTok{plot}\NormalTok{(n, s_n)}
+\KeywordTok{lines}\NormalTok{(n, n}\OperatorTok{*}\NormalTok{(n}\OperatorTok{+}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Data_Science_R_Basics_files/figure-latex/unnamed-chunk-125-1.pdf}
+
+\hypertarget{assessment---programming-basics}{%
+\subsection{Assessment - Programming
+Basics}\label{assessment---programming-basics}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4005,14 +4310,19 @@ The textbook for this section is available
   What will this conditional expression return?
 \end{enumerate}
 
-\begin{verbatim}
-x <- c(1,2,-3,4)
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\OperatorTok{-}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{)}
+\ControlFlowTok{if}\NormalTok{(}\KeywordTok{all}\NormalTok{(x}\OperatorTok{>}\DecValTok{0}\NormalTok{))\{}
+\KeywordTok{print}\NormalTok{(}\StringTok{"All Postives"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{\{}
+\KeywordTok{print}\NormalTok{(}\StringTok{"Not all positives"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-if(all(x>0)){
-print(“All Postives”)
-} else{
-print(“Not all positives”)
-}
+\begin{verbatim}
+## [1] "Not all positives"
 \end{verbatim}
 
 \begin{itemize}

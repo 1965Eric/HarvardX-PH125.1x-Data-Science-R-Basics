@@ -1692,9 +1692,9 @@ The textbook for this section is available [here](https://rafalab.github.io/dsbo
 **Key Points**
 
 * The most common conditional expression in programming is an if-else statement, which has the form "if [condition], perform [expression], else perform [alternative expression]".
-The ```ifelse()``` function works similarly to an if-else statement, but it is particularly useful since it works on vectors by examining each element of the vector and returning a corresponding answer accordingly.
-The ```any()``` function takes a vector of logicals and returns true if any of the entries are true.
-The ```all()``` function takes a vector of logicals and returns true if all of the entries are true.
+* The ```ifelse()``` function works similarly to an if-else statement, but it is particularly useful since it works on vectors by examining each element of the vector and returning a corresponding answer accordingly.
+* The ```any()``` function takes a vector of logicals and returns true if any of the entries are true.
+* The ```all()``` function takes a vector of logicals and returns true if all of the entries are true.
 
 *Code*
 
@@ -1773,13 +1773,17 @@ identical(mean(x), avg(x))
 s <- 3
 avg(1:10)
 s
+```
 
+```{r, eval=FALSE, echo=TRUE}
 # the general form of a function
 my_function <- function(VARIABLE_NAME){
   perform operations on VARIABLE_NAME and calculate VALUE
   VALUE
 }
+```
 
+```{r}
 # functions can have multiple arguments as well as default values
 avg <- function(x, arithmetic = TRUE){
   n <- length(x)
@@ -1809,6 +1813,7 @@ compute_s_n <- function(n){
 # a very simple for-loop
 for(i in 1:5){
   print(i)
+}
 
 # a for-loop for our summation
 m <- 25
@@ -1836,9 +1841,9 @@ lines(n, n*(n+1)/2)
 ```{r}
 x <- c(1,2,-3,4)
 if(all(x>0)){
-print(“All Postives”)
+print("All Postives")
 } else{
-print(“Not all positives”)
+print("Not all positives")
 }
 ```
 
