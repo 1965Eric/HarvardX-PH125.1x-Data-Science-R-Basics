@@ -1685,18 +1685,163 @@ In Section 4.4, you will:
 
 The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html)
 
-## Assessment 9
+## Basic Conditionals
+
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#conditionals)
+
+**Key Points**
+
+* The most common conditional expression in programming is an if-else statement, which has the form "if [condition], perform [expression], else perform [alternative expression]".
+The ```ifelse()``` function works similarly to an if-else statement, but it is particularly useful since it works on vectors by examining each element of the vector and returning a corresponding answer accordingly.
+The ```any()``` function takes a vector of logicals and returns true if any of the entries are true.
+The ```all()``` function takes a vector of logicals and returns true if all of the entries are true.
+
+*Code*
+
+```{r}
+# an example showing the general structure of an if-else statement
+a <- 0
+if(a!=0){
+  print(1/a)
+} else{
+  print("No reciprocal for 0.")
+}
+
+# an example that tells us which states, if any, have a murder rate less than 0.5
+library(dslabs)
+data(murders)
+murder_rate <- murders$total / murders$population*100000
+ind <- which.min(murder_rate)
+if(murder_rate[ind] < 0.5){
+  print(murders$state[ind]) 
+} else{
+  print("No state has murder rate that low")
+}
+
+# changing the condition to < 0.25 changes the result
+if(murder_rate[ind] < 0.25){
+  print(murders$state[ind]) 
+} else{
+  print("No state has a murder rate that low.")
+}
+
+# the ifelse() function works similarly to an if-else conditional
+a <- 0
+ifelse(a > 0, 1/a, NA)
+
+# the ifelse() function is particularly useful on vectors
+a <- c(0,1,2,-4,5)
+result <- ifelse(a > 0, 1/a, NA)
+
+# the ifelse() function is also helpful for replacing missing values
+data(na_example)
+no_nas <- ifelse(is.na(na_example), 0, na_example) 
+sum(is.na(no_nas))
+
+# the any() and all() functions evaluate logical vectors
+z <- c(TRUE, TRUE, FALSE)
+any(z)
+all(z)
+```
+
+## Functions
+
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#defining-functions)
+
+**Key points**
+
+* The R function, called ```function()``` tells R you are about to define a new function.
+* Functions are objects, so must be assigned a variable name with the arrow operator.
+* The general way to define functions is: (1) decide the function name, which will be an object, (2) type ```function()``` with your function's arguments in parentheses, (3) write all the operations inside brackets.
+* Variables defined inside a function are not saved in the workspace.
+
+*Code*
+
+```{r}
+# example of defining a function to compute the average of a vector x
+avg <- function(x){
+  s <- sum(x)
+  n <- length(x)
+  s/n
+}
+
+# we see that the above function and the pre-built R mean() function are identical
+x <- 1:100
+identical(mean(x), avg(x))
+
+# variables inside a function are not defined in the workspace
+s <- 3
+avg(1:10)
+s
+
+# the general form of a function
+my_function <- function(VARIABLE_NAME){
+  perform operations on VARIABLE_NAME and calculate VALUE
+  VALUE
+}
+
+# functions can have multiple arguments as well as default values
+avg <- function(x, arithmetic = TRUE){
+  n <- length(x)
+  ifelse(arithmetic, sum(x)/n, prod(x)^(1/n))
+}
+```
+
+## For Loops
+
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#for-loops)
+
+**Key points**
+
+* For-loops perform the same task over and over while changing the variable.  They let us define the range that our variable takes, and then changes the value with each loop and evaluates the expression every time inside the loop.
+* The general form of a for-loop is: "For i in [some range], do operations".  This i changes across the range of values and the operations assume i is a value you're interested in computing on.
+* At the end of the loop, the value of i is the last value of the range.
+
+*Code*
+
+```{r}
+# creating a function that computes the sum of integers 1 through n
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x)
+}
+
+# a very simple for-loop
+for(i in 1:5){
+  print(i)
+
+# a for-loop for our summation
+m <- 25
+s_n <- vector(length = m) # create an empty vector
+for(n in 1:m){
+  s_n[n] <- compute_s_n(n)
+}
+
+# creating a plot for our summation function
+n <- 1:m
+plot(n, s_n)
+
+# a table of values comparing our function to the summation formula
+head(data.frame(s_n = s_n, formula = n*(n+1)/2))
+
+# overlaying our function with the summation formula
+plot(n, s_n)
+lines(n, n*(n+1)/2)
+```
+
+## Assessment - Programming Basics
 
 1. What will this conditional expression return?
-```
-x <- c(1,2,-3,4)
 
+```{r}
+x <- c(1,2,-3,4)
 if(all(x>0)){
 print(“All Postives”)
 } else{
 print(“Not all positives”)
 }
 ```
+
 - [ ] A. All Positives
 - [X] B. Not All Positives
 - [ ] C. N/A
