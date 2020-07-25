@@ -1655,6 +1655,7 @@ boxplot(palmitic ~ region, data = olive)
 ```
 
 Which region has the highest median palmitic acid percentage? ```Southern Italy```
+
 Which region has the most variable palmitic acid percentage? ```Southern Italy```
 
 ## Section 4 Overview
