@@ -2116,7 +2116,7 @@ print(&quot;Not all positives&quot;)
 <li>[ ] D. None of the above</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li>Which of the following expressions is always FALSE when at least one entry of a logical vector x is TRUE?</li>
+<li>Which of the following expressions is always <code>FALSE</code> when at least one entry of a logical vector x is `<code>TRUE</code>?</li>
 </ol>
 <ul>
 <li>[ ] A. all(x)</li>
@@ -2125,11 +2125,18 @@ print(&quot;Not all positives&quot;)
 <li>[X] D. all(!x)</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>The function nchar tells you how many characters long a character vector is.</li>
+<li>The function `<code>nchar</code> tells you how many characters long a character vector is.</li>
 </ol>
-<p>Write a line of code that assigns to the object new_names the state abbreviation when the state name is longer than 8 characters.</p>
-<pre><code># Assign the state abbreviation when the state name is longer than 8 characters 
-new_names &lt;- ifelse(nchar(murders$state)&gt;8, murders$abb, murders$state)</code></pre>
+<p>For example:</p>
+<pre class="r"><code>char_len &lt;- nchar(murders$state)
+head(char_len)</code></pre>
+<p>The function <code>ifelse</code> is useful because you convert a vector of logicals into something else. For example, some datasets use the number -999 to denote NA. A bad practice! You can convert the -999 in a vector to NA using the following <code>ifelse</code> call:</p>
+<pre class="r"><code>x &lt;- c(2, 3, -999, 1, 4, 5, -999, 3, 2, 9)
+ifelse(x == -999, NA, x)</code></pre>
+<p>If the entry is -999 it returns NA, otherwise it returns the entry.</p>
+<pre class="r"><code># Assign the state abbreviation when the state name is longer than 8 characters 
+char_len &lt;- nchar(murders$state)
+new_names &lt;- ifelse(char_len &gt; 8, murders$abb, murders$state)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.</li>
 </ol>

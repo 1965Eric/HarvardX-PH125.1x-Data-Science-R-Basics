@@ -4342,8 +4342,8 @@ Basics}\label{assessment---programming-basics}}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Which of the following expressions is always FALSE when at least one
-  entry of a logical vector x is TRUE?
+  Which of the following expressions is always \texttt{FALSE} when at
+  least one entry of a logical vector x is `\texttt{TRUE}?
 \end{enumerate}
 
 \begin{itemize}
@@ -4363,17 +4363,40 @@ Basics}\label{assessment---programming-basics}}
 \setcounter{enumi}{2}
 \tightlist
 \item
-  The function nchar tells you how many characters long a character
-  vector is.
+  The function `\texttt{nchar} tells you how many characters long a
+  character vector is.
 \end{enumerate}
 
-Write a line of code that assigns to the object new\_names the state
-abbreviation when the state name is longer than 8 characters.
+For example:
 
-\begin{verbatim}
-# Assign the state abbreviation when the state name is longer than 8 characters 
-new_names <- ifelse(nchar(murders$state)>8, murders$abb, murders$state)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{char_len <-}\StringTok{ }\KeywordTok{nchar}\NormalTok{(murders}\OperatorTok{$}\NormalTok{state)}
+\KeywordTok{head}\NormalTok{(char_len)}
+\end{Highlighting}
+\end{Shaded}
+
+The function \texttt{ifelse} is useful because you convert a vector of
+logicals into something else. For example, some datasets use the number
+-999 to denote NA. A bad practice! You can convert the -999 in a vector
+to NA using the following \texttt{ifelse} call:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{-999}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{-999}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\KeywordTok{ifelse}\NormalTok{(x }\OperatorTok{==}\StringTok{ }\DecValTok{-999}\NormalTok{, }\OtherTok{NA}\NormalTok{, x)}
+\end{Highlighting}
+\end{Shaded}
+
+If the entry is -999 it returns NA, otherwise it returns the entry.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Assign the state abbreviation when the state name is longer than 8 characters }
+\NormalTok{char_len <-}\StringTok{ }\KeywordTok{nchar}\NormalTok{(murders}\OperatorTok{$}\NormalTok{state)}
+\NormalTok{new_names <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(char_len }\OperatorTok{>}\StringTok{ }\DecValTok{8}\NormalTok{, murders}\OperatorTok{$}\NormalTok{abb, murders}\OperatorTok{$}\NormalTok{state)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
