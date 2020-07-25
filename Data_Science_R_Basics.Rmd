@@ -981,6 +981,14 @@ max(x)
 which.max(x)
 ```
 
+```min(x)``` 2
+
+```which.min(x)``` 1
+
+```max(x)``` none of these
+
+```which.max(x)``` 4
+
 3. Mandi, Amy, Nicole, and Olivia all ran different distances in different time intervals. Their distances (in
 miles) and times (in minutes) are as follows:
 
