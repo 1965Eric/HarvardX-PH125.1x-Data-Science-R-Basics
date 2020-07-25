@@ -1045,25 +1045,77 @@ In Section 3.3, you will:
 
 * Plot data in scatter plots, box plots and histograms.
 
+## Indexing
+
 The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#indexing)
 
-## Assessment 6
+**Key Points**
 
-Start by loading the library and data.
+* We can use logicals to index vectors.
+* Using the function >sum()on a logical vector returns the number of entries that are true.
+* The logical operator “&” makes two logicals true only when they are both true.
+
+*Code*
+
+```{r}
+# defining murder rate as before
+murder_rate <- murders$total / murders$population * 100000
+# creating a logical vector that specifies if the murder rate in that state is less than or equal to 0.71
+index <- murder_rate <= 0.71
+# determining which states have murder rates less than or equal to 0.71
+murders$state[index]
+# calculating how many states have a murder rate less than or equal to 0.71
+sum(index)
+
+# creating the two logical vectors representing our conditions
+west <- murders$region == "West"
+safe <- murder_rate <= 1
+# defining an index and identifying states with both conditions true
+index <- safe & west
+murders$state[index]
 ```
-library(dslabs)
-data(murders)
+
+## Indexing - Indexing Functions
+
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#which)
+
+**Key Points**
+
+* The function which() gives us the entries of a logical vector that are true.
+* The function match() looks for entries in a vector and returns the index needed to access them.
+* We use the function %in% if we want to know whether or not each element of a first vector is in a second vector.
+
+*Code*
+
+```{r}
+# to determine the murder rate in Massachusetts we may do the following
+ind <- which(murders$state == "Massachusetts")
+murder_rate[ind]
+
+# to obtain the indices and subsequent murder rates of New York, Florida, Texas, we do:
+ind <- match(c("New York", "Florida", "Texas"), murders$state)
+ind
+murder_rate[ind]
+
+# to see if Boston, Dakota, and Washington are states
+c("Boston", "Dakota", "Washington") %in% murders$state
 ```
-1. Compute the per 100,000 murder rate for each state and store it in an object called murder_rate. Then use logical operators to create a logical vector named low that tells us which entries of murder_rate are lower than 1.
-```
+
+## Assessment - Indexing
+
+1. Here we will be using logical operators to create a logical vector. Compute the per 100,000 murder rate for each state and store it in an object called ```murder_rate```. Then use logical operators to create a logical vector named ```low``` that tells us which entries of ```murder_rate``` are lower than 1.
+
+```{r}
 # Store the murder rate per 100,000 for each state, in `murder_rate`
 murder_rate <- murders$total / murders$population * 100000
 
 # Store the `murder_rate < 1` in `low` 
 low <- murder_rate < 1
 ```
-2. Now use the results from the previous exercise and the function which to determine the indices of murder_rate associated with values lower than 1.
-```
+
+2. The function ```which()`` helps us know directly, which values are low or high, etc. Let's use it in this question.
+
+```{r}
 # Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate <- murders$total/murders$population*100000
 
@@ -1071,13 +1123,20 @@ murder_rate <- murders$total/murders$population*100000
 low <- murder_rate < 1
 
 # Get the indices of entries that are below 1
-which(low)
+ind <- which(low)
+ind
 ```
+
+3. Note that if we want to know which entries of a vector are lower than a particular value we can use code like this.
+
+```{r, eval=FALSE, echo=TRUE}
+small <- murders$population < 1000000
+murders$state[small]
 ```
-##  [1] 12 13 16 20 24 30 35 38 42 45 46 51
-```
-3. Use the results from the previous exercise to report the names of the states with murder rates lower than 1.
-```
+
+The code above shows us the states with populations smaller than one million.
+
+```{r}
 # Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate <- murders$total/murders$population*100000
 
@@ -1087,81 +1146,137 @@ low <- murder_rate < 1
 # Names of states with murder rates lower than 1
 murders$state[low]
 ```
-```
-##  [1] "Hawaii"        "Idaho"         "Iowa"          "Maine"        
-##  [5] "Minnesota"     "New Hampshire" "North Dakota"  "Oregon"       
-##  [9] "South Dakota"  "Utah"          "Vermont"       "Wyoming"
-```
-4. Now extend the code from exercise 2 and 3 to report the states in the Northeast with murder rates lower than 1. Hint: use the previously defined logical vector low and the logical operator &.
-```
+
+4. Now we will extend the code from the previous exercises to report the states in the Northeast with a murder rate lower than 1.
+
+```{r}
 # Store the murder rate per 100,000 for each state, in `murder_rate`
 murder_rate <- murders$total/murders$population*100000
 
 # Store the `murder_rate < 1` in `low` 
 low <- murder_rate < 1
 
-# Create a vector ind for states in the Northeast and with murder rates lower than
-ind <- low & murders$region=='Northeast'
+# Create a vector ind for states in the Northeast and with murder rates lower than 1. 
+northeast <- murders$region == "Northeast"
+ind <- low & northeast
 
 # Names of states in `ind` 
-murders$state[ind] 
+murders$state[ind]
 ```
-```
-## [1] "Maine"         "New Hampshire" "Vermont"
-```
+
 5. In a previous exercise we computed the murder rate for each state and the average of these numbers. How many states are below the average?
-```
+
+```{r}
 # Store the murder rate per 100,000 for each state, in murder_rate
 murder_rate <- murders$total/murders$population*100000
 
-# Compute average murder rate and store in avg using `mean` 
+
+# Compute the average murder rate using `mean` and store it in object named `avg`
 avg <- mean(murder_rate)
 
 # How many states have murder rates below avg ? Check using sum 
-sum(murder_rate<avg)
+ind <- murder_rate < avg
+sum(ind)
 ```
-```
-## [1] 27
-```
-6. Use the match function to identify the states with abbreviations AK, MI, and IA. Hint: start by defining an index of the entries of murders$abb that match the three abbreviations, then use the [ operator to extract the states.
-```
-# Store the 3 abbreviations in abbs in a vector (remember that they are character vectors and need quotes)
-abbs <- c('AK','MI','IA')
+
+6. In this exercise we use the ```match``` function to identify the states with abbreviations AK, MI, and IA.
+
+```{r}
+# Store the 3 abbreviations in a vector called `abbs` (remember that they are character vectors and need quotes)
+abbs <- c("AK", "MI", "IA")
 
 # Match the abbs to the murders$abb and store in ind
-ind <- match(abbs , murders$abb)
+ind <- match(abbs, murders$abb)
 
 # Print state names from ind
 murders$state[ind]
 ```
+
+7. If rather than an index we want a logical that tells us whether or not each element of a first vector is in a second, we can use the function ```%in%```. 
+
+For example:
+
+```{r, eval=FALSE, echo=TRUE}
+x <- c(2, 3, 5)
+y <- c(1, 2, 3, 4)
+x%in%y
 ```
-## [1] "Alaska"   "Michigan" "Iowa"
-```
-7. Use the %in% operator to create a logical vector that answers the question: which of the following are actual abbreviations: MA, ME, MI, MO, MU ?
-```
+
+Gives us two ```TRUE``` followed by a ```FALSE``` because 2 and 3 are in ```y``` but 5 is not.
+
+```{r}
 # Store the 5 abbreviations in `abbs`. (remember that they are character vectors)
-abbs <- c('MA', 'ME', 'MI', 'MO', 'MU')
+abbs <- c("MA", "ME", "MI", "MO", "MU")
 
 # Use the %in% command to check if the entries of abbs are abbreviations in the the murders data frame
 abbs%in%murders$abb
 ```
-```
-## [1]  TRUE  TRUE  TRUE  TRUE FALSE
-```
-8. Extend the code you used in exercise 7 to report the one entry that is not an actual abbreviation. Hint: use the ! operator, which turns FALSE into TRUE and vice versa, then which to obtain an index.
-```
+
+8. In a previous exercise we computed the index ```abbs%in%murders$abb```. Based on that, and using the ```which``` function and the ```!``` operator, get the index of the entries of ```abbs``` that are **not** abbreviations.
+
+```{r}
 # Store the 5 abbreviations in abbs. (remember that they are character vectors)
 abbs <- c("MA", "ME", "MI", "MO", "MU") 
 
-# Use the `which` command and `!` operator to find out which abbreviation are not actually part of the dataset and store in ind
+# Use the `which` command and `!` operator to find out which index abbreviations are not actually part of the dataset and store in `ind`
 ind <- which(!abbs%in%murders$abb)
 
-# What are the entries of abbs that are not actual abbreviations
+# Names of abbreviations in `ind`
 abbs[ind]
 ```
+
+## Basic Data Wrangling
+
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/tidyverse.html#manipulating-data-frames) and [here](https://rafalab.github.io/dsbook/tidyverse.html#the-pipe)
+
+In the textbook, the dplyr package is introduced in the context of the tidyverse, a collection of R packages
+
+**Key Points**
+
+* To change a data table by adding a new column, or changing an existing one, we use the ```mutate``` function.
+* To filter the data by subsetting rows, we use the function ```filter```.
+* To subset the data by selecting specific columns, we use the ```select``` function.
+* We can perform a series of operations by sending the results of one function to another function using what is called the pipe operator, ```%>%```.
+
+*Code*
+
+```{r}
+# installing and loading the dplyr package
+install.packages("dplyr")
+library(dplyr)
+
+# adding a column with mutate
+library(dslabs)
+data("murders")
+murders <- mutate(murders, rate = total / population * 100000)
+
+# subsetting with filter
+filter(murders, rate <= 0.71)
+
+# selecting columns with select
+new_table <- select(murders, state, region, rate)
+
+# using the pipe
+murders %>% select(state, region, rate) %>% filter(rate <= 0.71)
 ```
-## [1] "MU"
+
+## Basic Data Wrangling - Creating Data Frames
+
+**Key Points**
+
+* We can use the ```data.frame()``` function to create data frames.
+* By default, the ```data.frame()``` function turns characters into factors.  To avoid this, we utilize the ```stringsAsFactors``` argument and set it equal to false.
+
+*Code*
+
+```{r}
+# creating a data frame with stringAsFactors = FALSE
+grades <- data.frame(names = c("John", "Juan", "Jean", "Yao"), 
+                     exam_1 = c(95, 80, 90, 85), 
+                     exam_2 = c(90, 85, 85, 90),
+                     stringsAsFactors = FALSE)
 ```
+
 ## Assessment 7
 
 Load the dplyr package and the murders dataset.
