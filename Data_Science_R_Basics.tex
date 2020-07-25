@@ -2266,59 +2266,56 @@ The textbook for this section is available
 ## [49] "Hawaii"               "New Hampshire"        "Vermont"
 \end{verbatim}
 
-\hypertarget{assessment-5}{%
-\subsection{Assessment 5}\label{assessment-5}}
+\hypertarget{assessment---vector-arithmetic}{%
+\subsection{Assessment - Vector
+Arithmetic}\label{assessment---vector-arithmetic}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Previously we created this data frame:
+  Previously we created this data frame.
 \end{enumerate}
 
-\begin{verbatim}
-temp <- c(35, 88, 42, 84, 81, 30)
-city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
-city_temps <- data.frame(name = city, temperature = temp)
-\end{verbatim}
+\texttt{\{r,\ eval=FALSE,\ echo=TRUE\ temp\ \textless{}-\ c(35,\ 88,\ 42,\ 84,\ 81,\ 30)\ city\ \textless{}-\ c("Beijing",\ "Lagos",\ "Paris",\ "Rio\ de\ Janeiro",\ "San\ Juan",\ "Toronto")\ city\_temps\ \textless{}-\ data.frame(name\ =\ city,\ temperature\ =\ temp)}
 
-Remake the data frame using the code above, but add a line that converts
-the temperature from Fahrenheit to Celsius. The conversion is C =5/9 ?
-(F ??? 32).
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Assign city names to `city` }
+\NormalTok{city <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Beijing"}\NormalTok{, }\StringTok{"Lagos"}\NormalTok{, }\StringTok{"Paris"}\NormalTok{, }\StringTok{"Rio de Janeiro"}\NormalTok{, }\StringTok{"San Juan"}\NormalTok{, }\StringTok{"Toronto"}\NormalTok{)}
 
-\begin{verbatim}
-# Assign city names to `city` 
-city <- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto")
+\CommentTok{# Store temperature values in `temp`}
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{35}\NormalTok{, }\DecValTok{88}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{84}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{30}\NormalTok{)}
 
-# Store temperature values in `temp`
-temp <- c(35, 88, 42, 84, 81, 30)
+\CommentTok{# Convert temperature into Celsius and overwrite the original values of 'temp' with these Celsius values}
+\NormalTok{temp <-}\StringTok{ }\DecValTok{5}\OperatorTok{/}\DecValTok{9} \OperatorTok{*}\StringTok{ }\NormalTok{(temp }\DecValTok{-32}\NormalTok{)}
 
-# Convert temperature into Celsius and overwrite the original values of 'temp' with these Celsius values
-temp <- 5/9*(temp-32)
-
-# Create a data frame `city_temps` 
-city_temps <- data.frame(name=city,temperature=temp)
-\end{verbatim}
+\CommentTok{# Create a data frame `city_temps` }
+\NormalTok{city_temps <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{name =}\NormalTok{ city, }\DataTypeTok{temperature =}\NormalTok{ temp)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  What is the following sum 1 + 1/2\^{}2 + 1/3\^{}2 + .1/100\^{}2 ?
-  Hint: thanks to Euler, we know it should be close to ??\^{}2/6.
+  We can use some of what we have learned to perform calculations that
+  would otherwise be quite complicated. Let's see an example.
 \end{enumerate}
 
-\begin{verbatim}
-# Define an object `x` with the numbers 1 through 100
-x <- c(1:100)
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Define an object `x` with the numbers 1 through 100}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{100}\NormalTok{)}
 
-# Compute the sum 
-sum(1/x^2)
-\end{verbatim}
+\CommentTok{# Compute the sum }
+\KeywordTok{sum}\NormalTok{((}\DecValTok{1}\OperatorTok{/}\NormalTok{x)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-## [1] 1.634984
+## [1] 1.63
 \end{verbatim}
 
 \begin{enumerate}
@@ -2327,24 +2324,194 @@ sum(1/x^2)
 \tightlist
 \item
   Compute the per 100,000 murder rate for each state and store it in the
-  object murder\_rate. Then compute the average murder rate for the US
-  using the function mean. What is the average?
+  object \texttt{murder\_rate}. Then compute the average murder rate for
+  the US using the function \texttt{mean}. What is the average?
 \end{enumerate}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Store the per 100,000 murder rate for each state in murder_rate}
+\NormalTok{murder_rate <-}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{total }\OperatorTok{/}\StringTok{ }\NormalTok{murders}\OperatorTok{$}\NormalTok{population }\OperatorTok{*}\StringTok{ }\DecValTok{100000}
+
+\CommentTok{# Calculate the average murder rate in the US }
+\KeywordTok{mean}\NormalTok{(murder_rate)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-# Load the data
-library(dslabs)
-data(murders)
-
-# Store the per 100,000 murder rate for each state in murder_rate
-murder_rate <- murders$total/murders$population *100000
-
-# Calculate the average murder rate in the US 
-mean(murder_rate)
+## [1] 2.78
 \end{verbatim}
 
+\hypertarget{section-2-assessment}{%
+\subsection{Section 2 Assessment}\label{section-2-assessment}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Consider the vector
+  \texttt{x\ \textless{}-\ c(2,\ 43,\ 27,\ 96,\ 18)}.
+\end{enumerate}
+
+Match the following outputs to the function which produces that output.
+Options include \texttt{sort(x)}, \texttt{order(x)}, \texttt{rank(x)}
+and none of these.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{96}\NormalTok{, }\DecValTok{18}\NormalTok{)}
+\KeywordTok{sort}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## [1] 2.779125
+## [1]  2 18 27 43 96
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{order}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 5 3 2 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rank}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 4 3 5 2
+\end{verbatim}
+
+\texttt{1,\ 2,\ 3,\ 4,\ 5} none of these
+
+\texttt{1,\ 5,\ 3,\ 2,\ 4} order(x)
+
+\texttt{1,\ 4,\ 3,\ 5,\ 2} rank(x)
+
+\texttt{2,\ 18,\ 27,\ 43,\ 96} sort(x)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Continue working with the vector
+  \texttt{x\ \textless{}-\ c(2,\ 43,\ 27,\ 96,\ 18)}.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{43}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{96}\NormalTok{, }\DecValTok{18}\NormalTok{)}
+\KeywordTok{min}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{which.min}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{max}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 96
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{which.max}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\texttt{min(x)} 2
+
+\texttt{which.min(x)} 1
+
+\texttt{max(x)} none of these
+
+\texttt{which.max(x)} 4
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Mandi, Amy, Nicole, and Olivia all ran different distances in
+  different time intervals. Their distances (in miles) and times (in
+  minutes) are as follows:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{name <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Mandi"}\NormalTok{, }\StringTok{"Amy"}\NormalTok{, }\StringTok{"Nicole"}\NormalTok{, }\StringTok{"Olivia"}\NormalTok{)}
+\NormalTok{distance <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{0.8}\NormalTok{, }\FloatTok{3.1}\NormalTok{, }\FloatTok{2.8}\NormalTok{, }\FloatTok{4.0}\NormalTok{)}
+\NormalTok{time <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{50}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Write a line of code to convert time to hours. Remember there are 60
+minutes in an hour. Then write a line of code to calculate the speed of
+each runner in miles per hour. Speed is distance divided by time.
+
+How many hours did Olivia run?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hours <-}\StringTok{ }\NormalTok{time}\OperatorTok{/}\DecValTok{60}
+\NormalTok{hours[}\DecValTok{4}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.833
+\end{verbatim}
+
+What was Mandi's speed in miles per hour?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{speed <-}\StringTok{ }\NormalTok{distance}\OperatorTok{/}\NormalTok{hours}
+\NormalTok{speed[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.8
+\end{verbatim}
+
+Which runner had the fastest speed?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{name[}\KeywordTok{which.max}\NormalTok{(speed)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Amy"
 \end{verbatim}
 
 \hypertarget{section-3-overview}{%
@@ -2353,20 +2520,48 @@ mean(murder_rate)
 Section 3 introduces to the R commands and techniques that help you
 wrangle, analyze, and visualize data.
 
-In Section 3.1, you will: - Subset a vector based on properties of
-another vector. - Use multiple logical operators to index vectors. -
-Extract the indices of vector elements satisfying one or more logical
-conditions. - Extract the indices of vector elements matching with
-another vector. - Determine which elements in one vector are present in
-another vector.
+In Section 3.1, you will:
 
-In Section 3.2, you will: - Wrangle data tables using the functions in
-`dplyr' package. - Modify a data table by adding or changing columns. -
-Subset rows in a data table. - Subset columns in a data table. - Perform
-a series of operations using the pipe operator. - Create data frames.
+\begin{itemize}
+\tightlist
+\item
+  Subset a vector based on properties of another vector.
+\item
+  Use multiple logical operators to index vectors.
+\item
+  Extract the indices of vector elements satisfying one or more logical
+  conditions.
+\item
+  Extract the indices of vector elements matching with another vector.
+\item
+  Determine which elements in one vector are present in another vector.
+\end{itemize}
 
-In Section 3.3, you will: - Plot data in scatter plots, box plots and
-histograms.
+In Section 3.2, you will:
+
+\begin{itemize}
+\tightlist
+\item
+  Wrangle data tables using the functions in `dplyr' package.
+\item
+  Modify a data table by adding or changing columns.
+\item
+  Subset rows in a data table.
+\item
+  Subset columns in a data table.
+\item
+  Perform a series of operations using the pipe operator.
+\item
+  Create data frames.
+\end{itemize}
+
+In Section 3.3, you will:
+
+\begin{itemize}
+\tightlist
+\item
+  Plot data in scatter plots, box plots and histograms.
+\end{itemize}
 
 The textbook for this section is available
 \href{https://rafalab.github.io/dsbook/r-basics.html\#indexing}{here}
