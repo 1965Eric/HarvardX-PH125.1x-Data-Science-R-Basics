@@ -10,6 +10,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+The textbook for the Data Science course series is [freely available online](https://rafalab.github.io/dsbook/).
+
 ## Learning Objectives
 - Learn to read, extract, and create datasets in R
 - Learn to perform a variety of operations on datasets using R
