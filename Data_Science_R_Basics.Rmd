@@ -2146,7 +2146,7 @@ f_n[n] <- factorial(n)
 f_n
 ```
 
-- [ ] D. function(n)
+- [ ] A. function(n)
 - [ ] B. if(n < m)
 - [X] C. for(n in 1:m)
 - [ ] D. function(m,n)
