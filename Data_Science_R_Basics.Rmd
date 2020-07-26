@@ -1883,34 +1883,75 @@ char_len <- nchar(murders$state)
 new_names <- ifelse(char_len > 8, murders$abb, murders$state)
 ```
 
-4. Create a function sum_n that for any given value, say n, computes the sum of the integers from 1 to n (inclusive). Use the function to determine the sum of integers from 1 to 5,000.
+4. You will encounter situations in which the function you need does not already exist. R permits you to write your own. 
+
+Let's practice one such situation, in which you first need to define the function to be used. The functions you define can have multiple arguments as well as default values.
+
+To define functions we use ```function```. For example the following function adds 1 to the number it receives as an argument:
+
+```{r, eval=FALSE, echo=TRUE
+my_func <- function(x){
+    y <- x + 1
+    y
+}
 ```
+
+The last value in the function, in this case that stored in ```y```, gets returned.
+
+If you run the code above R does not show anything. This means you defined the function. You can test it out like this:
+
+```{r, eval=FALSE, echo=TRUE}
+my_func(5)
+```
+
+```{r}
 # Create function called `sum_n`
 sum_n <- function(n){
-  sum(1:n)
+    x <- 1:n
+    sum(x)
 }
+
 # Use the function to determine the sum of integers from 1 to 5000
 sum_n(5000)
 ```
+
+5. We will make another function for this exercise. We will define a function ```altman_plot``` that takes two arguments ```x``` and ```y``` and plots the difference ```y-x``` in the y-axis against the sum ```x+y``` in the x-axis.
+
+You can define functions with as many variables as you want. For example, here we need at least two, ```x``` and ```y```. The following function plots log transformed values:
+
+```{r, eval=FALSE, echo=TRUE}
+log_plot <- function(x, y){
+    plot(log10(x), log10(y))
+}
 ```
-## [1] 12502500
-```
-5. Create a function altman_plot that takes two arguments, x and y, and plots the difference against the sum.
-```
+
+This function does not return anything. It just makes a plot.
+
+```{r}
 # Create `altman_plot` 
-altman_plot <- function(x,y) {
-  plot(x+y,y-x)
+altman_plot <- function(x, y) {
+  plot(x+y, y-x)
 }
 ```
-6. After running the code below, what is the value of x?
-```
-x <- 3
+
+6. Lexical scoping is a convention used by many languages that determine when an object is available by its name. 
+
+When you run the code below you will see which ```x``` is available at different points in the code.
+
+```{r, eval=FALSE, echo=TRUE}
+x <- 8
 my_func <- function(y){
-x <- 5
-y+5
+    x <- 9
+    print(x)
+    y + x
 }
+my_func(x)
+print(x)
 ```
-```
+
+Note that when we define ```x``` as 9, this is inside the function, but it is 8 after you run the function. The ```x``` changed inside the function but not outside.
+
+```{r}
 # Run this code 
 x <- 3
     my_func <- function(y){
@@ -1918,15 +1959,21 @@ x <- 3
     y+5
 }
 
-# Print value of x 
+# Print the value of x 
+x <- 3
+my_func <- function(y){
+    x <- 5
+    y
+    print(x)
+}
+my_func(x)
 print(x)
 ```
-```
-## [1] 3
-```
-7. Write a function compute_s_n that for any given n computes the sum S_n = 1^2 + 2^2 + 3^2 + . n^2. Report the value of the sum when n = 10.
-```
-# Here is an example of function that adds numbers from 1 to n
+
+7. In the next exercise we are going to write a for-loop. In that for-loop we are going to call a function. We define that function here.
+
+```{r}
+# Here is an example of a function that adds numbers from 1 to n
 example_func <- function(n){
     x <- 1:n
     sum(x)
@@ -1934,24 +1981,33 @@ example_func <- function(n){
 
 # Here is the sum of the first 100 numbers
 example_func(100)
-```
-```
-## [1] 5050
-```
-```
-# Write a function compute_s_n that with argument n and returns of 1 + 2^2 + ...+ n^2
+
+# Write a function compute_s_n with argument n that for any given n computes the sum of 1 + 2^2 + ...+ n^2
 compute_s_n <- function(n){
-  x <- 1:n
-  sum(x^2)
+    x <- 1:n
+    sum(x^2)
 }
+
 # Report the value of the sum when n=10
 compute_s_n(10)
 ```
+
+8. Now we are going to compute the sum of the squares for several values of ```n```. We will use a for-loop for this. 
+
+Here is an example of a for-loop:
+
+```{r, eval=FALSE, echo=TRUE}
+results <- vector("numeric", 10)
+n <- 10
+for(i in 1:n){
+    x <- 1:i
+    results[i] <- sum(x)
+}
 ```
-## [1] 385
-```
-8. Define an empty numerical vector s_n of size 25 using s_n <- vector(“numeric”, 25) and store in the results of S_1, S_2, . S_25 using a for-loop.
-```
+
+Note that we start with a call to ```vector``` which constructs an empty vector that we will fill while the loop runs.
+
+```{r}
 # Define a function and store it in `compute_s_n`
 compute_s_n <- function(n){
   x <- 1:n
@@ -1962,12 +2018,20 @@ compute_s_n <- function(n){
 s_n <- vector("numeric", 25)
 
 # write a for-loop to store the results in s_n
-for(i in 1:25){
-  s_n[i] <- compute_s_n(i)
+for(n in 1:length(s_n)){
+  s_n[n] <- compute_s_n(n)
 }
 ```
-9. If we do the math, we can show that S_n=12+22+32+???+n2=n(n+1)(2n+1)/6. We have already computed the values of Sn from 1 to 25 using a for loop. If the formula is correct then a plot of Sn versus n should look cubic.
-```
+
+9. If we do the math, we can show that $S_n = 1^2+2^2+3^2+⋯+n^2 = n(n+1)(2n+1)/6$
+
+We have already computed the values of $S_n$ from 1 to 25 using a for loop.
+
+If the formula is correct then a plot of $S_n$ versus ```n``` should look cubic.
+
+Let's make this plot.
+
+```{r}
 # Define the function
 compute_s_n <- function(n){
   x <- 1:n
@@ -1986,10 +2050,10 @@ for(i in n){
 #  Create the plot 
 plot(n,s_n)
 ```
-![index](https://user-images.githubusercontent.com/17474099/75670998-24210580-5c7e-11ea-95fe-e6f8857049f4.png)
 
-10. Confirm that s_n and n(n+1)(2n+1)/6 are the same using the identical command.
-```
+10. Now let's actually check if we get the exact same answer.
+
+```{r}
 # Define the function
 compute_s_n <- function(n){
   x <- 1:n
@@ -2006,8 +2070,5 @@ for(i in n){
 }
 
 # Check that s_n is identical to the formula given in the instructions.
-identical(s_n,n*(n+1)*(2*n+1)/6)
-```
-```
-## [1] TRUE
+identical(s_n,(n*(n+1)*(2*n+1))/6)
 ```
