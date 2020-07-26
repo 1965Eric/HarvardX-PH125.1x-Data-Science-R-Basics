@@ -2220,7 +2220,7 @@ compute_s_n &lt;- function(n){
 compute_s_n(10)</code></pre>
 <pre><code>## [1] 385</code></pre>
 <ol start="8" style="list-style-type: decimal">
-<li>Now we are going to compute the sum of the squares for several values of <code>n</code>. We will use a for-loop for this.</li>
+<li>Now we are going to compute the sum of the squares for several values of <em>n</em>. We will use a for-loop for this.</li>
 </ol>
 <p>Here is an example of a for-loop:</p>
 <pre class="r"><code>results &lt;- vector(&quot;numeric&quot;, 10)
@@ -2247,7 +2247,7 @@ for(n in 1:length(s_n)){
 <li>If we do the math, we can show that <span class="math inline">\(S_n = 1^2+2^2+3^2+⋯+n^2 = n(n+1)(2n+1)/6\)</span></li>
 </ol>
 <p>We have already computed the values of <span class="math inline">\(S_n\)</span> from 1 to 25 using a for loop.</p>
-<p>If the formula is correct then a plot of <span class="math inline">\(S_n\)</span> versus <code>n</code> should look cubic.</p>
+<p>If the formula is correct then a plot of <span class="math inline">\(S_n\)</span> versus <em>n</em> should look cubic.</p>
 <p>Let’s make this plot.</p>
 <pre class="r"><code># Define the function
 compute_s_n &lt;- function(n){
@@ -2288,6 +2288,73 @@ for(i in n){
 # Check that s_n is identical to the formula given in the instructions.
 identical(s_n,(n*(n+1)*(2*n+1))/6)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="section-4-assessment" class="section level2">
+<h2>Section 4 Assessment</h2>
+<ol style="list-style-type: decimal">
+<li>Load the <strong>heights</strong> dataset from dslabs:</li>
+</ol>
+<pre class="r"><code>library(dslabs)
+data(heights)</code></pre>
+<p>Write an <code>ifelse</code> statement that returns 1 if the sex is Female and 2 if the sex is Male.</p>
+<p>What is the sum of the resulting vector?</p>
+<pre class="r"><code>sum(ifelse(heights$sex == &quot;Female&quot;, 1, 2))</code></pre>
+<pre><code>## [1] 1862</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Write an <code>ifelse</code> statement that takes the height column and returns the height if it is greater than 72 inches and returns 0 otherwise.</li>
+</ol>
+<p>What is the mean of the resulting vector?</p>
+<pre class="r"><code>mean(ifelse(heights$height &gt; 72, heights$height, 0))</code></pre>
+<pre><code>## [1] 9.65</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Write a function <code>inches_to_ft</code> that takes a number of inches x and returns the number of feet. One foot equals 12 inches.</li>
+</ol>
+<p>What is <code>inches_to_ft(144)</code>?</p>
+<pre class="r"><code>inches_to_ft &lt;- function(x){x/12}
+inches_to_ft(144)</code></pre>
+<pre><code>## [1] 12</code></pre>
+<p>How many individuals in the heights dataset have a height less than 5 feet?</p>
+<pre class="r"><code>sum(inches_to_ft(heights$height) &lt; 5)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Which of the following are TRUE?</li>
+</ol>
+<p>Select ALL that apply.</p>
+<ul>
+<li>[X] A. any(TRUE, TRUE, TRUE)</li>
+<li>[X] B. any(TRUE, TRUE, FALSE)</li>
+<li>[X] C. any(TRUE, FALSE, FALSE)</li>
+<li>[ ] D. any(FALSE, FALSE, FALSE)</li>
+<li>[X] E. all(TRUE, TRUE, TRUE)</li>
+<li>[ ] F. all(TRUE, TRUE, FALSE)</li>
+<li>[ ] G. all(TRUE, FALSE, FALSE)</li>
+<li>[ ] H. all(FALSE, FALSE, FALSE)</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Given an integer x, the factorial of x is called x! and is the product of all integers up to and including x. The <code>factorial()</code> function computes factorials in R. For example, <code>factorial(4)</code> returns <span class="math inline">\(4! = 4 × 3 × 2 × 1 = 24\)</span>.</li>
+</ol>
+<p>Complete the code below to generate a vector of length m where the first entry is 1!, the second entry is 2!, and so on up to m!.</p>
+<pre class="r"><code># define a vector of length m
+m &lt;- 10
+f_n &lt;- vector(length = m)
+
+# make a vector of factorials
+for(n in 1:m){
+f_n[n] &lt;- factorial(n)
+}
+
+# inspect f_n
+f_n</code></pre>
+<pre><code>##  [1]       1       2       6      24     120     720    5040   40320  362880
+## [10] 3628800</code></pre>
+<ul>
+<li>[ ] D. function(n)</li>
+<li>[ ] B. if(n &lt; m)</li>
+<li>[X] C. for(n in 1:m)</li>
+<li>[ ] D. function(m,n)</li>
+<li>[ ] E. if(m &lt; n)</li>
+<li>[ ] F. for(m in 1:n)</li>
+</ul>
 </div>
 
 
