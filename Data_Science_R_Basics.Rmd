@@ -1992,7 +1992,7 @@ compute_s_n <- function(n){
 compute_s_n(10)
 ```
 
-8. Now we are going to compute the sum of the squares for several values of ```n```. We will use a for-loop for this. 
+8. Now we are going to compute the sum of the squares for several values of *n*. We will use a for-loop for this. 
 
 Here is an example of a for-loop:
 
@@ -2027,7 +2027,7 @@ for(n in 1:length(s_n)){
 
 We have already computed the values of $S_n$ from 1 to 25 using a for loop.
 
-If the formula is correct then a plot of $S_n$ versus ```n``` should look cubic.
+If the formula is correct then a plot of $S_n$ versus *n* should look cubic.
 
 Let's make this plot.
 
@@ -2072,3 +2072,81 @@ for(i in n){
 # Check that s_n is identical to the formula given in the instructions.
 identical(s_n,(n*(n+1)*(2*n+1))/6)
 ```
+
+## Section 4 Assessment
+
+1. Load the **heights** dataset from dslabs:
+
+```{r, eval=FALSE, echo=TRUE}
+library(dslabs)
+data(heights)
+```
+
+Write an ```ifelse``` statement that returns 1 if the sex is Female and 2 if the sex is Male.
+
+What is the sum of the resulting vector?
+
+```{r}
+sum(ifelse(heights$sex == "Female", 1, 2))
+```
+
+2. Write an ```ifelse``` statement that takes the height column and returns the height if it is greater than 72 inches and returns 0 otherwise.
+
+What is the mean of the resulting vector?
+
+```{r}
+mean(ifelse(heights$height > 72, heights$height, 0))
+```
+
+3. Write a function ```inches_to_ft``` that takes a number of inches x and returns the number of feet. One foot equals 12 inches.
+
+What is ```inches_to_ft(144)```?
+
+```{r}
+inches_to_ft <- function(x){x/12}
+inches_to_ft(144)
+```
+
+How many individuals in the heights dataset have a height less than 5 feet?
+
+```{r}
+sum(inches_to_ft(heights$height) < 5)
+```
+
+4. Which of the following are TRUE?
+
+Select ALL that apply.
+
+- [X] A. any(TRUE, TRUE, TRUE)
+- [X] B. any(TRUE, TRUE, FALSE)
+- [X] C. any(TRUE, FALSE, FALSE)
+- [ ] D. any(FALSE, FALSE, FALSE)
+- [X] E. all(TRUE, TRUE, TRUE)
+- [ ] F. all(TRUE, TRUE, FALSE)
+- [ ] G. all(TRUE, FALSE, FALSE)
+- [ ] H. all(FALSE, FALSE, FALSE)
+
+5. Given an integer x, the factorial of x is called x! and is the product of all integers up to and including x. The ```factorial()``` function computes factorials in R. For example, ```factorial(4)``` returns $4! = 4 × 3 × 2 × 1 = 24$.
+
+Complete the code below to generate a vector of length m where the first entry is 1!, the second entry is 2!, and so on up to m!.
+
+```{r}
+# define a vector of length m
+m <- 10
+f_n <- vector(length = m)
+
+# make a vector of factorials
+for(n in 1:m){
+f_n[n] <- factorial(n)
+}
+
+# inspect f_n
+f_n
+```
+
+- [ ] D. function(n)
+- [ ] B. if(n < m)
+- [X] C. for(n in 1:m)
+- [ ] D. function(m,n)
+- [ ] E. if(m < n)
+- [ ] F. for(m in 1:n)
