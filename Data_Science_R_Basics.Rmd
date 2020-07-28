@@ -4,6 +4,7 @@ output:
   pdf_document:
     latex_engine: xelatex
   html_document: default
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
