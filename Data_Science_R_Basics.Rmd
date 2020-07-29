@@ -1,9 +1,10 @@
 ---
 title: "Data Science R Basics"
 output:
+  word_document: default
+  html_document: default
   pdf_document:
     latex_engine: xelatex
-  html_document: default
 urlcolor: blue
 ---
 
