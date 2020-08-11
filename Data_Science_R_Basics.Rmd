@@ -2,9 +2,9 @@
 title: "Data Science R Basics"
 output:
   word_document: default
-  html_document: default
   pdf_document:
     latex_engine: xelatex
+  html_document: default
 urlcolor: blue
 ---
 
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The textbook for the Data Science course series is [freely available online](https://rafalab.github.io/dsbook/).
 
-## Learning Objectives
+# Learning Objectives
 - Learn to read, extract, and create datasets in R
 - Learn to perform a variety of operations on datasets using R
 - Learn to write your own functions/sub-routines in R
@@ -33,7 +33,7 @@ You will learn to wrangle and visualize data.
 ### Section 4: Programming Basics
 You will learn to use general programming features like ‘if-else’, and ‘for loop’ commands, and write your own functions to perform various operations on datasets.
 
-## Section 1 Overview
+# Section 1 Overview
 
 Section 1 introduces you to R Basics, Functions and Datatypes.
 
@@ -401,7 +401,7 @@ Use this function to determine how many levels are in the factor ```genres``` in
 nlevels(movielens$genres)
 ```
 
-## Section 2 Overview
+# Section 2 Overview
 
 In Section 2.1, you will:
 
@@ -1024,7 +1024,7 @@ Which runner had the fastest speed?
 name[which.max(speed)]
 ```
 
-## Section 3 Overview
+# Section 3 Overview
 
 Section 3 introduces to the R commands and techniques that help you wrangle, analyze, and visualize data.
 
@@ -1662,7 +1662,7 @@ Which region has the highest median palmitic acid percentage? ```Southern Italy`
 
 Which region has the most variable palmitic acid percentage? ```Southern Italy```
 
-## Section 4 Overview
+# Section 4 Overview
 
 Section 4 introduces you to general programming features like ‘if-else’, and ‘for loop’ commands so that you can write your own functions to perform various operations on datasets.
 
@@ -1856,14 +1856,14 @@ print("Not all positives")
 - [ ] C. N/A
 - [ ] D. None of the above
 
-2. Which of the following expressions is always ```FALSE``` when at least one entry of a logical vector x is ```TRUE``?
+2. Which of the following expressions is always ```FALSE``` when at least one entry of a logical vector x is ```TRUE```?
 
 - [ ] A. all(x)
 - [ ] B. any(x)
 - [ ] C. any(!x)
 - [X] D. all(!x)
 
-3. The function ```nchar`` tells you how many characters long a character vector is.
+3. The function ```nchar``` tells you how many characters long a character vector is.
 
 For example:
 

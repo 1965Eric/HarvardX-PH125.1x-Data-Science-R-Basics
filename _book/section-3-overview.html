@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Section 3 Overview | Data Science R Basics</title>
+  <meta name="description" content="4 Section 3 Overview | Data Science R Basics" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Section 3 Overview | Data Science R Basics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Section 3 Overview | Data Science R Basics" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-2-overview.html"/>
+<link rel="next" href="section-4-overview.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="learning-objectives.html"><a href="learning-objectives.html"><i class="fa fa-check"></i><b>1</b> Learning Objectives</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="learning-objectives.html"><a href="learning-objectives.html#course-overview"><i class="fa fa-check"></i><b>1.1</b> Course Overview</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="learning-objectives.html"><a href="learning-objectives.html#section-1-r-basics-functions-data-types"><i class="fa fa-check"></i><b>1.1.1</b> Section 1: R Basics, Functions, Data types</a></li>
+<li class="chapter" data-level="1.1.2" data-path="learning-objectives.html"><a href="learning-objectives.html#section-2-vectors-sorting"><i class="fa fa-check"></i><b>1.1.2</b> Section 2: Vectors, Sorting</a></li>
+<li class="chapter" data-level="1.1.3" data-path="learning-objectives.html"><a href="learning-objectives.html#section-3-indexing-data-manipulation-plots"><i class="fa fa-check"></i><b>1.1.3</b> Section 3: Indexing, Data Manipulation, Plots</a></li>
+<li class="chapter" data-level="1.1.4" data-path="learning-objectives.html"><a href="learning-objectives.html#section-4-programming-basics"><i class="fa fa-check"></i><b>1.1.4</b> Section 4: Programming Basics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-1-overview.html"><a href="section-1-overview.html"><i class="fa fa-check"></i><b>2</b> Section 1 Overview</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-1-overview.html"><a href="section-1-overview.html#motivation"><i class="fa fa-check"></i><b>2.1</b> Motivation</a></li>
+<li class="chapter" data-level="2.2" data-path="section-1-overview.html"><a href="section-1-overview.html#getting-started"><i class="fa fa-check"></i><b>2.2</b> Getting started</a></li>
+<li class="chapter" data-level="2.3" data-path="section-1-overview.html"><a href="section-1-overview.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>2.3</b> Installing R and R Studio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="section-1-overview.html"><a href="section-1-overview.html#installing-r"><i class="fa fa-check"></i><b>2.3.1</b> Installing R</a></li>
+<li class="chapter" data-level="2.3.2" data-path="section-1-overview.html"><a href="section-1-overview.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3.3" data-path="section-1-overview.html"><a href="section-1-overview.html#textbook-link"><i class="fa fa-check"></i><b>2.3.3</b> Textbook Link</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="section-1-overview.html"><a href="section-1-overview.html#r-basics---objects"><i class="fa fa-check"></i><b>2.4</b> R Basics - Objects</a></li>
+<li class="chapter" data-level="2.5" data-path="section-1-overview.html"><a href="section-1-overview.html#r-basics---functions"><i class="fa fa-check"></i><b>2.5</b> R Basics - Functions</a></li>
+<li class="chapter" data-level="2.6" data-path="section-1-overview.html"><a href="section-1-overview.html#assessment---r-basics"><i class="fa fa-check"></i><b>2.6</b> Assessment - R Basics</a></li>
+<li class="chapter" data-level="2.7" data-path="section-1-overview.html"><a href="section-1-overview.html#data-types"><i class="fa fa-check"></i><b>2.7</b> Data Types</a></li>
+<li class="chapter" data-level="2.8" data-path="section-1-overview.html"><a href="section-1-overview.html#assessment---data-types"><i class="fa fa-check"></i><b>2.8</b> Assessment - Data Types</a></li>
+<li class="chapter" data-level="2.9" data-path="section-1-overview.html"><a href="section-1-overview.html#section-1-assessment"><i class="fa fa-check"></i><b>2.9</b> Section 1 Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-2-overview.html"><a href="section-2-overview.html"><i class="fa fa-check"></i><b>3</b> Section 2 Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-2-overview.html"><a href="section-2-overview.html#vectors"><i class="fa fa-check"></i><b>3.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="section-2-overview.html"><a href="section-2-overview.html#vectors---vector-coercion"><i class="fa fa-check"></i><b>3.2</b> Vectors - Vector Coercion</a></li>
+<li class="chapter" data-level="3.3" data-path="section-2-overview.html"><a href="section-2-overview.html#assessment---vectors"><i class="fa fa-check"></i><b>3.3</b> Assessment - Vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="section-2-overview.html"><a href="section-2-overview.html#sorting"><i class="fa fa-check"></i><b>3.4</b> Sorting</a></li>
+<li class="chapter" data-level="3.5" data-path="section-2-overview.html"><a href="section-2-overview.html#assessment---sorting"><i class="fa fa-check"></i><b>3.5</b> Assessment - Sorting</a></li>
+<li class="chapter" data-level="3.6" data-path="section-2-overview.html"><a href="section-2-overview.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.6</b> Vector arithmetic</a></li>
+<li class="chapter" data-level="3.7" data-path="section-2-overview.html"><a href="section-2-overview.html#assessment---vector-arithmetic"><i class="fa fa-check"></i><b>3.7</b> Assessment - Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.8" data-path="section-2-overview.html"><a href="section-2-overview.html#section-2-assessment"><i class="fa fa-check"></i><b>3.8</b> Section 2 Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-3-overview.html"><a href="section-3-overview.html"><i class="fa fa-check"></i><b>4</b> Section 3 Overview</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-3-overview.html"><a href="section-3-overview.html#indexing"><i class="fa fa-check"></i><b>4.1</b> Indexing</a></li>
+<li class="chapter" data-level="4.2" data-path="section-3-overview.html"><a href="section-3-overview.html#indexing---indexing-functions"><i class="fa fa-check"></i><b>4.2</b> Indexing - Indexing Functions</a></li>
+<li class="chapter" data-level="4.3" data-path="section-3-overview.html"><a href="section-3-overview.html#assessment---indexing"><i class="fa fa-check"></i><b>4.3</b> Assessment - Indexing</a></li>
+<li class="chapter" data-level="4.4" data-path="section-3-overview.html"><a href="section-3-overview.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.4</b> Basic Data Wrangling</a></li>
+<li class="chapter" data-level="4.5" data-path="section-3-overview.html"><a href="section-3-overview.html#basic-data-wrangling---creating-data-frames"><i class="fa fa-check"></i><b>4.5</b> Basic Data Wrangling - Creating Data Frames</a></li>
+<li class="chapter" data-level="4.6" data-path="section-3-overview.html"><a href="section-3-overview.html#assessment---basic-data-wrangling"><i class="fa fa-check"></i><b>4.6</b> Assessment - Basic Data Wrangling</a></li>
+<li class="chapter" data-level="4.7" data-path="section-3-overview.html"><a href="section-3-overview.html#basic-plots"><i class="fa fa-check"></i><b>4.7</b> Basic Plots</a></li>
+<li class="chapter" data-level="4.8" data-path="section-3-overview.html"><a href="section-3-overview.html#assessment---basic-plots"><i class="fa fa-check"></i><b>4.8</b> Assessment - Basic Plots</a></li>
+<li class="chapter" data-level="4.9" data-path="section-3-overview.html"><a href="section-3-overview.html#section-3-assessment"><i class="fa fa-check"></i><b>4.9</b> Section 3 Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-4-overview.html"><a href="section-4-overview.html"><i class="fa fa-check"></i><b>5</b> Section 4 Overview</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-4-overview.html"><a href="section-4-overview.html#programming-basics---introduction-to-programming-in-r"><i class="fa fa-check"></i><b>5.1</b> Programming Basics - Introduction to Programming in R</a></li>
+<li class="chapter" data-level="5.2" data-path="section-4-overview.html"><a href="section-4-overview.html#basic-conditionals"><i class="fa fa-check"></i><b>5.2</b> Basic Conditionals</a></li>
+<li class="chapter" data-level="5.3" data-path="section-4-overview.html"><a href="section-4-overview.html#functions"><i class="fa fa-check"></i><b>5.3</b> Functions</a></li>
+<li class="chapter" data-level="5.4" data-path="section-4-overview.html"><a href="section-4-overview.html#for-loops"><i class="fa fa-check"></i><b>5.4</b> For Loops</a></li>
+<li class="chapter" data-level="5.5" data-path="section-4-overview.html"><a href="section-4-overview.html#assessment---programming-basics"><i class="fa fa-check"></i><b>5.5</b> Assessment - Programming Basics</a></li>
+<li class="chapter" data-level="5.6" data-path="section-4-overview.html"><a href="section-4-overview.html#section-4-assessment"><i class="fa fa-check"></i><b>5.6</b> Section 4 Assessment</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science R Basics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-3-overview" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Section 3 Overview</h1>
+<p>Section 3 introduces to the R commands and techniques that help you wrangle, analyze, and visualize data.</p>
+<p>In Section 3.1, you will:</p>
+<ul>
+<li>Subset a vector based on properties of another vector.</li>
+<li>Use multiple logical operators to index vectors.</li>
+<li>Extract the indices of vector elements satisfying one or more logical conditions.</li>
+<li>Extract the indices of vector elements matching with another vector.</li>
+<li>Determine which elements in one vector are present in another vector.</li>
+</ul>
+<p>In Section 3.2, you will:</p>
+<ul>
+<li>Wrangle data tables using the functions in ‘dplyr’ package.</li>
+<li>Modify a data table by adding or changing columns.</li>
+<li>Subset rows in a data table.</li>
+<li>Subset columns in a data table.</li>
+<li>Perform a series of operations using the pipe operator.</li>
+<li>Create data frames.</li>
+</ul>
+<p>In Section 3.3, you will:</p>
+<ul>
+<li>Plot data in scatter plots, box plots and histograms.</li>
+</ul>
+<div id="indexing" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Indexing</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#indexing">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>We can use logicals to index vectors.</li>
+<li>Using the function &gt;sum()on a logical vector returns the number of entries that are true.</li>
+<li>The logical operator “&amp;” makes two logicals true only when they are both true.</li>
+</ul>
+<p><em>Code</em></p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="section-3-overview.html#cb206-1" aria-hidden="true"></a><span class="co"># defining murder rate as before</span></span>
+<span id="cb206-2"><a href="section-3-overview.html#cb206-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total <span class="op">/</span><span class="st"> </span>murders<span class="op">$</span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span></span>
+<span id="cb206-3"><a href="section-3-overview.html#cb206-3" aria-hidden="true"></a><span class="co"># creating a logical vector that specifies if the murder rate in that state is less than or equal to 0.71</span></span>
+<span id="cb206-4"><a href="section-3-overview.html#cb206-4" aria-hidden="true"></a>index &lt;-<span class="st"> </span>murder_rate <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.71</span></span>
+<span id="cb206-5"><a href="section-3-overview.html#cb206-5" aria-hidden="true"></a><span class="co"># determining which states have murder rates less than or equal to 0.71</span></span>
+<span id="cb206-6"><a href="section-3-overview.html#cb206-6" aria-hidden="true"></a>murders<span class="op">$</span>state[index]</span></code></pre></div>
+<pre><code>## [1] &quot;Hawaii&quot;        &quot;Iowa&quot;          &quot;New Hampshire&quot; &quot;North Dakota&quot;  &quot;Vermont&quot;</code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="section-3-overview.html#cb208-1" aria-hidden="true"></a><span class="co"># calculating how many states have a murder rate less than or equal to 0.71</span></span>
+<span id="cb208-2"><a href="section-3-overview.html#cb208-2" aria-hidden="true"></a><span class="kw">sum</span>(index)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="section-3-overview.html#cb210-1" aria-hidden="true"></a><span class="co"># creating the two logical vectors representing our conditions</span></span>
+<span id="cb210-2"><a href="section-3-overview.html#cb210-2" aria-hidden="true"></a>west &lt;-<span class="st"> </span>murders<span class="op">$</span>region <span class="op">==</span><span class="st"> &quot;West&quot;</span></span>
+<span id="cb210-3"><a href="section-3-overview.html#cb210-3" aria-hidden="true"></a>safe &lt;-<span class="st"> </span>murder_rate <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb210-4"><a href="section-3-overview.html#cb210-4" aria-hidden="true"></a><span class="co"># defining an index and identifying states with both conditions true</span></span>
+<span id="cb210-5"><a href="section-3-overview.html#cb210-5" aria-hidden="true"></a>index &lt;-<span class="st"> </span>safe <span class="op">&amp;</span><span class="st"> </span>west</span>
+<span id="cb210-6"><a href="section-3-overview.html#cb210-6" aria-hidden="true"></a>murders<span class="op">$</span>state[index]</span></code></pre></div>
+<pre><code>## [1] &quot;Hawaii&quot;  &quot;Idaho&quot;   &quot;Oregon&quot;  &quot;Utah&quot;    &quot;Wyoming&quot;</code></pre>
+</div>
+<div id="indexing---indexing-functions" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Indexing - Indexing Functions</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#which">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>The function which() gives us the entries of a logical vector that are true.</li>
+<li>The function match() looks for entries in a vector and returns the index needed to access them.</li>
+<li>We use the function %in% if we want to know whether or not each element of a first vector is in a second vector.</li>
+</ul>
+<p><em>Code</em></p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="section-3-overview.html#cb212-1" aria-hidden="true"></a><span class="co"># to determine the murder rate in Massachusetts we may do the following</span></span>
+<span id="cb212-2"><a href="section-3-overview.html#cb212-2" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">which</span>(murders<span class="op">$</span>state <span class="op">==</span><span class="st"> &quot;Massachusetts&quot;</span>)</span>
+<span id="cb212-3"><a href="section-3-overview.html#cb212-3" aria-hidden="true"></a>murder_rate[ind]</span></code></pre></div>
+<pre><code>## [1] 1.8</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="section-3-overview.html#cb214-1" aria-hidden="true"></a><span class="co"># to obtain the indices and subsequent murder rates of New York, Florida, Texas, we do:</span></span>
+<span id="cb214-2"><a href="section-3-overview.html#cb214-2" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">match</span>(<span class="kw">c</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;Florida&quot;</span>, <span class="st">&quot;Texas&quot;</span>), murders<span class="op">$</span>state)</span>
+<span id="cb214-3"><a href="section-3-overview.html#cb214-3" aria-hidden="true"></a>ind</span></code></pre></div>
+<pre><code>## [1] 33 10 44</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="section-3-overview.html#cb216-1" aria-hidden="true"></a>murder_rate[ind]</span></code></pre></div>
+<pre><code>## [1] 2.67 3.40 3.20</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="section-3-overview.html#cb218-1" aria-hidden="true"></a><span class="co"># to see if Boston, Dakota, and Washington are states</span></span>
+<span id="cb218-2"><a href="section-3-overview.html#cb218-2" aria-hidden="true"></a><span class="kw">c</span>(<span class="st">&quot;Boston&quot;</span>, <span class="st">&quot;Dakota&quot;</span>, <span class="st">&quot;Washington&quot;</span>) <span class="op">%in%</span><span class="st"> </span>murders<span class="op">$</span>state</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE</code></pre>
+</div>
+<div id="assessment---indexing" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Assessment - Indexing</h2>
+<ol style="list-style-type: decimal">
+<li>Here we will be using logical operators to create a logical vector. Compute the per 100,000 murder rate for each state and store it in an object called <code>murder_rate</code>. Then use logical operators to create a logical vector named <code>low</code> that tells us which entries of <code>murder_rate</code> are lower than 1.</li>
+</ol>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="section-3-overview.html#cb220-1" aria-hidden="true"></a><span class="co"># Store the murder rate per 100,000 for each state, in `murder_rate`</span></span>
+<span id="cb220-2"><a href="section-3-overview.html#cb220-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total <span class="op">/</span><span class="st"> </span>murders<span class="op">$</span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span></span>
+<span id="cb220-3"><a href="section-3-overview.html#cb220-3" aria-hidden="true"></a></span>
+<span id="cb220-4"><a href="section-3-overview.html#cb220-4" aria-hidden="true"></a><span class="co"># Store the `murder_rate &lt; 1` in `low` </span></span>
+<span id="cb220-5"><a href="section-3-overview.html#cb220-5" aria-hidden="true"></a>low &lt;-<span class="st"> </span>murder_rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>The function `<code>which()</code> helps us know directly, which values are low or high, etc. Let’s use it in this question.</li>
+</ol>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="section-3-overview.html#cb221-1" aria-hidden="true"></a><span class="co"># Store the murder rate per 100,000 for each state, in murder_rate</span></span>
+<span id="cb221-2"><a href="section-3-overview.html#cb221-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total<span class="op">/</span>murders<span class="op">$</span>population<span class="op">*</span><span class="dv">100000</span></span>
+<span id="cb221-3"><a href="section-3-overview.html#cb221-3" aria-hidden="true"></a></span>
+<span id="cb221-4"><a href="section-3-overview.html#cb221-4" aria-hidden="true"></a><span class="co"># Store the murder_rate &lt; 1 in low </span></span>
+<span id="cb221-5"><a href="section-3-overview.html#cb221-5" aria-hidden="true"></a>low &lt;-<span class="st"> </span>murder_rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb221-6"><a href="section-3-overview.html#cb221-6" aria-hidden="true"></a></span>
+<span id="cb221-7"><a href="section-3-overview.html#cb221-7" aria-hidden="true"></a><span class="co"># Get the indices of entries that are below 1</span></span>
+<span id="cb221-8"><a href="section-3-overview.html#cb221-8" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">which</span>(low)</span>
+<span id="cb221-9"><a href="section-3-overview.html#cb221-9" aria-hidden="true"></a>ind</span></code></pre></div>
+<pre><code>##  [1] 12 13 16 20 24 30 35 38 42 45 46 51</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Note that if we want to know which entries of a vector are lower than a particular value we can use code like this.</li>
+</ol>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="section-3-overview.html#cb223-1" aria-hidden="true"></a>small &lt;-<span class="st"> </span>murders<span class="op">$</span>population <span class="op">&lt;</span><span class="st"> </span><span class="dv">1000000</span></span>
+<span id="cb223-2"><a href="section-3-overview.html#cb223-2" aria-hidden="true"></a>murders<span class="op">$</span>state[small]</span></code></pre></div>
+<p>The code above shows us the states with populations smaller than one million.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="section-3-overview.html#cb224-1" aria-hidden="true"></a><span class="co"># Store the murder rate per 100,000 for each state, in murder_rate</span></span>
+<span id="cb224-2"><a href="section-3-overview.html#cb224-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total<span class="op">/</span>murders<span class="op">$</span>population<span class="op">*</span><span class="dv">100000</span></span>
+<span id="cb224-3"><a href="section-3-overview.html#cb224-3" aria-hidden="true"></a></span>
+<span id="cb224-4"><a href="section-3-overview.html#cb224-4" aria-hidden="true"></a><span class="co"># Store the murder_rate &lt; 1 in low </span></span>
+<span id="cb224-5"><a href="section-3-overview.html#cb224-5" aria-hidden="true"></a>low &lt;-<span class="st"> </span>murder_rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb224-6"><a href="section-3-overview.html#cb224-6" aria-hidden="true"></a></span>
+<span id="cb224-7"><a href="section-3-overview.html#cb224-7" aria-hidden="true"></a><span class="co"># Names of states with murder rates lower than 1</span></span>
+<span id="cb224-8"><a href="section-3-overview.html#cb224-8" aria-hidden="true"></a>murders<span class="op">$</span>state[low]</span></code></pre></div>
+<pre><code>##  [1] &quot;Hawaii&quot;        &quot;Idaho&quot;         &quot;Iowa&quot;          &quot;Maine&quot;         &quot;Minnesota&quot;     &quot;New Hampshire&quot; &quot;North Dakota&quot;  &quot;Oregon&quot;        &quot;South Dakota&quot;  &quot;Utah&quot;          &quot;Vermont&quot;      
+## [12] &quot;Wyoming&quot;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Now we will extend the code from the previous exercises to report the states in the Northeast with a murder rate lower than 1.</li>
+</ol>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="section-3-overview.html#cb226-1" aria-hidden="true"></a><span class="co"># Store the murder rate per 100,000 for each state, in `murder_rate`</span></span>
+<span id="cb226-2"><a href="section-3-overview.html#cb226-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total<span class="op">/</span>murders<span class="op">$</span>population<span class="op">*</span><span class="dv">100000</span></span>
+<span id="cb226-3"><a href="section-3-overview.html#cb226-3" aria-hidden="true"></a></span>
+<span id="cb226-4"><a href="section-3-overview.html#cb226-4" aria-hidden="true"></a><span class="co"># Store the `murder_rate &lt; 1` in `low` </span></span>
+<span id="cb226-5"><a href="section-3-overview.html#cb226-5" aria-hidden="true"></a>low &lt;-<span class="st"> </span>murder_rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb226-6"><a href="section-3-overview.html#cb226-6" aria-hidden="true"></a></span>
+<span id="cb226-7"><a href="section-3-overview.html#cb226-7" aria-hidden="true"></a><span class="co"># Create a vector ind for states in the Northeast and with murder rates lower than 1. </span></span>
+<span id="cb226-8"><a href="section-3-overview.html#cb226-8" aria-hidden="true"></a>northeast &lt;-<span class="st"> </span>murders<span class="op">$</span>region <span class="op">==</span><span class="st"> &quot;Northeast&quot;</span></span>
+<span id="cb226-9"><a href="section-3-overview.html#cb226-9" aria-hidden="true"></a>ind &lt;-<span class="st"> </span>low <span class="op">&amp;</span><span class="st"> </span>northeast</span>
+<span id="cb226-10"><a href="section-3-overview.html#cb226-10" aria-hidden="true"></a></span>
+<span id="cb226-11"><a href="section-3-overview.html#cb226-11" aria-hidden="true"></a><span class="co"># Names of states in `ind` </span></span>
+<span id="cb226-12"><a href="section-3-overview.html#cb226-12" aria-hidden="true"></a>murders<span class="op">$</span>state[ind]</span></code></pre></div>
+<pre><code>## [1] &quot;Maine&quot;         &quot;New Hampshire&quot; &quot;Vermont&quot;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>In a previous exercise we computed the murder rate for each state and the average of these numbers. How many states are below the average?</li>
+</ol>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="section-3-overview.html#cb228-1" aria-hidden="true"></a><span class="co"># Store the murder rate per 100,000 for each state, in murder_rate</span></span>
+<span id="cb228-2"><a href="section-3-overview.html#cb228-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total<span class="op">/</span>murders<span class="op">$</span>population<span class="op">*</span><span class="dv">100000</span></span>
+<span id="cb228-3"><a href="section-3-overview.html#cb228-3" aria-hidden="true"></a></span>
+<span id="cb228-4"><a href="section-3-overview.html#cb228-4" aria-hidden="true"></a></span>
+<span id="cb228-5"><a href="section-3-overview.html#cb228-5" aria-hidden="true"></a><span class="co"># Compute the average murder rate using `mean` and store it in object named `avg`</span></span>
+<span id="cb228-6"><a href="section-3-overview.html#cb228-6" aria-hidden="true"></a>avg &lt;-<span class="st"> </span><span class="kw">mean</span>(murder_rate)</span>
+<span id="cb228-7"><a href="section-3-overview.html#cb228-7" aria-hidden="true"></a></span>
+<span id="cb228-8"><a href="section-3-overview.html#cb228-8" aria-hidden="true"></a><span class="co"># How many states have murder rates below avg ? Check using sum </span></span>
+<span id="cb228-9"><a href="section-3-overview.html#cb228-9" aria-hidden="true"></a>ind &lt;-<span class="st"> </span>murder_rate <span class="op">&lt;</span><span class="st"> </span>avg</span>
+<span id="cb228-10"><a href="section-3-overview.html#cb228-10" aria-hidden="true"></a><span class="kw">sum</span>(ind)</span></code></pre></div>
+<pre><code>## [1] 27</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>In this exercise we use the <code>match</code> function to identify the states with abbreviations AK, MI, and IA.</li>
+</ol>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="section-3-overview.html#cb230-1" aria-hidden="true"></a><span class="co"># Store the 3 abbreviations in a vector called `abbs` (remember that they are character vectors and need quotes)</span></span>
+<span id="cb230-2"><a href="section-3-overview.html#cb230-2" aria-hidden="true"></a>abbs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AK&quot;</span>, <span class="st">&quot;MI&quot;</span>, <span class="st">&quot;IA&quot;</span>)</span>
+<span id="cb230-3"><a href="section-3-overview.html#cb230-3" aria-hidden="true"></a></span>
+<span id="cb230-4"><a href="section-3-overview.html#cb230-4" aria-hidden="true"></a><span class="co"># Match the abbs to the murders$abb and store in ind</span></span>
+<span id="cb230-5"><a href="section-3-overview.html#cb230-5" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">match</span>(abbs, murders<span class="op">$</span>abb)</span>
+<span id="cb230-6"><a href="section-3-overview.html#cb230-6" aria-hidden="true"></a></span>
+<span id="cb230-7"><a href="section-3-overview.html#cb230-7" aria-hidden="true"></a><span class="co"># Print state names from ind</span></span>
+<span id="cb230-8"><a href="section-3-overview.html#cb230-8" aria-hidden="true"></a>murders<span class="op">$</span>state[ind]</span></code></pre></div>
+<pre><code>## [1] &quot;Alaska&quot;   &quot;Michigan&quot; &quot;Iowa&quot;</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>If rather than an index we want a logical that tells us whether or not each element of a first vector is in a second, we can use the function <code>%in%</code>.</li>
+</ol>
+<p>For example:</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="section-3-overview.html#cb232-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb232-2"><a href="section-3-overview.html#cb232-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb232-3"><a href="section-3-overview.html#cb232-3" aria-hidden="true"></a>x<span class="op">%in%</span>y</span></code></pre></div>
+<p>Gives us two <code>TRUE</code> followed by a <code>FALSE</code> because 2 and 3 are in <code>y</code> but 5 is not.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="section-3-overview.html#cb233-1" aria-hidden="true"></a><span class="co"># Store the 5 abbreviations in `abbs`. (remember that they are character vectors)</span></span>
+<span id="cb233-2"><a href="section-3-overview.html#cb233-2" aria-hidden="true"></a>abbs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;MA&quot;</span>, <span class="st">&quot;ME&quot;</span>, <span class="st">&quot;MI&quot;</span>, <span class="st">&quot;MO&quot;</span>, <span class="st">&quot;MU&quot;</span>)</span>
+<span id="cb233-3"><a href="section-3-overview.html#cb233-3" aria-hidden="true"></a></span>
+<span id="cb233-4"><a href="section-3-overview.html#cb233-4" aria-hidden="true"></a><span class="co"># Use the %in% command to check if the entries of abbs are abbreviations in the the murders data frame</span></span>
+<span id="cb233-5"><a href="section-3-overview.html#cb233-5" aria-hidden="true"></a>abbs<span class="op">%in%</span>murders<span class="op">$</span>abb</span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE  TRUE  TRUE FALSE</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>In a previous exercise we computed the index <code>abbs%in%murders$abb</code>. Based on that, and using the <code>which</code> function and the <code>!</code> operator, get the index of the entries of <code>abbs</code> that are <strong>not</strong> abbreviations.</li>
+</ol>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="section-3-overview.html#cb235-1" aria-hidden="true"></a><span class="co"># Store the 5 abbreviations in abbs. (remember that they are character vectors)</span></span>
+<span id="cb235-2"><a href="section-3-overview.html#cb235-2" aria-hidden="true"></a>abbs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;MA&quot;</span>, <span class="st">&quot;ME&quot;</span>, <span class="st">&quot;MI&quot;</span>, <span class="st">&quot;MO&quot;</span>, <span class="st">&quot;MU&quot;</span>) </span>
+<span id="cb235-3"><a href="section-3-overview.html#cb235-3" aria-hidden="true"></a></span>
+<span id="cb235-4"><a href="section-3-overview.html#cb235-4" aria-hidden="true"></a><span class="co"># Use the `which` command and `!` operator to find out which index abbreviations are not actually part of the dataset and store in `ind`</span></span>
+<span id="cb235-5"><a href="section-3-overview.html#cb235-5" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="op">!</span>abbs<span class="op">%in%</span>murders<span class="op">$</span>abb)</span>
+<span id="cb235-6"><a href="section-3-overview.html#cb235-6" aria-hidden="true"></a></span>
+<span id="cb235-7"><a href="section-3-overview.html#cb235-7" aria-hidden="true"></a><span class="co"># Names of abbreviations in `ind`</span></span>
+<span id="cb235-8"><a href="section-3-overview.html#cb235-8" aria-hidden="true"></a>abbs[ind]</span></code></pre></div>
+<pre><code>## [1] &quot;MU&quot;</code></pre>
+</div>
+<div id="basic-data-wrangling" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Basic Data Wrangling</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/tidyverse.html#manipulating-data-frames">here</a> and <a href="https://rafalab.github.io/dsbook/tidyverse.html#the-pipe">here</a></p>
+<p>In the textbook, the dplyr package is introduced in the context of the tidyverse, a collection of R packages</p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>To change a data table by adding a new column, or changing an existing one, we use the <code>mutate</code> function.</li>
+<li>To filter the data by subsetting rows, we use the function <code>filter</code>.</li>
+<li>To subset the data by selecting specific columns, we use the <code>select</code> function.</li>
+<li>We can perform a series of operations by sending the results of one function to another function using what is called the pipe operator, <code>%&gt;%</code>.</li>
+</ul>
+<p><em>Code</em></p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="section-3-overview.html#cb237-1" aria-hidden="true"></a><span class="co"># installing and loading the dplyr package</span></span>
+<span id="cb237-2"><a href="section-3-overview.html#cb237-2" aria-hidden="true"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(dplyr)) <span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb237-3"><a href="section-3-overview.html#cb237-3" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb237-4"><a href="section-3-overview.html#cb237-4" aria-hidden="true"></a></span>
+<span id="cb237-5"><a href="section-3-overview.html#cb237-5" aria-hidden="true"></a><span class="co"># adding a column with mutate</span></span>
+<span id="cb237-6"><a href="section-3-overview.html#cb237-6" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb237-7"><a href="section-3-overview.html#cb237-7" aria-hidden="true"></a><span class="kw">data</span>(<span class="st">&quot;murders&quot;</span>)</span>
+<span id="cb237-8"><a href="section-3-overview.html#cb237-8" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">rate =</span> total <span class="op">/</span><span class="st"> </span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>)</span>
+<span id="cb237-9"><a href="section-3-overview.html#cb237-9" aria-hidden="true"></a></span>
+<span id="cb237-10"><a href="section-3-overview.html#cb237-10" aria-hidden="true"></a><span class="co"># subsetting with filter</span></span>
+<span id="cb237-11"><a href="section-3-overview.html#cb237-11" aria-hidden="true"></a><span class="kw">filter</span>(murders, rate <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.71</span>)</span></code></pre></div>
+<pre><code>##           state abb        region population total  rate
+## 1        Hawaii  HI          West    1360301     7 0.515
+## 2          Iowa  IA North Central    3046355    21 0.689
+## 3 New Hampshire  NH     Northeast    1316470     5 0.380
+## 4  North Dakota  ND North Central     672591     4 0.595
+## 5       Vermont  VT     Northeast     625741     2 0.320</code></pre>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="section-3-overview.html#cb239-1" aria-hidden="true"></a><span class="co"># selecting columns with select</span></span>
+<span id="cb239-2"><a href="section-3-overview.html#cb239-2" aria-hidden="true"></a>new_table &lt;-<span class="st"> </span><span class="kw">select</span>(murders, state, region, rate)</span>
+<span id="cb239-3"><a href="section-3-overview.html#cb239-3" aria-hidden="true"></a></span>
+<span id="cb239-4"><a href="section-3-overview.html#cb239-4" aria-hidden="true"></a><span class="co"># using the pipe</span></span>
+<span id="cb239-5"><a href="section-3-overview.html#cb239-5" aria-hidden="true"></a>murders <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(state, region, rate) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(rate <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.71</span>)</span></code></pre></div>
+<pre><code>##           state        region  rate
+## 1        Hawaii          West 0.515
+## 2          Iowa North Central 0.689
+## 3 New Hampshire     Northeast 0.380
+## 4  North Dakota North Central 0.595
+## 5       Vermont     Northeast 0.320</code></pre>
+</div>
+<div id="basic-data-wrangling---creating-data-frames" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Basic Data Wrangling - Creating Data Frames</h2>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>We can use the <code>data.frame()</code> function to create data frames.</li>
+<li>By default, the <code>data.frame()</code> function turns characters into factors. To avoid this, we utilize the <code>stringsAsFactors</code> argument and set it equal to false.</li>
+</ul>
+<p><em>Code</em></p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="section-3-overview.html#cb241-1" aria-hidden="true"></a><span class="co"># creating a data frame with stringAsFactors = FALSE</span></span>
+<span id="cb241-2"><a href="section-3-overview.html#cb241-2" aria-hidden="true"></a>grades &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Juan&quot;</span>, <span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Yao&quot;</span>), </span>
+<span id="cb241-3"><a href="section-3-overview.html#cb241-3" aria-hidden="true"></a>                     <span class="dt">exam_1 =</span> <span class="kw">c</span>(<span class="dv">95</span>, <span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">85</span>), </span>
+<span id="cb241-4"><a href="section-3-overview.html#cb241-4" aria-hidden="true"></a>                     <span class="dt">exam_2 =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">85</span>, <span class="dv">90</span>),</span>
+<span id="cb241-5"><a href="section-3-overview.html#cb241-5" aria-hidden="true"></a>                     <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+</div>
+<div id="assessment---basic-data-wrangling" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Assessment - Basic Data Wrangling</h2>
+<ol style="list-style-type: decimal">
+<li>You can add columns using the <code>dplyr</code> function <code>mutate</code>.</li>
+</ol>
+<p>This function is aware of the column names and inside the function you can call them unquoted. Like this:</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="section-3-overview.html#cb242-1" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">population_in_millions =</span> population <span class="op">/</span><span class="st"> </span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span>)</span></code></pre></div>
+<p>Note that we can write <code>population</code> rather than <code>murders$population</code>. The function <code>mutate</code> knows we are grabing columns from <code>murders</code>.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="section-3-overview.html#cb243-1" aria-hidden="true"></a><span class="co"># Redefine murders so that it includes a column named rate with the per 100,000 murder rates</span></span>
+<span id="cb243-2"><a href="section-3-overview.html#cb243-2" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">rate =</span> total <span class="op">/</span><span class="st"> </span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Note that if <code>rank(x)</code> gives you the ranks of <code>x</code> from lowest to highest, <code>rank(-x)</code> gives you the ranks from highest to lowest.</li>
+</ol>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="section-3-overview.html#cb244-1" aria-hidden="true"></a><span class="co"># Note that if you want ranks from highest to lowest you can take the negative and then compute the ranks </span></span>
+<span id="cb244-2"><a href="section-3-overview.html#cb244-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">88</span>, <span class="dv">100</span>, <span class="dv">83</span>, <span class="dv">92</span>, <span class="dv">94</span>)</span>
+<span id="cb244-3"><a href="section-3-overview.html#cb244-3" aria-hidden="true"></a><span class="kw">rank</span>(<span class="op">-</span>x)</span></code></pre></div>
+<pre><code>## [1] 4 1 5 3 2</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="section-3-overview.html#cb246-1" aria-hidden="true"></a><span class="co"># Defining rate</span></span>
+<span id="cb246-2"><a href="section-3-overview.html#cb246-2" aria-hidden="true"></a>rate &lt;-<span class="st">  </span>murders<span class="op">$</span>total<span class="op">/</span><span class="st"> </span>murders<span class="op">$</span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span></span>
+<span id="cb246-3"><a href="section-3-overview.html#cb246-3" aria-hidden="true"></a></span>
+<span id="cb246-4"><a href="section-3-overview.html#cb246-4" aria-hidden="true"></a><span class="co"># Redefine murders to include a column named rank</span></span>
+<span id="cb246-5"><a href="section-3-overview.html#cb246-5" aria-hidden="true"></a><span class="co"># with the ranks of rate from highest to lowest</span></span>
+<span id="cb246-6"><a href="section-3-overview.html#cb246-6" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">rank =</span> <span class="kw">rank</span>(<span class="op">-</span>rate))</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>With <code>dplyr</code> we can use <code>select</code> to show only certain columns. For example with this code we would only show the states and population sizes:</li>
+</ol>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="section-3-overview.html#cb247-1" aria-hidden="true"></a><span class="kw">select</span>(murders, state, population)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="section-3-overview.html#cb248-1" aria-hidden="true"></a><span class="co"># Use select to only show state names and abbreviations from murders</span></span>
+<span id="cb248-2"><a href="section-3-overview.html#cb248-2" aria-hidden="true"></a><span class="kw">select</span>(murders, state, abb)</span></code></pre></div>
+<pre><code>##                   state abb
+## 1               Alabama  AL
+## 2                Alaska  AK
+## 3               Arizona  AZ
+## 4              Arkansas  AR
+## 5            California  CA
+## 6              Colorado  CO
+## 7           Connecticut  CT
+## 8              Delaware  DE
+## 9  District of Columbia  DC
+## 10              Florida  FL
+## 11              Georgia  GA
+## 12               Hawaii  HI
+## 13                Idaho  ID
+## 14             Illinois  IL
+## 15              Indiana  IN
+## 16                 Iowa  IA
+## 17               Kansas  KS
+## 18             Kentucky  KY
+## 19            Louisiana  LA
+## 20                Maine  ME
+## 21             Maryland  MD
+## 22        Massachusetts  MA
+## 23             Michigan  MI
+## 24            Minnesota  MN
+## 25          Mississippi  MS
+## 26             Missouri  MO
+## 27              Montana  MT
+## 28             Nebraska  NE
+## 29               Nevada  NV
+## 30        New Hampshire  NH
+## 31           New Jersey  NJ
+## 32           New Mexico  NM
+## 33             New York  NY
+## 34       North Carolina  NC
+## 35         North Dakota  ND
+## 36                 Ohio  OH
+## 37             Oklahoma  OK
+## 38               Oregon  OR
+## 39         Pennsylvania  PA
+## 40         Rhode Island  RI
+## 41       South Carolina  SC
+## 42         South Dakota  SD
+## 43            Tennessee  TN
+## 44                Texas  TX
+## 45                 Utah  UT
+## 46              Vermont  VT
+## 47             Virginia  VA
+## 48           Washington  WA
+## 49        West Virginia  WV
+## 50            Wisconsin  WI
+## 51              Wyoming  WY</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>The <code>dplyr</code> function <code>filter</code> is used to choose specific rows of the data frame to keep. Unlike <code>select</code> which is for columns, <code>filter</code> is for rows.</li>
+</ol>
+<p>For example you can show just the New York row like this:</p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="section-3-overview.html#cb250-1" aria-hidden="true"></a><span class="kw">filter</span>(murders, state <span class="op">==</span><span class="st"> &quot;New York&quot;</span>)</span></code></pre></div>
+<p>You can use other logical vectors to filter rows.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="section-3-overview.html#cb251-1" aria-hidden="true"></a><span class="co"># Add the necessary columns</span></span>
+<span id="cb251-2"><a href="section-3-overview.html#cb251-2" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">rate =</span> total<span class="op">/</span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>, <span class="dt">rank =</span> <span class="kw">rank</span>(<span class="op">-</span>rate))</span>
+<span id="cb251-3"><a href="section-3-overview.html#cb251-3" aria-hidden="true"></a></span>
+<span id="cb251-4"><a href="section-3-overview.html#cb251-4" aria-hidden="true"></a><span class="co"># Filter to show the top 5 states with the highest murder rates</span></span>
+<span id="cb251-5"><a href="section-3-overview.html#cb251-5" aria-hidden="true"></a><span class="kw">filter</span>(murders, rank <span class="op">&lt;=</span><span class="st"> </span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##                  state abb        region population total  rate rank
+## 1 District of Columbia  DC         South     601723    99 16.45    1
+## 2            Louisiana  LA         South    4533372   351  7.74    2
+## 3             Maryland  MD         South    5773552   293  5.07    4
+## 4             Missouri  MO North Central    5988927   321  5.36    3
+## 5       South Carolina  SC         South    4625364   207  4.48    5</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>We can remove rows using the <code>!=</code> operator.</li>
+</ol>
+<p>For example to remove Florida we would do this:</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="section-3-overview.html#cb253-1" aria-hidden="true"></a>no_florida &lt;-<span class="st"> </span><span class="kw">filter</span>(murders, state <span class="op">!=</span><span class="st"> </span>“Florida”)</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="section-3-overview.html#cb254-1" aria-hidden="true"></a><span class="co"># Use filter to create a new data frame no_south</span></span>
+<span id="cb254-2"><a href="section-3-overview.html#cb254-2" aria-hidden="true"></a>no_south &lt;-<span class="st"> </span><span class="kw">filter</span>(murders, region <span class="op">!=</span><span class="st"> &quot;South&quot;</span>)</span>
+<span id="cb254-3"><a href="section-3-overview.html#cb254-3" aria-hidden="true"></a></span>
+<span id="cb254-4"><a href="section-3-overview.html#cb254-4" aria-hidden="true"></a><span class="co"># Use nrow() to calculate the number of rows</span></span>
+<span id="cb254-5"><a href="section-3-overview.html#cb254-5" aria-hidden="true"></a><span class="kw">nrow</span>(no_south)</span></code></pre></div>
+<pre><code>## [1] 34</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>We can also use the <code>%in%</code> to filter with <code>dplyr</code>.</li>
+</ol>
+<p>For example you can see the data from New York and Texas like this:</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="section-3-overview.html#cb256-1" aria-hidden="true"></a><span class="kw">filter</span>(murders, state <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(“New York”, “Texas”))</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="section-3-overview.html#cb257-1" aria-hidden="true"></a><span class="co"># Create a new data frame called murders_nw with only the states from the northeast and the west</span></span>
+<span id="cb257-2"><a href="section-3-overview.html#cb257-2" aria-hidden="true"></a>murders_nw &lt;-<span class="st"> </span><span class="kw">filter</span>(murders, region <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Northeast&quot;</span>, <span class="st">&quot;West&quot;</span>))</span>
+<span id="cb257-3"><a href="section-3-overview.html#cb257-3" aria-hidden="true"></a></span>
+<span id="cb257-4"><a href="section-3-overview.html#cb257-4" aria-hidden="true"></a><span class="co"># Number of states (rows) in this category </span></span>
+<span id="cb257-5"><a href="section-3-overview.html#cb257-5" aria-hidden="true"></a><span class="kw">nrow</span>(murders_nw)</span></code></pre></div>
+<pre><code>## [1] 22</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Suppose you want to live in the Northeast or West <strong>and</strong> want the murder rate to be less than 1.</li>
+</ol>
+<p>We want to see the data for the states satisfying these options. Note that you can use logical operators with <code>filter</code>:</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="section-3-overview.html#cb259-1" aria-hidden="true"></a><span class="kw">filter</span>(murders, population <span class="op">&lt;</span><span class="st"> </span><span class="dv">5000000</span> <span class="op">&amp;</span><span class="st"> </span>region <span class="op">==</span><span class="st"> </span>“Northeast”)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="section-3-overview.html#cb260-1" aria-hidden="true"></a><span class="co"># add the rate column</span></span>
+<span id="cb260-2"><a href="section-3-overview.html#cb260-2" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">rate =</span>  total <span class="op">/</span><span class="st"> </span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>, <span class="dt">rank =</span> <span class="kw">rank</span>(<span class="op">-</span>rate))</span>
+<span id="cb260-3"><a href="section-3-overview.html#cb260-3" aria-hidden="true"></a></span>
+<span id="cb260-4"><a href="section-3-overview.html#cb260-4" aria-hidden="true"></a><span class="co"># Create a table, call it my_states, that satisfies both the conditions</span></span>
+<span id="cb260-5"><a href="section-3-overview.html#cb260-5" aria-hidden="true"></a>my_states &lt;-<span class="st"> </span><span class="kw">filter</span>(murders, rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>region <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Northeast&quot;</span>, <span class="st">&quot;West&quot;</span>))</span>
+<span id="cb260-6"><a href="section-3-overview.html#cb260-6" aria-hidden="true"></a></span>
+<span id="cb260-7"><a href="section-3-overview.html#cb260-7" aria-hidden="true"></a><span class="co"># Use select to show only the state name, the murder rate and the rank</span></span>
+<span id="cb260-8"><a href="section-3-overview.html#cb260-8" aria-hidden="true"></a><span class="kw">select</span>(my_states, state, rate, rank)</span></code></pre></div>
+<pre><code>##           state  rate rank
+## 1        Hawaii 0.515   49
+## 2         Idaho 0.766   46
+## 3         Maine 0.828   44
+## 4 New Hampshire 0.380   50
+## 5        Oregon 0.940   42
+## 6          Utah 0.796   45
+## 7       Vermont 0.320   51
+## 8       Wyoming 0.887   43</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>The pipe <code>%&gt;%</code> can be used to perform operations sequentially without having to define intermediate objects.</li>
+</ol>
+<p>After redefining murder to include rate and rank.</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="section-3-overview.html#cb262-1" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb262-2"><a href="section-3-overview.html#cb262-2" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">rate =</span> total <span class="op">/</span><span class="st"> </span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>, <span class="dt">rank =</span> (<span class="op">-</span>rate))</span></code></pre></div>
+<p>in the solution to the previous exercise we did the following:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="section-3-overview.html#cb263-1" aria-hidden="true"></a><span class="co"># Created a table</span></span>
+<span id="cb263-2"><a href="section-3-overview.html#cb263-2" aria-hidden="true"></a>my_states &lt;-<span class="st"> </span><span class="kw">filter</span>(murders, region <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(“Northeast”, “West”) <span class="op">&amp;</span><span class="st"> </span>rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb263-3"><a href="section-3-overview.html#cb263-3" aria-hidden="true"></a></span>
+<span id="cb263-4"><a href="section-3-overview.html#cb263-4" aria-hidden="true"></a><span class="co"># Used select to show only the state name, the murder rate and the rank</span></span>
+<span id="cb263-5"><a href="section-3-overview.html#cb263-5" aria-hidden="true"></a><span class="kw">select</span>(my_states, state, rate, rank)</span></code></pre></div>
+<p>The pipe <code>%&gt;%</code> permits us to perform both operation sequentially and without having to define an intermediate variable <code>my_states</code></p>
+<p>For example we could have mutated and selected in the same line like this:</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="section-3-overview.html#cb264-1" aria-hidden="true"></a><span class="kw">mutate</span>(murders, <span class="dt">rate =</span> total <span class="op">/</span><span class="st"> </span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>, <span class="dt">rank =</span> (<span class="op">-</span>rate)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(state, rate, rank)</span></code></pre></div>
+<p>Note that <code>select</code> no longer has a data frame as the first argument. The first argument is assumed to be the result of the operation conducted right before the <code>%&gt;%</code></p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="section-3-overview.html#cb265-1" aria-hidden="true"></a><span class="co">## Define the rate column</span></span>
+<span id="cb265-2"><a href="section-3-overview.html#cb265-2" aria-hidden="true"></a>murders &lt;-<span class="st"> </span><span class="kw">mutate</span>(murders, <span class="dt">rate =</span>  total <span class="op">/</span><span class="st"> </span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>, <span class="dt">rank =</span> <span class="kw">rank</span>(<span class="op">-</span>rate))</span>
+<span id="cb265-3"><a href="section-3-overview.html#cb265-3" aria-hidden="true"></a></span>
+<span id="cb265-4"><a href="section-3-overview.html#cb265-4" aria-hidden="true"></a><span class="co"># show the result and only include the state, rate, and rank columns, all in one line</span></span>
+<span id="cb265-5"><a href="section-3-overview.html#cb265-5" aria-hidden="true"></a><span class="kw">filter</span>(murders, region <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Northeast&quot;</span>, <span class="st">&quot;West&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(state, rate, rank)</span></code></pre></div>
+<pre><code>##           state  rate rank
+## 1        Hawaii 0.515   49
+## 2         Idaho 0.766   46
+## 3         Maine 0.828   44
+## 4 New Hampshire 0.380   50
+## 5        Oregon 0.940   42
+## 6          Utah 0.796   45
+## 7       Vermont 0.320   51
+## 8       Wyoming 0.887   43</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>Now we will reset murders to the original table by using <code>data(murders)</code>.</li>
+</ol>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="section-3-overview.html#cb267-1" aria-hidden="true"></a><span class="co"># Loading the table</span></span>
+<span id="cb267-2"><a href="section-3-overview.html#cb267-2" aria-hidden="true"></a><span class="kw">data</span>(murders)</span>
+<span id="cb267-3"><a href="section-3-overview.html#cb267-3" aria-hidden="true"></a></span>
+<span id="cb267-4"><a href="section-3-overview.html#cb267-4" aria-hidden="true"></a><span class="co"># Create new data frame called my_states (with specifications in the instructions)</span></span>
+<span id="cb267-5"><a href="section-3-overview.html#cb267-5" aria-hidden="true"></a>my_states &lt;-<span class="st"> </span>murders <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">rate =</span>  total <span class="op">/</span><span class="st"> </span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span>, <span class="dt">rank =</span> <span class="kw">rank</span>(<span class="op">-</span>rate)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(region <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Northeast&quot;</span>, <span class="st">&quot;West&quot;</span>) <span class="op">&amp;</span><span class="st"> </span>rate <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(state, rate, rank)</span></code></pre></div>
+</div>
+<div id="basic-plots" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Basic Plots</h2>
+<p>Here is a link to the textbook section on <a href="https://rafalab.github.io/dsbook/r-basics.html#basic-plots">basic plots</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>We can create a simple scatterplot using the function <code>plot()</code>.</li>
+<li>Histograms are graphical summaries that give you a general overview of the types of values you have. In R, they can be produced using the <code>hist()</code> function.</li>
+<li>Boxplots provide a more compact summary of a distribution than a histogram and are more useful for comparing distributions. They can be produced using the ```boxplot() function.</li>
+</ul>
+<p><em>Code</em></p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="section-3-overview.html#cb268-1" aria-hidden="true"></a><span class="co"># a simple scatterplot of total murders versus population</span></span>
+<span id="cb268-2"><a href="section-3-overview.html#cb268-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span>murders<span class="op">$</span>population <span class="op">/</span><span class="st"> </span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span>
+<span id="cb268-3"><a href="section-3-overview.html#cb268-3" aria-hidden="true"></a>y &lt;-<span class="st"> </span>murders<span class="op">$</span>total</span>
+<span id="cb268-4"><a href="section-3-overview.html#cb268-4" aria-hidden="true"></a><span class="kw">plot</span>(x, y)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="section-3-overview.html#cb269-1" aria-hidden="true"></a><span class="co"># a histogram of murder rates</span></span>
+<span id="cb269-2"><a href="section-3-overview.html#cb269-2" aria-hidden="true"></a><span class="kw">hist</span>(rate)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-98-2.png" width="672" /></p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="section-3-overview.html#cb270-1" aria-hidden="true"></a><span class="co"># boxplots of murder rates by region</span></span>
+<span id="cb270-2"><a href="section-3-overview.html#cb270-2" aria-hidden="true"></a><span class="kw">boxplot</span>(rate<span class="op">~</span>region, <span class="dt">data =</span> murders)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-98-3.png" width="672" /></p>
+</div>
+<div id="assessment---basic-plots" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Assessment - Basic Plots</h2>
+<ol style="list-style-type: decimal">
+<li>We made a plot of total murders versus population and noted a strong relationship: not surprisingly, states with larger populations had more murders.</li>
+</ol>
+<p>You can run the code in the console to get the plot.</p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="section-3-overview.html#cb271-1" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb271-2"><a href="section-3-overview.html#cb271-2" aria-hidden="true"></a><span class="kw">data</span>(murders)</span>
+<span id="cb271-3"><a href="section-3-overview.html#cb271-3" aria-hidden="true"></a></span>
+<span id="cb271-4"><a href="section-3-overview.html#cb271-4" aria-hidden="true"></a>population_in_millions &lt;-<span class="st"> </span>murders<span class="op">$</span>population<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span>
+<span id="cb271-5"><a href="section-3-overview.html#cb271-5" aria-hidden="true"></a>total_gun_murders <span class="op">&lt;</span>− murders<span class="op">$</span>total</span>
+<span id="cb271-6"><a href="section-3-overview.html#cb271-6" aria-hidden="true"></a></span>
+<span id="cb271-7"><a href="section-3-overview.html#cb271-7" aria-hidden="true"></a><span class="kw">plot</span>(population_in_millions, total_gun_murders)</span></code></pre></div>
+<p>Note that many states have populations below 5 million and are bunched up in the plot. We may gain further insights from making this plot in the log scale.</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="section-3-overview.html#cb272-1" aria-hidden="true"></a>population_in_millions &lt;-<span class="st"> </span>murders<span class="op">$</span>population<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span>
+<span id="cb272-2"><a href="section-3-overview.html#cb272-2" aria-hidden="true"></a>total_gun_murders &lt;-<span class="st"> </span>murders<span class="op">$</span>total</span>
+<span id="cb272-3"><a href="section-3-overview.html#cb272-3" aria-hidden="true"></a></span>
+<span id="cb272-4"><a href="section-3-overview.html#cb272-4" aria-hidden="true"></a><span class="kw">plot</span>(population_in_millions, total_gun_murders)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="section-3-overview.html#cb273-1" aria-hidden="true"></a><span class="co"># Transform population using the log10 transformation and save to object log10_population</span></span>
+<span id="cb273-2"><a href="section-3-overview.html#cb273-2" aria-hidden="true"></a>log10_population &lt;-<span class="st"> </span><span class="kw">log10</span>(murders<span class="op">$</span>population)</span>
+<span id="cb273-3"><a href="section-3-overview.html#cb273-3" aria-hidden="true"></a></span>
+<span id="cb273-4"><a href="section-3-overview.html#cb273-4" aria-hidden="true"></a><span class="co"># Transform total gun murders using log10 transformation and save to object log10_total_gun_murders</span></span>
+<span id="cb273-5"><a href="section-3-overview.html#cb273-5" aria-hidden="true"></a>log10_total_gun_murders &lt;-<span class="st"> </span><span class="kw">log10</span>(total_gun_murders)</span>
+<span id="cb273-6"><a href="section-3-overview.html#cb273-6" aria-hidden="true"></a></span>
+<span id="cb273-7"><a href="section-3-overview.html#cb273-7" aria-hidden="true"></a><span class="co"># Create a scatterplot with the log scale transformed population and murders </span></span>
+<span id="cb273-8"><a href="section-3-overview.html#cb273-8" aria-hidden="true"></a><span class="kw">plot</span>(log10_population, log10_total_gun_murders)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-100-2.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Now we are going to make a histogram.</li>
+</ol>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="section-3-overview.html#cb274-1" aria-hidden="true"></a><span class="co"># Store the population in millions and save to population_in_millions </span></span>
+<span id="cb274-2"><a href="section-3-overview.html#cb274-2" aria-hidden="true"></a>population_in_millions &lt;-<span class="st"> </span>murders<span class="op">$</span>population<span class="op">/</span><span class="dv">10</span><span class="op">^</span><span class="dv">6</span></span>
+<span id="cb274-3"><a href="section-3-overview.html#cb274-3" aria-hidden="true"></a></span>
+<span id="cb274-4"><a href="section-3-overview.html#cb274-4" aria-hidden="true"></a><span class="co"># Create a histogram of this variable</span></span>
+<span id="cb274-5"><a href="section-3-overview.html#cb274-5" aria-hidden="true"></a><span class="kw">hist</span>(population_in_millions)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Now we are going to make boxplots. Boxplots are useful when we want a summary of several variables or several strata of the same variables. Making too many histograms can become too cumbersome.</li>
+</ol>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="section-3-overview.html#cb275-1" aria-hidden="true"></a><span class="co"># Create a boxplot of state populations by region for the murders dataset</span></span>
+<span id="cb275-2"><a href="section-3-overview.html#cb275-2" aria-hidden="true"></a><span class="kw">boxplot</span>(population<span class="op">~</span>region, <span class="dt">data =</span> murders)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+</div>
+<div id="section-3-assessment" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Section 3 Assessment</h2>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="section-3-overview.html#cb276-1" aria-hidden="true"></a><span class="kw">data</span>(heights)</span>
+<span id="cb276-2"><a href="section-3-overview.html#cb276-2" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">3</span>)    <span class="co"># report 3 significant digits for all answers</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>First, determine the average height in this dataset. Then create a logical vector <code>ind</code> with the indices for those individuals who are above average height.</li>
+</ol>
+<p>How many individuals in the dataset are above average height?</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="section-3-overview.html#cb277-1" aria-hidden="true"></a>ind &lt;-<span class="st"> </span>heights<span class="op">$</span>height <span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(heights<span class="op">$</span>height)</span>
+<span id="cb277-2"><a href="section-3-overview.html#cb277-2" aria-hidden="true"></a><span class="kw">sum</span>(ind)</span></code></pre></div>
+<pre><code>## [1] 532</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>How many individuals in the dataset are above average height and are female?</li>
+</ol>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="section-3-overview.html#cb279-1" aria-hidden="true"></a><span class="kw">sum</span>(ind <span class="op">&amp;</span><span class="st"> </span>heights<span class="op">$</span>sex<span class="op">==</span><span class="st">&quot;Female&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 31</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>If you use <code>mean</code> on a logical (TRUE/FALSE) vector, it returns the proportion of observations that are TRUE.</li>
+</ol>
+<p>What proportion of individuals in the dataset are female?</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="section-3-overview.html#cb281-1" aria-hidden="true"></a><span class="kw">mean</span>(heights<span class="op">$</span>sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.227</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>This question takes you through three steps to determine the sex of the individual with the minimum height.</li>
+</ol>
+<p>Determine the minimum height in the <code>heights</code> dataset.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="section-3-overview.html#cb283-1" aria-hidden="true"></a><span class="kw">min</span>(heights<span class="op">$</span>height)</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<p>Use the <code>match()</code> function to determine the index of the individual with the minimum height.</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="section-3-overview.html#cb285-1" aria-hidden="true"></a><span class="kw">match</span>(<span class="dv">50</span>,heights<span class="op">$</span>height)</span></code></pre></div>
+<pre><code>## [1] 1032</code></pre>
+<p>Subset the <code>sex</code> column of the dataset by the index above to determine the individual’s sex. <code>Male</code></p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="section-3-overview.html#cb287-1" aria-hidden="true"></a>heights<span class="op">$</span>sex[<span class="dv">1032</span>]</span></code></pre></div>
+<pre><code>## [1] Male
+## Levels: Female Male</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>This question takes you through three steps to determine how many of the integer height values between the minimum and maximum heights are not actual heights of individuals in the heights dataset.</li>
+</ol>
+<p>Determine the maximum height.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="section-3-overview.html#cb289-1" aria-hidden="true"></a><span class="kw">max</span>(heights<span class="op">$</span>height)</span></code></pre></div>
+<pre><code>## [1] 82.7</code></pre>
+<p>Which integer values are between the maximum and minimum heights? For example, if the minimum height is 10.2 and the maximum height is 20.8, your answer should be <code>x &lt;- 11:20</code> to capture the integers in between those values. (If either the maximum or minimum height are integers, include those values too.)</p>
+<p>Write code to create a vector x that includes the <em>integers</em> between the minimum and maximum heights.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="section-3-overview.html#cb291-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">50</span><span class="op">:</span><span class="dv">82</span></span></code></pre></div>
+<p>How many of the integers in x are NOT heights in the dataset?</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="section-3-overview.html#cb292-1" aria-hidden="true"></a><span class="kw">sum</span>(<span class="op">!</span>(x <span class="op">%in%</span><span class="st"> </span>heights<span class="op">$</span>height))</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Using the <code>heights</code> dataset, create a new column of heights in centimeters named <code>ht_cm</code>. Recall that 1 inch =
+2.54 centimeters. Save the resulting dataset as <code>heights2</code>.</li>
+</ol>
+<p>What is the height in centimeters of the 18th individual (index 18)?</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="section-3-overview.html#cb294-1" aria-hidden="true"></a>heights2 &lt;-<span class="st"> </span><span class="kw">mutate</span>(heights, <span class="dt">ht_cm =</span> height<span class="op">*</span><span class="fl">2.54</span>)</span>
+<span id="cb294-2"><a href="section-3-overview.html#cb294-2" aria-hidden="true"></a></span>
+<span id="cb294-3"><a href="section-3-overview.html#cb294-3" aria-hidden="true"></a><span class="co"># Then we subset the new heights2 dataset:</span></span>
+<span id="cb294-4"><a href="section-3-overview.html#cb294-4" aria-hidden="true"></a></span>
+<span id="cb294-5"><a href="section-3-overview.html#cb294-5" aria-hidden="true"></a>heights2<span class="op">$</span>ht_cm[<span class="dv">18</span>]</span></code></pre></div>
+<pre><code>## [1] 163</code></pre>
+<p>What is the mean height in centimeters?</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="section-3-overview.html#cb296-1" aria-hidden="true"></a><span class="kw">mean</span>(heights2<span class="op">$</span>ht_cm)</span></code></pre></div>
+<pre><code>## [1] 174</code></pre>
+<p>Create a data frame <code>females</code> by filtering the <code>heights2</code> data to contain only female individuals.</p>
+<p>How many females are in the heights2 dataset?</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="section-3-overview.html#cb298-1" aria-hidden="true"></a>females &lt;-<span class="st"> </span><span class="kw">filter</span>(heights2, sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>)</span>
+<span id="cb298-2"><a href="section-3-overview.html#cb298-2" aria-hidden="true"></a><span class="kw">nrow</span>(females)</span></code></pre></div>
+<pre><code>## [1] 238</code></pre>
+<p>What is the mean height of the females in centimeters?</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="section-3-overview.html#cb300-1" aria-hidden="true"></a><span class="kw">mean</span>(females<span class="op">$</span>ht_cm)</span></code></pre></div>
+<pre><code>## [1] 165</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>The <code>olive</code> dataset in <strong>dslabs</strong> contains composition in percentage of eight fatty acids found in the lipid fraction of 572 Italian olive oils:</li>
+</ol>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="section-3-overview.html#cb302-1" aria-hidden="true"></a><span class="kw">data</span>(olive)</span>
+<span id="cb302-2"><a href="section-3-overview.html#cb302-2" aria-hidden="true"></a><span class="kw">head</span>(olive)</span></code></pre></div>
+<pre><code>##           region         area palmitic palmitoleic stearic oleic linoleic linolenic arachidic eicosenoic
+## 1 Southern Italy North-Apulia    10.75        0.75    2.26  78.2     6.72      0.36      0.60       0.29
+## 2 Southern Italy North-Apulia    10.88        0.73    2.24  77.1     7.81      0.31      0.61       0.29
+## 3 Southern Italy North-Apulia     9.11        0.54    2.46  81.1     5.49      0.31      0.63       0.29
+## 4 Southern Italy North-Apulia     9.66        0.57    2.40  79.5     6.19      0.50      0.78       0.35
+## 5 Southern Italy North-Apulia    10.51        0.67    2.59  77.7     6.72      0.50      0.80       0.46
+## 6 Southern Italy North-Apulia     9.11        0.49    2.68  79.2     6.78      0.51      0.70       0.44</code></pre>
+<p>Plot the percent palmitic acid versus palmitoleic acid in a scatterplot. What relationship do you see?</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="section-3-overview.html#cb304-1" aria-hidden="true"></a><span class="kw">plot</span>(olive<span class="op">$</span>palmitic, olive<span class="op">$</span>palmitoleic)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+A. There is no relationship between palmitic and palmitoleic.</li>
+<li><input type="checkbox" disabled="" checked="" />
+B. There is a positive linear relationship between palmitic and palmitoleic.</li>
+<li><input type="checkbox" disabled="" />
+C. There is a negative linear relationship between palmitic and palmitoleic.</li>
+<li><input type="checkbox" disabled="" />
+D. There is a positive exponential relationship between palmitic and palmitoleic.</li>
+<li><input type="checkbox" disabled="" />
+E. There is a negative exponential relationship between palmitic and palmitoleic.</li>
+</ul>
+<ol start="9" style="list-style-type: decimal">
+<li>Create a histogram of the percentage of eicosenoic acid in <code>olive</code>. Which of the following is true?</li>
+</ol>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="section-3-overview.html#cb305-1" aria-hidden="true"></a><span class="kw">hist</span>(olive<span class="op">$</span>eicosenoic)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked="" />
+A. The most common value of eicosenoic acid is below 0.05%.</li>
+<li><input type="checkbox" disabled="" />
+B. The most common value of eicosenoic acid is greater than 0.5%.</li>
+<li><input type="checkbox" disabled="" />
+C. The most common value of eicosenoic acid is around 0.3%.</li>
+<li><input type="checkbox" disabled="" />
+D. There are equal numbers of olive oils with eicosenoic acid below 0.05% and greater than 0.5%.</li>
+</ul>
+<ol start="10" style="list-style-type: decimal">
+<li>Make a boxplot of palmitic acid percentage in <code>olive</code> with separate distributions for each region.</li>
+</ol>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="section-3-overview.html#cb306-1" aria-hidden="true"></a><span class="kw">boxplot</span>(palmitic <span class="op">~</span><span class="st"> </span>region, <span class="dt">data =</span> olive)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p>Which region has the highest median palmitic acid percentage? <code>Southern Italy</code></p>
+<p>Which region has the most variable palmitic acid percentage? <code>Southern Italy</code></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-2-overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-4-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

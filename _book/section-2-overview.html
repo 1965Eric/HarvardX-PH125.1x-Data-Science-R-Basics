@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Section 2 Overview | Data Science R Basics</title>
+  <meta name="description" content="3 Section 2 Overview | Data Science R Basics" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Section 2 Overview | Data Science R Basics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Section 2 Overview | Data Science R Basics" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-1-overview.html"/>
+<link rel="next" href="section-3-overview.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="learning-objectives.html"><a href="learning-objectives.html"><i class="fa fa-check"></i><b>1</b> Learning Objectives</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="learning-objectives.html"><a href="learning-objectives.html#course-overview"><i class="fa fa-check"></i><b>1.1</b> Course Overview</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="learning-objectives.html"><a href="learning-objectives.html#section-1-r-basics-functions-data-types"><i class="fa fa-check"></i><b>1.1.1</b> Section 1: R Basics, Functions, Data types</a></li>
+<li class="chapter" data-level="1.1.2" data-path="learning-objectives.html"><a href="learning-objectives.html#section-2-vectors-sorting"><i class="fa fa-check"></i><b>1.1.2</b> Section 2: Vectors, Sorting</a></li>
+<li class="chapter" data-level="1.1.3" data-path="learning-objectives.html"><a href="learning-objectives.html#section-3-indexing-data-manipulation-plots"><i class="fa fa-check"></i><b>1.1.3</b> Section 3: Indexing, Data Manipulation, Plots</a></li>
+<li class="chapter" data-level="1.1.4" data-path="learning-objectives.html"><a href="learning-objectives.html#section-4-programming-basics"><i class="fa fa-check"></i><b>1.1.4</b> Section 4: Programming Basics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-1-overview.html"><a href="section-1-overview.html"><i class="fa fa-check"></i><b>2</b> Section 1 Overview</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="section-1-overview.html"><a href="section-1-overview.html#motivation"><i class="fa fa-check"></i><b>2.1</b> Motivation</a></li>
+<li class="chapter" data-level="2.2" data-path="section-1-overview.html"><a href="section-1-overview.html#getting-started"><i class="fa fa-check"></i><b>2.2</b> Getting started</a></li>
+<li class="chapter" data-level="2.3" data-path="section-1-overview.html"><a href="section-1-overview.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>2.3</b> Installing R and R Studio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="section-1-overview.html"><a href="section-1-overview.html#installing-r"><i class="fa fa-check"></i><b>2.3.1</b> Installing R</a></li>
+<li class="chapter" data-level="2.3.2" data-path="section-1-overview.html"><a href="section-1-overview.html#installing-rstudio"><i class="fa fa-check"></i><b>2.3.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="2.3.3" data-path="section-1-overview.html"><a href="section-1-overview.html#textbook-link"><i class="fa fa-check"></i><b>2.3.3</b> Textbook Link</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="section-1-overview.html"><a href="section-1-overview.html#r-basics---objects"><i class="fa fa-check"></i><b>2.4</b> R Basics - Objects</a></li>
+<li class="chapter" data-level="2.5" data-path="section-1-overview.html"><a href="section-1-overview.html#r-basics---functions"><i class="fa fa-check"></i><b>2.5</b> R Basics - Functions</a></li>
+<li class="chapter" data-level="2.6" data-path="section-1-overview.html"><a href="section-1-overview.html#assessment---r-basics"><i class="fa fa-check"></i><b>2.6</b> Assessment - R Basics</a></li>
+<li class="chapter" data-level="2.7" data-path="section-1-overview.html"><a href="section-1-overview.html#data-types"><i class="fa fa-check"></i><b>2.7</b> Data Types</a></li>
+<li class="chapter" data-level="2.8" data-path="section-1-overview.html"><a href="section-1-overview.html#assessment---data-types"><i class="fa fa-check"></i><b>2.8</b> Assessment - Data Types</a></li>
+<li class="chapter" data-level="2.9" data-path="section-1-overview.html"><a href="section-1-overview.html#section-1-assessment"><i class="fa fa-check"></i><b>2.9</b> Section 1 Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-2-overview.html"><a href="section-2-overview.html"><i class="fa fa-check"></i><b>3</b> Section 2 Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="section-2-overview.html"><a href="section-2-overview.html#vectors"><i class="fa fa-check"></i><b>3.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.2" data-path="section-2-overview.html"><a href="section-2-overview.html#vectors---vector-coercion"><i class="fa fa-check"></i><b>3.2</b> Vectors - Vector Coercion</a></li>
+<li class="chapter" data-level="3.3" data-path="section-2-overview.html"><a href="section-2-overview.html#assessment---vectors"><i class="fa fa-check"></i><b>3.3</b> Assessment - Vectors</a></li>
+<li class="chapter" data-level="3.4" data-path="section-2-overview.html"><a href="section-2-overview.html#sorting"><i class="fa fa-check"></i><b>3.4</b> Sorting</a></li>
+<li class="chapter" data-level="3.5" data-path="section-2-overview.html"><a href="section-2-overview.html#assessment---sorting"><i class="fa fa-check"></i><b>3.5</b> Assessment - Sorting</a></li>
+<li class="chapter" data-level="3.6" data-path="section-2-overview.html"><a href="section-2-overview.html#vector-arithmetic"><i class="fa fa-check"></i><b>3.6</b> Vector arithmetic</a></li>
+<li class="chapter" data-level="3.7" data-path="section-2-overview.html"><a href="section-2-overview.html#assessment---vector-arithmetic"><i class="fa fa-check"></i><b>3.7</b> Assessment - Vector Arithmetic</a></li>
+<li class="chapter" data-level="3.8" data-path="section-2-overview.html"><a href="section-2-overview.html#section-2-assessment"><i class="fa fa-check"></i><b>3.8</b> Section 2 Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-3-overview.html"><a href="section-3-overview.html"><i class="fa fa-check"></i><b>4</b> Section 3 Overview</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="section-3-overview.html"><a href="section-3-overview.html#indexing"><i class="fa fa-check"></i><b>4.1</b> Indexing</a></li>
+<li class="chapter" data-level="4.2" data-path="section-3-overview.html"><a href="section-3-overview.html#indexing---indexing-functions"><i class="fa fa-check"></i><b>4.2</b> Indexing - Indexing Functions</a></li>
+<li class="chapter" data-level="4.3" data-path="section-3-overview.html"><a href="section-3-overview.html#assessment---indexing"><i class="fa fa-check"></i><b>4.3</b> Assessment - Indexing</a></li>
+<li class="chapter" data-level="4.4" data-path="section-3-overview.html"><a href="section-3-overview.html#basic-data-wrangling"><i class="fa fa-check"></i><b>4.4</b> Basic Data Wrangling</a></li>
+<li class="chapter" data-level="4.5" data-path="section-3-overview.html"><a href="section-3-overview.html#basic-data-wrangling---creating-data-frames"><i class="fa fa-check"></i><b>4.5</b> Basic Data Wrangling - Creating Data Frames</a></li>
+<li class="chapter" data-level="4.6" data-path="section-3-overview.html"><a href="section-3-overview.html#assessment---basic-data-wrangling"><i class="fa fa-check"></i><b>4.6</b> Assessment - Basic Data Wrangling</a></li>
+<li class="chapter" data-level="4.7" data-path="section-3-overview.html"><a href="section-3-overview.html#basic-plots"><i class="fa fa-check"></i><b>4.7</b> Basic Plots</a></li>
+<li class="chapter" data-level="4.8" data-path="section-3-overview.html"><a href="section-3-overview.html#assessment---basic-plots"><i class="fa fa-check"></i><b>4.8</b> Assessment - Basic Plots</a></li>
+<li class="chapter" data-level="4.9" data-path="section-3-overview.html"><a href="section-3-overview.html#section-3-assessment"><i class="fa fa-check"></i><b>4.9</b> Section 3 Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-4-overview.html"><a href="section-4-overview.html"><i class="fa fa-check"></i><b>5</b> Section 4 Overview</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="section-4-overview.html"><a href="section-4-overview.html#programming-basics---introduction-to-programming-in-r"><i class="fa fa-check"></i><b>5.1</b> Programming Basics - Introduction to Programming in R</a></li>
+<li class="chapter" data-level="5.2" data-path="section-4-overview.html"><a href="section-4-overview.html#basic-conditionals"><i class="fa fa-check"></i><b>5.2</b> Basic Conditionals</a></li>
+<li class="chapter" data-level="5.3" data-path="section-4-overview.html"><a href="section-4-overview.html#functions"><i class="fa fa-check"></i><b>5.3</b> Functions</a></li>
+<li class="chapter" data-level="5.4" data-path="section-4-overview.html"><a href="section-4-overview.html#for-loops"><i class="fa fa-check"></i><b>5.4</b> For Loops</a></li>
+<li class="chapter" data-level="5.5" data-path="section-4-overview.html"><a href="section-4-overview.html#assessment---programming-basics"><i class="fa fa-check"></i><b>5.5</b> Assessment - Programming Basics</a></li>
+<li class="chapter" data-level="5.6" data-path="section-4-overview.html"><a href="section-4-overview.html#section-4-assessment"><i class="fa fa-check"></i><b>5.6</b> Section 4 Assessment</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science R Basics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-2-overview" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Section 2 Overview</h1>
+<p>In Section 2.1, you will:</p>
+<ul>
+<li>Create numeric and character vectors.</li>
+<li>Name the columns of a vector.</li>
+<li>Generate numeric sequences.</li>
+<li>Access specific elements or parts of a vector.</li>
+<li>Coerce data into different data types as needed.</li>
+</ul>
+<p>In Section 2.2, you will:</p>
+<ul>
+<li>Sort vectors in ascending and descending order.</li>
+<li>Extract the indices of the sorted elements from the original vector.</li>
+<li>Find the maximum and minimum elements, as well as their indices, in a vector.</li>
+<li>Rank the elements of a vector in increasing order.</li>
+</ul>
+<p>In Section 2.3, you will:</p>
+<ul>
+<li>Perform arithmetic between a vector and a single number.</li>
+<li>Perform arithmetic between two vectors of same length.</li>
+</ul>
+<div id="vectors" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Vectors</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#vectors">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>The function <code>c()</code>, which stands for concatenate, is useful for creating vectors.</li>
+<li>Another useful function for creating vectors is the <code>seq()</code> function, which generates sequences.</li>
+<li>Subsetting lets us access specific parts of a vector by using square brackets to access elements of a vector.</li>
+</ul>
+<p><em>Code</em></p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="section-2-overview.html#cb81-1" aria-hidden="true"></a><span class="co"># We may create vectors of class numeric or character with the concatenate function</span></span>
+<span id="cb81-2"><a href="section-2-overview.html#cb81-2" aria-hidden="true"></a>codes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">380</span>, <span class="dv">124</span>, <span class="dv">818</span>)</span>
+<span id="cb81-3"><a href="section-2-overview.html#cb81-3" aria-hidden="true"></a>country &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;italy&quot;</span>, <span class="st">&quot;canada&quot;</span>, <span class="st">&quot;egypt&quot;</span>)</span>
+<span id="cb81-4"><a href="section-2-overview.html#cb81-4" aria-hidden="true"></a></span>
+<span id="cb81-5"><a href="section-2-overview.html#cb81-5" aria-hidden="true"></a><span class="co"># We can also name the elements of a numeric vector</span></span>
+<span id="cb81-6"><a href="section-2-overview.html#cb81-6" aria-hidden="true"></a><span class="co"># Note that the two lines of code below have the same result</span></span>
+<span id="cb81-7"><a href="section-2-overview.html#cb81-7" aria-hidden="true"></a>codes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">italy =</span> <span class="dv">380</span>, <span class="dt">canada =</span> <span class="dv">124</span>, <span class="dt">egypt =</span> <span class="dv">818</span>)</span>
+<span id="cb81-8"><a href="section-2-overview.html#cb81-8" aria-hidden="true"></a>codes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;italy&quot;</span> =<span class="st"> </span><span class="dv">380</span>, <span class="st">&quot;canada&quot;</span> =<span class="st"> </span><span class="dv">124</span>, <span class="st">&quot;egypt&quot;</span> =<span class="st"> </span><span class="dv">818</span>)</span>
+<span id="cb81-9"><a href="section-2-overview.html#cb81-9" aria-hidden="true"></a></span>
+<span id="cb81-10"><a href="section-2-overview.html#cb81-10" aria-hidden="true"></a><span class="co"># We can also name the elements of a numeric vector using the names() function</span></span>
+<span id="cb81-11"><a href="section-2-overview.html#cb81-11" aria-hidden="true"></a>codes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">380</span>, <span class="dv">124</span>, <span class="dv">818</span>)</span>
+<span id="cb81-12"><a href="section-2-overview.html#cb81-12" aria-hidden="true"></a>country &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;italy&quot;</span>,<span class="st">&quot;canada&quot;</span>,<span class="st">&quot;egypt&quot;</span>)</span>
+<span id="cb81-13"><a href="section-2-overview.html#cb81-13" aria-hidden="true"></a><span class="kw">names</span>(codes) &lt;-<span class="st"> </span>country</span>
+<span id="cb81-14"><a href="section-2-overview.html#cb81-14" aria-hidden="true"></a></span>
+<span id="cb81-15"><a href="section-2-overview.html#cb81-15" aria-hidden="true"></a><span class="co"># Using square brackets is useful for subsetting to access specific elements of a vector</span></span>
+<span id="cb81-16"><a href="section-2-overview.html#cb81-16" aria-hidden="true"></a>codes[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## canada 
+##    124</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="section-2-overview.html#cb83-1" aria-hidden="true"></a>codes[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>## italy egypt 
+##   380   818</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="section-2-overview.html#cb85-1" aria-hidden="true"></a>codes[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]</span></code></pre></div>
+<pre><code>##  italy canada 
+##    380    124</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="section-2-overview.html#cb87-1" aria-hidden="true"></a><span class="co"># If the entries of a vector are named, they may be accessed by referring to their name</span></span>
+<span id="cb87-2"><a href="section-2-overview.html#cb87-2" aria-hidden="true"></a>codes[<span class="st">&quot;canada&quot;</span>]</span></code></pre></div>
+<pre><code>## canada 
+##    124</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="section-2-overview.html#cb89-1" aria-hidden="true"></a>codes[<span class="kw">c</span>(<span class="st">&quot;egypt&quot;</span>,<span class="st">&quot;italy&quot;</span>)]</span></code></pre></div>
+<pre><code>## egypt italy 
+##   818   380</code></pre>
+</div>
+<div id="vectors---vector-coercion" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Vectors - Vector Coercion</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#coercion">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>In general, <em>coercion</em> is an attempt by R to be flexible with data types by guessing what was meant when an entry does not match the expected. For example, when defining x as</li>
+</ul>
+<p>x &lt;- c(1, “canada”, 3)</p>
+<p>R <em>coerced</em> the data into characters. It guessed that because you put a character string in the vector, you meant the 1 and 3 to actually be character strings “1” and “3”.</p>
+<ul>
+<li>The function <code>as.character()</code> turns numbers into characters.</li>
+<li>The function <code>as.numeric()</code> turns characters into numbers.</li>
+<li>In R, missing data is assigned the value NA.</li>
+</ul>
+</div>
+<div id="assessment---vectors" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Assessment - Vectors</h2>
+<ol style="list-style-type: decimal">
+<li>A vector is a series of values, all of the same type. They are the most basic data type in R and can hold numeric data, character data, or logical data. In R, you can create a vector with the concatenate (or combine) function <code>c()</code></li>
+</ol>
+<p>You place the vector elements separated by a comma between the parentheses. For example a numeric vector would look something like this:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="section-2-overview.html#cb91-1" aria-hidden="true"></a>cost &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="section-2-overview.html#cb92-1" aria-hidden="true"></a><span class="co"># Here is an example creating a numeric vector named cost</span></span>
+<span id="cb92-2"><a href="section-2-overview.html#cb92-2" aria-hidden="true"></a>cost &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span>
+<span id="cb92-3"><a href="section-2-overview.html#cb92-3" aria-hidden="true"></a></span>
+<span id="cb92-4"><a href="section-2-overview.html#cb92-4" aria-hidden="true"></a><span class="co"># Create a numeric vector to store the temperatures listed in the instructions into a vector named temp</span></span>
+<span id="cb92-5"><a href="section-2-overview.html#cb92-5" aria-hidden="true"></a><span class="co"># Make sure to follow the same order in the instructions</span></span>
+<span id="cb92-6"><a href="section-2-overview.html#cb92-6" aria-hidden="true"></a>temp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>=<span class="dv">35</span>, <span class="st">&quot;Lagos&quot;</span>=<span class="dv">88</span>, <span class="st">&quot;Paris&quot;</span>=<span class="dv">42</span>, <span class="st">&quot;Rio de Janeiro&quot;</span>=<span class="dv">84</span>, <span class="st">&quot;San Juan&quot;</span>=<span class="dv">81</span>, <span class="st">&quot;Toronto&quot;</span>=<span class="dv">30</span>)</span>
+<span id="cb92-7"><a href="section-2-overview.html#cb92-7" aria-hidden="true"></a>cost</span></code></pre></div>
+<pre><code>## [1]  50  75  90 100 150</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="section-2-overview.html#cb94-1" aria-hidden="true"></a>temp</span></code></pre></div>
+<pre><code>##        Beijing          Lagos          Paris Rio de Janeiro       San Juan        Toronto 
+##             35             88             42             84             81             30</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="section-2-overview.html#cb96-1" aria-hidden="true"></a><span class="kw">class</span>(temp)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>As in the previous question, we are going to create a vector. Only this time, we learn to create <em>character</em> vectors. The main difference is that these have to be written as strings and so the names are enclosed within double quotes.</li>
+</ol>
+<p>A <em>character</em> vector would look something like this:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="section-2-overview.html#cb98-1" aria-hidden="true"></a>food &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pizza&quot;</span>, <span class="st">&quot;burgers&quot;</span>, <span class="st">&quot;salads&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;pasta&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="section-2-overview.html#cb99-1" aria-hidden="true"></a><span class="co"># here is an example of how to create a character vector</span></span>
+<span id="cb99-2"><a href="section-2-overview.html#cb99-2" aria-hidden="true"></a>food &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pizza&quot;</span>, <span class="st">&quot;burgers&quot;</span>, <span class="st">&quot;salads&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;pasta&quot;</span>)</span>
+<span id="cb99-3"><a href="section-2-overview.html#cb99-3" aria-hidden="true"></a></span>
+<span id="cb99-4"><a href="section-2-overview.html#cb99-4" aria-hidden="true"></a><span class="co"># Create a character vector called city to store the city names</span></span>
+<span id="cb99-5"><a href="section-2-overview.html#cb99-5" aria-hidden="true"></a><span class="co"># Make sure to follow the same order as in the instructions</span></span>
+<span id="cb99-6"><a href="section-2-overview.html#cb99-6" aria-hidden="true"></a>city &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>, <span class="st">&quot;Lagos&quot;</span>, <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Rio de Janeiro&quot;</span>, <span class="st">&quot;San Juan&quot;</span>, <span class="st">&quot;Toronto&quot;</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>We have successfully assigned the temperatures as <em>numeric</em> values to <code>temp</code> and the <code>city</code> names as character values to city. But can we associate the temperature to its related city? Yes! We can do so using a code we already know - <code>names</code>. We assign names to the <em>numeric</em> values.</li>
+</ol>
+<p>It would look like this:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="section-2-overview.html#cb100-1" aria-hidden="true"></a>cost &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span>
+<span id="cb100-2"><a href="section-2-overview.html#cb100-2" aria-hidden="true"></a>food &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pizza&quot;</span>, <span class="st">&quot;burgers&quot;</span>, <span class="st">&quot;salads&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;pasta&quot;</span>)</span>
+<span id="cb100-3"><a href="section-2-overview.html#cb100-3" aria-hidden="true"></a><span class="kw">names</span>(cost) &lt;-<span class="st"> </span>food</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="section-2-overview.html#cb101-1" aria-hidden="true"></a><span class="co"># Associate the cost values with its corresponding food item</span></span>
+<span id="cb101-2"><a href="section-2-overview.html#cb101-2" aria-hidden="true"></a>cost &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">100</span>, <span class="dv">150</span>)</span>
+<span id="cb101-3"><a href="section-2-overview.html#cb101-3" aria-hidden="true"></a>food &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pizza&quot;</span>, <span class="st">&quot;burgers&quot;</span>, <span class="st">&quot;salads&quot;</span>, <span class="st">&quot;cheese&quot;</span>, <span class="st">&quot;pasta&quot;</span>)</span>
+<span id="cb101-4"><a href="section-2-overview.html#cb101-4" aria-hidden="true"></a><span class="kw">names</span>(cost) &lt;-<span class="st"> </span>food</span>
+<span id="cb101-5"><a href="section-2-overview.html#cb101-5" aria-hidden="true"></a></span>
+<span id="cb101-6"><a href="section-2-overview.html#cb101-6" aria-hidden="true"></a><span class="co"># You already wrote this code</span></span>
+<span id="cb101-7"><a href="section-2-overview.html#cb101-7" aria-hidden="true"></a>temp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
+<span id="cb101-8"><a href="section-2-overview.html#cb101-8" aria-hidden="true"></a>city &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>, <span class="st">&quot;Lagos&quot;</span>, <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Rio de Janeiro&quot;</span>, <span class="st">&quot;San Juan&quot;</span>, <span class="st">&quot;Toronto&quot;</span>)</span>
+<span id="cb101-9"><a href="section-2-overview.html#cb101-9" aria-hidden="true"></a></span>
+<span id="cb101-10"><a href="section-2-overview.html#cb101-10" aria-hidden="true"></a><span class="co"># Associate the temperature values with its corresponding city</span></span>
+<span id="cb101-11"><a href="section-2-overview.html#cb101-11" aria-hidden="true"></a><span class="kw">names</span>(temp) &lt;-<span class="st"> </span>city</span>
+<span id="cb101-12"><a href="section-2-overview.html#cb101-12" aria-hidden="true"></a>temp</span></code></pre></div>
+<pre><code>##        Beijing          Lagos          Paris Rio de Janeiro       San Juan        Toronto 
+##             35             88             42             84             81             30</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>If we want to display only selected values from the object, R can help us do that easily.</li>
+</ol>
+<p>For example, if we want to see the cost of the last 3 items in our food list, we would type:</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="section-2-overview.html#cb103-1" aria-hidden="true"></a>cost[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
+<p>Note here, that we could also type <code>cost[c(3,4,5)]</code> and get the same result. The <code>:</code> operator helps us condense the code and get consecutive values.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="section-2-overview.html#cb104-1" aria-hidden="true"></a><span class="co"># cost of the last 3 items in our food list:</span></span>
+<span id="cb104-2"><a href="section-2-overview.html#cb104-2" aria-hidden="true"></a>cost[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## salads cheese  pasta 
+##     90    100    150</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="section-2-overview.html#cb106-1" aria-hidden="true"></a><span class="co"># temperatures of the first three cities in the list:</span></span>
+<span id="cb106-2"><a href="section-2-overview.html#cb106-2" aria-hidden="true"></a>temp[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## Beijing   Lagos   Paris 
+##      35      88      42</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>In the previous question, we accessed the temperature for consecutive cities (1st three). But what if we want to access the temperatures for any 2 specific cities?</li>
+</ol>
+<p>An example: To access the cost of <code>pizza</code> (1st) and <code>pasta</code> (5th food item) in our list, the code would be:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="section-2-overview.html#cb108-1" aria-hidden="true"></a>cost[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="section-2-overview.html#cb109-1" aria-hidden="true"></a><span class="co"># Access the cost of pizza and pasta from our food list </span></span>
+<span id="cb109-2"><a href="section-2-overview.html#cb109-2" aria-hidden="true"></a>cost[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]</span></code></pre></div>
+<pre><code>## pizza pasta 
+##    50   150</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="section-2-overview.html#cb111-1" aria-hidden="true"></a><span class="co"># Define temp</span></span>
+<span id="cb111-2"><a href="section-2-overview.html#cb111-2" aria-hidden="true"></a>temp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
+<span id="cb111-3"><a href="section-2-overview.html#cb111-3" aria-hidden="true"></a>city &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>, <span class="st">&quot;Lagos&quot;</span>, <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Rio de Janeiro&quot;</span>, <span class="st">&quot;San Juan&quot;</span>, <span class="st">&quot;Toronto&quot;</span>)</span>
+<span id="cb111-4"><a href="section-2-overview.html#cb111-4" aria-hidden="true"></a><span class="kw">names</span>(temp) &lt;-<span class="st"> </span>city</span>
+<span id="cb111-5"><a href="section-2-overview.html#cb111-5" aria-hidden="true"></a></span>
+<span id="cb111-6"><a href="section-2-overview.html#cb111-6" aria-hidden="true"></a><span class="co"># Access the temperatures of Paris and San Juan</span></span>
+<span id="cb111-7"><a href="section-2-overview.html#cb111-7" aria-hidden="true"></a>temp[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">5</span>)]</span></code></pre></div>
+<pre><code>##    Paris San Juan 
+##       42       81</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>The <code>:</code> operator helps us create sequences of numbers. For example, <code>32:99</code> would create a list of numbers from 32 to 99.</li>
+</ol>
+<p>Then, if we want to know the length of this sequence, all we need to do is use the <code>length</code> command.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="section-2-overview.html#cb113-1" aria-hidden="true"></a><span class="co"># Create a vector m of integers that starts at 32 and ends at 99.</span></span>
+<span id="cb113-2"><a href="section-2-overview.html#cb113-2" aria-hidden="true"></a>m &lt;-<span class="st"> </span><span class="dv">32</span><span class="op">:</span><span class="dv">99</span></span>
+<span id="cb113-3"><a href="section-2-overview.html#cb113-3" aria-hidden="true"></a></span>
+<span id="cb113-4"><a href="section-2-overview.html#cb113-4" aria-hidden="true"></a><span class="co"># Determine the length of object m.</span></span>
+<span id="cb113-5"><a href="section-2-overview.html#cb113-5" aria-hidden="true"></a><span class="kw">length</span>(m)</span></code></pre></div>
+<pre><code>## [1] 68</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="section-2-overview.html#cb115-1" aria-hidden="true"></a><span class="co"># Create a vector x of integers that starts at 12 and ends at 73.</span></span>
+<span id="cb115-2"><a href="section-2-overview.html#cb115-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">12</span><span class="op">:</span><span class="dv">73</span></span>
+<span id="cb115-3"><a href="section-2-overview.html#cb115-3" aria-hidden="true"></a></span>
+<span id="cb115-4"><a href="section-2-overview.html#cb115-4" aria-hidden="true"></a><span class="co"># Determine the length of object x.</span></span>
+<span id="cb115-5"><a href="section-2-overview.html#cb115-5" aria-hidden="true"></a><span class="kw">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 62</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>We can also create different types of sequences in R. For example, in <code>seq(7, 49, 7)</code>, the first argument defines the start, and the second the end. The default is to go up in increments of 1, but a third argument lets us tell it by what interval.</li>
+</ol>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="section-2-overview.html#cb117-1" aria-hidden="true"></a><span class="co"># Create a vector with the multiples of 7, smaller than 50.</span></span>
+<span id="cb117-2"><a href="section-2-overview.html#cb117-2" aria-hidden="true"></a><span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">49</span>, <span class="dv">7</span>) </span></code></pre></div>
+<pre><code>## [1]  7 14 21 28 35 42 49</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="section-2-overview.html#cb119-1" aria-hidden="true"></a><span class="co"># Create a vector containing all the positive odd numbers smaller than 100.</span></span>
+<span id="cb119-2"><a href="section-2-overview.html#cb119-2" aria-hidden="true"></a><span class="co"># The numbers should be in ascending order</span></span>
+<span id="cb119-3"><a href="section-2-overview.html#cb119-3" aria-hidden="true"></a><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">99</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91 93 95 97 99</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>The second argument of the function <code>seq</code> is actually a maximum, not necessarily the end.</li>
+</ol>
+<p>So if we type</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="section-2-overview.html#cb121-1" aria-hidden="true"></a><span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">50</span>, <span class="dv">7</span>)</span></code></pre></div>
+<p>we actually get the same vector of integers as if we type</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="section-2-overview.html#cb122-1" aria-hidden="true"></a><span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">49</span>, <span class="dv">7</span>)</span></code></pre></div>
+<p>This can be useful because sometimes all we want are sequential numbers that are smaller than some value. Let’s look at an example.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="section-2-overview.html#cb123-1" aria-hidden="true"></a><span class="co"># We can create a vector with the multiples of 7, smaller than 50 like this </span></span>
+<span id="cb123-2"><a href="section-2-overview.html#cb123-2" aria-hidden="true"></a><span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">49</span>, <span class="dv">7</span>) </span></code></pre></div>
+<pre><code>## [1]  7 14 21 28 35 42 49</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="section-2-overview.html#cb125-1" aria-hidden="true"></a><span class="co"># But note that the second argument does not need to be the last number</span></span>
+<span id="cb125-2"><a href="section-2-overview.html#cb125-2" aria-hidden="true"></a><span class="co"># It simply determines the maximum value permitted</span></span>
+<span id="cb125-3"><a href="section-2-overview.html#cb125-3" aria-hidden="true"></a><span class="co"># so the following line of code produces the same vector as seq(7, 49, 7)</span></span>
+<span id="cb125-4"><a href="section-2-overview.html#cb125-4" aria-hidden="true"></a><span class="kw">seq</span>(<span class="dv">7</span>, <span class="dv">50</span>, <span class="dv">7</span>)</span></code></pre></div>
+<pre><code>## [1]  7 14 21 28 35 42 49</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="section-2-overview.html#cb127-1" aria-hidden="true"></a><span class="co"># Create a sequence of numbers from 6 to 55, with 4/7 increments and determine its length</span></span>
+<span id="cb127-2"><a href="section-2-overview.html#cb127-2" aria-hidden="true"></a><span class="kw">length</span>(<span class="kw">seq</span>(<span class="dv">6</span>,<span class="dv">55</span>,<span class="dv">4</span><span class="op">/</span><span class="dv">7</span>))</span></code></pre></div>
+<pre><code>## [1] 86</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>The <code>seq()</code> function has another useful argument. The argument <em>length.out</em>. This argument lets us generate sequences that are increasing by the same amount but are of the prespecified length.</li>
+</ol>
+<p>For example, this line of code</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="section-2-overview.html#cb129-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dt">length.out =</span> <span class="dv">5</span>)</span>
+<span id="cb129-2"><a href="section-2-overview.html#cb129-2" aria-hidden="true"></a>produces the numbers <span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="fl">100.</span></span></code></pre></div>
+<p>Let’s create a vector and see what is the class of the object produced.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="section-2-overview.html#cb130-1" aria-hidden="true"></a><span class="co"># Store the sequence in the object a</span></span>
+<span id="cb130-2"><a href="section-2-overview.html#cb130-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb130-3"><a href="section-2-overview.html#cb130-3" aria-hidden="true"></a></span>
+<span id="cb130-4"><a href="section-2-overview.html#cb130-4" aria-hidden="true"></a><span class="co"># Determine the class of a</span></span>
+<span id="cb130-5"><a href="section-2-overview.html#cb130-5" aria-hidden="true"></a><span class="kw">class</span>(a)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<ol start="10" style="list-style-type: decimal">
+<li>We have discussed the numeric class. We just saw that the <code>seq</code> function can generate objects of this class.</li>
+</ol>
+<p>For another example, type</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="section-2-overview.html#cb132-1" aria-hidden="true"></a><span class="kw">class</span>(<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="fl">0.5</span>))</span></code></pre></div>
+<p>into the console and note that the <code>class</code> is <em>numeric</em>. R has another type of vector we have not described, the <em>integer</em> class. You can create an <em>integer</em> by adding the letter <code>L</code> after a whole number. If you type</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="section-2-overview.html#cb133-1" aria-hidden="true"></a><span class="kw">class</span>(3L)</span></code></pre></div>
+<p>in the console, you see this is an <em>integer</em> and not a <em>numeric</em>. For most practical purposes, integers and numerics are indistinguishable. For example 3, the integer, minus 3 the numeric is 0. To see this type this in the console</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="section-2-overview.html#cb134-1" aria-hidden="true"></a>3L <span class="op">-</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<p>The main difference is that integers occupy less space in the computer memory, so for big computations using integers can have a substantial impact.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="section-2-overview.html#cb135-1" aria-hidden="true"></a><span class="co"># Store the sequence in the object a</span></span>
+<span id="cb135-2"><a href="section-2-overview.html#cb135-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span>
+<span id="cb135-3"><a href="section-2-overview.html#cb135-3" aria-hidden="true"></a></span>
+<span id="cb135-4"><a href="section-2-overview.html#cb135-4" aria-hidden="true"></a><span class="co"># Determine the class of a</span></span>
+<span id="cb135-5"><a href="section-2-overview.html#cb135-5" aria-hidden="true"></a><span class="kw">class</span>(a)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<ol start="11" style="list-style-type: decimal">
+<li>Let’s confirm that <code>1L</code> is an <em>integer</em> not a <em>numeric</em>.</li>
+</ol>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="section-2-overview.html#cb137-1" aria-hidden="true"></a><span class="co"># Check the class of 1, assigned to the object a</span></span>
+<span id="cb137-2"><a href="section-2-overview.html#cb137-2" aria-hidden="true"></a><span class="kw">class</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="section-2-overview.html#cb139-1" aria-hidden="true"></a><span class="co"># Confirm the class of 1L is integer</span></span>
+<span id="cb139-2"><a href="section-2-overview.html#cb139-2" aria-hidden="true"></a><span class="kw">class</span>(1L)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<ol start="12" style="list-style-type: decimal">
+<li>The concept of coercion is a very important one. Watching the video, we learned that when an entry does not match what an R function is expecting, R tries to guess what we meant before throwing an error. This might get confusing at times.</li>
+</ol>
+<p>As we’ve discussed in earlier questions, there are numeric and character vectors. The character vectors are placed in quotes and the numerics are not.</p>
+<p>We can avoid issues with coercion in R by changing characters to numerics and vice-versa. This is known as typecasting. The code, <code>as.numeric(x)</code> helps us convert character strings to numbers. There is an equivalent function that converts its argument to a string, <code>as.character(x)</code>.</p>
+<p>Let’s practice doing this!</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="section-2-overview.html#cb141-1" aria-hidden="true"></a><span class="co"># Define the vector x</span></span>
+<span id="cb141-2"><a href="section-2-overview.html#cb141-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>,<span class="st">&quot;a&quot;</span>)</span>
+<span id="cb141-3"><a href="section-2-overview.html#cb141-3" aria-hidden="true"></a></span>
+<span id="cb141-4"><a href="section-2-overview.html#cb141-4" aria-hidden="true"></a><span class="co"># Note that the x is character vector</span></span>
+<span id="cb141-5"><a href="section-2-overview.html#cb141-5" aria-hidden="true"></a>x</span></code></pre></div>
+<pre><code>## [1] &quot;1&quot; &quot;3&quot; &quot;5&quot; &quot;a&quot;</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="section-2-overview.html#cb143-1" aria-hidden="true"></a><span class="co"># Typecast the vector to get an integer vector</span></span>
+<span id="cb143-2"><a href="section-2-overview.html#cb143-2" aria-hidden="true"></a><span class="co"># You will get a warning but that is ok</span></span>
+<span id="cb143-3"><a href="section-2-overview.html#cb143-3" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(x)</span></code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="section-2-overview.html#cb145-1" aria-hidden="true"></a>x</span></code></pre></div>
+<pre><code>## [1]  1  3  5 NA</code></pre>
+</div>
+<div id="sorting" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Sorting</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#sorting">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>The function <code>sort()</code> sorts a vector in increasing order.</li>
+<li>The function <code>order()</code> produces the indices needed to obtain the sorted vector, e.g. a result of 2 3 1 5 4 means the sorted vector will be produced by listing the 2nd, 3rd, 1st, 5th, and then 4th item of the original vector.</li>
+<li>The function <code>rank()</code> gives us the ranks of the items in the original vector.</li>
+<li>The function <code>max()</code> returns the largest value while <code>which.max()</code> returns the index of the largest value. The functions <code>min()</code> and <code>which.min()</code> work similarly for minimum values.</li>
+</ul>
+</div>
+<div id="assessment---sorting" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Assessment - Sorting</h2>
+<ol style="list-style-type: decimal">
+<li>When looking at a dataset, we may want to sort the data in an order that makes more sense for analysis. Let’s learn to do this using the <code>murders</code> dataset as an example</li>
+</ol>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="section-2-overview.html#cb147-1" aria-hidden="true"></a><span class="co"># Access the `state` variable and store it in an object </span></span>
+<span id="cb147-2"><a href="section-2-overview.html#cb147-2" aria-hidden="true"></a>states &lt;-<span class="st"> </span>murders<span class="op">$</span>state </span>
+<span id="cb147-3"><a href="section-2-overview.html#cb147-3" aria-hidden="true"></a></span>
+<span id="cb147-4"><a href="section-2-overview.html#cb147-4" aria-hidden="true"></a><span class="co"># Sort the object alphabetically and redefine the object </span></span>
+<span id="cb147-5"><a href="section-2-overview.html#cb147-5" aria-hidden="true"></a>states &lt;-<span class="st"> </span><span class="kw">sort</span>(states) </span>
+<span id="cb147-6"><a href="section-2-overview.html#cb147-6" aria-hidden="true"></a></span>
+<span id="cb147-7"><a href="section-2-overview.html#cb147-7" aria-hidden="true"></a><span class="co"># Report the first alphabetical value  </span></span>
+<span id="cb147-8"><a href="section-2-overview.html#cb147-8" aria-hidden="true"></a>states[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Alabama&quot;</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="section-2-overview.html#cb149-1" aria-hidden="true"></a><span class="co"># Access population values from the dataset and store it in pop</span></span>
+<span id="cb149-2"><a href="section-2-overview.html#cb149-2" aria-hidden="true"></a>pop &lt;-<span class="st"> </span>murders<span class="op">$</span>population</span>
+<span id="cb149-3"><a href="section-2-overview.html#cb149-3" aria-hidden="true"></a></span>
+<span id="cb149-4"><a href="section-2-overview.html#cb149-4" aria-hidden="true"></a><span class="co"># Sort the object and save it in the same object</span></span>
+<span id="cb149-5"><a href="section-2-overview.html#cb149-5" aria-hidden="true"></a>pop &lt;-<span class="st"> </span><span class="kw">sort</span>(pop)</span>
+<span id="cb149-6"><a href="section-2-overview.html#cb149-6" aria-hidden="true"></a></span>
+<span id="cb149-7"><a href="section-2-overview.html#cb149-7" aria-hidden="true"></a><span class="co"># Report the smallest population size </span></span>
+<span id="cb149-8"><a href="section-2-overview.html#cb149-8" aria-hidden="true"></a>pop[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 563626</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The function <code>order()</code> returns the index vector needed to sort the vector. This implies that <code>sort(x)</code> and <code>x[order(x)]</code> give the same result.</li>
+</ol>
+<p>This can be useful for finding row numbers with certain properties such as “the row for the state with the smallest population”. Remember that when we extract a variable from a data frame the order of the resulting vector is the same as the order of the rows of the data frame. So for example, the entries of the vector <code>murders$state</code> are ordered in the same way as the states if you go down the rows of <code>murders</code>.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="section-2-overview.html#cb151-1" aria-hidden="true"></a><span class="co"># Access population from the dataset and store it in pop</span></span>
+<span id="cb151-2"><a href="section-2-overview.html#cb151-2" aria-hidden="true"></a>pop &lt;-<span class="st"> </span>murders<span class="op">$</span>population</span>
+<span id="cb151-3"><a href="section-2-overview.html#cb151-3" aria-hidden="true"></a></span>
+<span id="cb151-4"><a href="section-2-overview.html#cb151-4" aria-hidden="true"></a><span class="co"># Use the command order to find the vector of indexes that order pop and store in object ord</span></span>
+<span id="cb151-5"><a href="section-2-overview.html#cb151-5" aria-hidden="true"></a>ord &lt;-<span class="st"> </span><span class="kw">order</span>(pop)</span>
+<span id="cb151-6"><a href="section-2-overview.html#cb151-6" aria-hidden="true"></a></span>
+<span id="cb151-7"><a href="section-2-overview.html#cb151-7" aria-hidden="true"></a><span class="co"># Find the index number of the entry with the smallest population size</span></span>
+<span id="cb151-8"><a href="section-2-overview.html#cb151-8" aria-hidden="true"></a>ord[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 51</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>We can actually perform the same operation as in the previous exercise using the function <code>which.min</code>. It basically tells us which is the minimum value.</li>
+</ol>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="section-2-overview.html#cb153-1" aria-hidden="true"></a><span class="co"># Find the index of the smallest value for variable total </span></span>
+<span id="cb153-2"><a href="section-2-overview.html#cb153-2" aria-hidden="true"></a><span class="kw">which.min</span>(murders<span class="op">$</span>total)</span></code></pre></div>
+<pre><code>## [1] 46</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="section-2-overview.html#cb155-1" aria-hidden="true"></a><span class="co"># Find the index of the smallest value for population</span></span>
+<span id="cb155-2"><a href="section-2-overview.html#cb155-2" aria-hidden="true"></a><span class="kw">which.min</span>(murders<span class="op">$</span>population)</span></code></pre></div>
+<pre><code>## [1] 51</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Now we know how small the smallest state is and we know which row represents it. However, which state is it?</li>
+</ol>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="section-2-overview.html#cb157-1" aria-hidden="true"></a><span class="co"># Define the variable i to be the index of the smallest state</span></span>
+<span id="cb157-2"><a href="section-2-overview.html#cb157-2" aria-hidden="true"></a>i &lt;-<span class="st"> </span><span class="kw">which.min</span>(murders<span class="op">$</span>population)</span>
+<span id="cb157-3"><a href="section-2-overview.html#cb157-3" aria-hidden="true"></a></span>
+<span id="cb157-4"><a href="section-2-overview.html#cb157-4" aria-hidden="true"></a><span class="co"># Define variable states to hold the states</span></span>
+<span id="cb157-5"><a href="section-2-overview.html#cb157-5" aria-hidden="true"></a>states &lt;-<span class="st"> </span>murders<span class="op">$</span>state</span>
+<span id="cb157-6"><a href="section-2-overview.html#cb157-6" aria-hidden="true"></a></span>
+<span id="cb157-7"><a href="section-2-overview.html#cb157-7" aria-hidden="true"></a><span class="co"># Use the index you just defined to find the state with the smallest population</span></span>
+<span id="cb157-8"><a href="section-2-overview.html#cb157-8" aria-hidden="true"></a>states[i]</span></code></pre></div>
+<pre><code>## [1] &quot;Wyoming&quot;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>You can create a data frame using the data.frame function.</li>
+</ol>
+<p>Here is a quick example:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="section-2-overview.html#cb159-1" aria-hidden="true"></a>temp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
+<span id="cb159-2"><a href="section-2-overview.html#cb159-2" aria-hidden="true"></a>city &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>, <span class="st">&quot;Lagos&quot;</span>, <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Rio de Janeiro&quot;</span>, <span class="st">&quot;San Juan&quot;</span>, <span class="st">&quot;Toronto&quot;</span>)</span>
+<span id="cb159-3"><a href="section-2-overview.html#cb159-3" aria-hidden="true"></a>city_temps &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name =</span> city, <span class="dt">temperature =</span> temp)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="section-2-overview.html#cb160-1" aria-hidden="true"></a><span class="co"># Store temperatures in an object </span></span>
+<span id="cb160-2"><a href="section-2-overview.html#cb160-2" aria-hidden="true"></a>temp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
+<span id="cb160-3"><a href="section-2-overview.html#cb160-3" aria-hidden="true"></a></span>
+<span id="cb160-4"><a href="section-2-overview.html#cb160-4" aria-hidden="true"></a><span class="co"># Store city names in an object </span></span>
+<span id="cb160-5"><a href="section-2-overview.html#cb160-5" aria-hidden="true"></a>city &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>, <span class="st">&quot;Lagos&quot;</span>, <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Rio de Janeiro&quot;</span>, <span class="st">&quot;San Juan&quot;</span>, <span class="st">&quot;Toronto&quot;</span>)</span>
+<span id="cb160-6"><a href="section-2-overview.html#cb160-6" aria-hidden="true"></a></span>
+<span id="cb160-7"><a href="section-2-overview.html#cb160-7" aria-hidden="true"></a><span class="co"># Create data frame with city names and temperature </span></span>
+<span id="cb160-8"><a href="section-2-overview.html#cb160-8" aria-hidden="true"></a>city_temps &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name =</span> city, <span class="dt">temperature =</span> temp)</span>
+<span id="cb160-9"><a href="section-2-overview.html#cb160-9" aria-hidden="true"></a></span>
+<span id="cb160-10"><a href="section-2-overview.html#cb160-10" aria-hidden="true"></a><span class="co"># Define a variable states to be the state names </span></span>
+<span id="cb160-11"><a href="section-2-overview.html#cb160-11" aria-hidden="true"></a>states &lt;-<span class="st"> </span>murders<span class="op">$</span>state</span>
+<span id="cb160-12"><a href="section-2-overview.html#cb160-12" aria-hidden="true"></a></span>
+<span id="cb160-13"><a href="section-2-overview.html#cb160-13" aria-hidden="true"></a><span class="co"># Define a variable ranks to determine the population size ranks </span></span>
+<span id="cb160-14"><a href="section-2-overview.html#cb160-14" aria-hidden="true"></a>ranks &lt;-<span class="st"> </span><span class="kw">rank</span>(murders<span class="op">$</span>population)</span>
+<span id="cb160-15"><a href="section-2-overview.html#cb160-15" aria-hidden="true"></a></span>
+<span id="cb160-16"><a href="section-2-overview.html#cb160-16" aria-hidden="true"></a><span class="co"># Create a data frame my_df with the state name and its rank</span></span>
+<span id="cb160-17"><a href="section-2-overview.html#cb160-17" aria-hidden="true"></a>my_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name =</span> states, <span class="dt">rank =</span> ranks)</span></code></pre></div>
+<ol start="6" style="list-style-type: decimal">
+<li>This exercise is somewhat more challenging. We are going to repeat the previous exercise but this time order `<code>my_df</code> so that the states are ordered from least populous to most.</li>
+</ol>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="section-2-overview.html#cb161-1" aria-hidden="true"></a><span class="co"># Define a variable states to be the state names from the murders data frame</span></span>
+<span id="cb161-2"><a href="section-2-overview.html#cb161-2" aria-hidden="true"></a>states &lt;-<span class="st"> </span>murders<span class="op">$</span>state</span>
+<span id="cb161-3"><a href="section-2-overview.html#cb161-3" aria-hidden="true"></a></span>
+<span id="cb161-4"><a href="section-2-overview.html#cb161-4" aria-hidden="true"></a><span class="co"># Define a variable ranks to determine the population size ranks </span></span>
+<span id="cb161-5"><a href="section-2-overview.html#cb161-5" aria-hidden="true"></a>ranks &lt;-<span class="st"> </span><span class="kw">rank</span>(murders<span class="op">$</span>population)</span>
+<span id="cb161-6"><a href="section-2-overview.html#cb161-6" aria-hidden="true"></a></span>
+<span id="cb161-7"><a href="section-2-overview.html#cb161-7" aria-hidden="true"></a><span class="co"># Define a variable ind to store the indexes needed to order the population values</span></span>
+<span id="cb161-8"><a href="section-2-overview.html#cb161-8" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">order</span>(murders<span class="op">$</span>population)</span>
+<span id="cb161-9"><a href="section-2-overview.html#cb161-9" aria-hidden="true"></a></span>
+<span id="cb161-10"><a href="section-2-overview.html#cb161-10" aria-hidden="true"></a><span class="co"># Create a data frame my_df with the state name and its rank and ordered from least populous to most </span></span>
+<span id="cb161-11"><a href="section-2-overview.html#cb161-11" aria-hidden="true"></a>my_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">states =</span> states[ind], <span class="dt">ranks =</span> ranks[ind])</span></code></pre></div>
+<ol start="7" style="list-style-type: decimal">
+<li>The <code>na_example</code> dataset represents a series of counts. It is included in the <em>dslabs</em> package.</li>
+</ol>
+<p>You can quickly examine the object using</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="section-2-overview.html#cb162-1" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb162-2"><a href="section-2-overview.html#cb162-2" aria-hidden="true"></a><span class="kw">data</span>(na_example)</span>
+<span id="cb162-3"><a href="section-2-overview.html#cb162-3" aria-hidden="true"></a><span class="kw">str</span>(na_example)</span></code></pre></div>
+<p>However, when we compute the average we obtain an <code>NA</code>. You can see this by typing</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="section-2-overview.html#cb163-1" aria-hidden="true"></a><span class="kw">mean</span>(na_example)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="section-2-overview.html#cb164-1" aria-hidden="true"></a><span class="co"># Using new dataset </span></span>
+<span id="cb164-2"><a href="section-2-overview.html#cb164-2" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb164-3"><a href="section-2-overview.html#cb164-3" aria-hidden="true"></a><span class="kw">data</span>(na_example)</span>
+<span id="cb164-4"><a href="section-2-overview.html#cb164-4" aria-hidden="true"></a></span>
+<span id="cb164-5"><a href="section-2-overview.html#cb164-5" aria-hidden="true"></a><span class="co"># Checking the structure </span></span>
+<span id="cb164-6"><a href="section-2-overview.html#cb164-6" aria-hidden="true"></a><span class="kw">str</span>(na_example)</span></code></pre></div>
+<pre><code>##  int [1:1000] 2 1 3 2 1 3 1 4 3 2 ...</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="section-2-overview.html#cb166-1" aria-hidden="true"></a><span class="co"># Find out the mean of the entire dataset </span></span>
+<span id="cb166-2"><a href="section-2-overview.html#cb166-2" aria-hidden="true"></a><span class="kw">mean</span>(na_example)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="section-2-overview.html#cb168-1" aria-hidden="true"></a><span class="co"># Use is.na to create a logical index ind that tells which entries are NA</span></span>
+<span id="cb168-2"><a href="section-2-overview.html#cb168-2" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">is.na</span>(na_example)</span>
+<span id="cb168-3"><a href="section-2-overview.html#cb168-3" aria-hidden="true"></a></span>
+<span id="cb168-4"><a href="section-2-overview.html#cb168-4" aria-hidden="true"></a><span class="co"># Determine how many NA ind has using the sum function</span></span>
+<span id="cb168-5"><a href="section-2-overview.html#cb168-5" aria-hidden="true"></a><span class="kw">sum</span>(ind)</span></code></pre></div>
+<pre><code>## [1] 145</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>We previously computed the average of <code>na_example</code> using <code>mean(na_example)</code> and obtain <code>NA</code>. This is because the function <code>mean</code> returns <code>NA</code> if it encounters at least one <code>NA</code>. A common operation is therefore removing the entries that are NA and after that perform operations on the rest.</li>
+</ol>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="section-2-overview.html#cb170-1" aria-hidden="true"></a><span class="co"># Note what we can do with the ! operator</span></span>
+<span id="cb170-2"><a href="section-2-overview.html#cb170-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb170-3"><a href="section-2-overview.html#cb170-3" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb170-4"><a href="section-2-overview.html#cb170-4" aria-hidden="true"></a>x[<span class="op">!</span>ind]</span></code></pre></div>
+<pre><code>## [1] 1 3</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="section-2-overview.html#cb172-1" aria-hidden="true"></a><span class="co"># Create the ind vector</span></span>
+<span id="cb172-2"><a href="section-2-overview.html#cb172-2" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb172-3"><a href="section-2-overview.html#cb172-3" aria-hidden="true"></a><span class="kw">data</span>(na_example)</span>
+<span id="cb172-4"><a href="section-2-overview.html#cb172-4" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">is.na</span>(na_example)</span>
+<span id="cb172-5"><a href="section-2-overview.html#cb172-5" aria-hidden="true"></a></span>
+<span id="cb172-6"><a href="section-2-overview.html#cb172-6" aria-hidden="true"></a><span class="co"># We saw that this gives an NA</span></span>
+<span id="cb172-7"><a href="section-2-overview.html#cb172-7" aria-hidden="true"></a><span class="kw">mean</span>(na_example)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="section-2-overview.html#cb174-1" aria-hidden="true"></a><span class="co"># Compute the average, for entries of na_example that are not NA</span></span>
+<span id="cb174-2"><a href="section-2-overview.html#cb174-2" aria-hidden="true"></a><span class="kw">mean</span>(na_example[<span class="op">!</span>ind])</span></code></pre></div>
+<pre><code>## [1] 2.3</code></pre>
+</div>
+<div id="vector-arithmetic" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Vector arithmetic</h2>
+<p>The textbook for this section is available <a href="https://rafalab.github.io/dsbook/r-basics.html#vector-arithmetics">here</a></p>
+<p><strong>Key Points</strong></p>
+<ul>
+<li>In R, arithmetic operations on vectors occur element-wise.</li>
+</ul>
+<p><em>Code</em></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="section-2-overview.html#cb176-1" aria-hidden="true"></a><span class="co"># The name of the state with the maximum population is found by doing the following</span></span>
+<span id="cb176-2"><a href="section-2-overview.html#cb176-2" aria-hidden="true"></a>murders<span class="op">$</span>state[<span class="kw">which.max</span>(murders<span class="op">$</span>population)]</span></code></pre></div>
+<pre><code>## [1] &quot;California&quot;</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="section-2-overview.html#cb178-1" aria-hidden="true"></a><span class="co"># how to obtain the murder rate</span></span>
+<span id="cb178-2"><a href="section-2-overview.html#cb178-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total <span class="op">/</span><span class="st"> </span>murders<span class="op">$</span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span></span>
+<span id="cb178-3"><a href="section-2-overview.html#cb178-3" aria-hidden="true"></a></span>
+<span id="cb178-4"><a href="section-2-overview.html#cb178-4" aria-hidden="true"></a><span class="co"># ordering the states by murder rate, in decreasing order</span></span>
+<span id="cb178-5"><a href="section-2-overview.html#cb178-5" aria-hidden="true"></a>murders<span class="op">$</span>state[<span class="kw">order</span>(murder_rate, <span class="dt">decreasing=</span><span class="ot">TRUE</span>)]</span></code></pre></div>
+<pre><code>##  [1] &quot;District of Columbia&quot; &quot;Louisiana&quot;            &quot;Missouri&quot;             &quot;Maryland&quot;             &quot;South Carolina&quot;       &quot;Delaware&quot;             &quot;Michigan&quot;            
+##  [8] &quot;Mississippi&quot;          &quot;Georgia&quot;              &quot;Arizona&quot;              &quot;Pennsylvania&quot;         &quot;Tennessee&quot;            &quot;Florida&quot;              &quot;California&quot;          
+## [15] &quot;New Mexico&quot;           &quot;Texas&quot;                &quot;Arkansas&quot;             &quot;Virginia&quot;             &quot;Nevada&quot;               &quot;North Carolina&quot;       &quot;Oklahoma&quot;            
+## [22] &quot;Illinois&quot;             &quot;Alabama&quot;              &quot;New Jersey&quot;           &quot;Connecticut&quot;          &quot;Ohio&quot;                 &quot;Alaska&quot;               &quot;Kentucky&quot;            
+## [29] &quot;New York&quot;             &quot;Kansas&quot;               &quot;Indiana&quot;              &quot;Massachusetts&quot;        &quot;Nebraska&quot;             &quot;Wisconsin&quot;            &quot;Rhode Island&quot;        
+## [36] &quot;West Virginia&quot;        &quot;Washington&quot;           &quot;Colorado&quot;             &quot;Montana&quot;              &quot;Minnesota&quot;            &quot;South Dakota&quot;         &quot;Oregon&quot;              
+## [43] &quot;Wyoming&quot;              &quot;Maine&quot;                &quot;Utah&quot;                 &quot;Idaho&quot;                &quot;Iowa&quot;                 &quot;North Dakota&quot;         &quot;Hawaii&quot;              
+## [50] &quot;New Hampshire&quot;        &quot;Vermont&quot;</code></pre>
+</div>
+<div id="assessment---vector-arithmetic" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Assessment - Vector Arithmetic</h2>
+<ol style="list-style-type: decimal">
+<li>Previously we created this data frame.</li>
+</ol>
+<p><code>{r, eval=FALSE, echo=TRUE temp &lt;- c(35, 88, 42, 84, 81, 30) city &lt;- c("Beijing", "Lagos", "Paris", "Rio de Janeiro", "San Juan", "Toronto") city_temps &lt;- data.frame(name = city, temperature = temp)</code></p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="section-2-overview.html#cb180-1" aria-hidden="true"></a><span class="co"># Assign city names to `city` </span></span>
+<span id="cb180-2"><a href="section-2-overview.html#cb180-2" aria-hidden="true"></a>city &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>, <span class="st">&quot;Lagos&quot;</span>, <span class="st">&quot;Paris&quot;</span>, <span class="st">&quot;Rio de Janeiro&quot;</span>, <span class="st">&quot;San Juan&quot;</span>, <span class="st">&quot;Toronto&quot;</span>)</span>
+<span id="cb180-3"><a href="section-2-overview.html#cb180-3" aria-hidden="true"></a></span>
+<span id="cb180-4"><a href="section-2-overview.html#cb180-4" aria-hidden="true"></a><span class="co"># Store temperature values in `temp`</span></span>
+<span id="cb180-5"><a href="section-2-overview.html#cb180-5" aria-hidden="true"></a>temp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">35</span>, <span class="dv">88</span>, <span class="dv">42</span>, <span class="dv">84</span>, <span class="dv">81</span>, <span class="dv">30</span>)</span>
+<span id="cb180-6"><a href="section-2-overview.html#cb180-6" aria-hidden="true"></a></span>
+<span id="cb180-7"><a href="section-2-overview.html#cb180-7" aria-hidden="true"></a><span class="co"># Convert temperature into Celsius and overwrite the original values of &#39;temp&#39; with these Celsius values</span></span>
+<span id="cb180-8"><a href="section-2-overview.html#cb180-8" aria-hidden="true"></a>temp &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">/</span><span class="dv">9</span> <span class="op">*</span><span class="st"> </span>(temp <span class="dv">-32</span>)</span>
+<span id="cb180-9"><a href="section-2-overview.html#cb180-9" aria-hidden="true"></a></span>
+<span id="cb180-10"><a href="section-2-overview.html#cb180-10" aria-hidden="true"></a><span class="co"># Create a data frame `city_temps` </span></span>
+<span id="cb180-11"><a href="section-2-overview.html#cb180-11" aria-hidden="true"></a>city_temps &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name =</span> city, <span class="dt">temperature =</span> temp)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>We can use some of what we have learned to perform calculations that would otherwise be quite complicated. Let’s see an example.</li>
+</ol>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="section-2-overview.html#cb181-1" aria-hidden="true"></a><span class="co"># Define an object `x` with the numbers 1 through 100</span></span>
+<span id="cb181-2"><a href="section-2-overview.html#cb181-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb181-3"><a href="section-2-overview.html#cb181-3" aria-hidden="true"></a></span>
+<span id="cb181-4"><a href="section-2-overview.html#cb181-4" aria-hidden="true"></a><span class="co"># Compute the sum </span></span>
+<span id="cb181-5"><a href="section-2-overview.html#cb181-5" aria-hidden="true"></a><span class="kw">sum</span>((<span class="dv">1</span><span class="op">/</span>x)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 1.63</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Compute the per 100,000 murder rate for each state and store it in the object <code>murder_rate</code>. Then compute the average murder rate for the US using the function <code>mean</code>. What is the average?</li>
+</ol>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="section-2-overview.html#cb183-1" aria-hidden="true"></a><span class="co"># Store the per 100,000 murder rate for each state in murder_rate</span></span>
+<span id="cb183-2"><a href="section-2-overview.html#cb183-2" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total <span class="op">/</span><span class="st"> </span>murders<span class="op">$</span>population <span class="op">*</span><span class="st"> </span><span class="dv">100000</span></span>
+<span id="cb183-3"><a href="section-2-overview.html#cb183-3" aria-hidden="true"></a></span>
+<span id="cb183-4"><a href="section-2-overview.html#cb183-4" aria-hidden="true"></a><span class="co"># Calculate the average murder rate in the US </span></span>
+<span id="cb183-5"><a href="section-2-overview.html#cb183-5" aria-hidden="true"></a><span class="kw">mean</span>(murder_rate)</span></code></pre></div>
+<pre><code>## [1] 2.78</code></pre>
+</div>
+<div id="section-2-assessment" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Section 2 Assessment</h2>
+<ol style="list-style-type: decimal">
+<li>Consider the vector <code>x &lt;- c(2, 43, 27, 96, 18)</code>.</li>
+</ol>
+<p>Match the following outputs to the function which produces that output. Options include <code>sort(x)</code>, <code>order(x)</code>, <code>rank(x)</code> and none of these.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="section-2-overview.html#cb185-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">43</span>, <span class="dv">27</span>, <span class="dv">96</span>, <span class="dv">18</span>)</span>
+<span id="cb185-2"><a href="section-2-overview.html#cb185-2" aria-hidden="true"></a><span class="kw">sort</span>(x)</span></code></pre></div>
+<pre><code>## [1]  2 18 27 43 96</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="section-2-overview.html#cb187-1" aria-hidden="true"></a><span class="kw">order</span>(x)</span></code></pre></div>
+<pre><code>## [1] 1 5 3 2 4</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="section-2-overview.html#cb189-1" aria-hidden="true"></a><span class="kw">rank</span>(x)</span></code></pre></div>
+<pre><code>## [1] 1 4 3 5 2</code></pre>
+<p><code>1, 2, 3, 4, 5</code> none of these</p>
+<p><code>1, 5, 3, 2, 4</code> order(x)</p>
+<p><code>1, 4, 3, 5, 2</code> rank(x)</p>
+<p><code>2, 18, 27, 43, 96</code> sort(x)</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Continue working with the vector <code>x &lt;- c(2, 43, 27, 96, 18)</code>.</li>
+</ol>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="section-2-overview.html#cb191-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">43</span>, <span class="dv">27</span>, <span class="dv">96</span>, <span class="dv">18</span>)</span>
+<span id="cb191-2"><a href="section-2-overview.html#cb191-2" aria-hidden="true"></a><span class="kw">min</span>(x)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="section-2-overview.html#cb193-1" aria-hidden="true"></a><span class="kw">which.min</span>(x)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="section-2-overview.html#cb195-1" aria-hidden="true"></a><span class="kw">max</span>(x)</span></code></pre></div>
+<pre><code>## [1] 96</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="section-2-overview.html#cb197-1" aria-hidden="true"></a><span class="kw">which.max</span>(x)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p><code>min(x)</code> 2</p>
+<p><code>which.min(x)</code> 1</p>
+<p><code>max(x)</code> none of these</p>
+<p><code>which.max(x)</code> 4</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Mandi, Amy, Nicole, and Olivia all ran different distances in different time intervals. Their distances (in
+miles) and times (in minutes) are as follows:</li>
+</ol>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="section-2-overview.html#cb199-1" aria-hidden="true"></a>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Mandi&quot;</span>, <span class="st">&quot;Amy&quot;</span>, <span class="st">&quot;Nicole&quot;</span>, <span class="st">&quot;Olivia&quot;</span>)</span>
+<span id="cb199-2"><a href="section-2-overview.html#cb199-2" aria-hidden="true"></a>distance &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>, <span class="fl">4.0</span>)</span>
+<span id="cb199-3"><a href="section-2-overview.html#cb199-3" aria-hidden="true"></a>time &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)</span></code></pre></div>
+<p>Write a line of code to convert time to hours. Remember there are 60 minutes in an hour. Then write a line of code to calculate the speed of each runner in miles per hour. Speed is distance divided by time.</p>
+<p>How many hours did Olivia run?</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="section-2-overview.html#cb200-1" aria-hidden="true"></a>hours &lt;-<span class="st"> </span>time<span class="op">/</span><span class="dv">60</span></span>
+<span id="cb200-2"><a href="section-2-overview.html#cb200-2" aria-hidden="true"></a>hours[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 0.833</code></pre>
+<p>What was Mandi’s speed in miles per hour?</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="section-2-overview.html#cb202-1" aria-hidden="true"></a>speed &lt;-<span class="st"> </span>distance<span class="op">/</span>hours</span>
+<span id="cb202-2"><a href="section-2-overview.html#cb202-2" aria-hidden="true"></a>speed[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 4.8</code></pre>
+<p>Which runner had the fastest speed?</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="section-2-overview.html#cb204-1" aria-hidden="true"></a>name[<span class="kw">which.max</span>(speed)]</span></code></pre></div>
+<pre><code>## [1] &quot;Amy&quot;</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-1-overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-3-overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
