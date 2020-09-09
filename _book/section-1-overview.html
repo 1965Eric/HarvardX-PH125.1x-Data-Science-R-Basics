@@ -230,10 +230,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>“Base R” is what you get after you first install R. Additional components are available via packages.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="section-1-overview.html#cb1-1" aria-hidden="true"></a><span class="co"># installing the dslabs package</span></span>
-<span id="cb1-2"><a href="section-1-overview.html#cb1-2" aria-hidden="true"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(dslabs)) <span class="kw">install.packages</span>(<span class="st">&quot;dslabs&quot;</span>)</span>
-<span id="cb1-3"><a href="section-1-overview.html#cb1-3" aria-hidden="true"></a></span>
-<span id="cb1-4"><a href="section-1-overview.html#cb1-4" aria-hidden="true"></a><span class="co"># loading the dslabs package into the R session</span></span>
-<span id="cb1-5"><a href="section-1-overview.html#cb1-5" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span></code></pre></div>
+<span id="cb1-2"><a href="section-1-overview.html#cb1-2" aria-hidden="true"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(dslabs)) <span class="kw">install.packages</span>(<span class="st">&quot;dslabs&quot;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: dslabs</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="section-1-overview.html#cb3-1" aria-hidden="true"></a><span class="co"># loading the dslabs package into the R session</span></span>
+<span id="cb3-2"><a href="section-1-overview.html#cb3-2" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span></code></pre></div>
 </div>
 <div id="installing-r-and-r-studio" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Installing R and R Studio</h2>
@@ -261,16 +261,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The ls() function shows the names of the objects saved in your workspace.</li>
 </ul>
 <p><em>Solving the equation x2+x−1=0</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="section-1-overview.html#cb2-1" aria-hidden="true"></a><span class="co"># assigning values to variables</span></span>
-<span id="cb2-2"><a href="section-1-overview.html#cb2-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb2-3"><a href="section-1-overview.html#cb2-3" aria-hidden="true"></a>b &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb2-4"><a href="section-1-overview.html#cb2-4" aria-hidden="true"></a>c &lt;-<span class="st"> </span><span class="dv">-1</span></span>
-<span id="cb2-5"><a href="section-1-overview.html#cb2-5" aria-hidden="true"></a></span>
-<span id="cb2-6"><a href="section-1-overview.html#cb2-6" aria-hidden="true"></a><span class="co"># solving the quadratic equation</span></span>
-<span id="cb2-7"><a href="section-1-overview.html#cb2-7" aria-hidden="true"></a>(<span class="op">-</span>b <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">*</span>a<span class="op">*</span>c) ) <span class="op">/</span><span class="st"> </span>( <span class="dv">2</span><span class="op">*</span>a )</span></code></pre></div>
-<pre><code>## [1] 0.618</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="section-1-overview.html#cb4-1" aria-hidden="true"></a>(<span class="op">-</span>b <span class="op">-</span><span class="st"> </span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">*</span>a<span class="op">*</span>c) ) <span class="op">/</span><span class="st"> </span>( <span class="dv">2</span><span class="op">*</span>a )</span></code></pre></div>
-<pre><code>## [1] -1.62</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="section-1-overview.html#cb4-1" aria-hidden="true"></a><span class="co"># assigning values to variables</span></span>
+<span id="cb4-2"><a href="section-1-overview.html#cb4-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb4-3"><a href="section-1-overview.html#cb4-3" aria-hidden="true"></a>b &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb4-4"><a href="section-1-overview.html#cb4-4" aria-hidden="true"></a>c &lt;-<span class="st"> </span><span class="dv">-1</span></span>
+<span id="cb4-5"><a href="section-1-overview.html#cb4-5" aria-hidden="true"></a></span>
+<span id="cb4-6"><a href="section-1-overview.html#cb4-6" aria-hidden="true"></a><span class="co"># solving the quadratic equation</span></span>
+<span id="cb4-7"><a href="section-1-overview.html#cb4-7" aria-hidden="true"></a>(<span class="op">-</span>b <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">*</span>a<span class="op">*</span>c) ) <span class="op">/</span><span class="st"> </span>( <span class="dv">2</span><span class="op">*</span>a )</span></code></pre></div>
+<pre><code>## [1] 0.618034</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="section-1-overview.html#cb6-1" aria-hidden="true"></a>(<span class="op">-</span>b <span class="op">-</span><span class="st"> </span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span><span class="op">*</span>a<span class="op">*</span>c) ) <span class="op">/</span><span class="st"> </span>( <span class="dv">2</span><span class="op">*</span>a )</span></code></pre></div>
+<pre><code>## [1] -1.618034</code></pre>
 </div>
 <div id="r-basics---functions" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> R Basics - Functions</h2>
@@ -290,33 +290,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>What is the sum of the first n positive integers? We can use the formula <span class="math inline">\(n(n+1)/2\)</span> to quickly compute this quantity.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="section-1-overview.html#cb6-1" aria-hidden="true"></a><span class="co"># Here is how you compute the sum for the first 20 integers</span></span>
-<span id="cb6-2"><a href="section-1-overview.html#cb6-2" aria-hidden="true"></a><span class="dv">20</span><span class="op">*</span>(<span class="dv">20</span><span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span> </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="section-1-overview.html#cb8-1" aria-hidden="true"></a><span class="co"># Here is how you compute the sum for the first 20 integers</span></span>
+<span id="cb8-2"><a href="section-1-overview.html#cb8-2" aria-hidden="true"></a><span class="dv">20</span><span class="op">*</span>(<span class="dv">20</span><span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span> </span></code></pre></div>
 <pre><code>## [1] 210</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="section-1-overview.html#cb8-1" aria-hidden="true"></a><span class="co"># However, we can define a variable to use the formula for other values of n</span></span>
-<span id="cb8-2"><a href="section-1-overview.html#cb8-2" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">20</span></span>
-<span id="cb8-3"><a href="section-1-overview.html#cb8-3" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="section-1-overview.html#cb10-1" aria-hidden="true"></a><span class="co"># However, we can define a variable to use the formula for other values of n</span></span>
+<span id="cb10-2"><a href="section-1-overview.html#cb10-2" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb10-3"><a href="section-1-overview.html#cb10-3" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 210</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="section-1-overview.html#cb10-1" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">25</span></span>
-<span id="cb10-2"><a href="section-1-overview.html#cb10-2" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="section-1-overview.html#cb12-1" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">25</span></span>
+<span id="cb12-2"><a href="section-1-overview.html#cb12-2" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 325</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="section-1-overview.html#cb12-1" aria-hidden="true"></a><span class="co"># Below, write code to calculate the sum of the first 100 integers</span></span>
-<span id="cb12-2"><a href="section-1-overview.html#cb12-2" aria-hidden="true"></a>n&lt;-<span class="dv">100</span></span>
-<span id="cb12-3"><a href="section-1-overview.html#cb12-3" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="section-1-overview.html#cb14-1" aria-hidden="true"></a><span class="co"># Below, write code to calculate the sum of the first 100 integers</span></span>
+<span id="cb14-2"><a href="section-1-overview.html#cb14-2" aria-hidden="true"></a>n&lt;-<span class="dv">100</span></span>
+<span id="cb14-3"><a href="section-1-overview.html#cb14-3" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 5050</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>What is the sum of the first 1000 positive integers? We can use the formula <span class="math inline">\(n(n+1)/2\)</span> to quickly compute this quantity.</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="section-1-overview.html#cb14-1" aria-hidden="true"></a><span class="co"># Below, write code to calculate the sum of the first 1000 integers </span></span>
-<span id="cb14-2"><a href="section-1-overview.html#cb14-2" aria-hidden="true"></a>n&lt;-<span class="dv">1000</span></span>
-<span id="cb14-3"><a href="section-1-overview.html#cb14-3" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>## [1] 5e+05</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="section-1-overview.html#cb16-1" aria-hidden="true"></a><span class="co"># Below, write code to calculate the sum of the first 1000 integers </span></span>
+<span id="cb16-2"><a href="section-1-overview.html#cb16-2" aria-hidden="true"></a>n&lt;-<span class="dv">1000</span></span>
+<span id="cb16-3"><a href="section-1-overview.html#cb16-3" aria-hidden="true"></a>n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 500500</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Run the following code in the R console.</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="section-1-overview.html#cb16-1" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb16-2"><a href="section-1-overview.html#cb16-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, n)</span>
-<span id="cb16-3"><a href="section-1-overview.html#cb16-3" aria-hidden="true"></a><span class="kw">sum</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="section-1-overview.html#cb18-1" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb18-2"><a href="section-1-overview.html#cb18-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, n)</span>
+<span id="cb18-3"><a href="section-1-overview.html#cb18-3" aria-hidden="true"></a><span class="kw">sum</span>(x)</span></code></pre></div>
 <pre><code>## [1] 500500</code></pre>
 <p>Based on the result, what do you think the functions <code>seq</code> and <code>sum</code> do?</p>
 <ul class="task-list">
@@ -333,14 +333,14 @@ D. sum always returns the same number.</li>
 <li>In math and programming we say we evaluate a function when we replace arguments with specific values. So if we type <code>log2(16)</code> we evaluate the <code>log2</code> function to get the log base 2 of <code>16</code> which is <code>4</code>.</li>
 </ol>
 <p>In R it is often useful to evaluate a function inside another function. For example, <code>sqrt(log2(16))</code> will calculate the log to the base 2 of 16 and then compute the square root of that value. So the first evaluation gives a 4 and this gets evaluated by <code>sqrt</code> to give the final answer of 2.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="section-1-overview.html#cb18-1" aria-hidden="true"></a><span class="co"># log to the base 2 </span></span>
-<span id="cb18-2"><a href="section-1-overview.html#cb18-2" aria-hidden="true"></a><span class="kw">log2</span>(<span class="dv">16</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="section-1-overview.html#cb20-1" aria-hidden="true"></a><span class="co"># log to the base 2 </span></span>
+<span id="cb20-2"><a href="section-1-overview.html#cb20-2" aria-hidden="true"></a><span class="kw">log2</span>(<span class="dv">16</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="section-1-overview.html#cb20-1" aria-hidden="true"></a><span class="co"># sqrt of the log to the base 2 of 16:</span></span>
-<span id="cb20-2"><a href="section-1-overview.html#cb20-2" aria-hidden="true"></a><span class="kw">sqrt</span>(<span class="kw">log2</span>(<span class="dv">16</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="section-1-overview.html#cb22-1" aria-hidden="true"></a><span class="co"># sqrt of the log to the base 2 of 16:</span></span>
+<span id="cb22-2"><a href="section-1-overview.html#cb22-2" aria-hidden="true"></a><span class="kw">sqrt</span>(<span class="kw">log2</span>(<span class="dv">16</span>))</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="section-1-overview.html#cb22-1" aria-hidden="true"></a><span class="co"># Compute log to the base 10 (log10) of the sqrt of 100. Do not use variables.</span></span>
-<span id="cb22-2"><a href="section-1-overview.html#cb22-2" aria-hidden="true"></a><span class="kw">log10</span>(<span class="kw">sqrt</span>(<span class="dv">100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="section-1-overview.html#cb24-1" aria-hidden="true"></a><span class="co"># Compute log to the base 10 (log10) of the sqrt of 100. Do not use variables.</span></span>
+<span id="cb24-2"><a href="section-1-overview.html#cb24-2" aria-hidden="true"></a><span class="kw">log10</span>(<span class="kw">sqrt</span>(<span class="dv">100</span>))</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Which of the following will always return the numeric value stored in <code>x</code>? You can try out examples and use the help system in the R console.</li>
@@ -369,22 +369,22 @@ D. exp(log(x, base = 2))</li>
 <li>Factors are useful for storing categorical data, and are more memory efficient than storing characters.</li>
 </ul>
 <p><em>Code</em></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="section-1-overview.html#cb24-1" aria-hidden="true"></a><span class="co"># loading the the murders dataset</span></span>
-<span id="cb24-2"><a href="section-1-overview.html#cb24-2" aria-hidden="true"></a><span class="kw">data</span>(murders)</span>
-<span id="cb24-3"><a href="section-1-overview.html#cb24-3" aria-hidden="true"></a></span>
-<span id="cb24-4"><a href="section-1-overview.html#cb24-4" aria-hidden="true"></a><span class="co"># determining that the murders dataset is of the &quot;data frame&quot; class</span></span>
-<span id="cb24-5"><a href="section-1-overview.html#cb24-5" aria-hidden="true"></a><span class="kw">class</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="section-1-overview.html#cb26-1" aria-hidden="true"></a><span class="co"># loading the the murders dataset</span></span>
+<span id="cb26-2"><a href="section-1-overview.html#cb26-2" aria-hidden="true"></a><span class="kw">data</span>(murders)</span>
+<span id="cb26-3"><a href="section-1-overview.html#cb26-3" aria-hidden="true"></a></span>
+<span id="cb26-4"><a href="section-1-overview.html#cb26-4" aria-hidden="true"></a><span class="co"># determining that the murders dataset is of the &quot;data frame&quot; class</span></span>
+<span id="cb26-5"><a href="section-1-overview.html#cb26-5" aria-hidden="true"></a><span class="kw">class</span>(murders)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="section-1-overview.html#cb26-1" aria-hidden="true"></a><span class="co"># finding out more about the structure of the object</span></span>
-<span id="cb26-2"><a href="section-1-overview.html#cb26-2" aria-hidden="true"></a><span class="kw">str</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="section-1-overview.html#cb28-1" aria-hidden="true"></a><span class="co"># finding out more about the structure of the object</span></span>
+<span id="cb28-2"><a href="section-1-overview.html#cb28-2" aria-hidden="true"></a><span class="kw">str</span>(murders)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    51 obs. of  5 variables:
 ##  $ state     : chr  &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; ...
 ##  $ abb       : chr  &quot;AL&quot; &quot;AK&quot; &quot;AZ&quot; &quot;AR&quot; ...
 ##  $ region    : Factor w/ 4 levels &quot;Northeast&quot;,&quot;South&quot;,..: 2 4 4 2 4 4 1 2 2 2 ...
 ##  $ population: num  4779736 710231 6392017 2915918 37253956 ...
 ##  $ total     : num  135 19 232 93 1257 ...</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="section-1-overview.html#cb28-1" aria-hidden="true"></a><span class="co"># showing the first 6 lines of the dataset</span></span>
-<span id="cb28-2"><a href="section-1-overview.html#cb28-2" aria-hidden="true"></a><span class="kw">head</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="section-1-overview.html#cb30-1" aria-hidden="true"></a><span class="co"># showing the first 6 lines of the dataset</span></span>
+<span id="cb30-2"><a href="section-1-overview.html#cb30-2" aria-hidden="true"></a><span class="kw">head</span>(murders)</span></code></pre></div>
 <pre><code>##        state abb region population total
 ## 1    Alabama  AL  South    4779736   135
 ## 2     Alaska  AK   West     710231    19
@@ -392,34 +392,34 @@ D. exp(log(x, base = 2))</li>
 ## 4   Arkansas  AR  South    2915918    93
 ## 5 California  CA   West   37253956  1257
 ## 6   Colorado  CO   West    5029196    65</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="section-1-overview.html#cb30-1" aria-hidden="true"></a><span class="co"># using the accessor operator to obtain the population column</span></span>
-<span id="cb30-2"><a href="section-1-overview.html#cb30-2" aria-hidden="true"></a>murders<span class="op">$</span>population</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="section-1-overview.html#cb32-1" aria-hidden="true"></a><span class="co"># using the accessor operator to obtain the population column</span></span>
+<span id="cb32-2"><a href="section-1-overview.html#cb32-2" aria-hidden="true"></a>murders<span class="op">$</span>population</span></code></pre></div>
 <pre><code>##  [1]  4779736   710231  6392017  2915918 37253956  5029196  3574097   897934   601723 19687653  9920000  1360301  1567582 12830632  6483802  3046355  2853118  4339367  4533372
 ## [20]  1328361  5773552  6547629  9883640  5303925  2967297  5988927   989415  1826341  2700551  1316470  8791894  2059179 19378102  9535483   672591 11536504  3751351  3831074
 ## [39] 12702379  1052567  4625364   814180  6346105 25145561  2763885   625741  8001024  6724540  1852994  5686986   563626</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="section-1-overview.html#cb32-1" aria-hidden="true"></a><span class="co"># displaying the variable names in the murders dataset</span></span>
-<span id="cb32-2"><a href="section-1-overview.html#cb32-2" aria-hidden="true"></a><span class="kw">names</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="section-1-overview.html#cb34-1" aria-hidden="true"></a><span class="co"># displaying the variable names in the murders dataset</span></span>
+<span id="cb34-2"><a href="section-1-overview.html#cb34-2" aria-hidden="true"></a><span class="kw">names</span>(murders)</span></code></pre></div>
 <pre><code>## [1] &quot;state&quot;      &quot;abb&quot;        &quot;region&quot;     &quot;population&quot; &quot;total&quot;</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="section-1-overview.html#cb34-1" aria-hidden="true"></a><span class="co"># determining how many entries are in a vector</span></span>
-<span id="cb34-2"><a href="section-1-overview.html#cb34-2" aria-hidden="true"></a>pop &lt;-<span class="st"> </span>murders<span class="op">$</span>population</span>
-<span id="cb34-3"><a href="section-1-overview.html#cb34-3" aria-hidden="true"></a><span class="kw">length</span>(pop)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="section-1-overview.html#cb36-1" aria-hidden="true"></a><span class="co"># determining how many entries are in a vector</span></span>
+<span id="cb36-2"><a href="section-1-overview.html#cb36-2" aria-hidden="true"></a>pop &lt;-<span class="st"> </span>murders<span class="op">$</span>population</span>
+<span id="cb36-3"><a href="section-1-overview.html#cb36-3" aria-hidden="true"></a><span class="kw">length</span>(pop)</span></code></pre></div>
 <pre><code>## [1] 51</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="section-1-overview.html#cb36-1" aria-hidden="true"></a><span class="co"># vectors can be of class numeric and character</span></span>
-<span id="cb36-2"><a href="section-1-overview.html#cb36-2" aria-hidden="true"></a><span class="kw">class</span>(pop)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="section-1-overview.html#cb38-1" aria-hidden="true"></a><span class="co"># vectors can be of class numeric and character</span></span>
+<span id="cb38-2"><a href="section-1-overview.html#cb38-2" aria-hidden="true"></a><span class="kw">class</span>(pop)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="section-1-overview.html#cb38-1" aria-hidden="true"></a><span class="kw">class</span>(murders<span class="op">$</span>state)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="section-1-overview.html#cb40-1" aria-hidden="true"></a><span class="kw">class</span>(murders<span class="op">$</span>state)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="section-1-overview.html#cb40-1" aria-hidden="true"></a><span class="co"># logical vectors are either TRUE or FALSE</span></span>
-<span id="cb40-2"><a href="section-1-overview.html#cb40-2" aria-hidden="true"></a>z &lt;-<span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb40-3"><a href="section-1-overview.html#cb40-3" aria-hidden="true"></a>z</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="section-1-overview.html#cb42-1" aria-hidden="true"></a><span class="co"># logical vectors are either TRUE or FALSE</span></span>
+<span id="cb42-2"><a href="section-1-overview.html#cb42-2" aria-hidden="true"></a>z &lt;-<span class="st"> </span><span class="dv">3</span> <span class="op">==</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb42-3"><a href="section-1-overview.html#cb42-3" aria-hidden="true"></a>z</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="section-1-overview.html#cb42-1" aria-hidden="true"></a><span class="kw">class</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="section-1-overview.html#cb44-1" aria-hidden="true"></a><span class="kw">class</span>(z)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="section-1-overview.html#cb44-1" aria-hidden="true"></a><span class="co"># factors are another type of class</span></span>
-<span id="cb44-2"><a href="section-1-overview.html#cb44-2" aria-hidden="true"></a><span class="kw">class</span>(murders<span class="op">$</span>region)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="section-1-overview.html#cb46-1" aria-hidden="true"></a><span class="co"># factors are another type of class</span></span>
+<span id="cb46-2"><a href="section-1-overview.html#cb46-2" aria-hidden="true"></a><span class="kw">class</span>(murders<span class="op">$</span>region)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="section-1-overview.html#cb46-1" aria-hidden="true"></a><span class="co"># obtaining the levels of a factor</span></span>
-<span id="cb46-2"><a href="section-1-overview.html#cb46-2" aria-hidden="true"></a><span class="kw">levels</span>(murders<span class="op">$</span>region)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="section-1-overview.html#cb48-1" aria-hidden="true"></a><span class="co"># obtaining the levels of a factor</span></span>
+<span id="cb48-2"><a href="section-1-overview.html#cb48-2" aria-hidden="true"></a><span class="kw">levels</span>(murders<span class="op">$</span>region)</span></code></pre></div>
 <pre><code>## [1] &quot;Northeast&quot;     &quot;South&quot;         &quot;North Central&quot; &quot;West&quot;</code></pre>
 </div>
 <div id="assessment---data-types" class="section level2" number="2.8">
@@ -427,10 +427,10 @@ D. exp(log(x, base = 2))</li>
 <ol style="list-style-type: decimal">
 <li>We’re going to be using the following dataset for this module. Run this code in the console.</li>
 </ol>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="section-1-overview.html#cb48-1" aria-hidden="true"></a><span class="kw">library</span>(dslabs)  </span>
-<span id="cb48-2"><a href="section-1-overview.html#cb48-2" aria-hidden="true"></a><span class="kw">data</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="section-1-overview.html#cb50-1" aria-hidden="true"></a><span class="kw">library</span>(dslabs)  </span>
+<span id="cb50-2"><a href="section-1-overview.html#cb50-2" aria-hidden="true"></a><span class="kw">data</span>(murders)</span></code></pre></div>
 <p>Next, use the function <code>str</code> to examine the structure of the <code>murders</code> object. We can see that this object is a data frame with 51 rows and five columns.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="section-1-overview.html#cb49-1" aria-hidden="true"></a><span class="kw">str</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="section-1-overview.html#cb51-1" aria-hidden="true"></a><span class="kw">str</span>(murders)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    51 obs. of  5 variables:
 ##  $ state     : chr  &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; ...
 ##  $ abb       : chr  &quot;AL&quot; &quot;AK&quot; &quot;AZ&quot; &quot;AR&quot; ...
@@ -451,73 +451,73 @@ D. str shows no relevant information.</li>
 <ol start="2" style="list-style-type: decimal">
 <li>In the previous question, we saw the different variables that are a part of this dataset from the output of the <code>str()</code> function. The function <code>names()</code> is specifically designed to extract the column names from a data frame.</li>
 </ol>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="section-1-overview.html#cb51-1" aria-hidden="true"></a><span class="co"># Load package and data</span></span>
-<span id="cb51-2"><a href="section-1-overview.html#cb51-2" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
-<span id="cb51-3"><a href="section-1-overview.html#cb51-3" aria-hidden="true"></a><span class="kw">data</span>(murders)</span></code></pre></div>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="section-1-overview.html#cb52-1" aria-hidden="true"></a><span class="co"># Use the function names to extract the variable names </span></span>
-<span id="cb52-2"><a href="section-1-overview.html#cb52-2" aria-hidden="true"></a><span class="kw">names</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="section-1-overview.html#cb53-1" aria-hidden="true"></a><span class="co"># Load package and data</span></span>
+<span id="cb53-2"><a href="section-1-overview.html#cb53-2" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb53-3"><a href="section-1-overview.html#cb53-3" aria-hidden="true"></a><span class="kw">data</span>(murders)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="section-1-overview.html#cb54-1" aria-hidden="true"></a><span class="co"># Use the function names to extract the variable names </span></span>
+<span id="cb54-2"><a href="section-1-overview.html#cb54-2" aria-hidden="true"></a><span class="kw">names</span>(murders)</span></code></pre></div>
 <pre><code>## [1] &quot;state&quot;      &quot;abb&quot;        &quot;region&quot;     &quot;population&quot; &quot;total&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>In this module we have learned that every variable has a class. For example, the class can be a <em>character</em>, <em>numeric</em> or <em>logical</em>. The function <code>class()</code> can be used to determine the class of an object.</li>
 </ol>
 <p>Here we are going to determine the class of one of the variables in the <code>murders</code> data frame. To extract variables from a data frame we use <code>$</code>, referred to as the accessor.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="section-1-overview.html#cb54-1" aria-hidden="true"></a><span class="co"># To access the population variable from the murders dataset use this code:</span></span>
-<span id="cb54-2"><a href="section-1-overview.html#cb54-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span>murders<span class="op">$</span>population </span>
-<span id="cb54-3"><a href="section-1-overview.html#cb54-3" aria-hidden="true"></a></span>
-<span id="cb54-4"><a href="section-1-overview.html#cb54-4" aria-hidden="true"></a><span class="co"># To determine the class of object `p` we use this code:</span></span>
-<span id="cb54-5"><a href="section-1-overview.html#cb54-5" aria-hidden="true"></a><span class="kw">class</span>(p)</span></code></pre></div>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="section-1-overview.html#cb56-1" aria-hidden="true"></a><span class="co"># Use the accessor to extract state abbreviations and assign it to a</span></span>
-<span id="cb56-2"><a href="section-1-overview.html#cb56-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span>murders<span class="op">$</span>abb</span>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="section-1-overview.html#cb56-1" aria-hidden="true"></a><span class="co"># To access the population variable from the murders dataset use this code:</span></span>
+<span id="cb56-2"><a href="section-1-overview.html#cb56-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span>murders<span class="op">$</span>population </span>
 <span id="cb56-3"><a href="section-1-overview.html#cb56-3" aria-hidden="true"></a></span>
-<span id="cb56-4"><a href="section-1-overview.html#cb56-4" aria-hidden="true"></a><span class="co"># Determine the class of a</span></span>
-<span id="cb56-5"><a href="section-1-overview.html#cb56-5" aria-hidden="true"></a><span class="kw">class</span>(a)</span></code></pre></div>
+<span id="cb56-4"><a href="section-1-overview.html#cb56-4" aria-hidden="true"></a><span class="co"># To determine the class of object `p` we use this code:</span></span>
+<span id="cb56-5"><a href="section-1-overview.html#cb56-5" aria-hidden="true"></a><span class="kw">class</span>(p)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="section-1-overview.html#cb58-1" aria-hidden="true"></a><span class="co"># Use the accessor to extract state abbreviations and assign it to a</span></span>
+<span id="cb58-2"><a href="section-1-overview.html#cb58-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span>murders<span class="op">$</span>abb</span>
+<span id="cb58-3"><a href="section-1-overview.html#cb58-3" aria-hidden="true"></a></span>
+<span id="cb58-4"><a href="section-1-overview.html#cb58-4" aria-hidden="true"></a><span class="co"># Determine the class of a</span></span>
+<span id="cb58-5"><a href="section-1-overview.html#cb58-5" aria-hidden="true"></a><span class="kw">class</span>(a)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>An important lesson you should learn early on is that there are multiple ways to do things in R. For example, to generate the first five integers we note that <code>1:5</code> and <code>seq(1,5)</code> return the same result.</li>
 </ol>
 <p>There are also multiple ways to access variables in a data frame. For example we can use the square brackets <code>[[</code> instead of the accessor <code>$</code>.</p>
 <p>If you instead try to access a column with just one bracket,</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="section-1-overview.html#cb58-1" aria-hidden="true"></a>murders[<span class="st">&quot;population&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="section-1-overview.html#cb60-1" aria-hidden="true"></a>murders[<span class="st">&quot;population&quot;</span>]</span></code></pre></div>
 <p>R returns a subset of the original data frame containing just this column. This new object will be of class <code>data.frame</code> rather than a vector. To access the column itself you need to use either the <code>$</code> accessor or the double square brackets <code>[[</code>.</p>
 <p>Parentheses, in contrast, are mainly used alongside functions to indicate what argument the function should be doing something to. For example, when we did <code>class(p)</code> in the last question, we wanted the function <code>class</code> to do something related to the argument <code>p</code>.</p>
 <p>This is an example of how R can be a bit idiosyncratic sometimes. It is very common to find it confusing at first.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="section-1-overview.html#cb59-1" aria-hidden="true"></a><span class="co"># We extract the population like this:</span></span>
-<span id="cb59-2"><a href="section-1-overview.html#cb59-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span>murders<span class="op">$</span>population</span>
-<span id="cb59-3"><a href="section-1-overview.html#cb59-3" aria-hidden="true"></a></span>
-<span id="cb59-4"><a href="section-1-overview.html#cb59-4" aria-hidden="true"></a><span class="co"># This is how we do the same with the square brackets:</span></span>
-<span id="cb59-5"><a href="section-1-overview.html#cb59-5" aria-hidden="true"></a>o &lt;-<span class="st"> </span>murders[[<span class="st">&quot;population&quot;</span>]]</span>
-<span id="cb59-6"><a href="section-1-overview.html#cb59-6" aria-hidden="true"></a></span>
-<span id="cb59-7"><a href="section-1-overview.html#cb59-7" aria-hidden="true"></a><span class="co"># We can confirm these two are the same</span></span>
-<span id="cb59-8"><a href="section-1-overview.html#cb59-8" aria-hidden="true"></a><span class="kw">identical</span>(o, p)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="section-1-overview.html#cb61-1" aria-hidden="true"></a><span class="co"># Use square brackets to extract `abb` from `murders` and assign it to b</span></span>
-<span id="cb61-2"><a href="section-1-overview.html#cb61-2" aria-hidden="true"></a>b &lt;-<span class="st"> </span>murders[[<span class="st">&quot;abb&quot;</span>]]</span>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="section-1-overview.html#cb61-1" aria-hidden="true"></a><span class="co"># We extract the population like this:</span></span>
+<span id="cb61-2"><a href="section-1-overview.html#cb61-2" aria-hidden="true"></a>p &lt;-<span class="st"> </span>murders<span class="op">$</span>population</span>
 <span id="cb61-3"><a href="section-1-overview.html#cb61-3" aria-hidden="true"></a></span>
-<span id="cb61-4"><a href="section-1-overview.html#cb61-4" aria-hidden="true"></a><span class="co"># Check if `a` and `b` are identical </span></span>
-<span id="cb61-5"><a href="section-1-overview.html#cb61-5" aria-hidden="true"></a><span class="kw">identical</span>(a, b)</span></code></pre></div>
+<span id="cb61-4"><a href="section-1-overview.html#cb61-4" aria-hidden="true"></a><span class="co"># This is how we do the same with the square brackets:</span></span>
+<span id="cb61-5"><a href="section-1-overview.html#cb61-5" aria-hidden="true"></a>o &lt;-<span class="st"> </span>murders[[<span class="st">&quot;population&quot;</span>]]</span>
+<span id="cb61-6"><a href="section-1-overview.html#cb61-6" aria-hidden="true"></a></span>
+<span id="cb61-7"><a href="section-1-overview.html#cb61-7" aria-hidden="true"></a><span class="co"># We can confirm these two are the same</span></span>
+<span id="cb61-8"><a href="section-1-overview.html#cb61-8" aria-hidden="true"></a><span class="kw">identical</span>(o, p)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="section-1-overview.html#cb63-1" aria-hidden="true"></a><span class="co"># Use square brackets to extract `abb` from `murders` and assign it to b</span></span>
+<span id="cb63-2"><a href="section-1-overview.html#cb63-2" aria-hidden="true"></a>b &lt;-<span class="st"> </span>murders[[<span class="st">&quot;abb&quot;</span>]]</span>
+<span id="cb63-3"><a href="section-1-overview.html#cb63-3" aria-hidden="true"></a></span>
+<span id="cb63-4"><a href="section-1-overview.html#cb63-4" aria-hidden="true"></a><span class="co"># Check if `a` and `b` are identical </span></span>
+<span id="cb63-5"><a href="section-1-overview.html#cb63-5" aria-hidden="true"></a><span class="kw">identical</span>(a, b)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Using the <code>str()</code> command, we saw that the <em>region</em> column stores a factor. You can corroborate this by using the <code>class</code> command on the <em>region</em> column.</li>
 </ol>
 <p>The function <code>levels</code> shows us the categories for the factor.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="section-1-overview.html#cb63-1" aria-hidden="true"></a><span class="co"># We can see the class of the region variable using class</span></span>
-<span id="cb63-2"><a href="section-1-overview.html#cb63-2" aria-hidden="true"></a><span class="kw">class</span>(murders<span class="op">$</span>region)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="section-1-overview.html#cb65-1" aria-hidden="true"></a><span class="co"># We can see the class of the region variable using class</span></span>
+<span id="cb65-2"><a href="section-1-overview.html#cb65-2" aria-hidden="true"></a><span class="kw">class</span>(murders<span class="op">$</span>region)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="section-1-overview.html#cb65-1" aria-hidden="true"></a><span class="co"># Determine the number of regions included in this variable </span></span>
-<span id="cb65-2"><a href="section-1-overview.html#cb65-2" aria-hidden="true"></a><span class="kw">length</span>(<span class="kw">levels</span>(murders<span class="op">$</span>region))</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="section-1-overview.html#cb67-1" aria-hidden="true"></a><span class="co"># Determine the number of regions included in this variable </span></span>
+<span id="cb67-2"><a href="section-1-overview.html#cb67-2" aria-hidden="true"></a><span class="kw">length</span>(<span class="kw">levels</span>(murders<span class="op">$</span>region))</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>The function <code>table</code> takes a vector as input and returns the frequency of each unique element in the vector.</li>
 </ol>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="section-1-overview.html#cb67-1" aria-hidden="true"></a><span class="co"># Here is an example of what the table function does</span></span>
-<span id="cb67-2"><a href="section-1-overview.html#cb67-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
-<span id="cb67-3"><a href="section-1-overview.html#cb67-3" aria-hidden="true"></a><span class="kw">table</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="section-1-overview.html#cb69-1" aria-hidden="true"></a><span class="co"># Here is an example of what the table function does</span></span>
+<span id="cb69-2"><a href="section-1-overview.html#cb69-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>)</span>
+<span id="cb69-3"><a href="section-1-overview.html#cb69-3" aria-hidden="true"></a><span class="kw">table</span>(x)</span></code></pre></div>
 <pre><code>## x
 ## a b c 
 ## 2 3 1</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="section-1-overview.html#cb69-1" aria-hidden="true"></a><span class="co"># Write one line of code to show the number of states per region</span></span>
-<span id="cb69-2"><a href="section-1-overview.html#cb69-2" aria-hidden="true"></a><span class="kw">table</span>(murders<span class="op">$</span>region)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="section-1-overview.html#cb71-1" aria-hidden="true"></a><span class="co"># Write one line of code to show the number of states per region</span></span>
+<span id="cb71-2"><a href="section-1-overview.html#cb71-2" aria-hidden="true"></a><span class="kw">table</span>(murders<span class="op">$</span>region)</span></code></pre></div>
 <pre><code>## 
 ##     Northeast         South North Central          West 
 ##             9            17            12            13</code></pre>
@@ -528,24 +528,24 @@ D. str shows no relevant information.</li>
 <li>To find the solutions to an equation of the format <span class="math inline">\(ax^2+bx+c\)</span>, use the quadratic equation: <span class="math inline">\(x=\frac{-b±\sqrt(b^2−4ac)}{2a}\)</span>.</li>
 </ol>
 <p>What are the two solutions to <span class="math inline">\(2x^2-x-4=0\)</span>? Use the quadratic equation. (Report the greater of the two solutions first, using 3 significant digits for both solutions)</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="section-1-overview.html#cb71-1" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb71-2"><a href="section-1-overview.html#cb71-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">2</span></span>
-<span id="cb71-3"><a href="section-1-overview.html#cb71-3" aria-hidden="true"></a>b &lt;-<span class="st"> </span><span class="dv">-1</span></span>
-<span id="cb71-4"><a href="section-1-overview.html#cb71-4" aria-hidden="true"></a>c &lt;-<span class="st"> </span><span class="dv">-4</span></span>
-<span id="cb71-5"><a href="section-1-overview.html#cb71-5" aria-hidden="true"></a>(<span class="op">-</span>b<span class="op">+</span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2-4</span><span class="op">*</span>a<span class="op">*</span>c))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>a)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="section-1-overview.html#cb73-1" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb73-2"><a href="section-1-overview.html#cb73-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb73-3"><a href="section-1-overview.html#cb73-3" aria-hidden="true"></a>b &lt;-<span class="st"> </span><span class="dv">-1</span></span>
+<span id="cb73-4"><a href="section-1-overview.html#cb73-4" aria-hidden="true"></a>c &lt;-<span class="st"> </span><span class="dv">-4</span></span>
+<span id="cb73-5"><a href="section-1-overview.html#cb73-5" aria-hidden="true"></a>(<span class="op">-</span>b<span class="op">+</span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2-4</span><span class="op">*</span>a<span class="op">*</span>c))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>a)</span></code></pre></div>
 <pre><code>## [1] 1.69</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="section-1-overview.html#cb73-1" aria-hidden="true"></a>(<span class="op">-</span>b<span class="op">-</span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2-4</span><span class="op">*</span>a<span class="op">*</span>c))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>a)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="section-1-overview.html#cb75-1" aria-hidden="true"></a>(<span class="op">-</span>b<span class="op">-</span><span class="kw">sqrt</span>(b<span class="op">^</span><span class="dv">2-4</span><span class="op">*</span>a<span class="op">*</span>c))<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>a)</span></code></pre></div>
 <pre><code>## [1] -1.19</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Use R to compute log base 4 of 1024. You can use the <code>help</code> function to learn how to use arguments to change the base of the <code>log</code> function.</li>
 </ol>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="section-1-overview.html#cb75-1" aria-hidden="true"></a><span class="kw">log</span>(<span class="dv">1024</span>, <span class="dt">base =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="section-1-overview.html#cb77-1" aria-hidden="true"></a><span class="kw">log</span>(<span class="dv">1024</span>, <span class="dt">base =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Load the <code>movielens</code> dataset</li>
 </ol>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="section-1-overview.html#cb77-1" aria-hidden="true"></a><span class="kw">data</span>(movielens)</span>
-<span id="cb77-2"><a href="section-1-overview.html#cb77-2" aria-hidden="true"></a><span class="kw">str</span>(movielens)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="section-1-overview.html#cb79-1" aria-hidden="true"></a><span class="kw">data</span>(movielens)</span>
+<span id="cb79-2"><a href="section-1-overview.html#cb79-2" aria-hidden="true"></a><span class="kw">str</span>(movielens)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    100004 obs. of  7 variables:
 ##  $ movieId  : int  31 1029 1061 1129 1172 1263 1287 1293 1339 1343 ...
 ##  $ title    : chr  &quot;Dangerous Minds&quot; &quot;Dumbo&quot; &quot;Sleepers&quot; &quot;Escape from New York&quot; ...
@@ -594,7 +594,7 @@ G. It is a character (chr) variable</li>
 <li>We already know we can use the <code>levels()</code> function to determine the levels of a factor. A different function, <code>nlevels()</code>, may be used to determine the number of levels of a factor.</li>
 </ol>
 <p>Use this function to determine how many levels are in the factor <code>genres</code> in the <code>movielens</code> data frame.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="section-1-overview.html#cb79-1" aria-hidden="true"></a><span class="kw">nlevels</span>(movielens<span class="op">$</span>genres)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="section-1-overview.html#cb81-1" aria-hidden="true"></a><span class="kw">nlevels</span>(movielens<span class="op">$</span>genres)</span></code></pre></div>
 <pre><code>## [1] 901</code></pre>
 </div>
 </div>

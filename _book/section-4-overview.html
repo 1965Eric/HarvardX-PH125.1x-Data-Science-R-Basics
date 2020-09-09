@@ -240,50 +240,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The <code>all()</code> function takes a vector of logicals and returns true if all of the entries are true.</li>
 </ul>
 <p><em>Code</em></p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="section-4-overview.html#cb307-1" aria-hidden="true"></a><span class="co"># an example showing the general structure of an if-else statement</span></span>
-<span id="cb307-2"><a href="section-4-overview.html#cb307-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb307-3"><a href="section-4-overview.html#cb307-3" aria-hidden="true"></a><span class="cf">if</span>(a<span class="op">!=</span><span class="dv">0</span>){</span>
-<span id="cb307-4"><a href="section-4-overview.html#cb307-4" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="dv">1</span><span class="op">/</span>a)</span>
-<span id="cb307-5"><a href="section-4-overview.html#cb307-5" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
-<span id="cb307-6"><a href="section-4-overview.html#cb307-6" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="st">&quot;No reciprocal for 0.&quot;</span>)</span>
-<span id="cb307-7"><a href="section-4-overview.html#cb307-7" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="section-4-overview.html#cb314-1" aria-hidden="true"></a><span class="co"># an example showing the general structure of an if-else statement</span></span>
+<span id="cb314-2"><a href="section-4-overview.html#cb314-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb314-3"><a href="section-4-overview.html#cb314-3" aria-hidden="true"></a><span class="cf">if</span>(a<span class="op">!=</span><span class="dv">0</span>){</span>
+<span id="cb314-4"><a href="section-4-overview.html#cb314-4" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="dv">1</span><span class="op">/</span>a)</span>
+<span id="cb314-5"><a href="section-4-overview.html#cb314-5" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
+<span id="cb314-6"><a href="section-4-overview.html#cb314-6" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="st">&quot;No reciprocal for 0.&quot;</span>)</span>
+<span id="cb314-7"><a href="section-4-overview.html#cb314-7" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;No reciprocal for 0.&quot;</code></pre>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="section-4-overview.html#cb309-1" aria-hidden="true"></a><span class="co"># an example that tells us which states, if any, have a murder rate less than 0.5</span></span>
-<span id="cb309-2"><a href="section-4-overview.html#cb309-2" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
-<span id="cb309-3"><a href="section-4-overview.html#cb309-3" aria-hidden="true"></a><span class="kw">data</span>(murders)</span>
-<span id="cb309-4"><a href="section-4-overview.html#cb309-4" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total <span class="op">/</span><span class="st"> </span>murders<span class="op">$</span>population<span class="op">*</span><span class="dv">100000</span></span>
-<span id="cb309-5"><a href="section-4-overview.html#cb309-5" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">which.min</span>(murder_rate)</span>
-<span id="cb309-6"><a href="section-4-overview.html#cb309-6" aria-hidden="true"></a><span class="cf">if</span>(murder_rate[ind] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>){</span>
-<span id="cb309-7"><a href="section-4-overview.html#cb309-7" aria-hidden="true"></a>  <span class="kw">print</span>(murders<span class="op">$</span>state[ind]) </span>
-<span id="cb309-8"><a href="section-4-overview.html#cb309-8" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
-<span id="cb309-9"><a href="section-4-overview.html#cb309-9" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="st">&quot;No state has murder rate that low&quot;</span>)</span>
-<span id="cb309-10"><a href="section-4-overview.html#cb309-10" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="section-4-overview.html#cb316-1" aria-hidden="true"></a><span class="co"># an example that tells us which states, if any, have a murder rate less than 0.5</span></span>
+<span id="cb316-2"><a href="section-4-overview.html#cb316-2" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb316-3"><a href="section-4-overview.html#cb316-3" aria-hidden="true"></a><span class="kw">data</span>(murders)</span>
+<span id="cb316-4"><a href="section-4-overview.html#cb316-4" aria-hidden="true"></a>murder_rate &lt;-<span class="st"> </span>murders<span class="op">$</span>total <span class="op">/</span><span class="st"> </span>murders<span class="op">$</span>population<span class="op">*</span><span class="dv">100000</span></span>
+<span id="cb316-5"><a href="section-4-overview.html#cb316-5" aria-hidden="true"></a>ind &lt;-<span class="st"> </span><span class="kw">which.min</span>(murder_rate)</span>
+<span id="cb316-6"><a href="section-4-overview.html#cb316-6" aria-hidden="true"></a><span class="cf">if</span>(murder_rate[ind] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span>){</span>
+<span id="cb316-7"><a href="section-4-overview.html#cb316-7" aria-hidden="true"></a>  <span class="kw">print</span>(murders<span class="op">$</span>state[ind]) </span>
+<span id="cb316-8"><a href="section-4-overview.html#cb316-8" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
+<span id="cb316-9"><a href="section-4-overview.html#cb316-9" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="st">&quot;No state has murder rate that low&quot;</span>)</span>
+<span id="cb316-10"><a href="section-4-overview.html#cb316-10" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Vermont&quot;</code></pre>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="section-4-overview.html#cb311-1" aria-hidden="true"></a><span class="co"># changing the condition to &lt; 0.25 changes the result</span></span>
-<span id="cb311-2"><a href="section-4-overview.html#cb311-2" aria-hidden="true"></a><span class="cf">if</span>(murder_rate[ind] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.25</span>){</span>
-<span id="cb311-3"><a href="section-4-overview.html#cb311-3" aria-hidden="true"></a>  <span class="kw">print</span>(murders<span class="op">$</span>state[ind]) </span>
-<span id="cb311-4"><a href="section-4-overview.html#cb311-4" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
-<span id="cb311-5"><a href="section-4-overview.html#cb311-5" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="st">&quot;No state has a murder rate that low.&quot;</span>)</span>
-<span id="cb311-6"><a href="section-4-overview.html#cb311-6" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="section-4-overview.html#cb318-1" aria-hidden="true"></a><span class="co"># changing the condition to &lt; 0.25 changes the result</span></span>
+<span id="cb318-2"><a href="section-4-overview.html#cb318-2" aria-hidden="true"></a><span class="cf">if</span>(murder_rate[ind] <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.25</span>){</span>
+<span id="cb318-3"><a href="section-4-overview.html#cb318-3" aria-hidden="true"></a>  <span class="kw">print</span>(murders<span class="op">$</span>state[ind]) </span>
+<span id="cb318-4"><a href="section-4-overview.html#cb318-4" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
+<span id="cb318-5"><a href="section-4-overview.html#cb318-5" aria-hidden="true"></a>  <span class="kw">print</span>(<span class="st">&quot;No state has a murder rate that low.&quot;</span>)</span>
+<span id="cb318-6"><a href="section-4-overview.html#cb318-6" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;No state has a murder rate that low.&quot;</code></pre>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="section-4-overview.html#cb313-1" aria-hidden="true"></a><span class="co"># the ifelse() function works similarly to an if-else conditional</span></span>
-<span id="cb313-2"><a href="section-4-overview.html#cb313-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb313-3"><a href="section-4-overview.html#cb313-3" aria-hidden="true"></a><span class="kw">ifelse</span>(a <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span><span class="op">/</span>a, <span class="ot">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="section-4-overview.html#cb320-1" aria-hidden="true"></a><span class="co"># the ifelse() function works similarly to an if-else conditional</span></span>
+<span id="cb320-2"><a href="section-4-overview.html#cb320-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb320-3"><a href="section-4-overview.html#cb320-3" aria-hidden="true"></a><span class="kw">ifelse</span>(a <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span><span class="op">/</span>a, <span class="ot">NA</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="section-4-overview.html#cb315-1" aria-hidden="true"></a><span class="co"># the ifelse() function is particularly useful on vectors</span></span>
-<span id="cb315-2"><a href="section-4-overview.html#cb315-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb315-3"><a href="section-4-overview.html#cb315-3" aria-hidden="true"></a>result &lt;-<span class="st"> </span><span class="kw">ifelse</span>(a <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span><span class="op">/</span>a, <span class="ot">NA</span>)</span>
-<span id="cb315-4"><a href="section-4-overview.html#cb315-4" aria-hidden="true"></a></span>
-<span id="cb315-5"><a href="section-4-overview.html#cb315-5" aria-hidden="true"></a><span class="co"># the ifelse() function is also helpful for replacing missing values</span></span>
-<span id="cb315-6"><a href="section-4-overview.html#cb315-6" aria-hidden="true"></a><span class="kw">data</span>(na_example)</span>
-<span id="cb315-7"><a href="section-4-overview.html#cb315-7" aria-hidden="true"></a>no_nas &lt;-<span class="st"> </span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(na_example), <span class="dv">0</span>, na_example) </span>
-<span id="cb315-8"><a href="section-4-overview.html#cb315-8" aria-hidden="true"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(no_nas))</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="section-4-overview.html#cb322-1" aria-hidden="true"></a><span class="co"># the ifelse() function is particularly useful on vectors</span></span>
+<span id="cb322-2"><a href="section-4-overview.html#cb322-2" aria-hidden="true"></a>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb322-3"><a href="section-4-overview.html#cb322-3" aria-hidden="true"></a>result &lt;-<span class="st"> </span><span class="kw">ifelse</span>(a <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span><span class="op">/</span>a, <span class="ot">NA</span>)</span>
+<span id="cb322-4"><a href="section-4-overview.html#cb322-4" aria-hidden="true"></a></span>
+<span id="cb322-5"><a href="section-4-overview.html#cb322-5" aria-hidden="true"></a><span class="co"># the ifelse() function is also helpful for replacing missing values</span></span>
+<span id="cb322-6"><a href="section-4-overview.html#cb322-6" aria-hidden="true"></a><span class="kw">data</span>(na_example)</span>
+<span id="cb322-7"><a href="section-4-overview.html#cb322-7" aria-hidden="true"></a>no_nas &lt;-<span class="st"> </span><span class="kw">ifelse</span>(<span class="kw">is.na</span>(na_example), <span class="dv">0</span>, na_example) </span>
+<span id="cb322-8"><a href="section-4-overview.html#cb322-8" aria-hidden="true"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(no_nas))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="section-4-overview.html#cb317-1" aria-hidden="true"></a><span class="co"># the any() and all() functions evaluate logical vectors</span></span>
-<span id="cb317-2"><a href="section-4-overview.html#cb317-2" aria-hidden="true"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
-<span id="cb317-3"><a href="section-4-overview.html#cb317-3" aria-hidden="true"></a><span class="kw">any</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="section-4-overview.html#cb324-1" aria-hidden="true"></a><span class="co"># the any() and all() functions evaluate logical vectors</span></span>
+<span id="cb324-2"><a href="section-4-overview.html#cb324-2" aria-hidden="true"></a>z &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb324-3"><a href="section-4-overview.html#cb324-3" aria-hidden="true"></a><span class="kw">any</span>(z)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="section-4-overview.html#cb319-1" aria-hidden="true"></a><span class="kw">all</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="section-4-overview.html#cb326-1" aria-hidden="true"></a><span class="kw">all</span>(z)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 </div>
 <div id="functions" class="section level2" number="5.3">
@@ -297,33 +297,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Variables defined inside a function are not saved in the workspace.</li>
 </ul>
 <p><em>Code</em></p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="section-4-overview.html#cb321-1" aria-hidden="true"></a><span class="co"># example of defining a function to compute the average of a vector x</span></span>
-<span id="cb321-2"><a href="section-4-overview.html#cb321-2" aria-hidden="true"></a>avg &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
-<span id="cb321-3"><a href="section-4-overview.html#cb321-3" aria-hidden="true"></a>  s &lt;-<span class="st"> </span><span class="kw">sum</span>(x)</span>
-<span id="cb321-4"><a href="section-4-overview.html#cb321-4" aria-hidden="true"></a>  n &lt;-<span class="st"> </span><span class="kw">length</span>(x)</span>
-<span id="cb321-5"><a href="section-4-overview.html#cb321-5" aria-hidden="true"></a>  s<span class="op">/</span>n</span>
-<span id="cb321-6"><a href="section-4-overview.html#cb321-6" aria-hidden="true"></a>}</span>
-<span id="cb321-7"><a href="section-4-overview.html#cb321-7" aria-hidden="true"></a></span>
-<span id="cb321-8"><a href="section-4-overview.html#cb321-8" aria-hidden="true"></a><span class="co"># we see that the above function and the pre-built R mean() function are identical</span></span>
-<span id="cb321-9"><a href="section-4-overview.html#cb321-9" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
-<span id="cb321-10"><a href="section-4-overview.html#cb321-10" aria-hidden="true"></a><span class="kw">identical</span>(<span class="kw">mean</span>(x), <span class="kw">avg</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="section-4-overview.html#cb328-1" aria-hidden="true"></a><span class="co"># example of defining a function to compute the average of a vector x</span></span>
+<span id="cb328-2"><a href="section-4-overview.html#cb328-2" aria-hidden="true"></a>avg &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb328-3"><a href="section-4-overview.html#cb328-3" aria-hidden="true"></a>  s &lt;-<span class="st"> </span><span class="kw">sum</span>(x)</span>
+<span id="cb328-4"><a href="section-4-overview.html#cb328-4" aria-hidden="true"></a>  n &lt;-<span class="st"> </span><span class="kw">length</span>(x)</span>
+<span id="cb328-5"><a href="section-4-overview.html#cb328-5" aria-hidden="true"></a>  s<span class="op">/</span>n</span>
+<span id="cb328-6"><a href="section-4-overview.html#cb328-6" aria-hidden="true"></a>}</span>
+<span id="cb328-7"><a href="section-4-overview.html#cb328-7" aria-hidden="true"></a></span>
+<span id="cb328-8"><a href="section-4-overview.html#cb328-8" aria-hidden="true"></a><span class="co"># we see that the above function and the pre-built R mean() function are identical</span></span>
+<span id="cb328-9"><a href="section-4-overview.html#cb328-9" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
+<span id="cb328-10"><a href="section-4-overview.html#cb328-10" aria-hidden="true"></a><span class="kw">identical</span>(<span class="kw">mean</span>(x), <span class="kw">avg</span>(x))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="section-4-overview.html#cb323-1" aria-hidden="true"></a><span class="co"># variables inside a function are not defined in the workspace</span></span>
-<span id="cb323-2"><a href="section-4-overview.html#cb323-2" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="dv">3</span></span>
-<span id="cb323-3"><a href="section-4-overview.html#cb323-3" aria-hidden="true"></a><span class="kw">avg</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="section-4-overview.html#cb330-1" aria-hidden="true"></a><span class="co"># variables inside a function are not defined in the workspace</span></span>
+<span id="cb330-2"><a href="section-4-overview.html#cb330-2" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb330-3"><a href="section-4-overview.html#cb330-3" aria-hidden="true"></a><span class="kw">avg</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] 5.5</code></pre>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="section-4-overview.html#cb325-1" aria-hidden="true"></a>s</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="section-4-overview.html#cb332-1" aria-hidden="true"></a>s</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="section-4-overview.html#cb327-1" aria-hidden="true"></a><span class="co"># the general form of a function</span></span>
-<span id="cb327-2"><a href="section-4-overview.html#cb327-2" aria-hidden="true"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(VARIABLE_NAME){</span>
-<span id="cb327-3"><a href="section-4-overview.html#cb327-3" aria-hidden="true"></a>  perform operations on VARIABLE_NAME and calculate VALUE</span>
-<span id="cb327-4"><a href="section-4-overview.html#cb327-4" aria-hidden="true"></a>  VALUE</span>
-<span id="cb327-5"><a href="section-4-overview.html#cb327-5" aria-hidden="true"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="section-4-overview.html#cb328-1" aria-hidden="true"></a><span class="co"># functions can have multiple arguments as well as default values</span></span>
-<span id="cb328-2"><a href="section-4-overview.html#cb328-2" aria-hidden="true"></a>avg &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">arithmetic =</span> <span class="ot">TRUE</span>){</span>
-<span id="cb328-3"><a href="section-4-overview.html#cb328-3" aria-hidden="true"></a>  n &lt;-<span class="st"> </span><span class="kw">length</span>(x)</span>
-<span id="cb328-4"><a href="section-4-overview.html#cb328-4" aria-hidden="true"></a>  <span class="kw">ifelse</span>(arithmetic, <span class="kw">sum</span>(x)<span class="op">/</span>n, <span class="kw">prod</span>(x)<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span>n))</span>
-<span id="cb328-5"><a href="section-4-overview.html#cb328-5" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="section-4-overview.html#cb334-1" aria-hidden="true"></a><span class="co"># the general form of a function</span></span>
+<span id="cb334-2"><a href="section-4-overview.html#cb334-2" aria-hidden="true"></a>my_function &lt;-<span class="st"> </span><span class="cf">function</span>(VARIABLE_NAME){</span>
+<span id="cb334-3"><a href="section-4-overview.html#cb334-3" aria-hidden="true"></a>  perform operations on VARIABLE_NAME and calculate VALUE</span>
+<span id="cb334-4"><a href="section-4-overview.html#cb334-4" aria-hidden="true"></a>  VALUE</span>
+<span id="cb334-5"><a href="section-4-overview.html#cb334-5" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="section-4-overview.html#cb335-1" aria-hidden="true"></a><span class="co"># functions can have multiple arguments as well as default values</span></span>
+<span id="cb335-2"><a href="section-4-overview.html#cb335-2" aria-hidden="true"></a>avg &lt;-<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">arithmetic =</span> <span class="ot">TRUE</span>){</span>
+<span id="cb335-3"><a href="section-4-overview.html#cb335-3" aria-hidden="true"></a>  n &lt;-<span class="st"> </span><span class="kw">length</span>(x)</span>
+<span id="cb335-4"><a href="section-4-overview.html#cb335-4" aria-hidden="true"></a>  <span class="kw">ifelse</span>(arithmetic, <span class="kw">sum</span>(x)<span class="op">/</span>n, <span class="kw">prod</span>(x)<span class="op">^</span>(<span class="dv">1</span><span class="op">/</span>n))</span>
+<span id="cb335-5"><a href="section-4-overview.html#cb335-5" aria-hidden="true"></a>}</span></code></pre></div>
 </div>
 <div id="for-loops" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> For Loops</h2>
@@ -335,34 +335,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>At the end of the loop, the value of i is the last value of the range.</li>
 </ul>
 <p><em>Code</em></p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="section-4-overview.html#cb329-1" aria-hidden="true"></a><span class="co"># creating a function that computes the sum of integers 1 through n</span></span>
-<span id="cb329-2"><a href="section-4-overview.html#cb329-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb329-3"><a href="section-4-overview.html#cb329-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
-<span id="cb329-4"><a href="section-4-overview.html#cb329-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x)</span>
-<span id="cb329-5"><a href="section-4-overview.html#cb329-5" aria-hidden="true"></a>}</span>
-<span id="cb329-6"><a href="section-4-overview.html#cb329-6" aria-hidden="true"></a></span>
-<span id="cb329-7"><a href="section-4-overview.html#cb329-7" aria-hidden="true"></a><span class="co"># a very simple for-loop</span></span>
-<span id="cb329-8"><a href="section-4-overview.html#cb329-8" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</span>
-<span id="cb329-9"><a href="section-4-overview.html#cb329-9" aria-hidden="true"></a>  <span class="kw">print</span>(i)</span>
-<span id="cb329-10"><a href="section-4-overview.html#cb329-10" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="section-4-overview.html#cb336-1" aria-hidden="true"></a><span class="co"># creating a function that computes the sum of integers 1 through n</span></span>
+<span id="cb336-2"><a href="section-4-overview.html#cb336-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb336-3"><a href="section-4-overview.html#cb336-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
+<span id="cb336-4"><a href="section-4-overview.html#cb336-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x)</span>
+<span id="cb336-5"><a href="section-4-overview.html#cb336-5" aria-hidden="true"></a>}</span>
+<span id="cb336-6"><a href="section-4-overview.html#cb336-6" aria-hidden="true"></a></span>
+<span id="cb336-7"><a href="section-4-overview.html#cb336-7" aria-hidden="true"></a><span class="co"># a very simple for-loop</span></span>
+<span id="cb336-8"><a href="section-4-overview.html#cb336-8" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</span>
+<span id="cb336-9"><a href="section-4-overview.html#cb336-9" aria-hidden="true"></a>  <span class="kw">print</span>(i)</span>
+<span id="cb336-10"><a href="section-4-overview.html#cb336-10" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3
 ## [1] 4
 ## [1] 5</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="section-4-overview.html#cb331-1" aria-hidden="true"></a><span class="co"># a for-loop for our summation</span></span>
-<span id="cb331-2"><a href="section-4-overview.html#cb331-2" aria-hidden="true"></a>m &lt;-<span class="st"> </span><span class="dv">25</span></span>
-<span id="cb331-3"><a href="section-4-overview.html#cb331-3" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> m) <span class="co"># create an empty vector</span></span>
-<span id="cb331-4"><a href="section-4-overview.html#cb331-4" aria-hidden="true"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){</span>
-<span id="cb331-5"><a href="section-4-overview.html#cb331-5" aria-hidden="true"></a>  s_n[n] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(n)</span>
-<span id="cb331-6"><a href="section-4-overview.html#cb331-6" aria-hidden="true"></a>}</span>
-<span id="cb331-7"><a href="section-4-overview.html#cb331-7" aria-hidden="true"></a></span>
-<span id="cb331-8"><a href="section-4-overview.html#cb331-8" aria-hidden="true"></a><span class="co"># creating a plot for our summation function</span></span>
-<span id="cb331-9"><a href="section-4-overview.html#cb331-9" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>m</span>
-<span id="cb331-10"><a href="section-4-overview.html#cb331-10" aria-hidden="true"></a><span class="kw">plot</span>(n, s_n)</span>
-<span id="cb331-11"><a href="section-4-overview.html#cb331-11" aria-hidden="true"></a></span>
-<span id="cb331-12"><a href="section-4-overview.html#cb331-12" aria-hidden="true"></a><span class="co"># a table of values comparing our function to the summation formula</span></span>
-<span id="cb331-13"><a href="section-4-overview.html#cb331-13" aria-hidden="true"></a><span class="kw">head</span>(<span class="kw">data.frame</span>(<span class="dt">s_n =</span> s_n, <span class="dt">formula =</span> n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="section-4-overview.html#cb338-1" aria-hidden="true"></a><span class="co"># a for-loop for our summation</span></span>
+<span id="cb338-2"><a href="section-4-overview.html#cb338-2" aria-hidden="true"></a>m &lt;-<span class="st"> </span><span class="dv">25</span></span>
+<span id="cb338-3"><a href="section-4-overview.html#cb338-3" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> m) <span class="co"># create an empty vector</span></span>
+<span id="cb338-4"><a href="section-4-overview.html#cb338-4" aria-hidden="true"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){</span>
+<span id="cb338-5"><a href="section-4-overview.html#cb338-5" aria-hidden="true"></a>  s_n[n] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(n)</span>
+<span id="cb338-6"><a href="section-4-overview.html#cb338-6" aria-hidden="true"></a>}</span>
+<span id="cb338-7"><a href="section-4-overview.html#cb338-7" aria-hidden="true"></a></span>
+<span id="cb338-8"><a href="section-4-overview.html#cb338-8" aria-hidden="true"></a><span class="co"># creating a plot for our summation function</span></span>
+<span id="cb338-9"><a href="section-4-overview.html#cb338-9" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>m</span>
+<span id="cb338-10"><a href="section-4-overview.html#cb338-10" aria-hidden="true"></a><span class="kw">plot</span>(n, s_n)</span>
+<span id="cb338-11"><a href="section-4-overview.html#cb338-11" aria-hidden="true"></a></span>
+<span id="cb338-12"><a href="section-4-overview.html#cb338-12" aria-hidden="true"></a><span class="co"># a table of values comparing our function to the summation formula</span></span>
+<span id="cb338-13"><a href="section-4-overview.html#cb338-13" aria-hidden="true"></a><span class="kw">head</span>(<span class="kw">data.frame</span>(<span class="dt">s_n =</span> s_n, <span class="dt">formula =</span> n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>))</span></code></pre></div>
 <pre><code>##   s_n formula
 ## 1   1       1
 ## 2   3       3
@@ -370,9 +370,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4  10      10
 ## 5  15      15
 ## 6  21      21</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="section-4-overview.html#cb333-1" aria-hidden="true"></a><span class="co"># overlaying our function with the summation formula</span></span>
-<span id="cb333-2"><a href="section-4-overview.html#cb333-2" aria-hidden="true"></a><span class="kw">plot</span>(n, s_n)</span>
-<span id="cb333-3"><a href="section-4-overview.html#cb333-3" aria-hidden="true"></a><span class="kw">lines</span>(n, n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="section-4-overview.html#cb340-1" aria-hidden="true"></a><span class="co"># overlaying our function with the summation formula</span></span>
+<span id="cb340-2"><a href="section-4-overview.html#cb340-2" aria-hidden="true"></a><span class="kw">plot</span>(n, s_n)</span>
+<span id="cb340-3"><a href="section-4-overview.html#cb340-3" aria-hidden="true"></a><span class="kw">lines</span>(n, n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 </div>
 <div id="assessment---programming-basics" class="section level2" number="5.5">
@@ -380,12 +380,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>What will this conditional expression return?</li>
 </ol>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="section-4-overview.html#cb334-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb334-2"><a href="section-4-overview.html#cb334-2" aria-hidden="true"></a><span class="cf">if</span>(<span class="kw">all</span>(x<span class="op">&gt;</span><span class="dv">0</span>)){</span>
-<span id="cb334-3"><a href="section-4-overview.html#cb334-3" aria-hidden="true"></a><span class="kw">print</span>(<span class="st">&quot;All Postives&quot;</span>)</span>
-<span id="cb334-4"><a href="section-4-overview.html#cb334-4" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
-<span id="cb334-5"><a href="section-4-overview.html#cb334-5" aria-hidden="true"></a><span class="kw">print</span>(<span class="st">&quot;Not all positives&quot;</span>)</span>
-<span id="cb334-6"><a href="section-4-overview.html#cb334-6" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="section-4-overview.html#cb341-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb341-2"><a href="section-4-overview.html#cb341-2" aria-hidden="true"></a><span class="cf">if</span>(<span class="kw">all</span>(x<span class="op">&gt;</span><span class="dv">0</span>)){</span>
+<span id="cb341-3"><a href="section-4-overview.html#cb341-3" aria-hidden="true"></a><span class="kw">print</span>(<span class="st">&quot;All Postives&quot;</span>)</span>
+<span id="cb341-4"><a href="section-4-overview.html#cb341-4" aria-hidden="true"></a>} <span class="cf">else</span>{</span>
+<span id="cb341-5"><a href="section-4-overview.html#cb341-5" aria-hidden="true"></a><span class="kw">print</span>(<span class="st">&quot;Not all positives&quot;</span>)</span>
+<span id="cb341-6"><a href="section-4-overview.html#cb341-6" aria-hidden="true"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Not all positives&quot;</code></pre>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
@@ -414,15 +414,15 @@ D. all(!x)</li>
 <li>The function <code>nchar</code> tells you how many characters long a character vector is.</li>
 </ol>
 <p>For example:</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="section-4-overview.html#cb336-1" aria-hidden="true"></a>char_len &lt;-<span class="st"> </span><span class="kw">nchar</span>(murders<span class="op">$</span>state)</span>
-<span id="cb336-2"><a href="section-4-overview.html#cb336-2" aria-hidden="true"></a><span class="kw">head</span>(char_len)</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="section-4-overview.html#cb343-1" aria-hidden="true"></a>char_len &lt;-<span class="st"> </span><span class="kw">nchar</span>(murders<span class="op">$</span>state)</span>
+<span id="cb343-2"><a href="section-4-overview.html#cb343-2" aria-hidden="true"></a><span class="kw">head</span>(char_len)</span></code></pre></div>
 <p>The function <code>ifelse</code> is useful because you convert a vector of logicals into something else. For example, some datasets use the number -999 to denote NA. A bad practice! You can convert the -999 in a vector to NA using the following <code>ifelse</code> call:</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="section-4-overview.html#cb337-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">-999</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">-999</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">9</span>)</span>
-<span id="cb337-2"><a href="section-4-overview.html#cb337-2" aria-hidden="true"></a><span class="kw">ifelse</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">-999</span>, <span class="ot">NA</span>, x)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="section-4-overview.html#cb344-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">-999</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">-999</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">9</span>)</span>
+<span id="cb344-2"><a href="section-4-overview.html#cb344-2" aria-hidden="true"></a><span class="kw">ifelse</span>(x <span class="op">==</span><span class="st"> </span><span class="dv">-999</span>, <span class="ot">NA</span>, x)</span></code></pre></div>
 <p>If the entry is -999 it returns NA, otherwise it returns the entry.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="section-4-overview.html#cb338-1" aria-hidden="true"></a><span class="co"># Assign the state abbreviation when the state name is longer than 8 characters </span></span>
-<span id="cb338-2"><a href="section-4-overview.html#cb338-2" aria-hidden="true"></a>char_len &lt;-<span class="st"> </span><span class="kw">nchar</span>(murders<span class="op">$</span>state)</span>
-<span id="cb338-3"><a href="section-4-overview.html#cb338-3" aria-hidden="true"></a>new_names &lt;-<span class="st"> </span><span class="kw">ifelse</span>(char_len <span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, murders<span class="op">$</span>abb, murders<span class="op">$</span>state)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="section-4-overview.html#cb345-1" aria-hidden="true"></a><span class="co"># Assign the state abbreviation when the state name is longer than 8 characters </span></span>
+<span id="cb345-2"><a href="section-4-overview.html#cb345-2" aria-hidden="true"></a>char_len &lt;-<span class="st"> </span><span class="kw">nchar</span>(murders<span class="op">$</span>state)</span>
+<span id="cb345-3"><a href="section-4-overview.html#cb345-3" aria-hidden="true"></a>new_names &lt;-<span class="st"> </span><span class="kw">ifelse</span>(char_len <span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>, murders<span class="op">$</span>abb, murders<span class="op">$</span>state)</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>You will encounter situations in which the function you need does not already exist. R permits you to write your own.</li>
 </ol>
@@ -431,148 +431,148 @@ D. all(!x)</li>
 <p><code>{r, eval=FALSE, echo=TRUE my_func &lt;- function(x){     y &lt;- x + 1     y }</code></p>
 <p>The last value in the function, in this case that stored in <code>y</code>, gets returned.</p>
 <p>If you run the code above R does not show anything. This means you defined the function. You can test it out like this:</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="section-4-overview.html#cb339-1" aria-hidden="true"></a><span class="kw">my_func</span>(<span class="dv">5</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="section-4-overview.html#cb340-1" aria-hidden="true"></a><span class="co"># Create function called `sum_n`</span></span>
-<span id="cb340-2"><a href="section-4-overview.html#cb340-2" aria-hidden="true"></a>sum_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb340-3"><a href="section-4-overview.html#cb340-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
-<span id="cb340-4"><a href="section-4-overview.html#cb340-4" aria-hidden="true"></a>    <span class="kw">sum</span>(x)</span>
-<span id="cb340-5"><a href="section-4-overview.html#cb340-5" aria-hidden="true"></a>}</span>
-<span id="cb340-6"><a href="section-4-overview.html#cb340-6" aria-hidden="true"></a></span>
-<span id="cb340-7"><a href="section-4-overview.html#cb340-7" aria-hidden="true"></a><span class="co"># Use the function to determine the sum of integers from 1 to 5000</span></span>
-<span id="cb340-8"><a href="section-4-overview.html#cb340-8" aria-hidden="true"></a><span class="kw">sum_n</span>(<span class="dv">5000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="section-4-overview.html#cb346-1" aria-hidden="true"></a><span class="kw">my_func</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="section-4-overview.html#cb347-1" aria-hidden="true"></a><span class="co"># Create function called `sum_n`</span></span>
+<span id="cb347-2"><a href="section-4-overview.html#cb347-2" aria-hidden="true"></a>sum_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb347-3"><a href="section-4-overview.html#cb347-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
+<span id="cb347-4"><a href="section-4-overview.html#cb347-4" aria-hidden="true"></a>    <span class="kw">sum</span>(x)</span>
+<span id="cb347-5"><a href="section-4-overview.html#cb347-5" aria-hidden="true"></a>}</span>
+<span id="cb347-6"><a href="section-4-overview.html#cb347-6" aria-hidden="true"></a></span>
+<span id="cb347-7"><a href="section-4-overview.html#cb347-7" aria-hidden="true"></a><span class="co"># Use the function to determine the sum of integers from 1 to 5000</span></span>
+<span id="cb347-8"><a href="section-4-overview.html#cb347-8" aria-hidden="true"></a><span class="kw">sum_n</span>(<span class="dv">5000</span>)</span></code></pre></div>
 <pre><code>## [1] 12502500</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>We will make another function for this exercise. We will define a function <code>altman_plot</code> that takes two arguments <code>x</code> and <code>y</code> and plots the difference <code>y-x</code> in the y-axis against the sum <code>x+y</code> in the x-axis.</li>
 </ol>
 <p>You can define functions with as many variables as you want. For example, here we need at least two, <code>x</code> and <code>y</code>. The following function plots log transformed values:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="section-4-overview.html#cb342-1" aria-hidden="true"></a>log_plot &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
-<span id="cb342-2"><a href="section-4-overview.html#cb342-2" aria-hidden="true"></a>    <span class="kw">plot</span>(<span class="kw">log10</span>(x), <span class="kw">log10</span>(y))</span>
-<span id="cb342-3"><a href="section-4-overview.html#cb342-3" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="section-4-overview.html#cb349-1" aria-hidden="true"></a>log_plot &lt;-<span class="st"> </span><span class="cf">function</span>(x, y){</span>
+<span id="cb349-2"><a href="section-4-overview.html#cb349-2" aria-hidden="true"></a>    <span class="kw">plot</span>(<span class="kw">log10</span>(x), <span class="kw">log10</span>(y))</span>
+<span id="cb349-3"><a href="section-4-overview.html#cb349-3" aria-hidden="true"></a>}</span></code></pre></div>
 <p>This function does not return anything. It just makes a plot.</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="section-4-overview.html#cb343-1" aria-hidden="true"></a><span class="co"># Create `altman_plot` </span></span>
-<span id="cb343-2"><a href="section-4-overview.html#cb343-2" aria-hidden="true"></a>altman_plot &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
-<span id="cb343-3"><a href="section-4-overview.html#cb343-3" aria-hidden="true"></a>  <span class="kw">plot</span>(x<span class="op">+</span>y, y<span class="op">-</span>x)</span>
-<span id="cb343-4"><a href="section-4-overview.html#cb343-4" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="section-4-overview.html#cb350-1" aria-hidden="true"></a><span class="co"># Create `altman_plot` </span></span>
+<span id="cb350-2"><a href="section-4-overview.html#cb350-2" aria-hidden="true"></a>altman_plot &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) {</span>
+<span id="cb350-3"><a href="section-4-overview.html#cb350-3" aria-hidden="true"></a>  <span class="kw">plot</span>(x<span class="op">+</span>y, y<span class="op">-</span>x)</span>
+<span id="cb350-4"><a href="section-4-overview.html#cb350-4" aria-hidden="true"></a>}</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Lexical scoping is a convention used by many languages that determine when an object is available by its name.</li>
 </ol>
 <p>When you run the code below you will see which <code>x</code> is available at different points in the code.</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="section-4-overview.html#cb344-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">8</span></span>
-<span id="cb344-2"><a href="section-4-overview.html#cb344-2" aria-hidden="true"></a>my_func &lt;-<span class="st"> </span><span class="cf">function</span>(y){</span>
-<span id="cb344-3"><a href="section-4-overview.html#cb344-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">9</span></span>
-<span id="cb344-4"><a href="section-4-overview.html#cb344-4" aria-hidden="true"></a>    <span class="kw">print</span>(x)</span>
-<span id="cb344-5"><a href="section-4-overview.html#cb344-5" aria-hidden="true"></a>    y <span class="op">+</span><span class="st"> </span>x</span>
-<span id="cb344-6"><a href="section-4-overview.html#cb344-6" aria-hidden="true"></a>}</span>
-<span id="cb344-7"><a href="section-4-overview.html#cb344-7" aria-hidden="true"></a><span class="kw">my_func</span>(x)</span>
-<span id="cb344-8"><a href="section-4-overview.html#cb344-8" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="section-4-overview.html#cb351-1" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">8</span></span>
+<span id="cb351-2"><a href="section-4-overview.html#cb351-2" aria-hidden="true"></a>my_func &lt;-<span class="st"> </span><span class="cf">function</span>(y){</span>
+<span id="cb351-3"><a href="section-4-overview.html#cb351-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">9</span></span>
+<span id="cb351-4"><a href="section-4-overview.html#cb351-4" aria-hidden="true"></a>    <span class="kw">print</span>(x)</span>
+<span id="cb351-5"><a href="section-4-overview.html#cb351-5" aria-hidden="true"></a>    y <span class="op">+</span><span class="st"> </span>x</span>
+<span id="cb351-6"><a href="section-4-overview.html#cb351-6" aria-hidden="true"></a>}</span>
+<span id="cb351-7"><a href="section-4-overview.html#cb351-7" aria-hidden="true"></a><span class="kw">my_func</span>(x)</span>
+<span id="cb351-8"><a href="section-4-overview.html#cb351-8" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
 <p>Note that when we define <code>x</code> as 9, this is inside the function, but it is 8 after you run the function. The <code>x</code> changed inside the function but not outside.</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="section-4-overview.html#cb345-1" aria-hidden="true"></a><span class="co"># Run this code </span></span>
-<span id="cb345-2"><a href="section-4-overview.html#cb345-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
-<span id="cb345-3"><a href="section-4-overview.html#cb345-3" aria-hidden="true"></a>    my_func &lt;-<span class="st"> </span><span class="cf">function</span>(y){</span>
-<span id="cb345-4"><a href="section-4-overview.html#cb345-4" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb345-5"><a href="section-4-overview.html#cb345-5" aria-hidden="true"></a>    y<span class="op">+</span><span class="dv">5</span></span>
-<span id="cb345-6"><a href="section-4-overview.html#cb345-6" aria-hidden="true"></a>}</span>
-<span id="cb345-7"><a href="section-4-overview.html#cb345-7" aria-hidden="true"></a></span>
-<span id="cb345-8"><a href="section-4-overview.html#cb345-8" aria-hidden="true"></a><span class="co"># Print the value of x </span></span>
-<span id="cb345-9"><a href="section-4-overview.html#cb345-9" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
-<span id="cb345-10"><a href="section-4-overview.html#cb345-10" aria-hidden="true"></a>my_func &lt;-<span class="st"> </span><span class="cf">function</span>(y){</span>
-<span id="cb345-11"><a href="section-4-overview.html#cb345-11" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb345-12"><a href="section-4-overview.html#cb345-12" aria-hidden="true"></a>    y</span>
-<span id="cb345-13"><a href="section-4-overview.html#cb345-13" aria-hidden="true"></a>    <span class="kw">print</span>(x)</span>
-<span id="cb345-14"><a href="section-4-overview.html#cb345-14" aria-hidden="true"></a>}</span>
-<span id="cb345-15"><a href="section-4-overview.html#cb345-15" aria-hidden="true"></a><span class="kw">my_func</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="section-4-overview.html#cb352-1" aria-hidden="true"></a><span class="co"># Run this code </span></span>
+<span id="cb352-2"><a href="section-4-overview.html#cb352-2" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb352-3"><a href="section-4-overview.html#cb352-3" aria-hidden="true"></a>    my_func &lt;-<span class="st"> </span><span class="cf">function</span>(y){</span>
+<span id="cb352-4"><a href="section-4-overview.html#cb352-4" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb352-5"><a href="section-4-overview.html#cb352-5" aria-hidden="true"></a>    y<span class="op">+</span><span class="dv">5</span></span>
+<span id="cb352-6"><a href="section-4-overview.html#cb352-6" aria-hidden="true"></a>}</span>
+<span id="cb352-7"><a href="section-4-overview.html#cb352-7" aria-hidden="true"></a></span>
+<span id="cb352-8"><a href="section-4-overview.html#cb352-8" aria-hidden="true"></a><span class="co"># Print the value of x </span></span>
+<span id="cb352-9"><a href="section-4-overview.html#cb352-9" aria-hidden="true"></a>x &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb352-10"><a href="section-4-overview.html#cb352-10" aria-hidden="true"></a>my_func &lt;-<span class="st"> </span><span class="cf">function</span>(y){</span>
+<span id="cb352-11"><a href="section-4-overview.html#cb352-11" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb352-12"><a href="section-4-overview.html#cb352-12" aria-hidden="true"></a>    y</span>
+<span id="cb352-13"><a href="section-4-overview.html#cb352-13" aria-hidden="true"></a>    <span class="kw">print</span>(x)</span>
+<span id="cb352-14"><a href="section-4-overview.html#cb352-14" aria-hidden="true"></a>}</span>
+<span id="cb352-15"><a href="section-4-overview.html#cb352-15" aria-hidden="true"></a><span class="kw">my_func</span>(x)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="section-4-overview.html#cb347-1" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="section-4-overview.html#cb354-1" aria-hidden="true"></a><span class="kw">print</span>(x)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>In the next exercise we are going to write a for-loop. In that for-loop we are going to call a function. We define that function here.</li>
 </ol>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="section-4-overview.html#cb349-1" aria-hidden="true"></a><span class="co"># Here is an example of a function that adds numbers from 1 to n</span></span>
-<span id="cb349-2"><a href="section-4-overview.html#cb349-2" aria-hidden="true"></a>example_func &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb349-3"><a href="section-4-overview.html#cb349-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
-<span id="cb349-4"><a href="section-4-overview.html#cb349-4" aria-hidden="true"></a>    <span class="kw">sum</span>(x)</span>
-<span id="cb349-5"><a href="section-4-overview.html#cb349-5" aria-hidden="true"></a>}</span>
-<span id="cb349-6"><a href="section-4-overview.html#cb349-6" aria-hidden="true"></a></span>
-<span id="cb349-7"><a href="section-4-overview.html#cb349-7" aria-hidden="true"></a><span class="co"># Here is the sum of the first 100 numbers</span></span>
-<span id="cb349-8"><a href="section-4-overview.html#cb349-8" aria-hidden="true"></a><span class="kw">example_func</span>(<span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="section-4-overview.html#cb356-1" aria-hidden="true"></a><span class="co"># Here is an example of a function that adds numbers from 1 to n</span></span>
+<span id="cb356-2"><a href="section-4-overview.html#cb356-2" aria-hidden="true"></a>example_func &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb356-3"><a href="section-4-overview.html#cb356-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
+<span id="cb356-4"><a href="section-4-overview.html#cb356-4" aria-hidden="true"></a>    <span class="kw">sum</span>(x)</span>
+<span id="cb356-5"><a href="section-4-overview.html#cb356-5" aria-hidden="true"></a>}</span>
+<span id="cb356-6"><a href="section-4-overview.html#cb356-6" aria-hidden="true"></a></span>
+<span id="cb356-7"><a href="section-4-overview.html#cb356-7" aria-hidden="true"></a><span class="co"># Here is the sum of the first 100 numbers</span></span>
+<span id="cb356-8"><a href="section-4-overview.html#cb356-8" aria-hidden="true"></a><span class="kw">example_func</span>(<span class="dv">100</span>)</span></code></pre></div>
 <pre><code>## [1] 5050</code></pre>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="section-4-overview.html#cb351-1" aria-hidden="true"></a><span class="co"># Write a function compute_s_n with argument n that for any given n computes the sum of 1 + 2^2 + ...+ n^2</span></span>
-<span id="cb351-2"><a href="section-4-overview.html#cb351-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb351-3"><a href="section-4-overview.html#cb351-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
-<span id="cb351-4"><a href="section-4-overview.html#cb351-4" aria-hidden="true"></a>    <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb351-5"><a href="section-4-overview.html#cb351-5" aria-hidden="true"></a>}</span>
-<span id="cb351-6"><a href="section-4-overview.html#cb351-6" aria-hidden="true"></a></span>
-<span id="cb351-7"><a href="section-4-overview.html#cb351-7" aria-hidden="true"></a><span class="co"># Report the value of the sum when n=10</span></span>
-<span id="cb351-8"><a href="section-4-overview.html#cb351-8" aria-hidden="true"></a><span class="kw">compute_s_n</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="section-4-overview.html#cb358-1" aria-hidden="true"></a><span class="co"># Write a function compute_s_n with argument n that for any given n computes the sum of 1 + 2^2 + ...+ n^2</span></span>
+<span id="cb358-2"><a href="section-4-overview.html#cb358-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb358-3"><a href="section-4-overview.html#cb358-3" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
+<span id="cb358-4"><a href="section-4-overview.html#cb358-4" aria-hidden="true"></a>    <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb358-5"><a href="section-4-overview.html#cb358-5" aria-hidden="true"></a>}</span>
+<span id="cb358-6"><a href="section-4-overview.html#cb358-6" aria-hidden="true"></a></span>
+<span id="cb358-7"><a href="section-4-overview.html#cb358-7" aria-hidden="true"></a><span class="co"># Report the value of the sum when n=10</span></span>
+<span id="cb358-8"><a href="section-4-overview.html#cb358-8" aria-hidden="true"></a><span class="kw">compute_s_n</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] 385</code></pre>
 <ol start="8" style="list-style-type: decimal">
 <li>Now we are going to compute the sum of the squares for several values of <em>n</em>. We will use a for-loop for this.</li>
 </ol>
 <p>Here is an example of a for-loop:</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="section-4-overview.html#cb353-1" aria-hidden="true"></a>results &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">10</span>)</span>
-<span id="cb353-2"><a href="section-4-overview.html#cb353-2" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb353-3"><a href="section-4-overview.html#cb353-3" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n){</span>
-<span id="cb353-4"><a href="section-4-overview.html#cb353-4" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>i</span>
-<span id="cb353-5"><a href="section-4-overview.html#cb353-5" aria-hidden="true"></a>    results[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(x)</span>
-<span id="cb353-6"><a href="section-4-overview.html#cb353-6" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="section-4-overview.html#cb360-1" aria-hidden="true"></a>results &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">10</span>)</span>
+<span id="cb360-2"><a href="section-4-overview.html#cb360-2" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb360-3"><a href="section-4-overview.html#cb360-3" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n){</span>
+<span id="cb360-4"><a href="section-4-overview.html#cb360-4" aria-hidden="true"></a>    x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>i</span>
+<span id="cb360-5"><a href="section-4-overview.html#cb360-5" aria-hidden="true"></a>    results[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(x)</span>
+<span id="cb360-6"><a href="section-4-overview.html#cb360-6" aria-hidden="true"></a>}</span></code></pre></div>
 <p>Note that we start with a call to <code>vector</code> which constructs an empty vector that we will fill while the loop runs.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="section-4-overview.html#cb354-1" aria-hidden="true"></a><span class="co"># Define a function and store it in `compute_s_n`</span></span>
-<span id="cb354-2"><a href="section-4-overview.html#cb354-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb354-3"><a href="section-4-overview.html#cb354-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
-<span id="cb354-4"><a href="section-4-overview.html#cb354-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb354-5"><a href="section-4-overview.html#cb354-5" aria-hidden="true"></a>}</span>
-<span id="cb354-6"><a href="section-4-overview.html#cb354-6" aria-hidden="true"></a></span>
-<span id="cb354-7"><a href="section-4-overview.html#cb354-7" aria-hidden="true"></a><span class="co"># Create a vector for storing results</span></span>
-<span id="cb354-8"><a href="section-4-overview.html#cb354-8" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">25</span>)</span>
-<span id="cb354-9"><a href="section-4-overview.html#cb354-9" aria-hidden="true"></a></span>
-<span id="cb354-10"><a href="section-4-overview.html#cb354-10" aria-hidden="true"></a><span class="co"># write a for-loop to store the results in s_n</span></span>
-<span id="cb354-11"><a href="section-4-overview.html#cb354-11" aria-hidden="true"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(s_n)){</span>
-<span id="cb354-12"><a href="section-4-overview.html#cb354-12" aria-hidden="true"></a>  s_n[n] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(n)</span>
-<span id="cb354-13"><a href="section-4-overview.html#cb354-13" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="section-4-overview.html#cb361-1" aria-hidden="true"></a><span class="co"># Define a function and store it in `compute_s_n`</span></span>
+<span id="cb361-2"><a href="section-4-overview.html#cb361-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb361-3"><a href="section-4-overview.html#cb361-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
+<span id="cb361-4"><a href="section-4-overview.html#cb361-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb361-5"><a href="section-4-overview.html#cb361-5" aria-hidden="true"></a>}</span>
+<span id="cb361-6"><a href="section-4-overview.html#cb361-6" aria-hidden="true"></a></span>
+<span id="cb361-7"><a href="section-4-overview.html#cb361-7" aria-hidden="true"></a><span class="co"># Create a vector for storing results</span></span>
+<span id="cb361-8"><a href="section-4-overview.html#cb361-8" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">25</span>)</span>
+<span id="cb361-9"><a href="section-4-overview.html#cb361-9" aria-hidden="true"></a></span>
+<span id="cb361-10"><a href="section-4-overview.html#cb361-10" aria-hidden="true"></a><span class="co"># write a for-loop to store the results in s_n</span></span>
+<span id="cb361-11"><a href="section-4-overview.html#cb361-11" aria-hidden="true"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(s_n)){</span>
+<span id="cb361-12"><a href="section-4-overview.html#cb361-12" aria-hidden="true"></a>  s_n[n] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(n)</span>
+<span id="cb361-13"><a href="section-4-overview.html#cb361-13" aria-hidden="true"></a>}</span></code></pre></div>
 <ol start="9" style="list-style-type: decimal">
 <li>If we do the math, we can show that <span class="math inline">\(S_n = 1^2+2^2+3^2+⋯+n^2 = n(n+1)(2n+1)/6\)</span></li>
 </ol>
 <p>We have already computed the values of <span class="math inline">\(S_n\)</span> from 1 to 25 using a for loop.</p>
 <p>If the formula is correct then a plot of <span class="math inline">\(S_n\)</span> versus <em>n</em> should look cubic.</p>
 <p>Let’s make this plot.</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="section-4-overview.html#cb355-1" aria-hidden="true"></a><span class="co"># Define the function</span></span>
-<span id="cb355-2"><a href="section-4-overview.html#cb355-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb355-3"><a href="section-4-overview.html#cb355-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
-<span id="cb355-4"><a href="section-4-overview.html#cb355-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb355-5"><a href="section-4-overview.html#cb355-5" aria-hidden="true"></a>}</span>
-<span id="cb355-6"><a href="section-4-overview.html#cb355-6" aria-hidden="true"></a></span>
-<span id="cb355-7"><a href="section-4-overview.html#cb355-7" aria-hidden="true"></a><span class="co"># Define the vector of n</span></span>
-<span id="cb355-8"><a href="section-4-overview.html#cb355-8" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">25</span></span>
-<span id="cb355-9"><a href="section-4-overview.html#cb355-9" aria-hidden="true"></a></span>
-<span id="cb355-10"><a href="section-4-overview.html#cb355-10" aria-hidden="true"></a><span class="co"># Define the vector to store data</span></span>
-<span id="cb355-11"><a href="section-4-overview.html#cb355-11" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">25</span>)</span>
-<span id="cb355-12"><a href="section-4-overview.html#cb355-12" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> n){</span>
-<span id="cb355-13"><a href="section-4-overview.html#cb355-13" aria-hidden="true"></a>  s_n[i] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(i)</span>
-<span id="cb355-14"><a href="section-4-overview.html#cb355-14" aria-hidden="true"></a>}</span>
-<span id="cb355-15"><a href="section-4-overview.html#cb355-15" aria-hidden="true"></a></span>
-<span id="cb355-16"><a href="section-4-overview.html#cb355-16" aria-hidden="true"></a><span class="co">#  Create the plot </span></span>
-<span id="cb355-17"><a href="section-4-overview.html#cb355-17" aria-hidden="true"></a><span class="kw">plot</span>(n,s_n)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="section-4-overview.html#cb362-1" aria-hidden="true"></a><span class="co"># Define the function</span></span>
+<span id="cb362-2"><a href="section-4-overview.html#cb362-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb362-3"><a href="section-4-overview.html#cb362-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
+<span id="cb362-4"><a href="section-4-overview.html#cb362-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb362-5"><a href="section-4-overview.html#cb362-5" aria-hidden="true"></a>}</span>
+<span id="cb362-6"><a href="section-4-overview.html#cb362-6" aria-hidden="true"></a></span>
+<span id="cb362-7"><a href="section-4-overview.html#cb362-7" aria-hidden="true"></a><span class="co"># Define the vector of n</span></span>
+<span id="cb362-8"><a href="section-4-overview.html#cb362-8" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">25</span></span>
+<span id="cb362-9"><a href="section-4-overview.html#cb362-9" aria-hidden="true"></a></span>
+<span id="cb362-10"><a href="section-4-overview.html#cb362-10" aria-hidden="true"></a><span class="co"># Define the vector to store data</span></span>
+<span id="cb362-11"><a href="section-4-overview.html#cb362-11" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">25</span>)</span>
+<span id="cb362-12"><a href="section-4-overview.html#cb362-12" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> n){</span>
+<span id="cb362-13"><a href="section-4-overview.html#cb362-13" aria-hidden="true"></a>  s_n[i] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(i)</span>
+<span id="cb362-14"><a href="section-4-overview.html#cb362-14" aria-hidden="true"></a>}</span>
+<span id="cb362-15"><a href="section-4-overview.html#cb362-15" aria-hidden="true"></a></span>
+<span id="cb362-16"><a href="section-4-overview.html#cb362-16" aria-hidden="true"></a><span class="co">#  Create the plot </span></span>
+<span id="cb362-17"><a href="section-4-overview.html#cb362-17" aria-hidden="true"></a><span class="kw">plot</span>(n,s_n)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
 <ol start="10" style="list-style-type: decimal">
 <li>Now let’s actually check if we get the exact same answer.</li>
 </ol>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="section-4-overview.html#cb356-1" aria-hidden="true"></a><span class="co"># Define the function</span></span>
-<span id="cb356-2"><a href="section-4-overview.html#cb356-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
-<span id="cb356-3"><a href="section-4-overview.html#cb356-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
-<span id="cb356-4"><a href="section-4-overview.html#cb356-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
-<span id="cb356-5"><a href="section-4-overview.html#cb356-5" aria-hidden="true"></a>}</span>
-<span id="cb356-6"><a href="section-4-overview.html#cb356-6" aria-hidden="true"></a></span>
-<span id="cb356-7"><a href="section-4-overview.html#cb356-7" aria-hidden="true"></a><span class="co"># Define the vector of n</span></span>
-<span id="cb356-8"><a href="section-4-overview.html#cb356-8" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">25</span></span>
-<span id="cb356-9"><a href="section-4-overview.html#cb356-9" aria-hidden="true"></a></span>
-<span id="cb356-10"><a href="section-4-overview.html#cb356-10" aria-hidden="true"></a><span class="co"># Define the vector to store data</span></span>
-<span id="cb356-11"><a href="section-4-overview.html#cb356-11" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">25</span>)</span>
-<span id="cb356-12"><a href="section-4-overview.html#cb356-12" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> n){</span>
-<span id="cb356-13"><a href="section-4-overview.html#cb356-13" aria-hidden="true"></a>  s_n[i] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(i)</span>
-<span id="cb356-14"><a href="section-4-overview.html#cb356-14" aria-hidden="true"></a>}</span>
-<span id="cb356-15"><a href="section-4-overview.html#cb356-15" aria-hidden="true"></a></span>
-<span id="cb356-16"><a href="section-4-overview.html#cb356-16" aria-hidden="true"></a><span class="co"># Check that s_n is identical to the formula given in the instructions.</span></span>
-<span id="cb356-17"><a href="section-4-overview.html#cb356-17" aria-hidden="true"></a><span class="kw">identical</span>(s_n,(n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>(<span class="dv">2</span><span class="op">*</span>n<span class="op">+</span><span class="dv">1</span>))<span class="op">/</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="section-4-overview.html#cb363-1" aria-hidden="true"></a><span class="co"># Define the function</span></span>
+<span id="cb363-2"><a href="section-4-overview.html#cb363-2" aria-hidden="true"></a>compute_s_n &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb363-3"><a href="section-4-overview.html#cb363-3" aria-hidden="true"></a>  x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span>n</span>
+<span id="cb363-4"><a href="section-4-overview.html#cb363-4" aria-hidden="true"></a>  <span class="kw">sum</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb363-5"><a href="section-4-overview.html#cb363-5" aria-hidden="true"></a>}</span>
+<span id="cb363-6"><a href="section-4-overview.html#cb363-6" aria-hidden="true"></a></span>
+<span id="cb363-7"><a href="section-4-overview.html#cb363-7" aria-hidden="true"></a><span class="co"># Define the vector of n</span></span>
+<span id="cb363-8"><a href="section-4-overview.html#cb363-8" aria-hidden="true"></a>n &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">25</span></span>
+<span id="cb363-9"><a href="section-4-overview.html#cb363-9" aria-hidden="true"></a></span>
+<span id="cb363-10"><a href="section-4-overview.html#cb363-10" aria-hidden="true"></a><span class="co"># Define the vector to store data</span></span>
+<span id="cb363-11"><a href="section-4-overview.html#cb363-11" aria-hidden="true"></a>s_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dv">25</span>)</span>
+<span id="cb363-12"><a href="section-4-overview.html#cb363-12" aria-hidden="true"></a><span class="cf">for</span>(i <span class="cf">in</span> n){</span>
+<span id="cb363-13"><a href="section-4-overview.html#cb363-13" aria-hidden="true"></a>  s_n[i] &lt;-<span class="st"> </span><span class="kw">compute_s_n</span>(i)</span>
+<span id="cb363-14"><a href="section-4-overview.html#cb363-14" aria-hidden="true"></a>}</span>
+<span id="cb363-15"><a href="section-4-overview.html#cb363-15" aria-hidden="true"></a></span>
+<span id="cb363-16"><a href="section-4-overview.html#cb363-16" aria-hidden="true"></a><span class="co"># Check that s_n is identical to the formula given in the instructions.</span></span>
+<span id="cb363-17"><a href="section-4-overview.html#cb363-17" aria-hidden="true"></a><span class="kw">identical</span>(s_n,(n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>(<span class="dv">2</span><span class="op">*</span>n<span class="op">+</span><span class="dv">1</span>))<span class="op">/</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="section-4-assessment" class="section level2" number="5.6">
@@ -580,27 +580,27 @@ D. all(!x)</li>
 <ol style="list-style-type: decimal">
 <li>Load the <strong>heights</strong> dataset from dslabs:</li>
 </ol>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="section-4-overview.html#cb358-1" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
-<span id="cb358-2"><a href="section-4-overview.html#cb358-2" aria-hidden="true"></a><span class="kw">data</span>(heights)</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="section-4-overview.html#cb365-1" aria-hidden="true"></a><span class="kw">library</span>(dslabs)</span>
+<span id="cb365-2"><a href="section-4-overview.html#cb365-2" aria-hidden="true"></a><span class="kw">data</span>(heights)</span></code></pre></div>
 <p>Write an <code>ifelse</code> statement that returns 1 if the sex is Female and 2 if the sex is Male.</p>
 <p>What is the sum of the resulting vector?</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="section-4-overview.html#cb359-1" aria-hidden="true"></a><span class="kw">sum</span>(<span class="kw">ifelse</span>(heights<span class="op">$</span>sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="section-4-overview.html#cb366-1" aria-hidden="true"></a><span class="kw">sum</span>(<span class="kw">ifelse</span>(heights<span class="op">$</span>sex <span class="op">==</span><span class="st"> &quot;Female&quot;</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
 <pre><code>## [1] 1862</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Write an <code>ifelse</code> statement that takes the height column and returns the height if it is greater than 72 inches and returns 0 otherwise.</li>
 </ol>
 <p>What is the mean of the resulting vector?</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="section-4-overview.html#cb361-1" aria-hidden="true"></a><span class="kw">mean</span>(<span class="kw">ifelse</span>(heights<span class="op">$</span>height <span class="op">&gt;</span><span class="st"> </span><span class="dv">72</span>, heights<span class="op">$</span>height, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="section-4-overview.html#cb368-1" aria-hidden="true"></a><span class="kw">mean</span>(<span class="kw">ifelse</span>(heights<span class="op">$</span>height <span class="op">&gt;</span><span class="st"> </span><span class="dv">72</span>, heights<span class="op">$</span>height, <span class="dv">0</span>))</span></code></pre></div>
 <pre><code>## [1] 9.65</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Write a function <code>inches_to_ft</code> that takes a number of inches x and returns the number of feet. One foot equals 12 inches.</li>
 </ol>
 <p>What is <code>inches_to_ft(144)</code>?</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="section-4-overview.html#cb363-1" aria-hidden="true"></a>inches_to_ft &lt;-<span class="st"> </span><span class="cf">function</span>(x){x<span class="op">/</span><span class="dv">12</span>}</span>
-<span id="cb363-2"><a href="section-4-overview.html#cb363-2" aria-hidden="true"></a><span class="kw">inches_to_ft</span>(<span class="dv">144</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="section-4-overview.html#cb370-1" aria-hidden="true"></a>inches_to_ft &lt;-<span class="st"> </span><span class="cf">function</span>(x){x<span class="op">/</span><span class="dv">12</span>}</span>
+<span id="cb370-2"><a href="section-4-overview.html#cb370-2" aria-hidden="true"></a><span class="kw">inches_to_ft</span>(<span class="dv">144</span>)</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
 <p>How many individuals in the heights dataset have a height less than 5 feet?</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="section-4-overview.html#cb365-1" aria-hidden="true"></a><span class="kw">sum</span>(<span class="kw">inches_to_ft</span>(heights<span class="op">$</span>height) <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="section-4-overview.html#cb372-1" aria-hidden="true"></a><span class="kw">sum</span>(<span class="kw">inches_to_ft</span>(heights<span class="op">$</span>height) <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Which of the following are TRUE?</li>
@@ -628,17 +628,17 @@ H. all(FALSE, FALSE, FALSE)</li>
 <li>Given an integer x, the factorial of x is called x! and is the product of all integers up to and including x. The <code>factorial()</code> function computes factorials in R. For example, <code>factorial(4)</code> returns <span class="math inline">\(4! = 4 × 3 × 2 × 1 = 24\)</span>.</li>
 </ol>
 <p>Complete the code below to generate a vector of length m where the first entry is 1!, the second entry is 2!, and so on up to m!.</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="section-4-overview.html#cb367-1" aria-hidden="true"></a><span class="co"># define a vector of length m</span></span>
-<span id="cb367-2"><a href="section-4-overview.html#cb367-2" aria-hidden="true"></a>m &lt;-<span class="st"> </span><span class="dv">10</span></span>
-<span id="cb367-3"><a href="section-4-overview.html#cb367-3" aria-hidden="true"></a>f_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> m)</span>
-<span id="cb367-4"><a href="section-4-overview.html#cb367-4" aria-hidden="true"></a></span>
-<span id="cb367-5"><a href="section-4-overview.html#cb367-5" aria-hidden="true"></a><span class="co"># make a vector of factorials</span></span>
-<span id="cb367-6"><a href="section-4-overview.html#cb367-6" aria-hidden="true"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){</span>
-<span id="cb367-7"><a href="section-4-overview.html#cb367-7" aria-hidden="true"></a>f_n[n] &lt;-<span class="st"> </span><span class="kw">factorial</span>(n)</span>
-<span id="cb367-8"><a href="section-4-overview.html#cb367-8" aria-hidden="true"></a>}</span>
-<span id="cb367-9"><a href="section-4-overview.html#cb367-9" aria-hidden="true"></a></span>
-<span id="cb367-10"><a href="section-4-overview.html#cb367-10" aria-hidden="true"></a><span class="co"># inspect f_n</span></span>
-<span id="cb367-11"><a href="section-4-overview.html#cb367-11" aria-hidden="true"></a>f_n</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="section-4-overview.html#cb374-1" aria-hidden="true"></a><span class="co"># define a vector of length m</span></span>
+<span id="cb374-2"><a href="section-4-overview.html#cb374-2" aria-hidden="true"></a>m &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb374-3"><a href="section-4-overview.html#cb374-3" aria-hidden="true"></a>f_n &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">length =</span> m)</span>
+<span id="cb374-4"><a href="section-4-overview.html#cb374-4" aria-hidden="true"></a></span>
+<span id="cb374-5"><a href="section-4-overview.html#cb374-5" aria-hidden="true"></a><span class="co"># make a vector of factorials</span></span>
+<span id="cb374-6"><a href="section-4-overview.html#cb374-6" aria-hidden="true"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>m){</span>
+<span id="cb374-7"><a href="section-4-overview.html#cb374-7" aria-hidden="true"></a>f_n[n] &lt;-<span class="st"> </span><span class="kw">factorial</span>(n)</span>
+<span id="cb374-8"><a href="section-4-overview.html#cb374-8" aria-hidden="true"></a>}</span>
+<span id="cb374-9"><a href="section-4-overview.html#cb374-9" aria-hidden="true"></a></span>
+<span id="cb374-10"><a href="section-4-overview.html#cb374-10" aria-hidden="true"></a><span class="co"># inspect f_n</span></span>
+<span id="cb374-11"><a href="section-4-overview.html#cb374-11" aria-hidden="true"></a>f_n</span></code></pre></div>
 <pre><code>##  [1]       1       2       6      24     120     720    5040   40320  362880 3628800</code></pre>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
