@@ -1,10 +1,12 @@
 ---
 title: "Data Science R Basics"
 output:
-  word_document: default
+  bookdown::epub_book:
+      number_sections: true
   pdf_document:
     latex_engine: xelatex
   html_document: default
+  word_document: default
 urlcolor: blue
 ---
 
