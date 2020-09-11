@@ -3,10 +3,10 @@ title: "Data Science R Basics"
 output:
   bookdown::epub_book:
       number_sections: true
-  pdf_document:
-    latex_engine: xelatex
   html_document: default
   word_document: default
+  pdf_document:
+    latex_engine: xelatex
 urlcolor: blue
 ---
 
@@ -14,7 +14,7 @@ urlcolor: blue
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The textbook for the Data Science course series is [freely available online](https://rafalab.github.io/dsbook/).
+The textbook for the Data Science course series is [freely available online](https://rafalab.github.io/dsbook/){target="_blank"}.
 
 # Learning Objectives
 - Learn to read, extract, and create datasets in R
@@ -46,15 +46,15 @@ In Section 1, you will learn to:
 * Use pre-defined functions to perform operations on objects
 * Distinguish between various data types
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html){target="_blank"}.
 
 ## Motivation
 
-Here is a link to the [textbook section on the motivation for this course](https://rafalab.github.io/dsbook/r-basics.html#case-study-us-gun-murders).
+Here is a link to the [textbook section on the motivation for this course](https://rafalab.github.io/dsbook/r-basics.html#case-study-us-gun-murders){target="_blank"}.
 
 ## Getting started
 
-Here is a link to the textbook section on [Getting Started](https://rafalab.github.io/dsbook/getting-started.html) with R.
+Here is a link to the textbook section on [Getting Started](https://rafalab.github.io/dsbook/getting-started.html){target="_blank"} with R.
 
 **Key Points**
 
@@ -76,19 +76,19 @@ library(dslabs)
 
 ### Installing R
 
-To install R to work on your own computer, you can download it freely from the [Comprehensive R Archive Network](https://cran.r-project.org) (CRAN). Note that CRAN makes several versions of R available: versions for multiple operating systems and releases older than the current one. You want to read the CRAN instructions to assure you download the correct version. If you need further help, you read the walkthrough in this [Chapter of the textbook](https://rafalab.github.io/dsbook/installing-r-rstudio.html#installing-r).
+To install R to work on your own computer, you can download it freely from the [Comprehensive R Archive Network](https://cran.r-project.org){target="_blank"} (CRAN). Note that CRAN makes several versions of R available: versions for multiple operating systems and releases older than the current one. You want to read the CRAN instructions to assure you download the correct version. If you need further help, you read the walkthrough in this [Chapter of the textbook](https://rafalab.github.io/dsbook/installing-r-rstudio.html#installing-r){target="_blank"}.
 
 ### Installing RStudio
 
-RStudio is an integrated development environment (IDE). We highly recommend installing and using RStudio to edit and test your code. You can install RStudio through the [RStudio website](https://rstudio.com/products/rstudio/download/). Their [cheatsheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf) is a great resource.  You must install R before installing RStudio.
+RStudio is an integrated development environment (IDE). We highly recommend installing and using RStudio to edit and test your code. You can install RStudio through the [RStudio website](https://rstudio.com/products/rstudio/download/){target="_blank"}. Their [cheatsheet](https://rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf){target="_blank"} is a great resource.  You must install R before installing RStudio.
 
 ### Textbook Link
 
-Here is a link to the textbook section on [Installing R and RStudio](https://rafalab.github.io/dsbook/installing-r-rstudio.html).
+Here is a link to the textbook section on [Installing R and RStudio](https://rafalab.github.io/dsbook/installing-r-rstudio.html){target="_blank"}.
 
 ## R Basics - Objects
 
-Here is a link to the textbook section on [objects in R](https://rafalab.github.io/dsbook/r-basics.html#objects).
+Here is a link to the textbook section on [objects in R](https://rafalab.github.io/dsbook/r-basics.html#objects){target="_blank"}.
 
 **Key Points**
 
@@ -112,7 +112,7 @@ c <- -1
 
 ## R Basics - Functions
 
-Here is a link to the textbook section on [functions](https://rafalab.github.io/dsbook/r-basics.html#functions).
+Here is a link to the textbook section on [functions](https://rafalab.github.io/dsbook/r-basics.html#functions){target="_blank"}.
 
 **Key points**
 
@@ -190,7 +190,7 @@ log10(sqrt(100))
 
 ## Data Types
 
-You can find the [section of the textbook on data types here](https://rafalab.github.io/dsbook/r-basics.html#data-types).
+You can find the [section of the textbook on data types here](https://rafalab.github.io/dsbook/r-basics.html#data-types){target="_blank"}.
 
 **Key Points**
 
@@ -427,7 +427,7 @@ In Section 2.3, you will:
 
 ## Vectors
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#vectors)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#vectors){target="_blank"}.
 
 **Key Points**
 
@@ -464,7 +464,7 @@ codes[c("egypt","italy")]
 
 ## Vectors - Vector Coercion
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#coercion)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#coercion){target="_blank"}.
 
 **Key Points**
 
@@ -720,7 +720,7 @@ x
 
 ## Sorting
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#sorting)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#sorting){target="_blank"}.
 
 **Key Points**
 
@@ -893,7 +893,7 @@ mean(na_example[!ind])
 
 ## Vector arithmetic
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#vector-arithmetics)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#vector-arithmetics){target="_blank"}.
 
 **Key Points**
 
@@ -1053,7 +1053,7 @@ In Section 3.3, you will:
 
 ## Indexing
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#indexing)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#indexing){target="_blank"}.
 
 **Key Points**
 
@@ -1083,7 +1083,7 @@ murders$state[index]
 
 ## Indexing - Indexing Functions
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#which)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/r-basics.html#which){target="_blank"}.
 
 **Key Points**
 
@@ -1233,7 +1233,7 @@ abbs[ind]
 
 ## Basic Data Wrangling
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/tidyverse.html#manipulating-data-frames) and [here](https://rafalab.github.io/dsbook/tidyverse.html#the-pipe)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/tidyverse.html#manipulating-data-frames){target="_blank"} and [here](https://rafalab.github.io/dsbook/tidyverse.html#the-pipe){target="_blank"}.
 
 In the textbook, the dplyr package is introduced in the context of the tidyverse, a collection of R packages
 
@@ -1444,7 +1444,7 @@ my_states <- murders %>% mutate(rate =  total / population * 100000, rank = rank
 
 ## Basic Plots
 
-Here is a link to the textbook section on [basic plots](https://rafalab.github.io/dsbook/r-basics.html#basic-plots)
+Here is a link to the textbook section on [basic plots](https://rafalab.github.io/dsbook/r-basics.html#basic-plots){target="_blank"}.
 
 **Key Points**
 
@@ -1689,11 +1689,11 @@ In Section 4.4, you will:
 
 ## Programming Basics - Introduction to Programming in R
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html){target="_blank"}.
 
 ## Basic Conditionals
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#conditionals)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#conditionals){target="_blank"}.
 
 **Key Points**
 
@@ -1752,7 +1752,7 @@ all(z)
 
 ## Functions
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#defining-functions)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#defining-functions){target="_blank"}.
 
 **Key points**
 
@@ -1799,7 +1799,7 @@ avg <- function(x, arithmetic = TRUE){
 
 ## For Loops
 
-The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#for-loops)
+The textbook for this section is available [here](https://rafalab.github.io/dsbook/programming-basics.html#for-loops){target="_blank"}.
 
 **Key points**
 
